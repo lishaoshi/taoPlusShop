@@ -1,0 +1,107 @@
+{
+  "注释": [
+    {
+      "index": "首页",
+      "goods_detail": "商品详情",
+      "shop_index": "商家主页",
+      "order_list": "订单列表",
+      "order_detail": "订单详情",
+      "discount": "优惠区",
+      "user": "我的",
+      "search": "搜索",
+      "detailed_detail": "明细详情",
+      "edit_address": "编辑地址",
+      "map_search": "地图搜索",
+      "detailed": "明细",
+      "withdraw_success": "提现详情",
+      "withdraw": "提现",
+      "address_list": "地址列表",
+      "add_address": "地址管理",
+      "after_sales": "售后",
+      "after_sales_detail": "售后详情",
+      "order_success": "支付成功",
+      "submit_orders": "提交订单",
+      "pay": "支付",
+      "user_detail": "用户详情",
+      "bank_card_list": "银行卡列表"
+    }
+  ],
+  "pages": [
+    "pages/index/index",
+    "pages/detailed/detailed",
+    "pages/address_list/address_list",
+    "pages/user_detail/user_detail",
+    "pages/bank_card_list/bank_card_list",
+    "pages/add_bank_card/add_bank_card",
+    "pages/user/user",
+    "pages/collection/collection",
+    "pages/edit_address/edit_address",
+    "pages/add_address/add_address",
+    "pages/accounts_detail/accounts_detail",
+    "pages/withdraw_success/withdraw_success",
+    "pages/search/search",
+    "pages/map_search/map_search",
+    "pages/after_sales/after_sales",
+    "pages/after_sales_detail/after_sales_detail",
+    "pages/withdraw/withdraw",
+    "pages/pay/pay",
+    "pages/order_detail/order_detail",
+    "pages/goods_detail/goods_detail",
+    "pages/order_list/order_list",
+    "pages/discount/discount",
+    "pages/detailed_detail/detailed_detail",
+    "pages/shop_index/shop_index",
+    "pages/group_rules/group_rules",
+    "pages/activity_area/activity_area",
+    "pages/share_detail/share_detail",
+    "pages/submit_orders/submit_orders",
+    "pages/invite_group/invite_group",
+    "pages/type_search/type_search",
+    "pages/order_note/order_note",
+    "components/get_userInfo/get_userInfo"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "淘上品",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#fe791d",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-light.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/activity_area/activity_area",
+        "iconPath": "images/discount.png",
+        "selectedIconPath": "images/discount-light.png",
+        "text": "活动专区"
+      },
+      {
+        "pagePath": "pages/order_list/order_list",
+        "iconPath": "images/order.png",
+        "selectedIconPath": "images/order-light.png",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "images/user.png",
+        "selectedIconPath": "images/user-light.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

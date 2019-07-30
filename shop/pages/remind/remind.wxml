@@ -1,0 +1,24 @@
+<!--pages/remind/remind.wxml-->
+<view class='remarks border-b'>
+    <text class='remarks-title block'>备注</text>
+    <textarea class='remarks-textarea' id="remind" placeholder='请填写对商品的备注信息（50个字内）' bindinput='changeInputFn'></textarea>
+</view>
+
+<!--发票  -->
+<view class='receipt'>
+    <text class='receipt-title block'>发票</text>
+    <view class='receipt-input-view border-b'>
+        <input class='receipt-input' id="receipt" placeholder='请输入发票抬头' bindinput='changeInputFn'></input>
+    </view>
+</view>
+
+<view class='receipt'>
+    <text class='receipt-title block'>税号</text>
+    <view class='receipt-input-view border-b'>
+        <input class='receipt-input' id="tax" placeholder='请输入发票税号' bindinput='changeInputFn'></input>
+    </view>
+</view>
+
+<view class='remind-btn' bindtap='submitFn'>保存</view>
+
+<my-tab></my-tab>

@@ -1,0 +1,10 @@
+<view class='container'>
+    <view class="conts">
+        <textarea class="areas" placeholder='在此填写备注说明' minlength="{{min}}" maxlength="{{max}}" bindinput="inputs" value="{{valuekey}}">
+        <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}个字</text>      
+        </textarea>
+    </view>
+    <view class='btn' bindtap='finish'>
+        <text>完成</text>
+    </view>
+</view>

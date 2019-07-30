@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "商品详情",
+    "usingComponents": {
+        "bind_phone": "/components/bind_phone/bind_phone"
+    }
+}

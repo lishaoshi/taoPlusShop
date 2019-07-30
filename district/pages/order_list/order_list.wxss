@@ -1,0 +1,113 @@
+/* pages/order_list/order_list.wxss */
+@import '../../common.wxss';
+
+page {
+    background: #f5f5f5;
+}
+
+/* 订单列表 star */
+
+.order-list {
+    margin-top: 96rpx;
+}
+
+.list-item {
+    position: relative;
+    background: #fff;
+}
+
+.list-item-href {
+    padding: 28rpx 20rpx 0;
+}
+
+.list-item-content {
+    padding-bottom: 60rpx;
+}
+
+.list-item-img {
+    width: 110rpx;
+    height: 110rpx;
+    margin-right: 20rpx;
+}
+
+.item-content-info {
+    width: 600rpx;
+}
+
+.item-content-title {
+    font-size: 30rpx;
+    line-height: 1;
+    color: #333;
+    max-width: 380rpx;
+}
+
+.item-content-type {
+    font-size: 28rpx;
+    line-height: 30rpx;
+    color: #00a0fc;
+}
+
+.item-content-info-middle {
+    margin-top: 12rpx;
+    font-size: 24rpx;
+    line-height: 48rpx;
+    color: #999;
+}
+
+.item-content-info-bottom {
+    font-size: 24rpx;
+    line-height: 1;
+    color: #999;
+}
+
+.list-item-footer {
+    line-height: 88rpx;
+    text-align: right;
+    color: #333;
+    font-size: 24rpx;
+}
+
+.list-item-footer .money {
+    font-size: 36rpx;
+}
+
+.list-item-btn {
+    width: 140rpx;
+    height: 52rpx;
+    line-height: 50rpx;
+    font-size: 28rpx;
+    color: #f8ae2e;
+    border: 1rpx solid #f8ae2e;
+    position: absolute;
+    right: 20rpx;
+    bottom: 114rpx;
+}
+
+.block {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.group-img {
+    width: 80rpx;
+    height: 34rpx;
+    display: inline-block;
+    margin-left: 14rpx;
+}
+.groupon_sum {
+height:20rpx;
+line-height:20rpx;
+padding:8rpx;
+margin-left:30rpx;
+background-color:#FE2E2E;
+font-size:22rpx;
+font-weight:500;
+color: #fff;
+
+}
+
+
+/* 订单列表 end */

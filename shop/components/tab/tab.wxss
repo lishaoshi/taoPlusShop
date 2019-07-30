@@ -1,0 +1,115 @@
+/*components/tab/tab.wxss*/
+@import '../../common.wxss';
+
+.tab{
+    position: fixed;
+    left: 0;
+    z-index: 1000;
+}
+.tab-close {
+ position: absolute;
+ left: 0;
+ top: 0;
+  /* width: 134rpx;
+  height: 134rpx; */
+  border-radius: 50%;
+  /* background: #433A38; */
+}
+
+.tab-close-img {
+  width: 157rpx;
+  height: 165rpx;
+
+}
+
+.tab-open {
+   position: fixed;
+   bottom: 30%;
+   left: 50%;
+   margin-left: -150rpx;
+    width: 300rpx;
+    height: 300rpx;
+    background:rgba(255 ,107, 6, 0.95);
+    /* border-top-right-radius: 101rpx;
+    border-bottom-right-radius: 101rpx; */
+    border-radius: 20rpx;
+    font-size: 0;
+}
+
+.tab-open-left {
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    width: 100%;
+    font-size: 25rpx;
+    color: #fff;
+    line-height: 42rpx;
+}
+
+.tab-open-right {
+    /* display: inline-block;
+    vertical-align: middle;
+    width: 20%;
+    height: 100%;
+    text-align: left; */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -40rpx;
+    margin-top: -30rpx;
+    width: 80rpx;
+    height: 80rpx;
+    text-align: center;
+    line-height: 80rpx;
+}
+
+.text {
+    display: block;
+    line-height: 1;
+}
+
+.tab-open-item {
+    display: flex;
+    height: 50%;
+}
+
+.open-item-box {
+    flex: 1;
+    height: 100%;
+    text-align: center;
+}
+
+.goods {
+    width: 35rpx;
+    height: 35rpx;
+    margin-top: 45rpx;
+}
+
+.order {
+    width: 31rpx;
+    height: 35rpx;
+    margin-top: 45rpx;
+}
+
+.wait {
+    width: 35rpx;
+    height: 28rpx;
+    margin-top: 40rpx;
+}
+
+.user {
+    width: 29rpx;
+    height: 35rpx;
+    margin-top: 38rpx;
+}
+
+.put {
+    width: 27rpx;
+    height: 28rpx;
+    /* margin-top: 88rpx; */
+}
+
+
+
+
+

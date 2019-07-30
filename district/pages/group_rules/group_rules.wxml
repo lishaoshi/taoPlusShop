@@ -1,0 +1,21 @@
+<!--pages/group_rules/group_rules.wxml-->
+
+<view class='container'>
+ <view class='p-l-20 title'> <text>拼团活动规则：</text></view>
+  <view class='flex d-c p-l-20 main'>     
+      <view class='p-l-20 first'><text>1. 设置单品零售价100元。</text></view>
+      <view class='flex d-c p-l-20 last'>
+          <view class='last-text'> <text>2. 设置拼团价80元，成团数50单，抢购时间2天；团长额外奖励50元。</text></view>
+             
+               <text class='last-text'>2.1 按100元支付，如果成团，返差额，否则不返。</text>
+               <text class='last-text'>2.2 拼团支付后，如果成团，不能取消订单。</text>
+                <text class='last-text'>2.3 拼团活动，达到抢购时间,自动停售。</text>
+                <text class='last-text'>2.4 拼团活动，如果下面的发起的团，状态不是“拼团中”，可以提前停售。</text>
+              
+      
+      </view>
+  
+  </view>
+
+
+</view>

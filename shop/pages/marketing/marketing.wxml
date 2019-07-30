@@ -1,0 +1,60 @@
+<!--pages/marketing/marketing.wxml-->
+
+<!--头部导航 star  -->
+<view class='bar-box flex border-b fixed'>
+    <view class=' flex-item t-c' wx:for="{{bar}}" wx:key="bar" data-index="{{index}}" bindtap='changeBarFn'>
+        <text class=" bar-item {{index == barIndex ? 'select-bar':''}} ">{{item}} <text class='bar-line' hidden='{{index != barIndex}}'></text></text>
+    </view>
+</view>
+
+
+<!-- <view class='bar-box flex border-b fixed'>
+        <view class=' flex-item t-c' wx:for="{{bar}}" wx:key="bar" data-index="{{index}}" bindtap='changeBarFn'>
+            <text class=" bar-item {{index == barIndex ? 'bar-act':''}} ">{{item}} <text class='bar-line' hidden='{{index != barIndex}}'></text></text>
+        </view>
+    </view> -->
+<!--头部导航 end  -->
+<view class="order-list">
+    <!--列表 star -->
+    <view class="order" wx:for="{{orderList}}" >
+        <navigator url='../marketing_detail/marketing_detail?groupons_id={{item.groupons_id}}'>
+            <view class="shop-name flex j-c a-c">
+                <text>{{item.shop_name}}</text>
+            </view>
+            <view class="list flex j-b">
+                <view class="name ellipsis">
+                    <text>{{item.goods_name}}</text>
+                </view>
+                <view class="right-title">
+                    <text>状态</text>
+                    <text class="status">{{item.type}}</text>
+                </view>
+            </view>
+            <view class="list flex j-b">
+                <view class="grounp">
+                    <text>{{item.groupon_sum}}人<text class="grounp-text">成团</text></text>
+                </view>
+                <view class="right-title">
+                    <text>已参团</text>
+                    <text class="number">{{item.true_num}}人</text>
+                </view>
+            </view>
+            <view class="list flex j-b">
+                <view class="time">
+                    <text>开始时间：{{item.create_time}}</text>
+                </view>
+                <view class="right-title" wx:if="{{item.type === '进行中'}}">
+                    <text class="count-out">{{timeList[index].timeStr}}</text>
+                    <text>后结束</text>
+                </view>
+            </view>
+        </navigator>
+    </view>
+
+    <view class='no-more' hidden='{{!noMore}}'>
+        <text>没有数据了</text>
+    </view>
+    <!--列表 end  -->
+
+</view>
+<bind_phone bind:bindphonecb="bindPhoneCbFn" phone-show="ture"></bind_phone>

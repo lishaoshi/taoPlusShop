@@ -1,0 +1,145 @@
+/* pages/shop_index/shop_index.wxss */
+@import '../../common.wxss';
+page {
+    background: #f5f5f5;
+}
+/* 商家头部 start */
+.shop-header {
+    position: relative;
+    background: #fff;
+}
+
+.shop-header-bg {
+    width: 100%;
+    height: 240rpx;
+}
+
+.shop-logo {
+    width: 134rpx;
+    height: 134rpx;
+    position: absolute;
+    top: 150rpx;
+    left: 306rpx;
+}
+
+.shop-header-title {
+    margin-top: 70rpx;
+    font-size: 34rpx;
+    color: #333;
+    line-height: 1;
+}
+
+.shop-header-tip {
+    font-size: 24rpx;
+    color: #999;
+    line-height: 48rpx;
+    padding-bottom: 35rpx;
+}
+
+/* 商家头部 end */
+
+/* 商品列表 start */
+.m-t-76 {
+    margin-top: 96rpx;
+}
+
+.m-l-180 {
+    margin-left: 160rpx;
+}
+
+.h-100 {
+    height: 100%;
+}
+.shop-list {
+    background: #fff;
+    padding-top: 30rpx;
+    min-height: 600rpx;
+}
+
+.list-menu {
+    width: 160rpx;
+    background-color: #f8f8f8;
+    left: 0;
+    top: 125rpx;
+}
+
+.menu-item {
+    box-sizing: border-box;
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    color: #999;
+    font-size: 26rpx;
+}
+
+.menu-act {
+    background-color: #ffffff;
+	border: solid 1px #dddddd;
+}
+
+.list-box {
+    width: 550rpx;
+    padding: 0 20rpx;
+    margin-top: -20rpx;
+
+}
+
+.list-item {
+    padding: 20rpx 0;
+}
+
+.list-img {
+    width: 230rpx;
+    height: 173rpx;
+    margin-right: 20rpx;
+    
+}
+
+.list-item-title {
+    width: 300rpx;
+    display: inline-block;
+    font-size: 30rpx;
+    line-height: 48rpx;
+    color: #333;
+
+}
+/* 商品列表 end */
+
+/* 商家图片 start */
+.shop-photo {
+    padding: 35rpx;
+    background: #fff;
+}
+
+.photo-img {
+    width: 320rpx;
+    height: 240rpx;
+
+}
+
+.photo-text {
+    font-size: 30rpx;
+    color: #333;
+    line-height: 80rpx;
+    margin-bottom: 22rpx;
+}
+/* 商家图片 end */
+
+/* 商家信息 start */
+.shop-info {
+    padding: 30rpx;
+    font-size: 30rpx;
+    line-height: 60rpx;
+    color: #333;
+    background: #fff;
+}
+
+.shop-phone {
+    width: 31rpx;
+    height: 31rpx;
+}
+.shop-phone::after {
+  content: "📞";
+  padding-right: 5rpx;
+}
+/* 商家信息 end */

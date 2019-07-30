@@ -1,0 +1,31 @@
+<!--pages/lineUp/lineUp.wxml-->
+
+<!--pages/reservations/reservations.wxml-->
+
+<view class='add-address'>
+    <view class='add-address-item clear ' >
+        <text class='add-address-item-name fl'>人数</text>
+        <view class='add-address-item-right clear t-r'>
+            <input type='number' class='add-address-item-text i-b v-m' placeholder='请输入人数' bindinput='changePeopleFn'></input>
+            <image class='add-address-item-icon v-m fr p-l-20' src="../../images/arrow-right.png"></image>
+        </view>
+    </view>
+
+    <view class='add-address-item clear ' >
+        <text class='add-address-item-name fl'>预定</text>
+        <view class='add-address-item-right clear t-r'>
+            <picker bindchange="bindPickerChange" value="{{p_index}}" range="{{position}}" range-key="position_name">
+                <text class='add-address-item-text i-b v-m '>{{position[p_index].position_name}}</text>
+                <image class='add-address-item-icon v-m fr p-l-20' src="../../images/arrow-right.png"></image>
+            </picker>
+            
+        </view>
+    </view>
+
+</view>
+
+<view class='add-address-btn' bindtap='submitFn'>保存</view>
+
+
+<my-tab></my-tab>
+

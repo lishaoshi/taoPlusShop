@@ -1,0 +1,14 @@
+<!--pages/accounts_detail/accounts_detail.wxml-->
+<view class='container'>
+<view class='accounts-list flex' wx:for='{{accountList}}'>
+    <view class='left flex d-c'>
+      <text>{{item.name}}</text>
+      <text class='time'>{{item.time}}</text>
+    </view>
+    <view class='right {{item.typeSow ? "add": "reduce"}}'>
+      <text >{{item.type}}</text>
+      <text>{{item.num}}</text>
+    </view>
+</view>
+
+</view>

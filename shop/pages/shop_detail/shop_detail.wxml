@@ -1,0 +1,107 @@
+<!--pages/shop_detail/shop_detail.wxml-->
+<swiper class='detail-swiper' indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+    <block wx:for="{{info.banner}}" wx:key="banner">
+        <swiper-item>
+            <image class='detail-img slide-image' mode='aspectFill' src='{{IMG}}{{item}}' />
+        </swiper-item>
+    </block>
+</swiper>
+
+<view class='detail-head'>
+    <view class='detail-head-title flex j-b'>
+        <text>{{info.goods_name}}</text>
+        <image wx:if="{{info.is_collect != 0}}" class='detail-head-title-icon' src='../../images/shop/collected.png' bindtap='removeCollectFn'></image>
+        <image wx:else class='detail-head-title-icon' src='../../images/shop/collect.png' bindtap='collectFn'></image>
+    </view>
+    <text class='block t-gray detail-head-sale'>库存{{info.inventory}}</text>
+    <view class='flex j-b detail-head-foot'>
+        <view class='detail-head-money'>
+            <text class='symbol'>￥</text>
+            <text>{{info.shop_price}}</text>
+        </view>
+
+        <view class='detail-head-foot-right'>
+            <image class='detail-head-foot-img v-m' src='../../images/shop/reduce.png' wx:if="{{info.num != 0}}" data-op="-1" bindtap='changeCarFn'></image>
+            <text class='detail-head-foot-text v-m' wx:if="{{info.num != 0}}">{{info.num}}</text>
+            <image class='detail-head-foot-img v-m' src='../../images/shop/add.png' data-op="1" bindtap='changeCarFn'></image>
+        </view>
+    </view>
+</view>
+
+<view class='detail-info'>
+    <text class='detail-info-title block'>商品描述</text>
+    <text class='detail-info-content t-gray block'>{{info.described}}</text>
+</view>
+
+<my-tab></my-tab>
+<bind_phone bind:bindphonecb="bindPhoneCbFn" phone-show="{{phoneShow}}"></bind_phone>
+
+
+<!--购物车  -->
+<view class='shop-car '>
+    <view class='shop-car-box clear'>
+        <view class='shop-car-left fl'>
+            <view class='shop-car-l-icon i-b v-m' bindtap='showCarFn'>
+                <image class='shop-car-l-icon-img' src='../../images/shop/shopping-car.png'></image>
+                <text class='shop-car-l-icon-text topnum' wx:if="{{carNum != 0}}">{{carNum}}</text>
+            </view>
+            <text class='i-b v-m shop-car-l-money' wx:if="{{carNum!=0}}">共￥{{carMoney}}</text>
+            <text class='i-b v-m shop-car-l-money ' wx:if="{{carNum==0}}">购物车是空的</text>
+        </view>
+        <view class='shop-car-right fr'>
+            <text bindtap='jumpToFn'>选好了</text>
+        </view>
+    </view>
+
+</view>
+
+<!--遮罩  -->
+<view class='mask' wx:if="{{showMask}}" bindtap='triggerMaskFn'></view>
+
+<!--规格  -->
+<view class='format hide'>
+    <text class='format-title block'>爆炒四季豆</text>
+    <view class='format-item'>
+        <text class='block format-item-title'>口味：</text>
+        <view class='format-item-select'>
+            <text class='format-item-select-text format-item-act'>不吃辣</text>
+            <text class='format-item-select-text'>少放辣</text>
+            <text class='format-item-select-text'>多放辣</text>
+        </view>
+    </view>
+    <view class='format-item'>
+        <text class='block format-item-title'>份额：</text>
+        <view class='format-item-select'>
+            <text class='format-item-select-text format-item-act'>大份</text>
+            <text class='format-item-select-text'>小份</text>
+        </view>
+    </view>
+    <view class='format-foot flex j-b'>
+        <text class='format-foot-money'>￥38</text>
+        <text class='format-foot-btn'>选好了</text>
+    </view>
+</view>
+
+<!--购物车详情  -->
+<view class='shop-car-detail' wx:if="{{showCar}}">
+    <image class='triangle' src='../../images/shop/triangle.png'></image>
+    <view class='flex j-b shop-car-detail-head'>
+        <text class=''>购物车</text>
+        <view class='i-b'>
+            <image class='shop-car-detail-head-icon v-m' src='../../images/shop/clear.png'></image>
+            <text class='t-gray' bindtap='clearFn'>清空购物车</text>
+        </view>
+    </view>
+
+    <view class='shop-car-detail-item flex j-b' wx:for="{{carList}}" wx:key="{{cartList}}">
+        <text>{{item.goods_name}}</text>
+        <view class='i-b v-m'>
+            <text class='shop-car-detail-item-money'>￥{{item.goods_shop_price}}</text>
+            <image class='shop-car-detail-item-img v-m' src='../../images/shop/reduce.png' data-id="{{item.goods_id}}" data-op="-1" bindtap='changeCarFn'></image>
+            <text class='shop-car-detail-item-num'>{{item.num}}</text>
+            <image class='shop-car-detail-item-img v-m' src='../../images/shop/add.png' data-id="{{item.goods_id}}" data-op="1" bindtap='changeCarFn'></image>
+        </view>
+    </view>
+
+
+</view>

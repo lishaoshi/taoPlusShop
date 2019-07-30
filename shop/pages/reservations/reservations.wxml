@@ -1,0 +1,74 @@
+<!--pages/reservations/reservations.wxml-->
+
+<view class='add-address'>
+    <view class='add-address-item clear ' >
+        <text class='add-address-item-name fl'>人数</text>
+        <view class='add-address-item-right clear t-r'>
+            <input class='add-address-item-text i-b v-m' id="population" placeholder='请输入人数' bindinput='changeInputFn'></input>
+            <image class='add-address-item-icon v-m fr p-l-20' src="../../images/arrow-right .png"></image>
+        </view>
+    </view>
+
+     <view class='add-address-item clear '  >
+        <text class='add-address-item-name fl'>到店日期</text>
+        <view class='add-address-item-right clear t-r'>
+            <picker mode="date" bindchange="bindDateChange" value="{{date}}" >
+                <text class='add-address-item-text i-b v-m '>{{formdata.arriveTime.val || '请选择到店日期'}}</text>
+                <image class='add-address-item-icon v-m fr p-l-20' src="../../images/arrow-right.png"></image>
+            </picker>
+            
+        </view>
+    </view>
+
+    <view class='add-address-item clear '>
+        <text class='add-address-item-name fl'>到店时间</text>
+        <view class='add-address-item-right clear t-r' bindtap='selectTimeIntervalList'>
+            <picker bindchange="bindTimeChange" value="{{t_index}}" range="{{time_interval_list}}" range-key="val">
+                <text class='add-address-item-text i-b v-m '>{{time_interval_list[t_index].val || '请选择到店时间'}}</text>
+                <image class='add-address-item-icon v-m fr p-l-20' src="../../images/arrow-right.png"></image>
+            </picker>
+            
+        </view>
+    </view>
+
+    <view class='add-address-item clear ' bindtap='tableShowFn' >
+        <text class='add-address-item-name fl'>预定</text>
+        <view class='add-address-item-right clear t-r'>
+            <text class='add-address-item-text i-b v-m '>{{position}}</text>
+            <image class='add-address-item-icon v-m fr p-l-20' src="../../images/arrow-right.png"></image>
+        </view>
+    </view>
+
+
+    <view class='add-address-item clear'>
+        <text class='add-address-item-name fl'>姓   名</text>
+        <view class='add-address-item-right'>
+            <input class='add-address-item-input block' id="username" placeholder='您的姓名' bindinput='changeInputFn'></input>
+            <radio-group class="block radio-group" id="sex" bindchange="changeInputFn">
+                <label class='i-b v-m radio-group-label'>
+                    <radio value='1' checked='true'>先生</radio>
+                </label>
+
+                <label class='i-b v-m radio-group-label'>
+                    <radio value='2' checked='false'>女士</radio>
+                </label>
+            </radio-group>
+        </view>
+    </view>
+
+    <view class='add-address-item clear'>
+        <text class='add-address-item-name fl'>联系电话</text>
+        <view class='add-address-item-right'>
+            <input class='add-address-item-input block' id="mobile" type='number' placeholder='请输入联系电话' bindinput='changeInputFn' ></input>
+        </view>
+    </view>
+
+</view>
+
+<view class='add-address-btn' bindtap='submitFn'>保存</view>
+
+
+<my-tab></my-tab>
+
+<!--选择餐桌  -->
+<my-table  table-show="{{tableShow}}"  arrive-time="{{formdata.arriveTime.val}}"  interval-id="{{formdata.intervalId.val}}" bind:changetabledata="tableChangeDataFn"></my-table>

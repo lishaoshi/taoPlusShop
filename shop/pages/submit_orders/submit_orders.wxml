@@ -1,0 +1,109 @@
+<view class='container'>
+
+    <view class='order'>
+        <view class=' flex j-b pickup-way'  wx:if="{{!positionName}}">
+            <text class='way-text'>取货方式</text>
+            <view>
+                <picker bindchange="bindPickerChange" value="{{tIndex}}" range="{{Types}}">
+                    <view class="picker">
+                        <text class='choise-btn i-b v-m'>{{Types[tIndex]}}</text>
+                        <image class='submit-head-item-icon v-m' src='../../images/arrow-right.png'></image>
+                    </view>
+                </picker>
+
+            </view>
+        </view>
+        <view class=' flex j-b pickup-way' wx:if="{{positionName}}">
+            <text  class='way-text'>位置</text>
+            <view>
+                <text class='choise-btn i-b v-m'>{{positionName}}/{{seatName}}</text>
+            </view>
+        </view>
+        <!-- 
+        <navigator wx:if="{{tIndex == 0}}" class='submit-head-item flex j-b a-c' url='../address_list/address_list?source=1'>
+            <text class='address-class' wx:if="{{shippingAddress == ''}}">选择地址</text>
+            <view class='has-address' wx:if="{{shippingAddress != ''}}">
+                <text class='block has-address-top'>{{shippingAddress}}</text>
+                <text class='block t-gray has-address-bottom'>{{shippingName}}  {{shippingPhone}}</text>
+            </view>
+            <image class='submit-head-item-icon' src='../../images/arrow-right.png'></image>
+        </navigator> -->
+
+    </view>
+    <view class='header clear'>
+        <view class='shop-name border-b'>
+            <text class='name-text'>{{shopInfo.shop_name}}</text>
+        </view>
+        <image class='b-r' src='{{info.path}}'></image>
+        <view class='header_ringht flex d-c j-b'>
+            <view>
+                <text class='meal ellipsis'>{{info.goods_name}}</text>
+                <view class='all_sum'>
+                    <text class='money' wx:if="{{carMoney}}"><text class='sum-symbol'>￥</text>{{carMoney}}</text>
+                    <text class='money' wx:else><text class='sum-symbol'>￥</text>{{price}}</text>
+                </view>
+            </view>
+            <view class='w-70'>
+                <text class='block tip ellipsis'>{{info.described!=null?info.described:'好'}}</text>
+            </view>
+
+        </view>
+    </view>
+    <view class='center'>
+        <view class='center_main'>
+            <text class='num'>数量</text>
+            <view class='center_right flex a-c'>
+                <image class='reduction v-m' src='../../images/ic_pay_click.png' wx:if="{{type != 'groupons'}}" data-index="{{index}}" bindtap='delNumFn'></image>
+                <text class='num_text'>{{num}}</text>
+                <image class='addnum v-m' src='../../images/ic_pay.png'  wx:if="{{type != 'groupons'}}" data-index="{{index}}" bindtap='addNumFn'></image>
+            </view>
+        </view>
+    </view>
+
+    <navigator url="../order_note/order_note">
+        <view class='center_bottom'>
+            <view class='flex j-b center-inner a-c'>
+                <view class='group v-m a-c j-b'>
+                    <text>备注说明</text>
+                </view>
+                <view class=" w-70 a-c j-b">
+                    <input class='must ellipsis' placeholder='(选填)' placeholder-style='color:#999' value="{{content}}" disabled></input>
+                </view>
+                <image class='item-icon a-c j-b' src='../../images/arrow-right.png'></image>
+            </view>
+        </view>
+    </navigator>
+
+    <!-- <view class='remark' wx:if="{{content}}">
+            <view class='flex j-b center-inner ellipsis '>
+                <text class='group v-m ellipsis'>备注说明：<text class='must'></text></text>
+            </view>
+        </view> -->
+
+    <view class='foot fl j-a' bindtap='submitFn'>
+        <view class='fl d-c w-60 flex a-c j-c'>
+            <view class="w-100" wx:if="{{carMoney}}">
+                <text class='sum-real'>实付:<text class='symbol'>¥</text>
+                <text class='sum-num'>{{carMoney}}</text></text>
+            </view>
+            <view class="w-100" wx:else>
+                <text class='sum-real'>实付:<text class='symbol'>¥</text>
+                <text class='sum-num'>{{sum}}</text></text>
+            </view>
+
+            <view class="w-100">
+                <text class='money-back' wx:if="{{ groupon.groupon_goods_type != 2 &&(type === 'groupons' ||type === 'order')}}"> 拼团成功返现<text>{{returnMoney}}</text>元</text>
+            </view>
+        </view>
+        <!-- <view class='line fl'>
+            <text>|</text>
+        </view> -->
+        <view class='fl w-40 '>
+            <button wx:if='{{type == "normal"}}' class='submit_order submit_btn'>提交订单</button>
+            <button wx:if='{{type == "groupons"}}' class='submit_order submit_btn'>发起拼团</button>
+            <button wx:if='{{type == "order"}}' class='submit_order submit_btn'>立即参团</button>
+        </view>
+
+    </view>
+    <bind_phone bind:bindphonecb="bindPhoneCbFn" phone-show="{{showPhone}}"></bind_phone>
+</view>

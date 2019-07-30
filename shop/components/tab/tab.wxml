@@ -1,0 +1,54 @@
+<!--默认状态  -->
+<view class='tab' style="top: {{top}}px; left: {{left}}px"  catchtouchmove='touchmoveFn' >
+<view class="tab tab-close {{show_bool}}" bindtap='changeTrigger' animation="{{animationData}}" >
+  <image class='tab-close-img' src='../../images/tab-close.png'></image>
+</view>
+</view>
+<view class="tab-open {{hide_bool}}" animation="{{animationData2}}" >
+    <view class='tab-open-left'>
+        <view class='tab-open-item'>
+            <view class='open-item-box'>
+                <navigator url='/pages/index/index' open-type="redirect">
+                    <image class='goods' src='../../images/goods.png'></image>
+                    <text class='text'>商品</text>
+                </navigator>
+                
+            </view>
+            <view class='open-item-box'>
+                <navigator url='/pages/order_list/order_list' open-type="redirect">
+                    <image class='order' src='../../images/order.png'></image>
+                    <text class='text'>订单</text>
+                </navigator>
+                
+            </view>
+        </view>
+
+        <view class='tab-open-item'>
+            <view class='open-item-box'>
+                <navigator url='/pages/reservationsAndLineUp/reservationsAndLineUp' open-type="redirect">
+                    <image class='wait' src='../../images/wait.png'></image>
+                    <text class='text'>预定</text>
+                </navigator>
+            </view>
+            <view class='open-item-box'>
+                <navigator url='/pages/user/user' open-type="redirect">
+                    <image class='user' src='../../images/user.png'></image>
+                    <text class='text'>我的</text>
+                </navigator>
+                
+            </view>
+        </view>
+    </view>
+
+    <view class='tab-open-right' bindtap='changeTrigger'>
+        <image class='put' src='../../images/put.png' ></image>
+    </view>
+</view>
+
+
+
+<!-- <view class="tab-close {{show_bool}}" style="top: {{top}}px; left: {{left}}px" bindtap='changeTrigger' animation="{{animationData}}" >
+  <image class='tab-close-img' src='../../images/tab-close.png'></image>
+</view> -->
+
+

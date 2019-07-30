@@ -1,0 +1,63 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.3.0",
+	"appid": "wxfed2470abe61685b",
+	"projectname": "%E5%95%86%E5%AE%B6%E5%B0%8F%E7%A8%8B%E5%BA%8F",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "页面编译",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": 1007
+				},
+				{
+					"id": 1,
+					"name": "测试",
+					"pathName": "pages/shop_pay/shop_pay",
+					"query": "shopId=a5ff12c1e6634bb69a786160d59d8979&seatName=c001&positionName=测试区域",
+					"scene": "1007"
+				},
+				{
+					"id": 2,
+					"name": "页面编译",
+					"pathName": "pages/index/index",
+					"query": "shopId=b6252ff34329425c8a590df432d26710&type=1",
+					"scene": null
+				}
+			]
+		}
+	}
+}

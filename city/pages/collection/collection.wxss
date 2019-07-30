@@ -1,0 +1,51 @@
+/* pages/collection/collection.wxss */
+@import '../../common.wxss';
+page{
+  background-color: #f5f5f5;
+}
+.collection-all{
+  width: 100%;
+  height: 248rpx;
+  background-color: #ffffff;
+  margin-top: 20rpx;
+}
+.collection-img image{
+  width: 260rpx;
+  height: 190rpx;
+  border-radius: 8rpx;
+  margin-left: 23rpx;
+  /* background-color: gray; */
+}
+.collection-detail{
+  width: 400rpx;
+  margin-left: 22rpx;
+  height: 195rpx;
+}
+.name{
+  font-size: 34rpx;
+  color: #333333;
+}
+.type{
+  font-size: 28rpx;
+  color: #999999;
+  margin-top: 20rpx;
+}
+.price{
+  font-size: 38rpx;
+  color: #f36300;
+  margin-top: 24rpx;
+}
+.original-price{
+  text-decoration:line-through;
+  font-size: 28rpx;
+  color: #d7d7d7;
+  margin-left: 20rpx;
+
+}
+.price-text{
+  margin-left: -10rpx;
+  font-weight: bold;
+}
+.symbol{
+  font-size: 28rpx;
+}

@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "我的",
+    "navigationBarBackgroundColor": "#ff9500",
+    "navigationBarTextStyle": "white",
+    "usingComponents": {
+        "bind_phone": "/components/bind_phone/bind_phone"
+    },
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark"
+}

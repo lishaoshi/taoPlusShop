@@ -1,0 +1,37 @@
+<!--pages/shop_info/shop_info.wxml-->
+<view class='shop-info-head'>
+    <view class='info-head-item'>
+        <image class='head-item-icon v-m' src='../../images/shop/time.png'></image>
+        <text class='head-item-text i-b v-m'>营业时间： {{info.start_time}}-{{info.end_time}}</text>
+    </view>
+    <view class='info-head-item'>
+        <image class='head-item-icon  v-m' src='../../images/shop/map.png'></image>
+        <text class='head-item-text i-b v-m' bindtap='openLocation'>{{info.address}}</text>
+    </view>
+    <view class='info-head-item' data-phone="{{info.mobile}}" bindtap='callFn'>
+        <image class='head-item-icon v-m' src='../../images/shop/phone.png'></image>
+        <text class='head-item-text i-b v-m'>{{info.mobile}}</text>
+        <image class='arrow-r v-m'></image>
+    </view>
+</view>
+
+<view class='padding'></view>
+
+<!-- 店铺相册 -->
+<view class='shop-picture'>
+    <text class='shop-info-title block'>店铺相册</text>
+
+    <view class='shop-picture-item i-b' data-type="3" bindtap='showImgFn'>
+        <image class='picture-item-image' src='{{ambientImg[0]}}'></image>
+        <text class='picture-item-text block'>环境({{ambientNum}})</text>
+    </view>
+     <view class='shop-picture-item i-b' data-type="2" bindtap='showImgFn'>
+        <image class='picture-item-image' src='{{productImg[0]}}'></image>
+        <text class='picture-item-text block'>门头({{productNum}})</text>
+    </view>
+     <view class='shop-picture-item i-b' data-type="5" bindtap='showImgFn'>
+        <image class='picture-item-image' src='{{otherImg[0]}}'></image>
+        <text class='picture-item-text block'>其他({{otherNum}})</text>
+    </view>
+</view>
+

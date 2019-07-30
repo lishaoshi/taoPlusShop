@@ -1,0 +1,34 @@
+<!--pages/reservationsAndLineUp/reservationsAndLineUp.wxml-->
+
+<view class='ReAndLine-box'>
+    <view class='box-left i-b v-m'>
+        <view class='ReAndLine-box-title'>
+            <image class='img v-m' src='../../images/reservationsAndLineUp/line-up.png'></image>
+            <text class='v-m'>排队取号</text>
+            <text class='block t-gray ReAndLine-tip'>当前人数较多，等耐心等候</text>
+        </view>
+    </view>
+
+    <navigator class='box-right i-b v-m' url='../lineUp/lineUp' hover-class="none">
+        <image class='radius' src='../../images/reservationsAndLineUp/radius-blue.png'></image>
+        <text class='text'>排队</text>
+    </navigator>
+</view>
+
+<view class='ReAndLine-box'>
+    <view class='box-left i-b v-m'>
+        <view class='ReAndLine-box-title'>
+            <image class='img v-m' src='../../images/reservationsAndLineUp/reservations.png'></image>
+            <text class='v-m'>我要预定</text>
+            <text class='block t-gray ReAndLine-tip'>欢迎预定</text>
+        </view>
+    </view>
+
+    <navigator class='box-right i-b v-m' url='../reservations/reservations' hover-class="none">
+        <image class='radius' src='../../images/reservationsAndLineUp/radius-orange.png'></image>
+        <text class='text'>预定</text>
+    </navigator>
+</view>
+
+<my-tab></my-tab>
+

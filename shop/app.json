@@ -1,0 +1,120 @@
+{
+  "注释": [
+    {
+      "remind": "提醒商家"
+    },
+    {
+      "setup": "设置"
+    },
+    {
+      "order_detail": "订单详情"
+    },
+    {
+      "map_search": "地图搜索"
+    },
+    {
+      "address_list": "地址列表"
+    },
+    {
+      "add_address": "添加地址"
+    },
+    {
+      "order": "订单中心"
+    },
+    {
+      "user": "我的"
+    },
+    {
+      "sublimt_order": "提交订单"
+    },
+    {
+      "index": "首页"
+    },
+    {
+      "payment": "付款"
+    },
+    {
+      "shop_detail": "商品详情"
+    },
+    {
+      "reservationsAndLineUp": "订座/排队"
+    },
+    {
+      "reservations": "订座"
+    },
+    {
+      "lineUp": "取号"
+    },
+    {
+      "reservations_success": "订座成功"
+    },
+    {
+      "lineUp_success": "取号成功"
+    },
+    {
+      "my_collected": "我的收藏"
+    },
+    {
+      "comment": "评论商品"
+    }
+  ],
+  "pages": [
+    "pages/index/index",
+    "pages/submit_orders/submit_orders",
+    "pages/sublimt_order/sublimt_order",
+    "pages/reservations_list/reservations_list",
+    "pages/lineUp_list/lineUp_list",
+    "pages/payment/payment",
+    "pages/user/user",
+    "pages/comment/comment",
+    "pages/order_note/order_note",
+    "pages/reservations_success/reservations_success",
+    "pages/reservations/reservations",
+    "pages/shop_info/shop_info",
+    "pages/goods_detail/goods_detail",
+    "pages/group_rules/group_rules",
+    "pages/invite_group/invite_group",
+    "pages/invite_group2/invite_group2",
+    "pages/share_detail/share_detail",
+    "pages/my_collected/my_collected",
+    "pages/lineUp/lineUp",
+    "pages/lineUp_success/lineUp_success",
+    "pages/reservationsAndLineUp/reservationsAndLineUp",
+    "pages/address_list/address_list",
+    "pages/add_address/add_address",
+    "pages/edit_address/edit_address",
+    "pages/pay/pay",
+    "pages/order_detail/order_detail",
+    "pages/map_search/map_search",
+    "pages/order_success/order_success",
+    "pages/withdraw/withdraw",
+    "pages/withdraw_success/withdraw_success",
+    "pages/detailed/detailed",
+    "pages/user_detail/user_detail",
+    "pages/detailed_detail/detailed_detail",
+    "pages/wait/wait",
+    "pages/order_list/order_list",
+    "pages/marketing/marketing",
+    "pages/marketing_detail/marketing_detail",
+    "pages/bank_card_list/bank_card_list",
+    "pages/add_bank_card/add_bank_card",
+    "pages/shop_pay/shop_pay",
+    "pages/after_sales_detail/after_sales_detail",
+    "pages/after_sales/after_sales"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FBFAFF",
+    "navigationBarTitleText": "智慧点餐",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#eeeeee"
+  },
+  "networkTimeOut": {
+    "request": 60000
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx463b5a1c2c851de8",
+    "wx2d3af38435132b06"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

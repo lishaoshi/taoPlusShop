@@ -1,0 +1,22 @@
+<!--pages/bank_card_list/bank_card_list.wxml-->
+<view class='container'>
+    <view class='bank-list' wx:for='{{bankList}}'>
+      <view class='bank-card flex d-r a-c' bindlongpress="deleteImage"  data-id="{{item.bankcard_id}}">
+        <view class='card-img'>
+          <image src='{{item.imgPath}}'></image>
+        </view>
+        <view class='card-all flex d-c v-m'>
+          <text class='card-name'>{{item.bankcard_name}}</text>
+          <text class='card-type'>{{item.account_type}}</text>
+          <text class='card-num'>{{item.bankcard_num}}</text>
+        </view> 
+      </view>
+      
+    </view>
+    <view class='add-bank-car flex d-c a-c' bindtap='addBankCardFn'>
+        <view class=' bank-text flex a-c'>
+          <image src='../../images/add_bank.png'></image>
+          <text>添加银行卡</text>
+        </view>
+      </view>
+</view>

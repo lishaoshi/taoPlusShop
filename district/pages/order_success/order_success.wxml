@@ -1,0 +1,36 @@
+<!--pages/order_success/order_success.wxml-->
+<view class='container'>
+    <view class='buy-success'>
+      <text class='buy'>购买成功！</text>
+      <text class='buy-type'>{{goodsName}}</text>
+    </view>
+    <view class='code flex j-b'>
+      <text class='code-text'>券码</text>
+      
+      <!-- <view class='share-box hide' wx:if="{{grouponJson.type == 'order'}}">
+            <text class='code-share'>邀请好友拼单</text>
+            <button open-type='share' class='code-share-btn'></button>
+        </view> -->
+      
+    </view>
+    <view class='code-num'>
+        <text  class='code-header flex j-b'>{{info.coupon_code}}</text>
+    </view>
+     
+    <view class='all-code flex j-b' >
+     <image class='code-img' src='{{info.coupon_code_url}}'></image>
+    </view>
+
+    
+
+    <view class='success' wx:if="{{grouponJson.type == 'order'}}">
+            <text class='success-text'>邀请好友拼单</text>
+            <button open-type='share' class='code-share-btn'></button>
+        </view>
+
+        
+    <navigator wx:else class='success' open-type="switchTab" url='/pages/order_list/order_list'>
+        <text class='success-text'>完成</text> 
+    </navigator>
+    <bind_phone bind:bindphonecb="bindPhoneCbFn" phone-show="{{phoneShow}}"></bind_phone>    
+</view>

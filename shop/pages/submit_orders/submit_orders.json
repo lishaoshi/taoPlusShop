@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "提交订单",
+  "usingComponents": {
+    "bind_phone": "/components/bind_phone/bind_phone"
+}
+}

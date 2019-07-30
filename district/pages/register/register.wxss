@@ -1,0 +1,75 @@
+/* pages/register/register.wxss */
+@import '../../common.wxss';
+.logo{
+  width: 100%;
+  text-align: center;
+  margin-top: 67rpx;
+}
+.logo image{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  background-color: gray;
+}
+.register-content{
+  width: 100%;
+  margin-top: 80rpx;
+  
+}
+.phone{
+  width: 610rpx;
+  height: 88rpx;
+  border-bottom: 1rpx solid #dddddd;
+}
+.phone input, .code input{
+  margin-left: 30rpx;
+  font-size: 30rpx;
+  color: #999999;
+}
+.code{
+  margin-top: 60rpx;
+  width: 610rpx;
+  height: 88rpx;
+  border-bottom: 1rpx solid #dddddd;
+}
+.code button{
+  height: 64rpx; 
+  line-height: 64rpx;
+  font-size: 28rpx;
+  border-radius: 32rpx;
+}
+.a{
+  height: 64rpx;
+  font-size: 28rpx;
+  color: #999999 !important;
+  border-radius: 32rpx;
+  border-color: #dddddd !important;
+}
+.b{
+   height: 64rpx;
+  font-size: 28rpx;
+  color: #ff4200 !important;
+  border-radius: 32rpx;
+  border-color: #dddddd !important;
+}
+
+.register{
+  width: 610rpx;
+  height: 88rpx;
+  background-color: #fe791d;
+  text-align: center;
+  line-height: 88rpx;
+  margin-top: 120rpx;
+  border-radius: 16rpx;
+}
+.register text{
+	width: 70rpx;
+	height: 34rpx;
+	font-family: NotoSansHans-Regular;
+	font-size: 36rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ffffff;
+
+}

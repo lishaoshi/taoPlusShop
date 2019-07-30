@@ -1,0 +1,60 @@
+/* pages/reservationsAndLineUp/reservationsAndLineUp.wxss */
+
+@import '../../common.wxss';
+
+page {
+    background: #F5F5F5;
+}
+
+.ReAndLine-box {
+    margin: 30rpx;
+    border-radius: 15rpx;
+    box-shadow: 0 0 20rpx #ccc;
+    background: #fff;
+    padding: 70rpx 0;
+}
+
+.box-left {
+    color: #151515;
+    font-size: 33rpx;
+    padding-left: 70rpx;
+}
+
+.ReAndLine-box-title .img {
+    width: 49rpx;
+    height: 47rpx;
+    margin-right: 15rpx;
+}
+
+.ReAndLine-tip {
+    font-size: 25rpx;
+    margin-top: 20rpx;
+    width: 260rpx;
+    line-height: 36rpx;
+    padding-left: 50rpx;
+}
+
+.box-right {
+    margin-left: 30rpx;
+    position: relative;
+    width: 210rpx;
+    height: 210rpx;
+    text-align: center;
+
+}
+
+.box-right .radius {
+    width: 100%;
+    height: 100%;
+
+}
+
+.box-right .text {
+    line-height: 210rpx;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+}

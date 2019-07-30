@@ -1,0 +1,42 @@
+/*components/bind_phone/bind_phone.wxss*/
+@import '../../common.wxss';
+
+.bind-phone-box {
+    width: 600rpx;
+    box-sizing: border-box;
+    padding: 40rpx 40rpx 15rpx 40rpx;
+    font-size: 32rpx;
+    color: #333;
+    line-height: 2;
+    left: 50%;
+    top: 50%;
+    margin-left: -300rpx;
+    margin-top: -200rpx;
+    z-index: 100000;
+    background: #fff;
+    border-radius: 4rpx;
+}
+
+.bind-phone-title {
+    height: 110rpx;
+    line-height: 55rpx;
+    font-size: 34rpx;
+    text-align: justify;
+}
+
+.bind-phone-btn {
+    height: 96rpx;
+    color: #eb6306;
+    font-size: 34rpx;
+    float: left;
+    line-height: 96rpx;
+    border-top: 1rpx solid #efefef;
+    margin-top: 40rpx;
+    background: #fff;
+    border-radius: 0;
+    width: 100%;
+}
+
+button::after {
+    border: none;
+}

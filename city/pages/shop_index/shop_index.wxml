@@ -1,0 +1,86 @@
+<!--pages/shop_index/shop_index.wxml-->
+<view class='container'>
+    <!-- 商家头部 start -->
+    <view class='shop-header'>
+        <image class='shop-header-bg' src='../../images/goods.jpg' mode='aspectFill'></image>
+        <image class='shop-logo b-r' src="{{shopInfo.portrait_url}}"  binderror="imgErrorFn" data-date="shopInfo" data-index="{{-1}}" data-field="portrait_url"></image>
+        <text class='shop-header-title block t-c'>{{shopInfo.shop_name}}</text>
+        <!-- <text class='shop-header-tip block t-c'>已拼团 333次</text> -->
+    </view>
+    <!-- 商家头部 end -->
+
+    <!-- 商家导航条 start -->
+    <view class="bar-box flex border-b m-b-20 {{barClass? 'fixed':''}}">
+        <view class=' flex-item t-c' wx:for="{{bar}}" wx:key="bar" data-index="{{index}}" bindtap='changeBarFn'>
+            <text class=" bar-item {{index == barIndex ? 'bar-act':''}} ">{{item}} <text class='bar-line' hidden='{{index != barIndex}}' ></text></text>
+        </view>
+    </view>
+    <!-- 商家导航条 end -->
+
+    <!-- 商品列表 start -->
+    <view class="shop-list flex {{barClass? 'm-t-76':''}}" hidden='{{barIndex != 0}}'>
+       <scroll-view scroll-y style="height: 800rpx;" class="list-menu {{barClass? 'fixed h-100':''}}">
+      
+            <text class="menu-item t-c block {{goodsIndex == index? 'menu-act':''}}" wx:for="{{goodsBar}}" wx:key="goodsBar" data-index="{{index}}" bindtap='changeGoodsBarFn'>{{item.class_name}}</text>
+       
+       </scroll-view>
+
+        <view class="list-box {{barClass? 'm-l-180':''}}">
+            <navigator url='../goods_detail/goods_detail?goodsId={{item.goods_id}}&shopId={{item.shop_id}}' class='list-item flex border-b ' wx:for="{{goodsList}}" wx:key="goodsList">
+                <image class='list-img b-r' src='{{item.path}}' mode='aspectFill' binderror="imgErrorFn" data-date="goodsList" data-index="{{index}}" data-field="path"></image>
+                <view class='list-item-info flex d-c j-b '>
+                    <text class='list-item-title ellipsis'>{{item.goods_name}}</text>
+                     <view class='money-light i-b'>
+                        <text class='money-symbol'>￥</text>
+                        <text>{{item.shop_price}}</text>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+        <view class='no-more' hidden='{{!noMore}}'>
+        <text>没有数据了</text>
+      </view>
+    </view>
+    <!-- 商品列表 end -->
+
+   <!-- 商家图片 start -->
+   
+   <view class='shop-photo' hidden='{{barIndex != 1}}'>
+        <view class='shop-photo-item flex j-b'>
+            <view class='photo-item-box t-c'>
+                <image class='photo-img' src="{{showPic[0]}}" binderror="imgErrorFn" data-date="showPic" data-index="{{0}}" bindtap='showPicFn'></image>
+                <text class='photo-text block'>店面外观（{{picAry[0].pic.length}}）</text>
+            </view>
+            <view class='photo-item-box t-c'>
+                <image class='photo-img' src="{{showPic[1]}}" binderror="imgErrorFn" data-date="showPic" data-index="{{1}}" bindtap='showPicFn'></image>
+                <text class='photo-text block'>店内环境（{{picAry[1].pic.length}}）</text>
+            </view>
+        </view>
+
+        <view class='shop-photo-item flex j-b'>
+            <view class='photo-item-box t-c'>
+                <image class='photo-img' src="{{showPic[2]}}" binderror="imgErrorFn" data-date="showPic" data-index="{{2}}" bindtap='showPicFn'></image>
+                <text class='photo-text block'>产品图（{{picAry[2].pic.length}}）</text>
+            </view>
+            <view class='photo-item-box t-c'>
+                <image class='photo-img' src="{{showPic[3]}}" binderror="imgErrorFn" data-date="showPic" data-index="{{3}}" bindtap='showPicFn'></image>
+                <text class='photo-text block'>其他（{{picAry[3].pic.length}}）</text>
+            </view>
+        </view>
+   </view>
+   <!-- 商家图片 end -->
+
+   <!-- 商家信息 start -->
+   <view class='shop-info' hidden='{{barIndex != 2}}'>
+    <view>
+        <text bindtap='openLocation'>地址：{{shopInfo.province_name}}{{shopInfo.city_name}}{{shopInfo.area_name}}{{shopInfo.address}}</text>
+    </view>
+    <view>
+        <text>营业时间：{{shopInfo.start_time}}-{{shopInfo.end_time}}</text>
+    </view>
+    <view>
+        <text class='shop-phone' bindtap='callFn'>联系方式：{{shopInfo.mobile}}</text>
+    </view>
+   </view>
+   <!-- 商家信息 end -->
+</view>

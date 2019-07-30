@@ -1,0 +1,59 @@
+<!--pages/comment/comment.wxml-->
+<view>
+    <view class='comment-header'>
+        <image class='comment-header-img v-m' src='{{IMG}}{{shop_img}}' alt="商家头像"></image>
+        <text class='i-b v-m'>{{shop_name}}</text>
+    </view>
+
+    <view class='comment-content'>
+        <text class='block comment-content-title'>您对这次消费体验满意吗？</text>
+
+        <view class='star-content t-c'>
+            <block wx:for="{{scores}}" wx:key="scores">
+            <image wx:if="{{index <= score}}" class='star-img' src='../../images/comment/star-light.png' data-index="{{index}}" bindtap='changeScoreFn'></image>
+            <image wx:else class='star-img' src='../../images/comment/star.png' data-index="{{index}}" bindtap='changeScoreFn'></image>
+            </block>
+        </view>
+
+        <text class='star-tip block t-c'>{{scores[score]}}</text>
+
+        <!-- <view class='star-item '>
+            <text class='star-title'>视觉</text>
+            <view class='star-item-content i-b v-m'>
+                <image class='star-item-img' src='../../images/comment/star-small-light.png'></image>
+                <image class='star-item-img' src='../../images/comment/star-small.png'></image>
+                <image class='star-item-img' src='../../images/comment/star-small.png'></image>
+                <image class='star-item-img' src='../../images/comment/star-small.png'></image>
+                <image class='star-item-img' src='../../images/comment/star-small.png'></image>
+            </view>
+            <text class='star-item-tip'>不满意</text>
+        </view>
+
+        <view class='star-item '>
+            <text class='star-title'>味觉</text>
+            <view class='star-item-content i-b v-m'>
+                <image class='star-item-img' src='../../images/comment/star-small-light.png'></image>
+                <image class='star-item-img' src='../../images/comment/star-small.png'></image>
+                <image class='star-item-img' src='../../images/comment/star-small.png'></image>
+                <image class='star-item-img' src='../../images/comment/star-small.png'></image>
+                <image class='star-item-img' src='../../images/comment/star-small.png'></image>
+            </view>
+            <text class='star-item-tip'>不满意</text>
+        </view> -->
+
+        <view class='message-box'>
+            <textarea class='message-textarea' placeholder='请输入您的评价' bindinput="inputChangeFn"></textarea>
+            <image class='add-img v-m' src='../../images/comment/add-img.png' alt="添加图片" bindtap='changeImgFn'></image>
+
+            <view class='img-box i-b v-m' wx:for="{{evaluate_pic}}" wx:key="evaluate_pic">
+                <image class='img-box-item' src='{{IMG}}{{item.path}}' alt="评价图片" bindtap='showImgFn' data-src="{{IMG}}{{item.path}}" data-index="{{index}}" bindlongpress="delImgFn"></image>
+            </view>
+            <text class='block t-gray img-tip'>提示:长按可以删除图片</text>
+        </view>
+        
+    </view>
+
+    <view class='add-btn' bindtap='submitFn'>提交评论</view>
+</view>
+
+<my-tab></my-tab>

@@ -1,0 +1,295 @@
+@import '../../common.wxss';
+
+page {
+    background: #fff;
+    /* overflow-y: hidden; */
+}
+
+/* 搜索 star */
+
+.search-box {
+    padding: 20rpx;
+    width: 100%;
+    box-sizing: border-box;
+    background: #fff;
+    top: -1px;
+    left: 0;
+}
+
+.search-box .search {
+    height: 64rpx;
+    line-height: 64rpx;
+    border-radius: 32rpx;
+    font-size: 28rpx;
+    color: #636363;
+    background: #f4f4f4;
+}
+
+.search-box .search-icon {
+    width: 26rpx;
+    height: 27rpx;
+    margin: 0 20rpx;
+    color: #636363;
+}
+
+/* 搜索 end */
+
+/* 导航 star */
+
+.bar {
+    margin-top: 99rpx;
+    width: 100%;
+    height: 88rpx;
+    line-height: 88rpx;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.bar-list {
+    width: 33%;
+    display: block;
+}
+
+.bar-text {
+    color: #999;
+    font-size: 28rpx;
+}
+
+.bar-act {
+    color: #111;
+}
+
+.side-nav {
+    width: 159rpx;
+    position: fixed;
+    top: 190rpx;
+}
+
+.goods {
+    width: 100%;
+    float: left;
+    position: relative;
+    top:190rpx;
+
+}
+
+.side {
+    width: 160rpx;
+    /* height: 96rpx; */
+    line-height: 96rpx;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+.side-text {
+    width: 160rpx;
+    color: #646464;
+    font-size: 26rpx;
+}
+
+.side-act {
+    background-color: #fff;
+    position: relative;
+}
+.side-act .side-text {
+  color: #111;
+  font-weight: bold;
+}
+.side-act::after{
+  content: '';
+  width: 7rpx;
+  height: 35rpx;
+  background-color: #FF6B06;
+  position: absolute;
+  top: 35rpx;
+  right: 0;
+}
+/* 导航 end */
+
+.goods-list {
+   width:79%;
+
+}
+
+/* 商品列表 start */
+
+/* 列表 star */
+
+.distance {
+    font-size: 24rpx;
+}
+
+.bar-item-icon {
+    width: 22rpx;
+    height: 12rpx;
+    margin-left: 19rpx;
+}
+
+.list-item {
+    padding: 0 20rpx 26rpx 20rpx;
+    background: #fff;
+    margin-bottom: 20rpx;
+}
+
+.list-item-head {
+    height: 74rpx;
+    line-height: 74rpx;
+    font-size: 26rpx;
+    color: #999;
+}
+
+.list-item-head .shopname {
+    font-size: 24rpx;
+}
+
+.list-item-head .shop-icon {
+    width: 32rpx;
+    height: 28rpx;
+    margin-right: 9rpx;
+}
+
+.list-item-img {
+    width: 180rpx;
+    height: 180rpx;
+    border-radius: 8rpx;
+    margin-right: 22rpx;
+}
+
+.list-item-info {
+    height: 100rpx;
+    font-size: 28rpx;
+    line-height: 48rpx;
+    color: #999;
+}
+
+.list-item-info .title {
+    width: 350rpx;
+    display: inline-block;
+    font-size: 28rpx;
+    line-height: 54rpx;
+    color: #333;
+}
+
+.money-light {
+    width: 350rpx;
+    font-size: 37rpx;
+    color: #fd142a;
+    font-weight: bold;
+    align-items: center;
+    margin-top: 50rpx;
+}
+
+.money-dark {
+    font-size: 26rpx;
+    color: #ccc;
+    margin-right: 20rpx;
+    text-decoration: line-through;
+}
+
+ .money-symbol-price {
+    font-size: 26rpx;
+   padding-top: 5rpx;
+}
+
+.group {
+    width: 160rpx;
+    height: 0rpx;
+    margin-top: 80rpx;
+    box-sizing: border-box;
+}
+
+.group-img {
+    width: 101rpx;
+    height: 43rpx;
+    display: inline-block;
+}
+
+.group-text {
+    color: #b8b8b8;
+    font-size: 20rpx;
+    font-weight: 500;
+}
+
+.group-num {
+    font-size: 22rpx;
+}
+
+.described {
+    width: 220rpx;
+    height: 40rpx;
+    font-size: 22rpx;
+}
+
+.block {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+.unit{
+    margin-left: 5rpx;
+    font-size: 30rpx;
+}
+.anchor{
+  width: 100%;
+  line-height: 60rpx;
+  font-size: 30rpx;
+  padding-left: 20rpx;
+  background-color: #fff;
+  color: #333;
+  font-weight: 550;
+}
+.groupon_sum{
+    display: inline-block;
+    position: absolute;
+    z-index: 98;
+    top: 0rpx;
+    height: 20rpx;
+    line-height: 20rpx;
+    padding: 5rpx;
+    color: #fff;
+    background-color: #FE2E2E;
+    font-size: 22rpx;
+    font-weight: 500;
+}
+.shop-name-text{
+    width:300rpx;
+    display: inline-block;
+}
+
+.group-shop-price{
+    align-items: center;
+}
+.unit-symbols{
+    margin-left: 10rpx;
+    font-size: 20rpx;
+    margin-right: 5rpx;
+}
+.unit-price{
+    color: #ccc;
+    font-size: 22rpx;
+     margin-bottom: 20rpx;
+}
+.unit-price-num{
+   font-size: 26rpx; 
+}
+.groupon-right{
+    margin-left: 20rpx;
+    font-size: 22rpx;
+    color: #ccc;
+    font-weight: 500;
+    padding-top:5rpx;
+}
+.list-group-img{
+    position: relative;
+}
+.group-buy-logo{
+     width: 130rpx;
+    height: 50rpx;
+    display: inline-block;
+    margin-right: 42rpx;
+}
+/* 商品列表 end */

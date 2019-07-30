@@ -1,0 +1,56 @@
+/* pages/lineUp_success/lineUp_success.wxss */
+
+@import '../../common.wxss';
+
+.header {
+    margin: 0 30rpx;
+    padding: 56rpx 0 80rpx;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.header .icon {
+    width: 68rpx;
+    height: 67rpx;
+
+}
+
+.text-top {
+    font-size: 28rpx;
+    color: #4482FE;
+    line-height: 88rpx;
+
+}
+
+.text-middle {
+    font-size: 50rpx;
+    color: #282828;
+    line-height: 1;
+}
+
+.text-bottom {
+   font-size: 28rpx;
+   color: #B7B7B7;
+   line-height: 85rpx;
+
+}
+
+.text-tip {
+    font-size: 28rpx;
+    color: #B7B7B7;
+    line-height: 45rpx;
+    margin-top: 70rpx;
+}
+
+.info-box {
+    line-height: 60rpx;
+    font-size: 28rpx;
+    color: #3F3F3F;
+    margin-top: 78rpx;
+    margin-bottom: 140rpx;
+    padding-left: 56rpx;
+}
+
+.info-box-left {
+    margin-right: 15rpx;
+}

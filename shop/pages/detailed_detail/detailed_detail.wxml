@@ -1,0 +1,27 @@
+<!--pages/detailed_detail/detailed_detail.wxml-->
+<view class='container'>
+    <view class='detailed-detail'>
+        <view class='detailed-detail-head border-b'>
+            <text class='detailed-detail-key {{payment != "null"? "": "hide"}}'>出账金额</text>
+            <text class='detailed-detail-key  {{income != "null"? "": "hide"}}'>入账金额</text>
+            <text class='detailed-detail-money i-b hide'>+￥{{income}}</text>
+            <text class='detailed-detail-money i-b  {{income != "null"? "": "hide"}}'>+￥{{income}}</text>
+            <text class='detailed-detail-money i-b  {{payment != "null"? "": "hide"}}'>-￥{{payment}}</text>
+        </view>
+
+        <view class='detailed-detail-content'>
+            <view>
+                <text class='detailed-detail-key'>交易类型</text>
+                <text class='detailed-detail-value'>{{showType}}</text>
+            </view>
+             <view>
+                <text class='detailed-detail-key'>交易时间</text>
+                <text class='detailed-detail-value'>{{createTime}}</text>
+            </view>
+            <view>
+                <text class='detailed-detail-key'>交易单号</text>
+                <text class='detailed-detail-value'>{{sn}}</text>
+            </view>
+        </view>
+    </view>
+</view>

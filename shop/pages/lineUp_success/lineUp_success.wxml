@@ -1,0 +1,29 @@
+<!--pages/lineUp_success/lineUp_success.wxml-->
+
+<view class='header'>
+    <image class='icon' src='../../images/reservationsAndLineUp/lineUp-icon.png' alt="排队"></image>
+    <text class='block text-top' >{{info.number_type}}</text>
+    <text class='block text-middle'>第{{info.number}}号</text>
+    <text class='block text-bottom'>人数：{{info.population}}人</text>
+    <text class='block text-tip'>您之前还有{{info.people_num}}桌客人在等候</text>
+</view>
+
+<view class='info-box'>
+    <view>
+        <text class='t-gray info-box-left'>人数 :</text>
+        <text>{{info.population}}人</text>
+    </view>
+    <view>
+        <text class='t-gray info-box-left'>位置要求 :</text>
+        <text>{{info.position_name}}</text>
+    </view>
+    <view>
+        <text class='t-gray info-box-left'>下单时间  :</text>
+        <text>{{info.create_time}}</text>
+    </view>
+</view>
+
+<view class='block t-gray t-c' wx:if="{{info.type == 1}}" bindtap='editTakeNumberFn'>人太多了，取消排队</view>
+
+
+<my-tab></my-tab>

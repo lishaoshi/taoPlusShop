@@ -1,0 +1,24 @@
+<!--pages/my_collected/my_collected.wxml-->
+
+<view class='collect-list'>
+    <navigator class='collect-item border-b clear' url='../goods_detail/goods_detail?goodsId={{item.goods_id}}&shopId={{item.shop_id}}' wx:for="{{collect_list}}" wx:key="collect_list">
+        <image class='collect-img fl' src='{{IMG}}{{item.path}}' alt="商品头像"></image>
+        <view class='collect-right'>
+            <text class='block collect-title'>{{item.goods_name}}</text>
+            <view class='flex j-b collect-text'>
+                <text class='t-gray'>月销{{item.month_count}}</text>
+                <text class='money'>￥{{item.shop_price}}</text>
+            </view>
+            <text class='collect-des t-gray ellipsis'>{{item.described}}</text>
+        </view>
+    </navigator>
+</view>
+
+<view class='t-gray no-more' wx:if="{{!loadMore}}">没有更多数据</view>
+
+<view class='no-collected' wx:if="{{collect_list.length == 0}}">
+    <image class='no-img' src='../../images/no-collected.png' alt="没有收藏"></image>
+    <text class='block t-gray'>暂无收藏</text>
+</view>
+
+<my-tab></my-tab>

@@ -1,0 +1,3 @@
+/* pages/reservations/reservations.wxss */
+
+@import '../add_address/add_address.wxss';

@@ -1,0 +1,8 @@
+{
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "营销详情",
+    "usingComponents": {
+        "bind_phone": "/components/bind_phone/bind_phone"
+    }
+}

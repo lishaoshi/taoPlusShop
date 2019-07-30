@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "my-tab": "/components/tab/tab"
+    },
+    "navigationBarTitleText": "预定成功"
+}

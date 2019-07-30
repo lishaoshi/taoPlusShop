@@ -1,0 +1,63 @@
+<!--pages/order_list/order_list.wxml-->
+<view class='container'>
+    <!--头部导航 star  -->
+
+    <view class='bar-box flex border-b fixed'>
+        <view class=' flex-item t-c' wx:for="{{bar}}" wx:key="bar" data-index="{{index}}" bindtap='changeBarFn'>
+            <text class=" bar-item {{index == barIndex ? 'bar-act':''}} ">{{item}} <text class='bar-line' hidden='{{index != barIndex}}'></text></text>
+        </view>
+    </view>
+    <!--头部导航 end  -->
+
+    <!-- 订单列表 star -->
+    <view class='order-list'>
+        <view class='list-item m-b-20' wx:for="{{orderList}}" wx:key="orderList">
+            <navigator class='list-item-href' url='../order_detail/order_detail?orderId={{item.orderId}}&shopId={{item.shopId}}&goodsId={{item.goodsId}}&orderStatus={{item.orderStatus}}' bindlongpress="deleteImage" data-index="{{index}}">
+                <view class='list-item-content flex border-b'>
+                    <image class='list-item-img b-r v-t' src='{{item.path}}' binderror="imgErrorFn" data-date="orderList" data-index="{{index}}" data-field="path"></image>
+                    <view class='item-content-info v-t'>
+                        <view class='item-content-info-top flex j-b'>
+                            <view class="j-b flex">
+                                <text class='item-content-title ellipsis'>{{item.goodsName !=null ? item.goodsName : '暂时无商品名' }}</text>
+                                    <text class='groupon_sum  {{item.grouponSum!=null?"block": "hide"}}'>{{item.grouponSum}}人团</text>
+                            </view>
+                            <view>
+                            <text class='item-content-type' wx:if="{{item.orderStatus==1}}">待付款</text>
+                            <text class='item-content-type' wx:elif="{{item.orderStatus==2}}">付款中</text>
+                            <text class='item-content-type' wx:elif="{{item.orderStatus==3}}">待使用</text>
+                            <text class='item-content-type' wx:elif="{{item.orderStatus==4}}">已使用</text>
+                            <text class='item-content-type' wx:elif="{{item.orderStatus==5}}">退款中</text>
+                            <text class='item-content-type' wx:elif="{{item.orderStatus==6}}">退款成功</text>
+                            <text class='item-content-type' wx:elif="{{item.orderStatus==7}}">退款审核中</text>
+                            <text class='item-content-type' wx:elif="{{item.orderStatus==-1}}">已取消</text>
+                            </view>
+                        </view>
+                        <view class='item-content-info-middle'>
+                            <text>数量：{{item.num}}</text>
+                        </view>
+                        <view class='item-content-info-bottom'>
+                            <text>下单时间：{{item.createTime}}</text>
+                        </view>
+                    </view>
+                </view>
+
+                <view class='list-item-footer'>
+                    <text>共计 <text class='money'>￥{{item.grouponPrice!=null?item.grouponPrice:item.actualPrice}}</text></text>
+                </view>
+            </navigator>
+            <!-- <navigator url='../pay/pay?orderId={{item.orderId}}&money={{item.actualPrice}}&goodsName={{item.goodsName}}&grouponJson={{grouponJson}}&shopId={{item.shopId}}&type={{_this.data.type}}' class='list-item-btn block b-r t-c' wx:if="{{item.orderStatus==1}}">去付款</navigator> -->
+            <!-- <navigator url='../pay/pay?orderId={{item.orderId}}&money={{item.actualPrice}}&goodsName={{item.goodsName}}&shopId={{item.shopId}}' class='list-item-btn block b-r t-c' wx:if="{{item.orderStatus==1}}">去付款</navigator> -->
+            <view class='list-item-btn block b-r t-c'  bindtap='payfor' data-index='{{index}}'  wx:if="{{item.orderStatus==1}}">
+                <text >去付款</text>
+            </view>
+            <navigator url='../order_success/order_success?orderId={{item.orderId}}&goodsName={{item.goodsName}}&type=order' class='list-item-btn block b-r t-c' wx:elif="{{item.orderStatus==3}}">查看券码</navigator>
+            <!-- <navigator url='../submit_orders/submit_orders?goodsId={{item.goodsId}}&shopId={{item.shopId}}&type=normal' class='list-item-btn block b-r t-c' wx:elif="{{item.orderStatus==4}}">再来一单</navigator>
+            <navigator url='../submit_orders/submit_orders?goodsId={{item.goodsId}}&shopId={{item.shopId}}&type=normal' class='list-item-btn block b-r t-c' wx:elif="{{item.orderStatus==-1}}">再次下单</navigator> -->
+        </view>
+    </view>
+    <!-- 订单列表 end -->
+    <view class='no-more' hidden='{{!noMore}}'>
+        <text>没有数据了</text>
+    </view>
+    <bind_phone bind:bindphonecb="bindPhoneCbFn" phone-show="{{phoneShow}}"></bind_phone>
+</view>

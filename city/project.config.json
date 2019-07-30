@@ -1,0 +1,79 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.5",
+	"appid": "wx463b5a1c2c851de8",
+	"projectname": "%E6%B7%98%E4%B8%8A%E5%93%81TopShopping",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "dev",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": 1037,
+					"referrerInfo": {
+						"appId": "wxfed2470abe61685b",
+						"extraData": "{}"
+					}
+				},
+				{
+					"id": 1,
+					"name": "测试",
+					"pathName": "pages/share_detail/share_detail",
+					"query": "goodsId=5878e14e256b44e79ff95e17c02ac9f8&grouponsId=a6214ddf20d5457295444c0e35f61b69&shopId=45769c969e5e4a549074bd9d98adec3f&type=order&price=0.01&orderId=6db5bc14db0840afbd83a4d6631284aa",
+					"scene": "1007"
+				},
+				{
+					"id": -1,
+					"name": "测试2",
+					"pathName": "pages/share_detail/share_detail",
+					"query": "groupInfo.type === 3&&groupInfo.groupon_goods_type === 1&&hasGrouped"
+				},
+				{
+					"id": 3,
+					"name": "dev",
+					"pathName": "pages/share_detail/share_detail",
+					"query": "shopId=4a0ad436a02f47ba875cf60cb67d866f&goodsId=c2d5409608c54e2e9b9d56de6e8d744c",
+					"scene": "1036",
+					"referrerInfo": {}
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,72 @@
+<!--pages/order_detail/order_detail.wxml-->
+<view class='container'>
+    <!-- 商品信息 star -->
+        <navigator url="../goods_detail/goods_detail?goodsId={{goodsInfo.goodsId}}&shopId={{shopId}}" class="goods-info flex m-b-20">
+        <image class='goods-img' src='{{goodsInfo.path}}' binderror="imgErrorFn" data-date="goodsInfo" data-index="{{-1}}" data-field="path"></image>
+        <view class='goods-content d-c j-b'>
+            <view>
+                <text class='goods-title ellipsis block'>{{goodsInfo.goodsName}}</text>
+                <text class='goods-name block'>{{shopInfo.shop_name}}</text>
+            </view>
+            <view class='price i-b'>
+                <text class='price-symbol'>￥</text>
+                <text>{{goodsInfo.shopPrice}}</text>
+            </view>
+        </view>
+        <image class='arrow-r' src='../../images/arrow-right.png'></image>
+    </navigator>
+    <!-- 商品信息 end -->
+
+    <!-- 拼团人数 star -->
+    <view class='all-group'>
+        <view class='group'>
+            <view class=' user-name flex j-b'>
+                <text class='name'>发起人</text>
+                <image class='group-img' src='../../images/group_is_ok.png' wx:if="{{goodsInfo.type === 5}}"></image>
+                <image class='group-img' src='../../images/order-group-no.png' wx:if="{{goodsInfo.type !== 5}}"></image>
+            </view>
+            <view class='user fl ellipsis'>
+                <image class='first-img fl' src="{{commanderList.portrait_url}}"></image>
+                <text class='line fl' wx:if="{{groupUser[index].is_head !== 1}}">|</text>
+                <image class='user-img fl' wx:if="{{groupUser[index].is_head !== 1}}" wx:for="{{groupUser}}" src="{{groupUser[index].portrait_url}}"></image>
+                <image class='user-img fl v-m' src="../../images/pic98.png" wx:if="{{goodsInfo.type !== 5}}"></image>
+            </view>
+            <text class="omit fl" wx:if="{{groupUser.length >= 3 || goodsInfo.type !== 5}}">...</text>
+        </view>
+        <view>
+            <view class='all-invite flex border-t' wx:if="{{goodsInfo.type === 2}}">
+                <view class='invite-btn border-t'>
+                    <button open-type='share' class='invite-tex'>{{timeList.timeStr}}后结束 邀请好友拼团</button>
+                </view>
+                <!-- <button class='invite-tex' wx:if="{{info.type === 5}}" bindtap='goIndex'>该拼团完成,回到首页</button>
+                    <button class='invite-tex' bindtap='goIndex' wx:if="{{nowTime > endTime && info.type !== 5}}">该拼团已结束,回到首页</button> -->
+            </view>
+        </view>
+    </view>
+
+
+    <!-- 拼团人数 end -->
+
+    <!-- 商家信息 start -->
+    <view class='shop-info order-detail-box flex j-b m-b-20'>
+        <image class='shop-info-icon' src='../../images/order-shop-icon.png'></image>
+        <view class=' order-detail-content'>
+            <view class='border-b'>
+                <text class='order-detail-title'>商家信息</text>
+            </view>
+
+            <view class='shop-address-box'>
+                <navigator url='../shop_index/shop_index?shopId={{shopId}}' class='block shop-name'>{{shopInfo.shop_name}}</navigator>
+                <view class='flex'>
+                    <image class='address-icon' src="../../images/order-address.png"></image>
+                    <navigator class='address' url='../shop_index/shop_index?shopId={{shopId}}'>{{shopInfo.address}}</navigator>
+                    <text class='line'></text>
+                    <image class='phone-icon' src='../../images/call.png' bindtap='callPhoneFn'></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 商家信息 end -->
+
+    <bind_phone bind:bindphonecb="bindPhoneCbFn" phone-show="ture"></bind_phone>
+</view>

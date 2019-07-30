@@ -1,0 +1,31 @@
+<!--pages/managAddress/managAddress.wxml-->
+
+<view class='container'>
+  <view class='main flex d-c'>
+    <view class='list flex d-r a-c'>
+      <text>收货人</text>
+      <input class='v-m' type='text' value='{{name}}' bindinput='nameFn' ></input>
+    </view>
+    <view class='list flex d-r a-c'>
+      <text class='v-m'>联系方式</text>
+      <input class='v-m' type='text' value='{{phoneShow}}' bindinput='mobileFn' ></input>
+    </view>
+   <view class='list flex d-r a-c'>
+      <text class='v-m'>所在地区</text>
+      <navigator class='v-m' url='../map_search/map_search' >{{address}}</navigator>
+    </view>
+    <view class='list flex d-r a-c last' >
+     <text class='v-m'>街道</text>
+      <input class='v-m' type='text' bindinput='doorNumberFn' value='{{addressDetail}}' ></input>   
+    </view>    
+  </view>
+  <view class='default flex a-c ' bindtap='radioChangeFn'>
+      <!-- <radio class='default-radio v-m' color='#fe791d' checked='{{checked}}'></radio> -->
+      <image class='v-m' src='{{imgPath}}'></image>
+      <text class='default-text v-m'>设为默认地址</text>
+  </view>
+
+  <view class='save' bindtap='submitFn'>
+      <text>保存</text>
+  </view>
+</view>

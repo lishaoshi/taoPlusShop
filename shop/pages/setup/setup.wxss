@@ -1,0 +1,30 @@
+/* pages/setup/setup.wxss */
+
+@import '../../common.wxss';
+
+.setup-head {
+    text-align: center;
+}
+
+.setup-head-img {
+    width: 163rpx;
+    height: 163rpx;
+    border-radius: 50%;
+    margin-top: 80rpx;
+}
+
+.setup-head-text {
+    font-size: 25rpx;
+    line-height: 50rpx;
+}
+
+.add-address-item {
+    padding: 30rpx 0;
+    border-bottom: 1px solid #EDEDED;
+    font-size: 28rpx;
+    color: #3F3F3F;
+    line-height: 50rpx;
+}
+
+/*直接用添加地址的样式  */
+@import '../add_address/add_address.wxss';

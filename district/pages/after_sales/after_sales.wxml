@@ -1,0 +1,32 @@
+<view class='container'>
+  <view class='refund'>
+    <text>退还金额</text>
+  </view>
+  <view class='refund_num'>
+    <text class='refund_text'>退款金额</text>
+    <text class='refund_amount'>￥{{sum}}</text>
+  </view>
+  <view class='refund_type'>
+    <text>退还方式</text>
+  </view>
+  <view class='refund_sum'>
+    <text class='refund_sum_text'>退还金额</text>
+    <text class='refund_day'>1-7个工作日内退款到账原支付方</text>
+  </view>
+  <view class='refund_reason'>
+    <text>退款原因</text>
+  </view>
+  <view class='radio-group'> 
+    <radio-group class="radio-group" bindchange="radioChange">
+    <view class='refund-reason-type' wx:for="{{items}}">
+      <text>{{item.value}}</text>
+      <radio  value='{{item.value}}' color='#fe791d' checked="{{item.checked}}"></radio>
+     </view>
+    </radio-group>
+  </view>
+  <view class='submit' bindtap='salesSubmitFn'>
+      <text class='submit-text' >提交</text>
+   </view>
+
+
+</view>

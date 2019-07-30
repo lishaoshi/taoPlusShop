@@ -1,0 +1,60 @@
+<!--pages/type_search/type_search.wxml-->
+<view class='container'>
+    <view class='search-header border-b fixed'>
+        <view class='search-box'>
+            <image class='search-icon v-m' src='../../images/search-icon.png'></image>
+            <input class='search-input v-m i-b' confirm-type='search' placeholder='搜索商品或商店' bindconfirm="inputChangeFn" value='{{searchKey}}'></input>
+        </view>
+    </view>
+    
+     <scroll-view class='list' >
+        <navigator class='list-item' url='../goods_detail/goods_detail?goodsId={{item.goods_id}}&shopId={{item.shop_id}}' wx:for="{{goodsList}}">
+            <view class='list-item-head flex j-b'>
+                <view class='shopname'>
+                    <text class='shop-name-text ellipsis v-b'>{{item.shop_name}}</text>
+                </view>
+                <text wx:if="{{item.juli}}">{{ item.juli !=null ?item.juli:''}}</text>
+            </view>
+
+            <view class='flex'>
+                <view class='groupon-list-img' >
+                <image class='list-item-img' src='{{item.path}}' binderror="imgErrorFn" data-date="goodsList" data-index="{{index}}" data-field="path"></image>
+                
+                           <text class='groupon_sum {{item.groupon_sum!=null?"block": "hide"}}'>{{item.groupon_sum}}人团</text>
+                        </view>
+                <view class='list-item-info flex d-c j-b'>
+                    <view class='w-100'>
+                        <text class='title block ellipsis'>{{item.goods_name}}  </text>
+                         <text class='block ellipsis described'>{{item.described!=null?item.described:"好"}}</text>
+                    </view>
+                    <view class='flex j-b unit-price'>
+                     <text class='group-text'>销量<text class='group-num'>{{item.sales_volume+(item.inital_sales_volume||0)}}</text>件</text>
+                        <image class='group-buy-logo' src='../../images/shoping-logo.png'></image> 
+                    </view>
+                    <view class='flex w-100 groupon-left'>
+                        <view class=' flex all-groupon'>
+                        <view class='money-light flex '>
+                            <text class='money-symbol-price'>￥</text>
+                            <text>{{item.groupon_price!=null ? item.groupon_price : item.shop_price}}</text>
+                             <text class='old-price {{item.groupon_price !=null?"hide": "block"}}'>{{item.market_price !=null ? '原价¥'+item.market_price :''}}</text>
+                        </view>
+                        <view class='groupon_real {{item.groupon_sum!=null?"block": "hide"}}'>
+                           <text>单买价</text>
+                            <text class='unit-symbols'>¥</text>
+                            <text class='unit-price-num'>{{item.shop_price}}</text>
+                        </view>
+                        </view>
+                         
+                        
+                    </view>
+                </view>
+               
+            </view>
+        </navigator>
+
+        <view class='no-more' hidden='{{!noMore}}'>
+            <text>没有数据了</text>
+        </view>
+    </scroll-view>
+    <!-- 列表 end -->
+</view>

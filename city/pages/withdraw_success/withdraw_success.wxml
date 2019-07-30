@@ -1,0 +1,44 @@
+<!--pages/withdraw_success/withdraw_success.wxml-->
+<view class='container'>
+    <view class='all-detail'>
+        <view class='audit'>
+            <view class='audit-header'>
+                <image class='audit-img v-m' src='../../images/audit.png'></image>
+                <text class='audit-text v-m'>发起申请</text>
+            </view>
+            <view class='audit-detail'>
+                <view class='detail-time'>
+                    <text>{{time}}</text>
+                </view>
+                
+            </view>
+        </view>
+        <view class='audit after-pay'>
+            <view class='pay-header'>
+                <image class='audit-img v-m' src='../../images/after-pay.png'></image>
+                <text class='audit-text v-m'>提现处理中</text>
+            </view>
+            <view class='audit-detail detail-main'>
+                <view class='detail-money'>
+                    <text class='detail-sum'>预计会在</text>
+                    <text class='detail-text'>1~7</text>
+                    <text class='detail-text'>个工作日内到账</text>
+                </view>
+            </view>
+        </view>
+        <view class='audit after-pay'>
+            <view class='pay-header'>
+                <image class='audit-img v-m' src='../../images/refund.png'></image>
+                <text class='hao-text v-m'>提现到账</text>
+            </view>
+            <view class='account-sum'>
+                <view class='account-text'>
+                    <text> 请耐心等待</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <navigator url='/pages/user/user' open-type='switchTab' class='submit'>
+        <text>完成</text>
+    </navigator>
+</view>

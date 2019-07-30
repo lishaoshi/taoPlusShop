@@ -1,0 +1,53 @@
+ <view class='list'>
+      <navigator class='list-item' url='../goods_detail/goods_detail?goodsId={{item.goods_id}}&shopId={{item.shop_id}}' wx:for="{{goodsList}}" wx:key="goods">
+        <view class='list-item-head flex j-b'>
+          <view class='shopname'>
+            <!-- <image class='shop-icon v-b v-m' src='../../images/index-shop-icon.png'></image> -->
+            <text class='v-b shop-name-text ellipsis v-m'>{{item.shop_name}}</text>
+          </view>
+          <text class='{{item.juli!=null? "block": "hide"}}'>{{item.juli!=null?item.juli:''}}</text>
+        </view>
+
+        <view class='flex goods-list'>
+        <view class='group-list-img'>
+          <image class='list-item-img' src='{{item.path}}' binderror="imgErrorFn" data-date="goodsList" data-index="{{index}}" data-field="path"></image>
+           <text class='goods-list-img {{item.groupon_sum!=null?"block": "hide"}}'>{{item.groupon_sum+'人团'}}</text>
+          </view>
+         
+          <view class='list-item-info flex d-c j-b'>
+            <view class='w-100'>
+              <text class='title block ellipsis'>{{item.goods_name}}</text>
+              <text class='block ellipsis described'>{{item.described!=null?item.described:"好"}}</text>
+            </view>
+            <view class='unit-price flex j-b'>
+                 <text class='group-text'>销量<text class='group-num'>{{item.sales_volume+(item.inital_sales_volume||0)}}</text>件</text>
+                 <image class='buy-logo' src='../../images/shoping-logo.png' ></image>
+            </view>
+            <view class='w-100'>
+              <view class='money-light flex'>
+                <view class='flex d-r group-left'>
+                     <text class='group-symbol'>￥</text>
+                    <text class='group-shop-price' >{{item.groupon_price !=null ? item.groupon_price :item.shop_price}}</text>
+                   <view class='{{item.groupon_price !=null?"hide": "block"}} g-old-price'>
+                    <text class='old-price '>{{item.market_price !=null ? '原价¥'+item.market_price :''}}</text>
+                   </view>
+                </view>
+                <view class='group-right {{item.groupon_sum!=null?"block": "hide"}}'>
+                    <text>单买价</text>
+                <text class='unit-symbols'>¥</text>
+                <text class='unit-price-num'>{{item.shop_price}}</text>
+                </view>
+                <view class='flex d-c group t-r a-c'>
+                </view>
+              </view>
+              
+            </view>
+            
+          </view>
+           
+           
+        </view>
+      </navigator>
+
+      
+    </view>

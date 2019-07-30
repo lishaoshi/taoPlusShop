@@ -1,0 +1,34 @@
+<!--pages/reservations_success/reservations_success.wxml-->
+
+<view class='header'>
+    <image class='icon' src='../../images/reservationsAndLineUp/reservations-light.png' alt="预定成功"></image>
+    <text class='block header-tip'>预定成功</text>
+    <text class='block'>待到店</text>
+</view>
+
+<view class='info-box'>
+    <view>
+        <text class='t-gray info-box-left'>人数 :</text>
+        <text>{{info.population}}人 , {{info.arrive_time}} {{info.start_time}}-{{info.end_time}}</text>
+    </view>
+    <view>
+        <text class='t-gray info-box-left'>位置要求 :</text>
+        <text>{{info.position_name}} {{info.floorSeat}}</text>
+    </view>
+    <view>
+        <text class='t-gray info-box-left'>联 系 人 :</text>
+        <text>{{info.username}}</text>
+    </view>
+    <view>
+        <text class='t-gray info-box-left'>联系电话 :</text>
+        <text>{{info.mobile}}</text>
+    </view>
+    <view>
+        <text class='t-gray info-box-left'>下单时间  :</text>
+        <text>{{info.create_time}}</text>
+    </view>
+</view>
+
+<button class='share hide' open-type="share">分享给好友</button>
+
+<my-tab></my-tab>

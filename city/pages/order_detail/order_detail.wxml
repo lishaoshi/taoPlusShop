@@ -1,0 +1,157 @@
+<!--pages/order_detail/order_detail.wxml-->
+<view class='container'>
+    <!-- 商品信息 star -->
+    <navigator url="../goods_detail/goods_detail?goodsId={{goodsId}}&shopId={{shopId}}" class='goods-info flex m-b-20'>
+        <image class='goods-img' src='{{goodsInfo.path}}' binderror="imgErrorFn" data-date="goodsInfo" data-index="{{-1}}" data-field="path"></image>
+        <view class='goods-content flex d-c j-b'>
+            <view>
+                <text class='goods-title ellipsis block'>{{goodsInfo.goods_name}}</text>
+                <text class='goods-name ellipsis block'>{{shopInfo.shop_name}}</text>
+            </view>
+            <view class='price i-b'>
+                <text class='price-symbol'>￥</text>
+                <text>{{goodsInfo.shop_price}}</text>
+            </view>
+        </view>
+        <image class='arrow-r' src='../../images/arrow-right.png'></image>
+    </navigator>
+    <!-- 商品信息 end -->
+    <!-- 拼团人数 star -->
+    <view class='all-group' wx:if="{{couponInfo.order_type === 2 || couponInfo.order_type === 4}}">
+        <view class='group'>
+            <view class=' user-name flex j-b'>
+                <text class='name'>发起人</text>
+                <image class='group-img' src='../../images/group_is_ok.png' wx:if="{{info.type === 5}}"></image>
+                <image class='group-img' src='../../images/order-group-no.png' wx:if="{{info.type !== 5}}"></image>
+            </view>
+            <view class='user fl ellipsis'>
+                <image class='first-img fl' src="{{commanderList.portrait_url}}"></image>
+                <text class='line fl' wx:if="{{groupUser[index].is_head !== 1}}">|</text>
+                <image class='user-img fl' wx:if="{{groupUser[index].is_head !== 1}}" wx:for="{{groupUser}}" src="{{groupUser[index].portrait_url}}"></image>
+                <image class='user-img fl v-m' src="../../images/pic98.png" wx:if="{{info.type !== 5}}"></image>
+            </view>
+            <text class="omit fl" wx:if="{{groupUser.length >= 3}}">...</text>
+        </view>
+        <view wx:if="{{(couponInfo.order_type === 2 || couponInfo.order_type === 4)&&(orderStatus === '3'||orderStatus === '4')}}">
+            <view class='all-invite flex border-t' wx:if="{{info.type == 2}}">
+                <view class='invite-btn border-t'>
+                    <button open-type='share' class='invite-tex'>{{timeList.timeStr}}后结束 邀请好友拼团</button>
+                </view>
+                <!-- <button class='invite-tex' wx:if="{{info.type === 5}}" bindtap='goIndex'>该拼团完成,回到首页</button>
+                    <button class='invite-tex' bindtap='goIndex' wx:if="{{nowTime > endTime && info.type !== 5}}">该拼团已结束,回到首页</button> -->
+            </view>
+        </view>
+    </view>
+
+
+    <!-- 拼团人数 end -->
+
+    <!-- 团购券 start -->
+    <view class='group-buying m-b-20' wx:if="{{orderStatus!=1 && orderStatus!=-1 && orderStatus!=6}}">
+        <!-- <view class='flex j-b'>
+            <image class='ground-buying-icon' src='../../images/coupon.png'></image>
+            <view class='flex j-b ground-buying-info border-b'>
+                <view>
+                    <text class='ground-buying-title block'>团购券</text>
+                    <text class='ground-buying-time block'>有效期至：{{couponInfo.end_time}}</text>
+                </view>
+                <navigator url='../after_sales/after_sales?money=999' class='refund-btn t-c hide'>申请退款</navigator>
+            </view>
+        </view> -->
+        <view class='group-buying-middle border-b flex j-b'>
+            <view>
+                <text class='key'>券码</text>
+            <text class='code'>{{couponInfo.coupon_code}} </text>
+            </view>
+            <navigator wx:if="{{info.type!= 5 && orderStatus!= 5  && orderStatus!= 6 && orderStatus!= 7 &&orderStatus !=4&& orderStatus !=2}}" url='../after_sales/after_sales?orderId={{orderId}}&sum={{orderInfo.actualPrice}}' class='refund-btn t-c'>申请退款</navigator>
+        </view>
+
+        <view class='group-buying-bottom'>
+            <text class='green key v-m'>二维码</text>
+            <image class='code-img v-m' src='{{couponInfo.coupon_code_url}}' binderror="imgErrorFn" data-date="couponInfo" data-index="{{-1}}" data-field="coupon_code_url" bindtap='showPicFn'></image>
+        </view>
+    </view>
+    <!-- 兑换券 end -->
+
+    <!-- 团购消息 start-->
+    <!-- <view class='group-buying m-b-20' wx:if="{{groupons}}">
+        <view class='flex j-b'>
+            <image class='ground-buying-icon' src='../../images/coupon.png'></image>
+            <view class='flex j-b ground-buying-info border-b'>
+                <view>
+                    <text class='ground-buying-title block'>团购</text>
+                </view>
+            </view>
+        </view> -->
+    <!-- <view class='group-buying-middle border-b' wx:if="{{groupons}}">
+      <text class='key'>状态</text>
+      <text class='code' wx:if="{{groupons.true_num < groupons.processing_num && show_button}}">还剩下{{groupons.processing_num-groupons.true_num}}个名额 </text>
+      <text class='code' wx:if="{{groupons.true_num < groupons.processing_num && !show_button}}">已过期 </text>
+      <text class='code' wx:if="{{groupons.true_num == groupons.processing_num}}">已成团</text>
+    </view> -->
+
+    <!-- <view class='group-buying-bottom {{show_button?"add_class":"add_class_hide"}}' wx:if="{{groupons.true_num < groupons.processing_num}}">
+      <button open-type='share' style='back-ground-color:#fe791d;'>立即邀请好友拼团</button>
+    </view> -->
+    <!-- </view> -->
+    <!-- 团购消息 end-->
+
+    <!-- 商家信息 start -->
+    <view class='shop-info order-detail-box flex j-b m-b-20'>
+        <image class='shop-info-icon' src='../../images/order-shop-icon.png'></image>
+        <view class=' order-detail-content'>
+            <view class='border-b'>
+                <text class='order-detail-title'>商家信息</text>
+            </view>
+
+            <view class='shop-address-box'>
+                <navigator url='../shop_index/shop_index?shopId={{shopId}}' class='block shop-name'>{{shopInfo.shop_name}}</navigator>
+                <view class='flex'>
+                    <image class='address-icon' src="../../images/order-address.png"></image>
+                    <text class='address' bindtap='openLocation'>{{shopInfo.address}}</text>
+                    <text class='line'></text>
+                    <image class='phone-icon' src='../../images/call.png' bindtap='callPhoneFn'></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 商家信息 end -->
+
+    <!-- 订单信息 start -->
+    <view class="order-detail-box flex j-b {{(orderStatus==5 || orderStatus==6 || orderStatus==7)?'order-detail-bottom':''}} ">
+        <image class='order-icon' src='../../images/order-icon.png'></image>
+        <view class=' order-detail-content'>
+            <view class='border-b'>
+                <text class='order-detail-title'>订单信息</text>
+            </view>
+
+            <view class='order-detail-info'>
+                <view>
+                    <text class='title'>订单号:</text>
+                    <text>{{orderInfo.sn}}</text>
+                </view>
+                <view>
+                    <text class='title'>手机号:</text>
+                    <text>{{orderInfo.mobile}}</text>
+                </view>
+                <view>
+                    <text class='title'>下单时间:</text>
+                    <text>{{orderInfo.createTime}}</text>
+                </view>
+                <view>
+                    <text class='title'>数   量:</text>
+                    <text>{{orderInfo.num}}</text>
+                </view>
+                <view>
+                    <text class='title'>总   价 </text>
+                    <text>￥{{orderInfo.actualPrice}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 订单信息 end -->
+   <view class='order-pay' bindtap='refundDetailFn' wx:if="{{orderStatus==5 || orderStatus==6 || orderStatus==7}}"> 
+    <text class='order-pay-price' >退款详情</text>
+  
+  </view>
+</view>

@@ -1,0 +1,21 @@
+<!--pages/register/register.wxml-->
+<view class='container'>
+    <view class='logo'>
+        <image ></image>
+    </view>
+    <view class='register-content flex d-c a-c'>
+        <view class='phone flex a-c'>
+            <input bindinput='phoneInputFn' type='number' maxlength="11" placeholder='请输入手机号'></input>
+        </view>
+        <view class='code flex a-c'>
+          <input class='v-m' bindinput='codeInputFn' type='number' placeholder='请输入验证码'> </input>
+          <button class="v-m {{isColor? 'b' : 'a'}}"   plain='true' bindtap='changeCodeFn' disabled="{{disabled}}">
+          <text hidden="{{codeDis}}">{{phoneCode}}</text>
+          <text hidden="{{!codeDis}}">{{codeTime}}s后重新获取</text>
+          </button>
+        </view>
+        <view class='register' bindtap='registerFn'>
+          <text>绑定手机</text>
+        </view>
+    </view>
+</view>

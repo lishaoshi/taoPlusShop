@@ -1,0 +1,30 @@
+<!--pages/address_list/address_list.wxml-->
+<view class='address-list' wx:if="{{address_list.length != 0}}">
+    <view class='address-list-item flex j-b border-b' wx:for="{{address_list}}" wx:key="address">
+        <view class='address-list-item-info' data-id="{{item.user_address_id}}" data-index="{{index}}"  bindlongpress='delFn' bindtap='choiceFn'>
+            <image class='address-list-item-info-img v-m' src='../../images/checked.png' wx:if="{{index == checked}}"></image>
+            <image class='address-list-item-info-img v-m' style='opacity:0' src='../../images/checked.png' wx:else></image>
+            <view class='address-list-item-info-text v-m i-b'>
+                <text class='block'>{{item.address}}{{item.door_number}}</text>
+                <text class='t-gray address-list-item-info-text-bottom block'>{{item.user_name}}  {{item.mobile}}</text>
+            </view>
+        </view>
+        <navigator class='i-b v-m edit-icon' url='../edit_address/edit_address?userAddressId={{item.user_address_id}}'  hover-class="none">
+            <image class='address-list-item-edit v-m' src='../../images/edit.png'></image>
+        </navigator>
+        
+    </view>
+</view>
+<text class='block tip t-gray'>提示：长按可以删除地址</text>
+<navigator class='add-address' url='../add_address/add_address'>新增地址</navigator>
+
+<!--没有地址时显示  -->
+<view class='no-address-view' wx:if="{{address_list.length == 0}}">
+    <image class='no-address-img' src='../../images/no-address.png'></image>
+    <text class='block'>暂无收货地址</text>
+</view>
+
+<my-tab></my-tab>
+<bind_phone bind:bindphonecb="bindPhoneCbFn" phone-show="{{phoneShow}}"></bind_phone>
+
+

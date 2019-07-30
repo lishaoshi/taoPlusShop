@@ -1,0 +1,30 @@
+<!--pages/reservations_list/reservations_list.wxml-->
+
+<!-- <text class='order-title block'>预定列表</text> -->
+<view class='order-list'>
+    <navigator class='order-list-item clear' url='../reservations_success/reservations_success?reserveTablesId={{item.reserve_tables_id}}' wx:for="{{reservations_list}}" wx:key="reservations_list">
+        <image class='order-list-item-img  fl' src='{{IMG}}/{{item.portrait_url}}'></image>
+
+        <view class='order-list-item-info'>
+            <view class='order-list-item-info-top clear'>
+                <text class='v-m'>{{item.shop_name}}</text>
+                <image class='order-list-item-info-icon v-m' src='../../images/arrow-right.png'></image>
+                <text class='order-list-item-info-text orange fr'>{{item.type_text}}</text>
+            </view>
+
+            <view class='order-list-item-table flex j-b'>
+                <view class='order-list-item-table-left i-b v-m'>
+                    <text class='order-list-item-table-left block'>人数： {{item.population}}</text>
+                    <text class='order-list-item-table-left block'>位置要求： {{item.position_name}} </text>
+                    <text class='order-list-item-table-left block '>到店时间： {{item.arrive_time}}/{{item.start_time}}-{{item.end_time}}</text>
+                </view>
+                <view class='order-list-item-table-right i-b v-m'>
+                    <navigator class='order-detail-btn'>查看详情</navigator>
+                </view>
+            </view>
+        </view>
+    </navigator>
+</view>
+<view class='t-gray no-more' wx:if="{{!loadMore}}">没有更多数据</view>
+
+<my-tab></my-tab>

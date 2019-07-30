@@ -1,0 +1,33 @@
+<!--pages/withdraw/withdraw.wxml-->
+<view class='container'>
+    <view class='withdraw'>
+
+        <view class='withdraw-head flex j-b border-b'>
+            <text>提现至</text>
+            <view class='withdraw-bank'>
+                <navigator class='{{isShow? "hide":"block"}}' url="../bank_card_list/bank_card_list">立即绑定银行卡</navigator>
+                <picker bindchange="bindPickerChangeFn" value="{{index}}" range="{{bankCardList}}" range-key="bankcard_name">
+                    <view class="picker {{isShow? 'block':'hide'}} bankId">
+                        {{bankCardList[index].bankcard_name}}({{bankCardList[index].bankcard_num}})
+                    </view>
+                </picker>
+            </view>
+        </view>
+
+        <view class='withdraw-content'>
+            <text class='withdraw-title'>提现金额</text>
+            <view class='input-box border-b'>
+                <text class='v-m'>￥</text>
+                <input bindinput='balanceFn' class='withdraw-input i-b v-m' type='digit' value='{{sum}}'></input>
+            </view>
+        </view>
+
+        <view class='withdraw-foot i-b' bindtap='allWithdrawFn'>
+            <text>当前余额{{balance}}元，提现手续费每笔1元。<text class='blue'>全部提现</text> </text>
+        </view>
+    </view>
+
+    <view class='submit' bindtap='submitFn'>
+        <text>提现</text>
+    </view>
+</view>

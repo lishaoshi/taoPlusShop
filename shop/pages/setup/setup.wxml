@@ -1,0 +1,44 @@
+<!--pages/setup/setup.wxml-->
+<view class='setup-head'>
+    <!-- <image class='setup-head-img' wx:if="{{!portraitUrl}}" src='{{headUrl}}' bindtap='uploadFn'></image> -->
+    <!-- <image class='setup-head-img' wx:if="{{portraitUrl}}" src='{{IMG}}{{portraitUrl}}' bindtap='uploadFn'></image> -->
+<image class='setup-head-img'  wx-if="{{!avatarUrl}}" src='{{headUrl}}'></image>
+<image class='setup-head-img' wx-if="{{avatarUrl}}" src='{{avatarUrl}}'></image>
+    <!-- <text class='setup-head-text block t-gray'>点击替换头像</text> -->
+</view>
+
+<view class='add-address'>
+    <view class='add-address-item clear'>
+        <text class='add-address-item-name fl'>联系人</text>
+        <view class='add-address-item-right'>
+            <input class='add-address-item-input block' placeholder='您的姓名' bindinput='nameFn' value='{{userName}}'></input>
+            <radio-group class="block radio-group" bindchange="radioChangeFn">
+                <label class='i-b v-m radio-group-label'>
+                    <radio value='1' checked='{{sex==1}}'>先生</radio>
+                </label>
+
+                <label class='i-b v-m radio-group-label'>
+                    <radio value='2' checked='{{sex==2}}'>女士</radio>
+                </label>
+            </radio-group>
+        </view>
+    </view>
+
+    <!-- <view class='add-address-item clear'>
+        <text class='add-address-item-name fl'>手机</text>
+        <view class='add-address-item-right'>
+            <input class='add-address-item-input block' placeholder='您的电话号码' bindinput='mobileFn' value='{{mobile}}' type='number'></input>
+        </view>
+    </view> -->
+
+    <!-- <view class='add-address-item clear'>
+        <text class='add-address-item-name fl'>生日</text>
+        <view class='add-address-item-right'>
+            <input class='add-address-item-input block' placeholder='您的生日'></input>
+        </view>
+    </view> -->
+</view>
+
+<view class='add-address-btn' bindtap='submitFn'>保存</view>
+
+<my-tab></my-tab>
