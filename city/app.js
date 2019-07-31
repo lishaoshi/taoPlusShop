@@ -1,6 +1,6 @@
 //app.js
 
-let env = "prod";
+let env = "test2";
 
 let config = {}
 
@@ -70,16 +70,16 @@ switch (env) {
 
   case "test2":
     config = {
-        HOST: 'http://192.168.3.192:9082',
-        IMG: 'http://192.168.3.192:9082',
+      HOST: 'http://134.175.171.231:9082',
+      IMG: 'http://134.175.171.231:9082',
       env: 'test',
       openid: '',
       sessionKey: '',
       accessToken: '',
       expiresTime: '',
       expiresIn: '',
-      clientId: '1',
-      clientSecret: '1',
+      clientId: 'city_miniapp',//41f7b36a712c4bd4b636f1064c4a7846
+      clientSecret: 'city_miniapp',
       userId: '', //测试用的userId b874258b1d8b4e6ba6179f3532cb929c
       agencyId: 'bc2e3fab774e4797a3987371c20553c8', //测试用的商圈id 41f7b36a712c4bd4b636f1064c4a7846
       mobile: '', //测试用的手机号
