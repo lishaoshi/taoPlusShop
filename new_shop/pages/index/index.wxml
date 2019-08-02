@@ -1,0 +1,40 @@
+<!--index.wxml-->
+<view class="conmtainer">
+<button open-type="getUserInfo" class="getUserInfo" wx:if='{{!userAuth}}' bindgetuserinfo='callbackGetUserInfo'></button>
+  <view class="heade">
+    <view bindtap="queryShopDetail">
+      <image src=""></image>
+      <text>店铺名称</text>
+      <view class="arrow"></view>
+    </view>
+    <switch bindchange="changSwitch">{{type}}</switch>
+  </view>
+
+  <!-- 今日收益 -->
+
+  <view class="today" bindtap="goChooseMap">
+    <view class='flex_row'>
+      <text>今日收益（元）</text>
+      <image src="../../images/show.svg"></image>
+    </view>
+    <text>{{price}}</text>
+  </view>
+
+  <!-- 图标显示 -->
+  <view class="icon_box flex_row">
+    <view class="flex_column info" wx:for="{{iconList}}" wx:key="{{index}}">
+      <image src="{{item.img}}"></image>
+      <text>{{item.title}}(20)</text>
+    </view>
+  </view>
+
+
+  <!-- 业务模块 -->
+  <view class="business flex_row">
+    <view class="business_box flex_column" wx:for="{{businessList}}" wx:key="{{index}}">
+      <image src="{{item.img}}"></image>
+      <text>{{item.title}}</text>
+      <text>{{item.note}}</text>
+    </view>
+  </view>
+</view>

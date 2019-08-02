@@ -1,0 +1,108 @@
+/**index.wxss**/
+.conmtainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0 30rpx;
+}
+.heade {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.heade > view {
+  display: flex;
+  align-items: center;
+}
+.heade image {
+  width: 42rpx;
+  height: 42rpx;
+  margin-right: 20rpx; 
+}
+.wx-switch-input{
+width:82rpx !important;
+height:34rpx !important;
+}
+/*白色样式（false的样式）*/
+.wx-switch-input::before{
+width:80rpx !important;
+height: 32rpx !important;
+}
+/*绿色样式（true的样式）*/
+.wx-switch-input::after{
+width: 40rpx !important;
+height: 32rpx !important;
+}
+.arrow {
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  width: 20rpx;
+  height: 20rpx;
+  margin-left: 56rpx;
+  transform: rotate(45deg)
+}
+
+.today {
+  /* height: 300rpx; */
+   background: linear-gradient(to right, rgb(81, 156, 241) , rgb(21, 125, 243));
+   border-radius:16rpx;
+   margin-top: 10rpx;
+   padding: 0 30rpx;
+   color: #fff;
+}
+.today > view >image {
+  width: 32rpx;
+  height: 30rpx
+}
+.today > view {
+  margin-top: 20rpx;
+}
+.today > text {
+  font-size: 46rpx;
+  /* font-weight: bold; */
+  margin-bottom: 66rpx;
+  display: block;
+}
+.icon_box {
+  justify-content: space-around;
+  margin-top: 40rpx;
+  margin-bottom: 12rpx;
+  
+}
+.icon_box image {
+  width: 36rpx;
+  height: 36rpx;
+  margin-bottom: 10rpx;
+}
+.info {
+  font-size: 20rpx;
+  align-items: center;
+  margin-top: 12rpx;
+}
+.business_box {
+  width: 30%;
+  align-items: center;
+  font-size: 24rpx;
+  line-height: 42rpx;
+  border: 1px solid #999;
+  padding-bottom: 10rpx;
+}
+.business_box image {
+  margin-bottom: 12rpx;
+  margin-top: 42rpx;
+  width: 32rpx;
+  height: 32rpx;
+}
+.business {
+  flex-wrap: wrap;
+  justify-content: center;
+  /* font-size: 24rpx; */
+}
+.getUserInfo{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 5;
+	opacity: 0;
+}
