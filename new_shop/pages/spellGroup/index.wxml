@@ -1,0 +1,13 @@
+<!--pages/spellGroup/index.wxml-->
+<view class="container">
+  <view class='header'>
+    <view wx:for="{{typeList}}" wx:key='{{index}}'>
+      <text>{{item}}</text>
+    </view>
+    <picker bindchange="bindPickerChange" range-key="class_name" value="{{index}}" range="{{goodsTypeList}}">
+      <view class="picker">
+        <text wx:if="{{index==-1}}">筛选</text>{{goodsTypeList[index].class_name}}
+      </view>
+    </picker>
+  </view>
+</view>

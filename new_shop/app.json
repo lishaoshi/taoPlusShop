@@ -1,9 +1,10 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/varify/index",
+    "pages/verify/index",
     "pages/myInfo/index",
-    "pages/localtion/index"
+    "pages/localtion/index",
+    "pages/spellGroup/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

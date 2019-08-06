@@ -1,0 +1,13 @@
+<!--pages/verify/index.wxml-->
+<view class="container">
+  <view class="box">
+    <input bindblur="getCode" value="{{inputValue}}" placeholder="请输入券码"></input>
+  </view>
+  <view bindtap="openScanCode">
+    扫码
+  </view>
+
+  <view class="btn" bindtap="queryOrder">
+    确认
+  </view>
+</view>

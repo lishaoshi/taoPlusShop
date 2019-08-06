@@ -24,14 +24,14 @@
   <view class="icon_box flex_row">
     <view class="flex_column info" wx:for="{{iconList}}" wx:key="{{index}}">
       <image src="{{item.img}}"></image>
-      <text>{{item.title}}(20)</text>
+      <text>{{item.title}}({{item.count}})</text>
     </view>
   </view>
 
 
   <!-- 业务模块 -->
   <view class="business flex_row">
-    <view class="business_box flex_column" wx:for="{{businessList}}" wx:key="{{index}}">
+    <view class="business_box flex_column" wx:for="{{businessList}}" data-url="{{item.navigate_url}}" wx:key="{{index}}" bindtap="goTarget">
       <image src="{{item.img}}"></image>
       <text>{{item.title}}</text>
       <text>{{item.note}}</text>

@@ -1,6 +1,10 @@
 //index.js
+import index from '../../api/index.js'
+let indexMedel = new index()
 //获取应用实例
 const app = getApp()
+let userId = app.globalData.userId
+let shopId = app.globalData.shopId
 
 Page({
   data: {
@@ -10,28 +14,32 @@ Page({
     iconList: [
       {
         img: '../../images/customer.svg',
-        title:'足迹'
+        title:'足迹',
+        count: 0
       },
       {
         img: '../../images/colle.svg',
-        title: '收藏'
-        
+        title: '收藏',
+        count: 0
       },
       {
         img: '../../images/money.svg',
-        title: '分红数'
+        title: '分红数',
+        count: 0
       }
     ],
     businessList: [
       {
         img: '../../images/confirm.png',
         title: '核销',
-        note: '核销订单' 
+        note: '核销订单',
+        navigate_url: '/pages/verify/index'
       },
       {
         img: '../../images/confirm.png',
         title: '拼团',
-        note: '添加拼团'
+        note: '添加拼团',
+        navigate_url: '/pages/spellGroup/index'
       },
       {
         img: '../../images/confirm.png',
@@ -89,26 +97,90 @@ Page({
     this.isUserAuth()
     // console.log(app)
     this.getUserLocaltion()
+    this._getBusinissInfo()
+    this._getShopBalance()
   },
 
+  // 获取商家账户余额
+  _getShopBalance() {
+    let data = {
+      shopId: shopId
+    }
+    indexMedel.getShopBalance(data).then(res=>{
+      this.setData({
+        price: res.result
+      })
+    })
+  },
+
+  // 点击跳转相应模块
+  goTarget(e) {
+    console.log(e)
+    let url = e.currentTarget.dataset.url
+    if(!url) {
+      return
+    }
+    wx.navigateTo({
+      url: url,
+    })
+  },
+
+  // 获取商家营业数据（今日收益、浏览人数、订单数、点评数、收藏数）
+  _getBusinissInfo() {
+    let data = {
+      shopId: shopId
+    }
+    indexMedel.getBusinissInfo(data).then(res=>{
+      // this.data.iconList.forEach((item, index, arr)=>{
+      for (let i = 0; i < this.data.iconList.length;i++) {
+        let key = `iconList[${i}].count`
+        // key =
+        if(i==0) {
+          this.setData({
+            [key]: res.result.see_count
+          })
+        } else if(i==1) {
+          this.setData({
+            [key]: res.result.collect_count
+          })
+        } else {
+          this.setData({
+            [key]: res.result.evaluate_man
+          })
+        }
+       }
+      // console.log(this.data)
+    })
+   
+  },
+  // 设置商家营业状态
+  _setShopWorkStatus(flag) {
+    let data = {
+      userId: userId,
+      shopId: shopId,
+      workStatus: flag?1:2
+    }
+    indexMedel.setShopWorkStatus(data)
+  },
   // 用户授权获取地理位置
   getUserLocaltion() {
     wx.getLocation({
       type: 'wgs84',
       success:(res)=>{
-        console.log(res)
+        // console.log(res)
       }
     })
   },
 
   // 控制营业状态
   changSwitch(e) {
-    // console.log(e)
+    console.log(e)
     const flag = e.detail.value
     let type = flag?'营业中':'休息中'
     this.setData({
       type
     })
+    this._setShopWorkStatus(flag)
   },
 // 判断用户是否授权获取用户信息
   isUserAuth() {
