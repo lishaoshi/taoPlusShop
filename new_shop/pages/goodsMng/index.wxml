@@ -1,0 +1,23 @@
+<!--pages/goodsMng/index.wxml-->
+<view class="container">
+  <goods_type class="goodsType" bind:tabGoodsType='tabGoodsType' goodsTypeList="{{goodsTypeList}}">
+    <view class="addType" bindtap="addGoodsType" slot="addType">
+      <text>+ 分类</text>
+    </view>
+  </goods_type>
+  <view class="goodsList">
+    <view class="header_type">
+      <text>出售中(1)</text>
+      <text>已下架(2)</text>
+    </view>
+
+    <view class="goods_box">
+      <view class="goods_info">
+        <!-- <image src=""></image> -->
+        <view>
+          <text>{{item.goods_name}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

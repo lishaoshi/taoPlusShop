@@ -4,7 +4,10 @@
     "pages/verify/index",
     "pages/myInfo/index",
     "pages/localtion/index",
-    "pages/spellGroup/index"
+    "pages/spellGroup/index",
+    "pages/goodsMng/index",
+    "pages/addGroupGoods/index",
+    "pages/addGoodsType/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

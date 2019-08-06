@@ -52,6 +52,16 @@ class index extends http {
     }
     return this.request(params)
   }
+
+  // 获取商家信息
+  getShopInfo(data) {
+    let url = `/shop/getShopInfo`
+    let params = {
+      url,
+      data
+    }
+    return this.request(params)
+  }
 }
 
 export default index

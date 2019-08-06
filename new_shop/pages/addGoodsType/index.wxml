@@ -1,0 +1,36 @@
+<!--pages/addGoodsType/index.wxml-->
+<view class="container">
+  <view class="header">
+  <!-- <text hidden="{{isEdit}}">1111</text> -->
+    <input hidden="{{isEdit}}" bindblur="addGoodsTypeName" placeholder-class='placeholder' placeholder="请输入新增分类"></input>
+  </view>
+
+  <view class="bottom_box">
+    <view>
+      <text>已有分类</text>
+      <text bindtap="editgoodsType" hidden="{{isEdit}}">编辑</text>
+    </view>
+
+    <view class="type_box">
+      <view class="animated {{isEdit?'bounceOutDown':'bounceInUp'}}" wx:if="{{!isEdit}}" wx:for='{{dataList}}' wx:key="{{index}}">
+        <text>{{item.class_name}}</text>
+      </view>
+
+      <view wx:if="{{isEdit}}" class="updataType_box animated {{!isEdit?'bounceOutDown':'bounceInUp'}}">
+        <block wx:for="{{dataList}}" wx:key="{{index}}" >
+          <view class="updataType">
+            <view>
+              <image bindtap="delType" data-index="{{index}}" src='../../images/del.svg'></image>
+              <input bindblur="inputBlur" data-index='{{index}}' value="{{item.class_name}}"></input>
+            </view>
+            <view bindtap="sortTypleList" data-index="{{index}}" class="sort {{!index?'firstSort':''}}">》</view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <view class="bottom_btn" bindtap="confirmGoodsType">
+      <text>完成</text>
+    </view>
+  </view>
+</view>

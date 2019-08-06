@@ -1,10 +1,11 @@
+<wxs module="util" src="../../utils/limit.wxs" />
 <!--index.wxml-->
 <view class="conmtainer">
 <button open-type="getUserInfo" class="getUserInfo" wx:if='{{!userAuth}}' bindgetuserinfo='callbackGetUserInfo'></button>
   <view class="heade">
     <view bindtap="queryShopDetail">
-      <image src=""></image>
-      <text>店铺名称</text>
+      <image src="{{imgSrc}}"></image>
+      <text>{{shopName}}</text>
       <view class="arrow"></view>
     </view>
     <switch bindchange="changSwitch">{{type}}</switch>
@@ -12,12 +13,12 @@
 
   <!-- 今日收益 -->
 
-  <view class="today" bindtap="goChooseMap">
+  <view class="today">
     <view class='flex_row'>
       <text>今日收益（元）</text>
-      <image src="../../images/show.svg"></image>
+      <image bindtap="priceHidden" src="{{!isHidden?'../../images/show.svg':'../../images/priceHidden.svg'}}"></image>
     </view>
-    <text>{{price}}</text>
+    <text>{{!isHidden?util.limitPrice(price):'******'}}</text>
   </view>
 
   <!-- 图标显示 -->
@@ -31,7 +32,7 @@
 
   <!-- 业务模块 -->
   <view class="business flex_row">
-    <view class="business_box flex_column" wx:for="{{businessList}}" data-url="{{item.navigate_url}}" wx:key="{{index}}" bindtap="goTarget">
+    <view class="business_box flex_column {{item.left?'border_left':''}} {{item.right?'border_right':''}} {{item.top?'border_top':''}} {{item.bottom?'border_bottom':''}}" wx:for="{{businessList}}" data-url="{{item.navigate_url}}" wx:key="{{index}}" bindtap="goTarget">
       <image src="{{item.img}}"></image>
       <text>{{item.title}}</text>
       <text>{{item.note}}</text>

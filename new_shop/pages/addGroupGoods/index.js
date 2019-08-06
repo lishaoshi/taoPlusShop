@@ -1,16 +1,14 @@
-import { showToast } from '../../utils/util.js'
-import verify from '../../api/verify.js'
-let verifyModel = new verify()
+import spellGroup from '../../api/spellGroup.js'
+let spellGroupModel = new spellGroup()
 const app = getApp()
-// pages/verify/index.js
+// pages/addGroupGoods/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    inputValue: '',
-    value: ''
+
   },
 
   /**
@@ -20,35 +18,23 @@ Page({
 
   },
 
-  // 打开扫码
-  openScanCode() {
-    wx.scanCode({
-      scanType: ['barCode', 'qrCode', 'datamatrix','pdf417'],
-      success:res=>{
-        
-      }
-    })
-  },
-  // 获取输入框券码
-  getCode(e) {
-    // console.log(e)
-    let val = e.detail.value
-    this.setData({
-      value:val
-    })
-  },
+  // 发起团购操作
+  sendGroupGoods() {
+    // let data = {
+    //   goodsId: //goodsId,
+    //   shopId: //SHOPID,
+    //   grouponPrice: //团购价格,
+    //   headAward: //团长奖励,
+    //   grouponSum: //成团数量,
+    //   grouponTime: //成团时限 1、一天 2、两天   以次类推,
+    //   finallyTime: //最后使用时间,
+    //   startTime: //startTime,
+    //   endTime: //endTime,
+    //   grouponGoodsType: //拼团商品类型：1、即时拼团  2、线上拼团,
+    // }
+    // spellGroupModel.addGroupGoods(data).then(res=>{
 
-  // 查询要销毁的订单
-  queryOrder() {
-    if (!this.data.value && !this.data.inputValue) {
-      showToast('券码不能为空！')
-      return
-    }
-    let data = {
-      shopId: app.global.shopId,
-      couponCode: this.data.value
-    }
-    verifyModel.queryTicket(data, this.data.value, app.global.shopId)
+    // })
   },
 
   /**

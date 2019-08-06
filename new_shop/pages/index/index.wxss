@@ -8,15 +8,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-size: 28rpx;
 }
 .heade > view {
   display: flex;
   align-items: center;
 }
 .heade image {
-  width: 42rpx;
-  height: 42rpx;
+  width: 66rpx;
+  height: 66rpx;
   margin-right: 20rpx; 
+  border-radius: 50%;
 }
 .wx-switch-input{
 width:82rpx !important;
@@ -37,7 +39,7 @@ height: 32rpx !important;
   border-right: 1px solid #000;
   width: 20rpx;
   height: 20rpx;
-  margin-left: 56rpx;
+  margin-left: 96rpx;
   transform: rotate(45deg)
 }
 
@@ -56,8 +58,11 @@ height: 32rpx !important;
 .today > view {
   margin-top: 20rpx;
 }
+.today > view > text {
+  font-size: 28rpx;
+}
 .today > text {
-  font-size: 46rpx;
+  font-size: 56rpx;
   /* font-weight: bold; */
   margin-bottom: 66rpx;
   display: block;
@@ -83,8 +88,23 @@ height: 32rpx !important;
   align-items: center;
   font-size: 24rpx;
   line-height: 42rpx;
-  border: 1px solid #999;
+  /* border: 1px solid rgb(199, 196, 196); */
   padding-bottom: 10rpx;
+}
+.border_left {
+  border-left: 1px solid rgb(223, 220, 220);
+}
+.border_right {
+  border-right: 1px solid rgb(223, 220, 220);
+}
+.border_top {
+  border-top: 1px solid rgb(223, 220, 220);
+}
+.border_bottom {
+  border-bottom: 1px solid rgb(223, 220, 220);
+}
+.business_box > text:last-child {
+  color: #999;
 }
 .business_box image {
   margin-bottom: 12rpx;

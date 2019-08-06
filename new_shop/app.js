@@ -45,7 +45,7 @@ App({
     },
 
     // 测试试用token
-    token: '13246800297_fd408d99bf1848f9b1f8ee7d7aa6c17b',
+    token: '13246800297_fb8df2e096c54651a7778a3979f0adcd',
 
     // 测试用户userId
     userId: '5ec67fd5e7a44ebfa5344bd60667a605',

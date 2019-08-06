@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "goods_type":"/components/goodsType/goodsType"
+  },
+  "navigationBarTitleText": "商家管理"
+}

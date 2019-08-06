@@ -6,4 +6,19 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
+  font-size: 28rpx;
+  color: #999;
+}
+.triangle {
+   width: 0;
+    height: 0;
+    border: 14rpx solid transparent;
+    border-top: 14rpx solid #999;
+    overflow-y: hidden;
+     /* margin-top: 20rpx; */
+     margin-left: 6rpx;
+}
+.picker {
+  display: flex;
+  align-items: center;
 }

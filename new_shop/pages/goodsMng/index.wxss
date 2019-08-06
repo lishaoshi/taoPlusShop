@@ -1,0 +1,25 @@
+/* pages/goodsMng/index.wxss */
+.container {
+  display: flex;
+  width: 100%;
+}
+.goodsType {
+  /* width: 50%; */
+  padding: 0 40rpx;
+}
+.header_type {
+  font-size: 28rpx;
+  display: flex;
+}
+.header_type > text:first-child {
+  margin-right: 120rpx;
+}
+.addType {
+  border: 1px solid #333;
+  border-radius: 12rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #333;
+  margin-top: 30rpx;
+  line-height: 42rpx;
+}

@@ -48,7 +48,7 @@ class spellGroup extends http {
     return this.request(params)
   }
 
-  //添加团购商品
+  //发起团购商品
   addGroupGoods(data) {
     let url = `/api/shop/groupon-goods/add`
     let params = {

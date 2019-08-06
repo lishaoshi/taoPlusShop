@@ -1,0 +1,11 @@
+<!--components/goodsType/goodsType.wxml-->
+<view class="component">
+  <view class="type_box">
+    <scroll-view scroll-y>
+      <view bindtap="tabGoodsType" data-item="{{item}}" data-index='{{index}}' wx:for="{{goodsTypeList}}" wx:key='{{index}}' class="type {{index==currentIndex?'activi':''}}" >
+        <text>{{item.class_name}}</text>
+      </view>
+      <slot class='addType' name='addType'></slot>
+    </scroll-view>
+  </view>
+</view>

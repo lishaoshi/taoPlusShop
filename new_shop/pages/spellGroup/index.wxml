@@ -7,6 +7,7 @@
     <picker bindchange="bindPickerChange" range-key="class_name" value="{{index}}" range="{{goodsTypeList}}">
       <view class="picker">
         <text wx:if="{{index==-1}}">筛选</text>{{goodsTypeList[index].class_name}}
+        <view class="triangle"></view>
       </view>
     </picker>
   </view>
