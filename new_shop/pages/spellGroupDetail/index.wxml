@@ -1,0 +1,30 @@
+<!--pages/spellGroupDetail/index.wxml-->
+<view class="container">
+  <view class="heaedr">
+    <block wx:for="{{headerList}}" wx:key="{{index}}">
+      <view class="{{index==currentIndex?'activi':''}}" bindtap="chooseStatus" data-index="{{item.type}}">
+        <text>{{item.name}}</text>
+      </view>
+    </block>
+  </view>
+
+  <view class="detail">
+    <block wx:for="{{dataList}}" wx:key="{{index}}">
+      <view class='bg_box'></view>
+      <view bindtap="goDetail" class="detail_box">
+        <view>
+          <text>发起人</text>
+          <text>李少师</text>
+        </view>
+        <view>
+          <text>已参团</text>
+          <text>1人</text>
+        </view>
+        <view>
+          <text>状态</text>
+          <text>未开始</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

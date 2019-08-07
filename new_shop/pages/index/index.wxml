@@ -8,7 +8,7 @@
       <text>{{shopName}}</text>
       <view class="arrow"></view>
     </view>
-    <switch bindchange="changSwitch">{{type}}</switch>
+    <switch bindchange="changSwitch" checked="{{status}}">{{type}}</switch>
   </view>
 
   <!-- 今日收益 -->

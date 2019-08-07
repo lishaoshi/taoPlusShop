@@ -1,0 +1,7 @@
+<!--pages/spellGroupComplete/index.wxml-->
+<view class="container">
+  <view class="detail_box">
+    <text>玫瑰</text>
+    <text>发起人</text>
+  </view>
+</view>

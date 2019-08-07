@@ -10,6 +10,15 @@ var showLoading = function () {
 var hideLoading = function () {
   wx.hideLoading()
 }
+var errorShow = (message) => {
+  setTimeout(() => {
+    wx.showToast({
+      title: message,
+      icon: 'none',
+      duration: 1500,
+    });
+  }, 0)
+};
 
 class http {
   constructor() {

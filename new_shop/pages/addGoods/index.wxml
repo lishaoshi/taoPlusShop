@@ -1,0 +1,87 @@
+<!--pages/addGoods/index.wxml-->
+<view class="container">
+  <view>
+    <view bindtap="upLoadGoodsImg">
+      <image src="/images/confirm.png"></image>
+      <text>添加商品</text>
+    </view>
+  </view>
+  <!-- 图片模块 -->
+  <view class="img_box" wx:if="{{imgList.length}}">
+    <view class="img_list" wx:for="{{imgList}}" wx:key="{{index}}">
+      <image src="{{item}}"></image>
+      <image src="/images/close.svg" data-index="{{index}}" bindtap="delImg"></image>
+    </view>
+  </view>
+<!-- 表单模块 -->
+  <view class="form_box">
+    <view>
+      <text>商品名称</text>
+      <view>
+        <input value="" placeholder="例如：水煮鱼"></input>
+      </view>
+    </view>
+    <view>
+      <text>商品原价</text>
+      <view>
+        <input value="" placeholder="请输入价格"></input>
+      </view>
+    </view>
+    <view>
+      <text>商品现价</text>
+      <view>
+        <input value="" placeholder="请输入价格"></input>
+      </view>
+    </view>
+    <view>
+      <text class="tow">分类</text>
+      <view>
+        <picker bindchange="bindPickerChange" range-key="class_name" value="{{index}}" range="{{goodsTypeList}}">
+          <view class="picker">
+            {{goodsTypeList[index].class_name}}
+            <view class="triangle"></view>
+          </view>
+        </picker>
+        <view class="right"></view>
+      </view>
+    </view>
+
+    <view>
+      <text class="tow">库存</text>
+      <view>
+        <input value="" placeholder="请输入数量"></input>
+      </view>
+    </view>
+
+    <view>
+      <text class="tow">单位</text>
+      <view>
+        <picker bindchange="bindPickerChange" range-key="unit_name" value="{{unitIndex}}" range="{{unitList}}">
+          <view class="picker">
+            {{unitList[index].unit_name}}
+            <view class="triangle"></view>
+          </view>
+        </picker>
+        <view class="right"></view>
+      </view>
+    </view>
+
+     <view>
+      <text class="tow">排序</text>
+      <view>
+        <input value="" placeholder="请输入序号"></input>
+      </view>
+    </view>
+
+     <view>
+      <text>商品介绍</text>
+      <view>
+        <textarea value="" placeholder="例如：口感嫩滑，芳香四溢"></textarea>
+      </view>
+    </view>
+  </view>
+
+  <view class="save">
+    <text>保存</text>
+  </view>
+</view>

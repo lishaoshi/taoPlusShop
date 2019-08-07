@@ -143,7 +143,8 @@ Page({
     ],
     shopName: '',
     imgSrc: '',
-    isHidden: false
+    isHidden: false,
+    status: false
   },
   onLoad: function () {
     this.isUserAuth()
@@ -244,6 +245,8 @@ Page({
       this.setData({
         shopName: res.result.shop_name,
         imgSrc: `https://api.olb8.com${res.result.portrait_url}`,
+        status: res.result.status==1?true:false,
+        type: res.result.status == 1 ? '营业中' : '休息中'
       })
     })
   },

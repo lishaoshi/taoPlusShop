@@ -1,13 +1,21 @@
 /* pages/spellGroup/index.wxss */
 .container {
-  
+  background: #fff;
 }
 .header {
   display: flex;
   justify-content: space-around;
   width: 100%;
+  align-items: center;
   font-size: 28rpx;
   color: #999;
+  height: 60rpx;
+}
+.header > view,picker {
+  height: 100%;
+  /* vertical-align: middle;
+   */
+   line-height: 60rpx;
 }
 .triangle {
    width: 0;
@@ -15,10 +23,79 @@
     border: 14rpx solid transparent;
     border-top: 14rpx solid #999;
     overflow-y: hidden;
-     /* margin-top: 20rpx; */
+     margin-top: 10rpx;
      margin-left: 6rpx;
 }
 .picker {
   display: flex;
   align-items: center;
+  height: 100%;
+  line-height: 60rpx;
+}
+.activi {
+  color: #000;
+}
+.goodsList {
+  margin-bottom: 90rpx;
+}
+.goods_box {
+  padding:0 20rpx;
+  margin-bottom: 12rpx;
+}
+.goroup_header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(196, 192, 192, 0.527);
+}
+.goroup_header > view {
+  line-height: 56rpx;
+  font-size: 28rpx;
+}
+.bg_box {
+  background: rgba(221, 212, 212, 0.192);
+  height: 20rpx;
+  width: 100%;
+}
+.goroup_header > view:last-child {
+  color: rgb(17, 138, 219);
+}
+.goods_box > view:nth-child(2) {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  margin-top: 10rpx;
+}
+.time {
+  display: flex;
+  flex-direction: column;
+}
+.time > text:first-child {
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 20rpx;
+}
+.time > text:last-child {
+  margin-top: 10rpx;
+}
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.right text {
+  color: rgb(238, 108, 48);
+}
+.addGroup {
+  display: flex;
+  align-items: center;
+  color: #F0763C;
+  position: absolute;
+  left: 20rpx;
+  bottom: 20rpx;
+  font-size: 28rpx;
+}
+.addGroup > image {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
 }

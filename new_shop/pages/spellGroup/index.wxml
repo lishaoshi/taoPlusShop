@@ -1,7 +1,7 @@
 <!--pages/spellGroup/index.wxml-->
 <view class="container">
   <view class='header'>
-    <view wx:for="{{typeList}}" wx:key='{{index}}'>
+    <view class="{{index==currentIndex?'activi':''}}" bindtap="chooseType" data-index="{{index}}" wx:for="{{typeList}}" wx:key='{{index}}'>
       <text>{{item}}</text>
     </view>
     <picker bindchange="bindPickerChange" range-key="class_name" value="{{index}}" range="{{goodsTypeList}}">
@@ -10,5 +10,50 @@
         <view class="triangle"></view>
       </view>
     </picker>
+  </view>
+
+
+  <view class="goodsList">
+    <block wx:for="{{goodsList}}" wx:key="{{index}}">
+      <view class='bg_box'></view>
+      <view class="goods_box" bindtap="queryDetail">
+      <!-- 团购订单号 -->
+        <view class="goroup_header">
+          <view>
+            <text>12s3dfsdfsf5d</text>
+          </view>
+          <view>
+            <text>已结束</text>
+          </view>
+        </view>
+
+        <view>
+          <view>
+            <text>商品名称</text>
+            <view class="time">
+              <text>结束时间</text>
+              <text>2018-10-30 10:01:00</text>
+            </view>
+          </view>
+
+          <view class="right">
+            <view>
+              <text>0</text>
+              人成团
+            </view>
+            <view>
+              已有
+              <text>5</text>
+              人发起团
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class='addGroup' bindtap="goInsertGroupGoods">
+    <image src="/images/add.svg"></image>
+    <text>发起团购</text>
   </view>
 </view>

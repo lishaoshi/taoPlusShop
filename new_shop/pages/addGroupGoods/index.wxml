@@ -1,2 +1,104 @@
 <!--pages/addGroupGoods/index.wxml-->
-<text>pages/addGroupGoods/index.wxml</text>
+<view class="container">
+  <view class="chooseGoods">
+    <view>请选择团购商品</view>
+    <view bindtap="chooseGoods">
+      <text>选择商品</text>
+    </view>
+  </view>
+
+  <view class="form">
+    <view>
+      <text class="foure">成团人数</text>
+      <view>
+        <input></input>
+      </view>
+      <text>人</text>
+    </view>
+
+    <view>
+      <text>商品原价格</text>
+      <view>
+        <input></input>
+      </view>
+      <text>元</text>
+    </view>
+
+    <view>
+      <text class="foure">拼团价格</text>
+      <view>
+        <input></input>
+      </view>
+      <text>元</text>
+    </view>
+
+    <view>
+      <text>发起人奖励</text>
+      <view>
+        <input></input>
+      </view>
+      <text>元</text>
+    </view>
+
+    <view>
+      <text class="foure">拼团类型</text>
+      <view>
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <view class="pickers" style="height: 100%;width:100%;">
+            {{array[index]}}
+          </view>
+        </picker>
+        <view class="bor"></view>
+      </view>
+    </view>
+
+    <view>
+      <text class="online">在</text>
+      <view>
+        <input></input>
+      </view>
+      <text>小时之内拼成</text>
+    </view>
+  </view>
+
+  <view class="setDate">
+  <view class="line"></view>
+    <view class="title">
+      <text>限时抢购活动时间设置</text>
+    </view>
+
+    <view class="dateBox">
+      <image src="/images/start.svg"></image>
+      <text>开始</text>
+      <picker mode="date" bindchange="bindStartDateChange">
+        <view class="picker">
+          <text wx:if="{{!startDate}}">开始日期</text> {{startDate}}
+        </view>
+      </picker>
+      -<picker mode="time" bindchange="bindStartTimeChange">
+        <view class="picker">
+          <text wx:if="{{!startTime}}">开始时间</text>{{startTime}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="dateBox">
+      <image src="/images/stop.svg"></image>
+      <text>结束</text>
+        <picker mode="date" bindchange="bindEndDateChange">
+        <view class="picker">
+          <text wx:if="{{!endDate}}">结束日期</text>{{endDate}}
+        </view>
+      </picker>
+      -<picker mode="time" bindchange="bindEndTimeChange">
+        <view class="picker">
+          <text wx:if="{{!endTime}}">结束时间</text>{{endTime}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="btn">
+      <text>发起团购</text>
+    </view>
+  </view>
+</view>

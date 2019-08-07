@@ -1,30 +1,22 @@
 import goodsMng from '../../api/goodsMng.js'
+import unit from '../../api/unit.js'
+let unitModel = new unit()
 let goodsMngModel = new goodsMng()
 const app = getApp()
-// pages/goodsMng/index.js
+
+// pages/addGoods/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    classId:'',
-    goodsList: [],
     goodsTypeList: [],
-    onSale: 1,
-    pageNo: 1,
-    pageSize: 9,
-    currentIndex: 0,
-    typeArr: [
-      {
-        name: '出售中',
-        flag: 1
-      },
-      {
-        name: '已下架',
-        flag: 2
-      }
-    ]
+    index: 0,
+    unitList: [],
+    unitIndex: 0,
+    imgList: [],
+    imgUrl: ''
   },
 
   /**
@@ -32,19 +24,38 @@ Page({
    */
   onLoad: function (options) {
     this._queryGoodsTypeList()
-    // this._queryGoodsList
+    this._getUnitList()
   },
 
-  // 点击商品类型
-  tabGoodsType(e) {
-    // console.log(e)
-    let item = e.detail.item
-    // console.log(item)
-    this.setData({
-      classId: item.class_id
+  // 点击选择图片
+  upLoadGoodsImg() {
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success:(res)=> {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths
+        let arr = this.data.imgList
+        arr.push(tempFilePaths[0])
+        this.setData({
+          imgList: arr
+        })
+      }
     })
-    this._queryGoodsList()
   },
+
+  // 删除图片按钮
+  delImg(e) {
+    console.log(e)
+    let index = e.currentTarget.dataset.index
+    this.data.imgList.splice(index,1)
+    this.setData({
+      imgList: this.data.imgList
+    })
+  },
+
+  // 上传图片换取服务器的
 
   // 查询商品分类列表
   _queryGoodsTypeList() {
@@ -53,37 +64,17 @@ Page({
     }
     goodsMngModel.queryGoodsTypeList(data).then(res => {
       this.setData({
-        goodsTypeList: res.result,
-        classId: res.result[0].class_id
+        goodsTypeList: res.result
       })
-      this._queryGoodsList()
     })
   },
-  // 获取商品列表
-  _queryGoodsList() {
-    let data = {
-      shopId: app.globalData.shopId,
-      isReal: 1,
-      pageNum: this.data.pageNo,
-      classId: this.data.classId,
-      onSale: this.data.onSale,
-      pageSize: this.data.pageSize
-    }
-    console.log()
-    goodsMngModel.queryGoodsList(data).then(res=>{
 
-    })
-  },
-  // 点击新增分类
-  addGoodsType() {
-    wx.navigateTo({
-      url: '/pages/addGoodsType/index',
-    })
-  },
-  // 点击底部添加商品按钮
-  goAddGoods() {
-    wx.navigateTo({
-      url: '/pages/addGoods/index',
+  // 查询商品单位列表
+  _getUnitList() {
+    unitModel.getUnitList().then(res=>{
+      this.setData({
+        unitList: res.result
+      })
     })
   },
 

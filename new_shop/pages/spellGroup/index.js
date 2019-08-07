@@ -16,7 +16,12 @@ Page({
     type: '',
     class_id: '',
     pageNo: 1,
-    pageSize: 9
+    pageSize: 9,
+    currentIndex: 0,
+    goodsList: [
+      {},
+      {}
+    ]
   },
 
   /**
@@ -24,7 +29,7 @@ Page({
    */
   onLoad: function (options) {
     this._queryGoodsTypeList()
-    this._getGroupList()
+    // this._getGroupList()
   },
 
   // 查询商品分类列表
@@ -38,6 +43,12 @@ Page({
       })
     })
   },
+  // 点击团购订单，查看团购用户
+  queryDetail() {
+    wx.navigateTo({
+      url: '/pages/spellGroupDetail/index',
+    })
+  },
 
   // 选择团购商品类型
   bindPickerChange(e) {
@@ -47,6 +58,21 @@ Page({
     this.setData({
       index,
       class_id: this.data.goodsList[index].class_id
+    })
+  },
+
+  // 点击拼购列表状态 默认全部 1、在售   2、停售
+  chooseType(e) {
+    let index = e.currentTarget.dataset.index
+    this.setData({
+      currentIndex: index
+    })
+  },
+
+  // 前往发起团购页面
+  goInsertGroupGoods() {
+    wx.navigateTo({
+      url: '/pages/addGroupGoods/index',
     })
   },
 

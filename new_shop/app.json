@@ -7,7 +7,12 @@
     "pages/spellGroup/index",
     "pages/goodsMng/index",
     "pages/addGroupGoods/index",
-    "pages/addGoodsType/index"
+    "pages/addGoodsType/index",
+    "pages/updataGoods/index",
+    "pages/addGoods/index",
+    "pages/spellGroupDetail/index",
+    "pages/spellGroupComplete/index",
+    "pages/chooseGoods/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

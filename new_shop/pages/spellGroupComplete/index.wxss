@@ -1,0 +1,16 @@
+/* pages/spellGroupComplete/index.wxss */
+page {
+  background: rgba(224, 221, 221, 0.151);
+}
+.container {
+  background: #fff;
+}
+.detail_box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  color: #999;
+  padding: 10rpx 0;
+}

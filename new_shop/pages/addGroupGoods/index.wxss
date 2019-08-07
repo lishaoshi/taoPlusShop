@@ -1,1 +1,135 @@
 /* pages/addGroupGoods/index.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  /* padding: 30rpx; */
+}
+.chooseGoods {
+  display: flex;
+  font-size: 32rpx;
+  color: rgb(107, 107, 107);
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(209, 208, 208, 0.61);
+  padding: 30rpx 30rpx 0;
+}
+.chooseGoods > view:first-child {
+  margin-left: 20rpx;
+  line-height: 64rpx;
+}
+.chooseGoods > view:last-child {
+  margin-right: 20rpx;
+  line-height: 64rpx;
+  background: #F0763C;
+  color: #fff;
+  padding: 0 30rpx;
+  font-size: 22rpx;
+  border-radius: 34rpx;
+  margin-bottom: 10rpx;
+  box-shadow: 5rpx 5rpx 5rpx rgb(252, 203, 181);
+}
+.form {
+  /* width: 70%; */
+  padding: 0 30rpx;
+  margin-bottom: 40rpx;
+  font-size: 28rpx;
+  color: rgb(107, 107, 107);
+}
+.form picker {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+.pickers {
+  display: flex;
+  align-items: center;
+  margin-left: 6rpx;
+  min-width: 150rpx;
+}
+.bor {
+  width: 20rpx;
+  height: 20rpx;
+  border-top: 1px solid #999;
+  border-right: 1px solid #999;
+  transform: rotate(135deg);
+  margin-bottom: 10rpx;
+  margin-right: 10rpx;
+}
+.form > view {
+  display: flex;
+  margin-top: 56rpx;
+}
+.form > view > text {
+  display: flex;
+  align-items: center;
+}
+.form > view > view {
+  width: 124rpx;
+  height: 54rpx;
+  border: 1px solid rgba(185, 185, 185, 0.61);
+  display: flex;
+  align-items: center;
+  margin-left: 80rpx;
+  margin-right: 60rpx;
+}
+.form > view:nth-last-of-type(2) > view {
+  width: 200rpx;
+}
+.form > view > view > input {
+  text-align: center;
+  height: 80%;
+}
+.foure {
+  margin-right: 28rpx;
+}
+.online {
+  margin-right: 112rpx;
+}
+.setDate {
+  font-size: 30rpx;
+}
+.line {
+  background: rgba(228, 227, 227, 0.281);
+  height: 8px;
+  width: 100%;
+}
+.setDate .title {
+  margin: 0 30rpx;
+  line-height: 70rpx;
+  border-bottom: 1px solid rgba(228, 227, 227, 0.281);
+}
+.setDate image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+.dateBox {
+  padding: 0 30rpx;
+  display: flex;
+  margin-top: 44rpx;
+  align-items: center;
+}
+.dateBox > text {
+  color: rgba(95, 93, 93, 0.932);
+  margin-right: 30rpx;
+}
+.picker {
+  border: 1px solid rgba(197, 196, 196, 0.253);
+  width: 240rpx;
+  line-height: 64rpx;
+  text-align: center;
+}
+.picker>text {
+  font-size: 24rpx;
+  color: rgba(197, 196, 196, 0.925);
+}
+.btn {
+  margin-top: 66rpx;
+  background: #F0763C;
+  color: #fff;
+  text-align: center;
+  padding: 20rpx 0;
+  border-radius: 8rpx;
+  margin: 106rpx 30rpx;
+}

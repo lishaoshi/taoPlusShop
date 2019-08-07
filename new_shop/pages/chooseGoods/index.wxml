@@ -1,0 +1,11 @@
+<!--pages/chooseGoods/index.wxml-->
+<view class="container">
+  <goods_type activi='activi' goodsTypeList="{{goodsTypeList}}" class="goods"></goods_type>
+  <view class="goods_info">
+    <image></image>
+    <view>
+      <text>水煮鱼</text>
+      <text>￥1.2</text>
+    </view>
+  </view>
+</view>

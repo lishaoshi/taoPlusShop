@@ -89,7 +89,7 @@ height: 32rpx !important;
   font-size: 24rpx;
   line-height: 42rpx;
   /* border: 1px solid rgb(199, 196, 196); */
-  padding-bottom: 10rpx;
+  padding-bottom: 20rpx;
 }
 .border_left {
   border-left: 1px solid rgb(223, 220, 220);
@@ -108,13 +108,14 @@ height: 32rpx !important;
 }
 .business_box image {
   margin-bottom: 12rpx;
-  margin-top: 42rpx;
-  width: 32rpx;
-  height: 32rpx;
+  margin-top: 62rpx;
+  width: 42rpx;
+  height: 42rpx;
 }
 .business {
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 20rpx;
   /* font-size: 24rpx; */
 }
 .getUserInfo{

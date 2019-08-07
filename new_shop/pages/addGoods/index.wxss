@@ -1,0 +1,100 @@
+/* pages/addGoods/index.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  /* width: 100%; */
+  padding: 0 30rpx;
+}
+.container > view:first-child  image{
+  width: 32rpx;
+  height: 32rpx;
+  margin-bottom: 10rpx;
+}
+.container > view:first-child {
+  /* width: 100rpx; */
+  display: flex;
+  justify-content: center;
+  margin-top: 20rpx;
+}
+.container > view:first-child > view {
+  font-size: 20rpx;
+  display: flex;
+  color: #999;
+  flex-direction: column;
+  align-items: center;
+  padding: 16rpx;
+  border: 1px dashed #999;
+  border-radius: 8rpx;
+  /* width: 100rpx; */
+}
+.img_box {
+  display: flex;
+  padding: 0 30rpx;
+}
+.img_list {
+  position: relative;
+  margin-right: 16rpx;
+}
+.img_list image:first-child {
+  width: 64rpx;
+  height: 64rpx
+}
+.img_list image:last-child {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: 0;
+  top:0;
+}
+.form_box > view {
+  display: flex;
+  font-size: 24rpx;
+  height: 84rpx;
+  align-items: center;
+  justify-content: space-between
+}
+.form_box > view > text {
+  margin-right: 40rpx;
+}
+.tow {
+  margin-right: 78rpx!important;
+}
+.form_box > view > view {
+  border-bottom: 1px solid #999;
+  flex:1;
+  height: 80%;
+  display: flex;
+  align-items: center;
+}
+picker {
+  width: 100%;
+}
+.right {
+  width: 10rpx;
+  height: 10rpx;
+  border: 1px solid transparent;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  transform: rotate(135deg);
+  margin-right: 12rpx;
+}
+input {
+  flex: 1;
+  height: 100%;
+}
+
+.form_box > view:last-child {
+  height: 140rpx;
+}
+textarea {
+  height: 100%;
+}
+.save {
+  margin: 44rpx auto 0;
+  background: #000;
+  width: 100%;
+  padding: 20rpx 0;
+  border-radius: 32rpx;
+  color: #fff;
+  text-align: center;
+}

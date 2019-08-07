@@ -20,6 +20,9 @@ Page({
    */
   onLoad: function (options) {
     this._queryGoodsTypeList()
+    wx.setNavigationBarTitle({
+      title: '新增分类'
+    })
   },
   // 查询商品分类列表
   _queryGoodsTypeList() {
@@ -39,6 +42,9 @@ Page({
   editgoodsType() {
     this.setData({
       isEdit: true
+    })
+    wx.setNavigationBarTitle({
+      title: '111'
     })
   },
 

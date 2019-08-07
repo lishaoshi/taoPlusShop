@@ -8,7 +8,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    startDate:'',
+    startTime: '',
+    endDate: '',
+    endTime: '',
+    array: ['即时消费', '等待消费'],
+    index:0
   },
 
   /**
@@ -16,6 +21,13 @@ Page({
    */
   onLoad: function (options) {
 
+  },
+
+  // 点击前往选择商品
+  chooseGoods() {
+    wx.navigateTo({
+      url: '/pages/chooseGoods/index',
+    })
   },
 
   // 发起团购操作
@@ -35,6 +47,35 @@ Page({
     // spellGroupModel.addGroupGoods(data).then(res=>{
 
     // })
+  },
+
+  // 选择开始日期回调
+  bindStartDateChange(e) {
+    let startDate = e.detail.value
+    this.setData({
+      startDate
+    })
+  },
+  // 选择开始时间回调
+  bindStartTimeChange(e) {
+    let startTime = e.detail.value
+    this.setData({
+      startTime
+    })
+  },
+  // 选择结束日期回调
+  bindEndDateChange(e) {
+    let endDate = e.detail.value
+    this.setData({
+      endDate
+    })
+  },
+  // 选择结束时间回调
+  bindEndTimeChange(e) {
+    let endTime = e.detail.value
+    this.setData({
+      endTime
+    })
   },
 
   /**

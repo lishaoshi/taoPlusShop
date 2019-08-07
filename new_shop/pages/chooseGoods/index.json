@@ -2,5 +2,5 @@
   "usingComponents": {
     "goods_type":"/components/goodsType/goodsType"
   },
-  "navigationBarTitleText": "商品管理"
+  "navigationBarTitleText": "选择商品"
 }

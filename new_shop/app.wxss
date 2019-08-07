@@ -1,5 +1,5 @@
 /**app.wxss**/
-@import './animate.wxss'
+@import './animate.wxss';
 .container {
   height: 100%;
   /* display: flex;

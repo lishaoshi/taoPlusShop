@@ -1,30 +1,14 @@
 import goodsMng from '../../api/goodsMng.js'
 let goodsMngModel = new goodsMng()
 const app = getApp()
-// pages/goodsMng/index.js
+// pages/chooseGoods/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    classId:'',
-    goodsList: [],
-    goodsTypeList: [],
-    onSale: 1,
-    pageNo: 1,
-    pageSize: 9,
-    currentIndex: 0,
-    typeArr: [
-      {
-        name: '出售中',
-        flag: 1
-      },
-      {
-        name: '已下架',
-        flag: 2
-      }
-    ]
+    goodsTypeList:[]
   },
 
   /**
@@ -32,20 +16,7 @@ Page({
    */
   onLoad: function (options) {
     this._queryGoodsTypeList()
-    // this._queryGoodsList
   },
-
-  // 点击商品类型
-  tabGoodsType(e) {
-    // console.log(e)
-    let item = e.detail.item
-    // console.log(item)
-    this.setData({
-      classId: item.class_id
-    })
-    this._queryGoodsList()
-  },
-
   // 查询商品分类列表
   _queryGoodsTypeList() {
     let data = {
@@ -56,34 +27,7 @@ Page({
         goodsTypeList: res.result,
         classId: res.result[0].class_id
       })
-      this._queryGoodsList()
-    })
-  },
-  // 获取商品列表
-  _queryGoodsList() {
-    let data = {
-      shopId: app.globalData.shopId,
-      isReal: 1,
-      pageNum: this.data.pageNo,
-      classId: this.data.classId,
-      onSale: this.data.onSale,
-      pageSize: this.data.pageSize
-    }
-    console.log()
-    goodsMngModel.queryGoodsList(data).then(res=>{
-
-    })
-  },
-  // 点击新增分类
-  addGoodsType() {
-    wx.navigateTo({
-      url: '/pages/addGoodsType/index',
-    })
-  },
-  // 点击底部添加商品按钮
-  goAddGoods() {
-    wx.navigateTo({
-      url: '/pages/addGoods/index',
+      // this._queryGoodsList()
     })
   },
 
