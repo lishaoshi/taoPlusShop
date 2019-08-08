@@ -12,7 +12,13 @@
     "pages/addGoods/index",
     "pages/spellGroupDetail/index",
     "pages/spellGroupComplete/index",
-    "pages/chooseGoods/index"
+    "pages/chooseGoods/index",
+    "pages/goodsDetail/index",
+    "pages/shopMng/index",
+    "pages/account/index",
+    "pages/shopDetailInfo/index",
+    "pages/orderMng/index",
+    "pages/orderDetail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,48 @@
+/* pages/orderMng/index.wxss */
+.container {
+  /* padding: 0 30rpx; */
+  font-size: 24rpx;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding:  20rpx 30rpx;
+  border-bottom: 1px solid rgba(202, 200, 200, 0.568);
+}
+.activi {
+  color: rgb(47, 94, 221);
+}
+.order-info > image {
+  width: 124rpx;
+  height: 124rpx;
+  /* border-radius: 50%; */
+}
+.order-info {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+  margin: 0 30rpx;
+  border-bottom: 1px solid rgba(189, 188, 188, 0.432);
+}
+.order-info>view:last-child {
+  flex:1;
+}
+.payType > text:first-child {
+  margin-right: 120rpx;
+}
+.info > view:nth-child(2) {
+  font-size: 18rpx;
+  color: #999;
+  display: flex;
+  margin-top: 16rpx;
+  justify-content: space-between;
+}
+.info > view:nth-child(2) >text:last-child {
+  font-size: 24rpx;
+  color: #000;
+}
+.info > view:nth-child(3) {
+  font-size: 18rpx;
+  margin-top: 16rpx;
+}

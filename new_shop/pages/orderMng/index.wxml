@@ -1,0 +1,27 @@
+<!--pages/orderMng/index.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="{{index==currentIndex?'activi':''}}" bindtap="chooseorderType" data-index="{{index}}" wx:for="{{orderTypeArr}}" wx:key="{{index}}">
+      <text>{{item}}</text>
+    </view>
+  </view>
+
+  <view class="order-list">
+    <view class="order-info">
+      <image src=""></image>
+      <view class="info">
+        <view class="payType">
+          <text>来源：小程序支付</text>
+          <text>待使用</text>
+        </view>
+        <view>
+          <text>2019-01-03 09-29-24</text>
+          <text>￥2.5</text>
+        </view>
+        <view>
+          <text>订单号： 1153456123126465123164</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

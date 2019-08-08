@@ -1,0 +1,48 @@
+/* pages/account/index.wxss */
+.container {
+  background: #fff;
+  padding: 0 30rpx;
+}
+.picker > image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+} 
+.picker {
+  font-size:28rpx;
+  display: flex;
+  align-items: center;
+}
+.account_info {
+  display: flex;
+  font-size: 32rpx;
+  margin-top: 40rpx;
+}
+.account_box {
+  margin-top: 20rpx;
+}
+.account_info > image {
+  width: 104rpx;
+  height: 104rpx;
+  margin-right: 20rpx;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-bottom: 40rpx;
+   border-bottom: 1px solid rgba(199, 196, 196, 0.514);
+}
+.info >view:nth-child(2) {
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+.info >view:nth-child(3) {
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+.info > view {
+  display: flex;
+  justify-content: space-between;
+}

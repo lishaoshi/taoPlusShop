@@ -8,15 +8,15 @@
       <text>{{shopName}}</text>
       <view class="arrow"></view>
     </view>
-    <switch bindchange="changSwitch" checked="{{status}}">{{type}}</switch>
+    <switch color="rgb(21, 125, 243)" bindchange="changSwitch" checked="{{status}}">{{type}}</switch>
   </view>
 
   <!-- 今日收益 -->
 
-  <view class="today">
+  <view class="today" bindtap="queryAccount">
     <view class='flex_row'>
       <text>今日收益（元）</text>
-      <image bindtap="priceHidden" src="{{!isHidden?'../../images/show.svg':'../../images/priceHidden.svg'}}"></image>
+      <image catchtap="priceHidden" src="{{!isHidden?'../../images/show.svg':'../../images/priceHidden.svg'}}"></image>
     </view>
     <text>{{!isHidden?util.limitPrice(price):'******'}}</text>
   </view>

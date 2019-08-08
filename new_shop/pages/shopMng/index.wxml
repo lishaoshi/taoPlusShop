@@ -1,0 +1,48 @@
+<!--pages/shopMng/index.wxml-->
+<view class="container">
+  <view class="header">
+    <view>
+      基本信息
+      <text>(信息已完整)</text>
+    </view>
+    <view bindtap="goShopInfo">
+      <image src="/images/edit.svg"></image>
+      <text>编辑</text>
+    </view>
+  </view>
+
+  <view class="info_box">
+    <view>
+      <text>店铺名称：</text>
+      <text>{{shopInfo.shop_name}}</text>
+    </view>
+    <view>
+      <text>联系电话：</text>
+      <text>{{shopInfo.mobile}}</text>
+    </view>
+    <view>
+      <text>店铺地址：</text>
+      <text>{{shopInfo.address}}</text>
+    </view>
+    <view>
+      <text>推荐人：</text>
+      <text class="only">{{shopInfo.p_username}}</text>
+    </view>
+    <view>
+      <text>经营类目：</text>
+      <text>{{shopInfo.spt_type_name}}</text>
+    </view>
+  </view>
+
+  <view class="botm">
+    <text>店铺图片</text>
+    <view class="image_box">
+      <view class="">
+        <image src="{{shopImgUrl}}"></image>
+      </view>
+      <view>
+        <image src="{{shopImgUrl2}}"></image>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,19 @@
+<!--pages/orderDetail/index.wxml-->
+<view class="container">
+  <view class="headr">
+    <view>待支付</view>
+    <view>实付金额</view>
+    <view>￥2.2</view>
+  </view>
+
+  <view class="shopInfo">
+    <view>魏家</view>
+    <view>
+      <image></image>
+      <text>成双成对</text>
+      <text>￥0</text>
+      <text>￥1</text>
+      <text>￥0</text>
+    </view>
+  </view>
+</view>

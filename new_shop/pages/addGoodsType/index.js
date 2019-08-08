@@ -43,9 +43,6 @@ Page({
     this.setData({
       isEdit: true
     })
-    wx.setNavigationBarTitle({
-      title: '111'
-    })
   },
 
   // 获取新增分类input名称
@@ -133,11 +130,6 @@ Page({
     if(index==0) {
       let arr = this.data.dataList.splice(index, 1, this.data.dataList[index + 1])
       this.data.dataList.splice(index+1, 1, arr[0])
-      this.data.dataList.forEach((item, key, arr)=>{
-        arr[key].sort = key+1
-      })
-      console.log(this.data.dataList)
-      // return
       this.setData({
         dataList: this.data.dataList
       })
@@ -145,6 +137,10 @@ Page({
     }
     let arr = this.data.dataList.splice(index-1, 1, this.data.dataList[index])
     this.data.dataList.splice(index , 1, arr[0])
+    this.data.dataList.forEach((item, key, arr) => {
+      arr[key].sort = key + 1
+    })
+    console.log(this.data.dataList)
     this.setData({
       dataList: this.data.dataList
     })
@@ -176,7 +172,9 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    let pages = getCurrentPages()
+    let prevPage = pages[pages.length - 2]
+    prevPage._queryGoodsTypeList()
   },
 
   /**

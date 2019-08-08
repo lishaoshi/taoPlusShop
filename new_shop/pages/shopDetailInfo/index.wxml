@@ -1,0 +1,44 @@
+<!--pages/shopDetailInfo/index.wxml-->
+<view class="container">
+  <view class="top">
+    <view>
+      <text>店铺名称</text>
+      
+      <input placeholder="请填写店铺名称和"></input>
+    </view>
+
+    <view>
+      <text>客服联系电话</text>
+      <input placeholder="请填写联系电话"></input>
+    </view>
+
+    <view>
+      <text>店铺地址</text>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{radio}}">
+          {{item.value}}<radio  color="rgb(32, 120, 221)" value="{{item.type}}" checked="{{item.checked}}"/>
+        </label>
+      </radio-group>
+      <view class="address" bindtap="chooseMap" wx:if="{{isMap}}">
+        {{address}}
+        <image src="/images/address.svg"></image>
+      </view>
+    </view>
+
+    <view>
+      <text>推荐人</text>
+      <input placeholder="请填写推荐人电话"></input>
+    </view>
+  </view>
+
+  <!-- <view class="bottom">
+    <view>
+      <text>经营项目</text>
+       <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}"              range="{{multiArray}}">
+        <view class="picker">
+          当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
+        </view>   
+      </picker>
+    </view>
+  </view> -->
+</view>

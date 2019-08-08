@@ -45,7 +45,7 @@ height: 32rpx !important;
 
 .today {
   /* height: 300rpx; */
-   background: linear-gradient(to right, rgb(81, 156, 241) , rgb(21, 125, 243));
+   background: linear-gradient(to right, rgb(9, 107, 219) , rgb(87, 31, 219));
    border-radius:16rpx;
    margin-top: 10rpx;
    padding: 0 30rpx;

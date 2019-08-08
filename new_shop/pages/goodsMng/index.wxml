@@ -1,21 +1,45 @@
 <!--pages/goodsMng/index.wxml-->
 <view class="container">
-  <goods_type class="goodsType" bind:tabGoodsType='tabGoodsType' goodsTypeList="{{goodsTypeList}}">
+  <goods_type activi="activi" class="goodsType" bind:tabGoodsType='tabGoodsType' goodsTypeList="{{goodsTypeList}}">
     <view class="addType" bindtap="addGoodsType" slot="addType">
       <text>+ 分类</text>
     </view>
   </goods_type>
   <view class="goodsList">
     <view class="header_type">
-      <text wx:for="{{typeArr}}" bindtap="" data-index="{{index}}" wx:key="{{index}}">{{item.name}}(1)</text>
+      <text bindtap="chooseTape" wx:for="{{typeArr}}" data-index="{{index}}" wx:key="{{index}}" class="{{index==currentTypeIndex?'activi':''}}">{{item.name}}(1)</text>
       <!-- <text>已下架(2)</text> -->
     </view>
 
-    <view class="goods_box">
+    <view class="goods_box" bindtap="queryDetail">
       <view class="goods_info">
-        <!-- <image src=""></image> -->
+        <image src=""></image>
+        <view class="info">
+          <view>
+            <view>栗子</view>
+            <view>发布中</view>
+          </view>
+          <view>好吃</view>
+          <view>
+            <text>月销0</text>
+            <text>访问量13</text>
+            <text>库存51</text>
+          </view>
+          <view>
+            价格￥
+            <text>0.05元</text>
+          </view>
+        </view>
+      </view>
+      <view>
         <view>
-          <text>{{item.goods_name}}</text>
+          删除
+        </view>
+        <view>
+          下架
+        </view>
+        <view>
+          编辑
         </view>
       </view>
     </view>

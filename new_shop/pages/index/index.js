@@ -62,6 +62,7 @@ Page({
       {
         img: '../../images/confirm.png',
         title: '店铺管理',
+        navigate_url: '/pages/shopMng/index',
         note: '店铺资料已经完善',
         left: false,
         top: true,
@@ -72,6 +73,7 @@ Page({
         img: '../../images/confirm.png',
         title: '订单管理',
         note: '我的订单数',
+        navigate_url: '/pages/orderMng/index',
         left: true,
         top: true,
         right: true,
@@ -153,6 +155,13 @@ Page({
     this._getBusinissInfo()
     this._getShopInfo()
     // this._getShopBalance()
+  },
+
+  // 前往账户明细
+  queryAccount() {
+    wx.navigateTo({
+      url: '/pages/account/index',
+    })
   },
 
   // // 获取商家账户余额
@@ -315,5 +324,16 @@ Page({
     wx.navigateTo({
       url: '/pages/myInfo/index',
     })
-  }
+  },
+  /**
+  * 页面相关事件处理函数--监听用户下拉动作
+  */
+  onPullDownRefresh: function (e) {
+    // console.log(e)
+    this.isUserAuth()
+    // console.log(app)
+    // this.getUserLocaltion()
+    this._getBusinissInfo()
+    this._getShopInfo()
+  },
 })

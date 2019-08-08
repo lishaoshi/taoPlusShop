@@ -1,0 +1,39 @@
+/* pages/goodsDetail/index.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.slide-image {
+  width: 100%;
+  height: 100%;
+}
+.container > view:nth-child(2) {
+  margin-top: 30rpx;
+  padding: 0 30rpx;
+}
+.container > view:nth-child(3) {
+   margin-top: 30rpx;
+  padding: 0 30rpx;
+  font-size: 20rpx;
+  color: #999;
+  font-weight: normal;
+}
+.container > view:nth-child(4) {
+  margin-top: 40rpx;
+  padding: 0 30rpx 40rpx;
+  border-bottom: 1px solid rgba(196, 188, 188, 0.233);
+}
+
+.container > view:last-child {
+  padding: 0 30rpx;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+.container > view:last-child > text:nth-child(2) {
+  font-size: 18rpx;
+  color: #999;
+  margin-top: 20rpx;
+}

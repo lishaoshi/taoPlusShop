@@ -1,0 +1,37 @@
+/* pages/shopDetailInfo/index.wxss */
+page {
+  background: rgba(228, 227, 227, 0.233);
+}
+.container {
+  padding: 0 30rpx;
+}
+.top > view {
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid rgba(185, 182, 182, 0.664);
+  margin-top : 20rpx;
+  font-size: 28rpx;
+}
+.top > view > input {
+  margin-top :20rpx;
+}
+.top > view > text {
+  color: rgb(32, 120, 221);
+}
+radio {
+  margin-left: 20rpx;
+}
+.radio {
+  color: #999;
+}
+.radio-group,.address {
+  margin-top: 20rpx;
+  color: #999;
+}
+.address > image {
+  width: 32rpx;
+  height: 32rpx;
+}
+.address {
+  display: flex;
+  justify-content: space-between;
+}

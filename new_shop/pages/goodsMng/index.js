@@ -24,7 +24,8 @@ Page({
         name: '已下架',
         flag: 2
       }
-    ]
+    ],
+    currentTypeIndex: 0
   },
 
   /**
@@ -57,6 +58,22 @@ Page({
         classId: res.result[0].class_id
       })
       this._queryGoodsList()
+    })
+  },
+
+  // 查询商品详情
+  queryDetail() {
+    wx.navigateTo({
+      url: '/pages/goodsDetail/index',
+    })
+  },
+
+  // 点击选择出售中或者已下架
+  chooseTape(e) {
+    console.log(e)
+    let index = e.currentTarget.dataset.index
+    this.setData({
+      currentTypeIndex: index
     })
   },
   // 获取商品列表

@@ -14,6 +14,7 @@
   border: 1px solid rgba(206, 205, 205, 0.664);
   align-items: center;
   padding: 20rpx 0 20rpx 20rpx;
+    justify-content: space-around;
 }
 .scan_box image {
   width: 56rpx;
