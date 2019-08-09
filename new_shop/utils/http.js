@@ -38,7 +38,7 @@ class http {
       wx.request({
         url: this.baseUrl + params.url,
         data: params.data,
-        header: {
+        header:params.header || {
           'content-type': 'application/x-www-form-urlencoded'
         },
         method: params.method,

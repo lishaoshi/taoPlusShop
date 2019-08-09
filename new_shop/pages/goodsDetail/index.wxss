@@ -37,3 +37,9 @@
   color: #999;
   margin-top: 20rpx;
 }
+.edit {
+  position: fixed;
+  right: 20rpx;
+  bottom: 20rpx;
+  color: rgb(26, 69, 207);
+}

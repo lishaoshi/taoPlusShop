@@ -16,34 +16,35 @@
   <view class="goodsList">
     <block wx:for="{{goodsList}}" wx:key="{{index}}">
       <view class='bg_box'></view>
-      <view class="goods_box" bindtap="queryDetail">
+      <view class="goods_box" bindtap="queryDetail" data-goodsid="{{item.groupon_goods_id}}">
       <!-- 团购订单号 -->
         <view class="goroup_header">
           <view>
-            <text>12s3dfsdfsf5d</text>
+            <text>{{item.groupon_goods_id}}</text>
           </view>
           <view>
-            <text>已结束</text>
+            <text>{{item.typeName}}</text>
+            <text bindtap="delGroupGoods" data-goodsid="{{item.goods_id}}" class="cancel" wx:if="{{item.type==1||item.type==0}}">取消</text>
           </view>
         </view>
 
         <view>
           <view>
-            <text>商品名称</text>
+            <text>{{item.goods_name}}</text>
             <view class="time">
               <text>结束时间</text>
-              <text>2018-10-30 10:01:00</text>
+              <text>{{item.endTime}}</text>
             </view>
           </view>
 
           <view class="right">
             <view>
-              <text>0</text>
+              <text>{{item.true_num}}</text>
               人成团
             </view>
             <view>
               已有
-              <text>5</text>
+              <text>{{item.processing_num}}</text>
               人发起团
             </view>
           </view>

@@ -1,3 +1,4 @@
+<wxs module="util" src="../../utils/limit.wxs" />
 <!--pages/addGoods/index.wxml-->
 <view class="container">
   <view>
@@ -9,7 +10,7 @@
   <!-- 图片模块 -->
   <view class="img_box" wx:if="{{imgList.length}}">
     <view class="img_list" wx:for="{{imgList}}" wx:key="{{index}}">
-      <image src="{{item}}"></image>
+      <image src="{{util.imgUrl(item.path, true)}}"></image>
       <image src="/images/close.svg" data-index="{{index}}" bindtap="delImg"></image>
     </view>
   </view>
@@ -18,25 +19,25 @@
     <view>
       <text>商品名称</text>
       <view>
-        <input value="" placeholder="例如：水煮鱼"></input>
+        <input bindblur="getGoodsName" value="{{goodsName}}" placeholder="例如：水煮鱼"></input>
       </view>
     </view>
     <view>
       <text>商品原价</text>
       <view>
-        <input value="" placeholder="请输入价格"></input>
+        <input bindblur="getGoodsOriginPrice" value="{{marketPrice}}" placeholder="请输入价格"></input>
       </view>
     </view>
     <view>
       <text>商品现价</text>
       <view>
-        <input value="" placeholder="请输入价格"></input>
+        <input  bindblur="getGoodsNowPrice" value="{{shopPrice}}" placeholder="请输入价格"></input>
       </view>
     </view>
     <view>
       <text class="tow">分类</text>
       <view>
-        <picker bindchange="bindPickerChange" range-key="class_name" value="{{index}}" range="{{goodsTypeList}}">
+        <picker bindchange="chooseClass" range-key="class_name" value="{{index}}" range="{{goodsTypeList}}">
           <view class="picker">
             {{goodsTypeList[index].class_name}}
             <view class="triangle"></view>
@@ -49,16 +50,16 @@
     <view>
       <text class="tow">库存</text>
       <view>
-        <input value="" placeholder="请输入数量"></input>
+        <input bindblur="getGoodsNumber" value="{{goodsNumber}}" placeholder="请输入数量"></input>
       </view>
     </view>
 
     <view>
       <text class="tow">单位</text>
       <view>
-        <picker bindchange="bindPickerChange" range-key="unit_name" value="{{unitIndex}}" range="{{unitList}}">
+        <picker bindchange="bindGoodsUnitId" range-key="unit_name" value="{{unitIndex}}" range="{{unitList}}">
           <view class="picker">
-            {{unitList[index].unit_name}}
+            {{unitList[unitIndex].unit_name}}
             <view class="triangle"></view>
           </view>
         </picker>
@@ -69,19 +70,19 @@
      <view>
       <text class="tow">排序</text>
       <view>
-        <input value="" placeholder="请输入序号"></input>
+        <input bindblur="getGoodSort" value="{{goodsSort}}" placeholder="请输入序号"></input>
       </view>
     </view>
 
      <view>
       <text>商品介绍</text>
       <view>
-        <textarea value="" placeholder="例如：口感嫩滑，芳香四溢"></textarea>
+        <textarea bindblur="getGoodsIntroduce" value="{{introduce}}" placeholder="例如：口感嫩滑，芳香四溢"></textarea>
       </view>
     </view>
   </view>
 
-  <view class="save">
+  <view class="save" bindtap="saveGoods">
     <text>保存</text>
   </view>
 </view>

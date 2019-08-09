@@ -1,28 +1,33 @@
 <!--pages/goodsDetail/index.wxml-->
+<wxs module="util" src="../../utils/limit.wxs" />
 <view class="container">
   <swiper indicator-dots indicator-active-color="#FFFFFF"
     autoplay interval="3000" circular>
     <block wx:for="{{imgUrls}}">
       <swiper-item>
-        <image src="{{item}}" class="slide-image" width="355" height="150"/>
+        <image src="{{util.imgUrl(item.path,true)}}" class="slide-image"/>
       </swiper-item>
     </block>
   </swiper>
 
   <view>
-    <text>水煮鱼</text>
+    <text>{{info.goods_name}}</text>
   </view>
 
   <view>
-    <text>库存 11</text>
+    <text>库存 {{info.inventory}}</text>
   </view>
 
   <view>
-    <text>￥ 1.2元</text>
+    <text>￥ {{info.shop_price}}元</text>
   </view>
 
   <view>
     <text>商品描述</text>
-    <text>口感好</text>
+    <text>{{info.described}}</text>
+  </view>
+
+  <view class="edit" bindtap="goEditGoods">
+    <text>编辑</text>
   </view>
 </view>

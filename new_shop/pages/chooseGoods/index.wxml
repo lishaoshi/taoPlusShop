@@ -1,11 +1,14 @@
 <!--pages/chooseGoods/index.wxml-->
+<wxs module="util" src="../../utils/limit.wxs" />
 <view class="container">
-  <goods_type activi='activi' goodsTypeList="{{goodsTypeList}}" class="goods"></goods_type>
-  <view class="goods_info">
-    <image></image>
-    <view>
-      <text>水煮鱼</text>
-      <text>￥1.2</text>
+  <goods_type activi='activi' bind:tabGoodsType="tabGoodsType" goodsTypeList="{{goodsTypeList}}" class="goods"></goods_type>
+  <block wx:for="{{goodsList}}" wx:key="{{index}}">
+    <view bindtap="chooseGoods" data-item="{{item}}" class="goods_info">
+      <image src="{{util.imgUrl(item.path, true)}}"></image>
+      <view>
+        <text>{{item.goods_name}}</text>
+        <text>￥{{item.shop_price}}</text>
+      </view>
     </view>
-  </view>
+  </block>
 </view>

@@ -1,3 +1,4 @@
+<wxs module="util" src="../../utils/limit.wxs" />
 <!--pages/goodsMng/index.wxml-->
 <view class="container">
   <goods_type activi="activi" class="goodsType" bind:tabGoodsType='tabGoodsType' goodsTypeList="{{goodsTypeList}}">
@@ -7,43 +8,47 @@
   </goods_type>
   <view class="goodsList">
     <view class="header_type">
-      <text bindtap="chooseTape" wx:for="{{typeArr}}" data-index="{{index}}" wx:key="{{index}}" class="{{index==currentTypeIndex?'activi':''}}">{{item.name}}(1)</text>
+      <text bindtap="chooseTape" wx:for="{{typeArr}}" data-flag="{{item.flag}}" data-index="{{index}}" wx:key="{{index}}" class="{{index==currentTypeIndex?'activi':''}}">{{item.name}}({{index==0?on_sale_num:no_sale_num}})</text>
       <!-- <text>已下架(2)</text> -->
     </view>
 
-    <view class="goods_box" bindtap="queryDetail">
-      <view class="goods_info">
-        <image src=""></image>
-        <view class="info">
-          <view>
-            <view>栗子</view>
-            <view>发布中</view>
+  <block wx:for="{{goodsList}}" wx:key="{{index}}">
+    <view class="goods_box">
+      
+        <view class="goods_info" bindtap="queryDetail" data-goodsid="{{item.goods_id}}">
+          <image src="{{util.imgUrl(item.path, true)}}"></image>
+          <view class="info">
+            <view>
+              <view>{{item.goods_name}}</view>
+              <view>{{item.on_sale==1?'发布中':'已下架'}}</view>
+            </view>
+            <view>{{item.described}}</view>
+            <view>
+              <text>月销 {{item.sales_volume}}</text>
+              <text>访问量 {{item.see_count}}</text>
+              <text>库存 {{item.inventory}}</text>
+            </view>
+            <view>
+              价格￥
+              <text>{{item.shop_price}}元</text>
+            </view>
           </view>
-          <view>好吃</view>
-          <view>
-            <text>月销0</text>
-            <text>访问量13</text>
-            <text>库存51</text>
-          </view>
-          <view>
-            价格￥
-            <text>0.05元</text>
-          </view>
-        </view>
-      </view>
-      <view>
-        <view>
-          删除
         </view>
         <view>
-          下架
+          <view bindtap="delGoods" data-goodsId="{{item.goods_id}}" data-index="{{index}}">
+            删除
+          </view>
+          <view bindtap="setSale" data-goodsId="{{item.goods_id}}" data-saleFlag="{{item.on_sale}}">
+            <!-- 下架 -->
+            {{item.on_sale==1?'下架':'上架'}}
+          </view>
+          <view bindtap="goEdit" data-goodsid="{{item.goods_id}}">
+            编辑
+          </view>
         </view>
-        <view>
-          编辑
-        </view>
-      </view>
+      
     </view>
-
+    </block>
     <!-- 添加商品 -->
     <view class="addGoodsBox" bindtap="goAddGoods">
       <view>

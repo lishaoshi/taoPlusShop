@@ -19,13 +19,15 @@ page {
 .goods_info {
   display: flex;
   margin-top: 20rpx;
-  padding-bottom: 10rpx;
+  padding-bottom: 20rpx;
   flex: 1;
   border-bottom: 1px solid rgba(211, 210, 210, 0.411);
 }
 .goods_info image{
-  width: 250rpx;
-  height: 140rpx
+  width: 140rpx;
+  height: 140rpx;
+  margin-right:20rpx;
+  border-radius: 4rpx;
 }
 .goods_info > view {
   display: flex;

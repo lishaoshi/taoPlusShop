@@ -11,17 +11,17 @@
   justify-content: space-between;
   border-bottom: 1px solid rgba(209, 208, 208, 0.61);
   padding: 30rpx 30rpx 0;
+  align-items: center;
 }
-.chooseGoods > view:first-child {
+.chooseGoods > scroll-view {
   margin-left: 20rpx;
-  line-height: 64rpx;
+  width: 70%;
 }
-.chooseGoods > view:last-child {
+.chooseGoods > view {
   margin-right: 20rpx;
-  line-height: 64rpx;
   background: #F0763C;
   color: #fff;
-  padding: 0 30rpx;
+  padding: 20rpx 30rpx;
   font-size: 22rpx;
   border-radius: 34rpx;
   margin-bottom: 10rpx;
@@ -59,6 +59,7 @@
 .form > view {
   display: flex;
   margin-top: 56rpx;
+  
 }
 .form > view > text {
   display: flex;
@@ -72,6 +73,8 @@
   align-items: center;
   margin-left: 80rpx;
   margin-right: 60rpx;
+  /* text-align: center; */
+  justify-content: center;
 }
 .form > view:nth-last-of-type(2) > view {
   width: 200rpx;

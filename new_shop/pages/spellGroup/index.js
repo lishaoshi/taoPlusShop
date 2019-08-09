@@ -13,15 +13,12 @@ Page({
     goodsTypeList: [],   //商品分类列表
     index: -1,
     goodsList:[],    //团购商品列表
-    type: '',
+    typeName: '',
     class_id: '',
     pageNo: 1,
     pageSize: 9,
+    type:0,
     currentIndex: 0,
-    goodsList: [
-      {},
-      {}
-    ]
   },
 
   /**
@@ -29,7 +26,7 @@ Page({
    */
   onLoad: function (options) {
     this._queryGoodsTypeList()
-    // this._getGroupList()
+    this._getGroupList()
   },
 
   // 查询商品分类列表
@@ -44,29 +41,44 @@ Page({
     })
   },
   // 点击团购订单，查看团购用户
-  queryDetail() {
+  queryDetail(e) {
+    let goodsId = e.currentTarget.dataset.goodsid
     wx.navigateTo({
-      url: '/pages/spellGroupDetail/index',
+      url: '/pages/spellGroupDetail/index?goodsid='+goodsId,
     })
   },
 
   // 选择团购商品类型
   bindPickerChange(e) {
-    console.log(e)
     let index = e.detail.value
-    // if (!this.data.goodsList[index].class_id) {}
     this.setData({
+      type: '',
       index,
-      class_id: this.data.goodsList[index].class_id
+      class_id: this.data.goodsTypeList[index].class_id,
     })
+    this._getGroupList()
   },
 
-  // 点击拼购列表状态 默认全部 1、在售   2、停售
+  // 点击拼购列表状态 默认全部 1、在售   -1、停售
   chooseType(e) {
     let index = e.currentTarget.dataset.index
+    let type = 0
+    // index == 0 && type =''
+    // index == 1 && type = 1
+    // index == 2 && type= -1
+    if(index==0) {
+      type = ''
+    } else if (index == 1){
+      type = 1
+    } else {
+      type = -1
+    }
+    console.log(type,index)
     this.setData({
-      currentIndex: index
+      currentIndex: index,
+      type: type
     })
+    this._getGroupList()
   },
 
   // 前往发起团购页面
@@ -79,17 +91,70 @@ Page({
   // 获取团购商品列表
   _getGroupList() {
     let data = {
-      shopId: app.globalData.shopId,
       type: this.data.type,
       class_id: this.data.class_id,
       pageNum: this.data.pageNo,
       pageSize: this.data.pageSize
     }
     spellGroupModel.getGroupList(data, app.globalData.shopId).then(res=>{
-
+      let status
+     
+      res.forEach((item, index, arr)=>{
+        arr[index].typeName = ''
+        // console.log(item.type)
+        switch (item.type) {
+          case 1:
+            status = '进行中';
+            break;
+          case -1:
+            status = '已结束';
+            break;
+          case 0:
+            status = '未开始';
+            break;
+          case 2:
+            status = '已取消';
+            break;
+        }
+        arr[index].typeName = status
+      })
+      // let key = `goodsList${index}.typeName`
+      this.setData({
+        goodsList: res,
+      })
+      
+      // this.setData({
+      //   [key]: status
+      // })
     })
   },
 
+  // 取消团购
+  delGroupGoods(e) {
+    let goodsId = e.currentTarget.dataset.goodsid
+    wx.showModal({
+      title: '提示',
+      content: '确定取消团购吗？',
+      success: res=>{
+        if(res.confirm) {
+          this._cancelGroupGoods()
+        }
+      }
+    })
+
+  },
+
+  // 取消团购接口函数
+  _cancelGroupGoods(goodsId) {
+    let data = {
+      goodsId
+    }
+    spellGroupModel.cancelGroupGoods(data).then(res=>{
+      wx.showToast({
+        title: '取消成功',
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -45,11 +45,17 @@
 .goroup_header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  height: 66rpx;
   border-bottom: 1px solid rgba(196, 192, 192, 0.527);
 }
 .goroup_header > view {
-  line-height: 56rpx;
-  font-size: 28rpx;
+  /* line-height: 56rpx; */
+  font-size: 26rpx;
+}
+.goroup_header > view:last-child {
+  display: flex;
+  align-items: flex-start;
 }
 .bg_box {
   background: rgba(221, 212, 212, 0.192);
@@ -89,7 +95,8 @@
   display: flex;
   align-items: center;
   color: #F0763C;
-  position: absolute;
+  position: fixed;
+  background: #fff;
   left: 20rpx;
   bottom: 20rpx;
   font-size: 28rpx;
@@ -98,4 +105,11 @@
   width: 60rpx;
   height: 60rpx;
   margin-right: 20rpx;
+}
+.cancel {
+  background: rgb(228, 94, 5);
+  padding: 2rpx 20rpx;
+  border-radius: 8rpx;
+  color: #fff;
+  margin-left: 10rpx;
 }

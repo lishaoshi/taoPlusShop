@@ -14,7 +14,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let info = wx.getStorageSync('goodsInfo')
+    let imgArr = info.banner
+    this.setData({
+      info:info,
+      imgUrls: imgArr
+    })
+  },
 
+  // 前往编辑商品页
+  goEditGoods() {
+    wx.navigateTo({
+      url: '/pages/addGoods/index?isEdit=1',
+    })
   },
 
   /**

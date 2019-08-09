@@ -1,7 +1,7 @@
 <!--pages/addGroupGoods/index.wxml-->
 <view class="container">
   <view class="chooseGoods">
-    <view>请选择团购商品</view>
+    <scroll-view scroll-x="{{true}}">{{goodsInfo.goods_name?goodsInfo.goods_name:'请选择团购商品'}}</scroll-view>
     <view bindtap="chooseGoods">
       <text>选择商品</text>
     </view>
@@ -11,7 +11,7 @@
     <view>
       <text class="foure">成团人数</text>
       <view>
-        <input></input>
+        <input bindblur="getTargetValue" data-type="1"></input>
       </view>
       <text>人</text>
     </view>
@@ -19,7 +19,8 @@
     <view>
       <text>商品原价格</text>
       <view>
-        <input></input>
+        <!-- <input bindblur="getTargetValue" data-type="2"></input> -->
+        <text>{{goodsInfo.shop_price}}</text>
       </view>
       <text>元</text>
     </view>
@@ -27,7 +28,7 @@
     <view>
       <text class="foure">拼团价格</text>
       <view>
-        <input></input>
+        <input bindblur="getTargetValue" data-type="3"></input>
       </view>
       <text>元</text>
     </view>
@@ -35,7 +36,7 @@
     <view>
       <text>发起人奖励</text>
       <view>
-        <input></input>
+        <input bindblur="getTargetValue" data-type="4"></input>
       </view>
       <text>元</text>
     </view>
@@ -43,7 +44,7 @@
     <view>
       <text class="foure">拼团类型</text>
       <view>
-        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <picker bindchange="bindPickerChange" data-index="{{index}}" value="{{index}}" range="{{array}}">
           <view class="pickers" style="height: 100%;width:100%;">
             {{array[index]}}
           </view>
@@ -55,7 +56,7 @@
     <view>
       <text class="online">在</text>
       <view>
-        <input></input>
+        <input bindblur="getTargetValue" data-type="5"></input>
       </view>
       <text>小时之内拼成</text>
     </view>
@@ -97,7 +98,7 @@
       </picker>
     </view>
 
-    <view class="btn">
+    <view class="btn" bindtap="sendGroupGoods">
       <text>发起团购</text>
     </view>
   </view>

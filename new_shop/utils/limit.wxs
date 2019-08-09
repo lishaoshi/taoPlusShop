@@ -9,7 +9,22 @@ var limitPrice = function (price, num=2) {
   return price.toFixed(price, num)
 }
 
+var imgUrl = function (path, flag=true) {
+  if(!path) {
+    return
+  }
+  var url = 'https://api.olb8.com'
+  var imgPath
+  if(flag) {
+    imgPath = url + path+'.th'
+  } else {
+    imgPath = url + path
+  }
+  return imgPath
+}
+
 
 module.exports = {
-  limitPrice: limitPrice
+  limitPrice: limitPrice,
+  imgUrl: imgUrl
 }

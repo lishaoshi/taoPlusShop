@@ -6,8 +6,9 @@ class spellGroup extends http {
   }
 
   // 获取团购列表
-  getGroupList(data, shopId) {
-    let url = `/api/shop/${shopId}/groupons/refund/details`
+  getGroupList(data, shopId='') {
+    let url = `/api/shop/${shopId}/groupons`
+    // let url = `/api/shop/${agencyId}/groupon-goods/item`
     let params = {
       url,
       data,
@@ -64,6 +65,17 @@ class spellGroup extends http {
     let params = {
       url,
       data
+    }
+    return this.request(params)
+  }
+
+  // 查看拼团列表
+  queryGroupList(data, shopId, itemId) {
+    let url = `/api/shop/${shopId}/groupon-goods/${itemId}`
+    let params = {
+      url,
+      data,
+      method: 'get'
     }
     return this.request(params)
   }
