@@ -1,0 +1,49 @@
+/* pages/shopImg/index.wxss */
+page {
+  height: 100%;
+}
+.container {
+  display: flex;
+  height: 100%;
+  background: rgba(224, 219, 219, 0.418);
+}
+.left {
+  padding: 0 40rpx;
+  background: #fff;
+}
+.left > view {
+  line-height: 66rpx;
+}
+.activi {
+  color: rgb(49, 94, 218);
+}
+.right {
+  flex: 1;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-around; */
+}
+.content > image {
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 10rpx;
+  margin-top: 10rpx;
+}
+.content>view:first-child {
+  color: rgb(29, 83, 199);
+  display: flex;
+  margin-right: 10rpx;
+  flex-direction: column;
+  width: 160rpx;
+  height: 160rpx;
+  margin-top: 10rpx;
+  align-items: center;
+  background: rgba(196, 195, 195, 0.589);
+}
+.content>view:first-child > text {
+  font-size: 66rpx;
+}

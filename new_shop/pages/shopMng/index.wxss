@@ -67,12 +67,13 @@ page {
   display: flex;
   width: 250rpx;
   height: 180rpx;
+  border: 1px dashed #999;
 }
 .botm {
   margin-top: 40rpx;
 }
-/* .botm > text:first-child{
+.botm > text:first-child{
    font-size: 28rpx;
   color: #999;
   margin-right: 30rpx;
-} */
+}

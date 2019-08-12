@@ -137,7 +137,7 @@ Page({
       content: '确定取消团购吗？',
       success: res=>{
         if(res.confirm) {
-          this._cancelGroupGoods()
+          this._cancelGroupGoods(goodsId)
         }
       }
     })

@@ -23,8 +23,20 @@ var imgUrl = function (path, flag=true) {
   return imgPath
 }
 
+var time = function (time) {
+  // console.log(time)
+  if(!time) {
+    return
+  }
+  var data = time.split(':')
+  var targetTime=data[0]+':'+data[1]
+  // console.log(targetTime)
+  return targetTime
+}
+
 
 module.exports = {
   limitPrice: limitPrice,
-  imgUrl: imgUrl
+  imgUrl: imgUrl,
+  time: time
 }

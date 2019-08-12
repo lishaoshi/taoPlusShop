@@ -24,7 +24,7 @@
           </view>
           <view>
             <text>{{item.typeName}}</text>
-            <text bindtap="delGroupGoods" data-goodsid="{{item.goods_id}}" class="cancel" wx:if="{{item.type==1||item.type==0}}">取消</text>
+            <text catchtap="delGroupGoods" data-goodsid="{{item.goods_id}}" class="cancel" wx:if="{{item.type==1||item.type==0}}">取消</text>
           </view>
         </view>
 

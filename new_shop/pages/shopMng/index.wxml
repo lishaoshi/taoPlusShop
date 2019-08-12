@@ -37,7 +37,7 @@
   <view class="botm">
     <text>店铺图片</text>
     <view class="image_box">
-      <view class="">
+      <view>
         <image src="{{shopImgUrl}}"></image>
       </view>
       <view>

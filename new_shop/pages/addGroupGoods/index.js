@@ -104,7 +104,7 @@ Page({
     }
     spellGroupModel.addGroupGoods(data).then(res=>{
       setTimeout(()=>{
-        showToast('请填写抢购开始时间', 'success')
+        showToast('请填写抢购开始时间','1000', 'success')
       }, 1000)
       wx.navigateBack()
     })

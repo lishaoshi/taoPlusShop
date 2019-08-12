@@ -1,19 +1,24 @@
 <!--pages/orderDetail/index.wxml-->
 <view class="container">
-  <view class="headr">
-    <view>待支付</view>
+  <view class="header">
+    <view>{{orderInfo.status}}</view>
     <view>实付金额</view>
-    <view>￥2.2</view>
+    <view>￥{{orderInfo.actual_price}}</view>
   </view>
 
   <view class="shopInfo">
-    <view>魏家</view>
+    <view>{{orderInfo.shop_name}}</view>
     <view>
-      <image></image>
-      <text>成双成对</text>
-      <text>￥0</text>
-      <text>￥1</text>
-      <text>￥0</text>
+       <view>
+        <image></image>
+        <text>{{orderInfo.orderDetailsList[0].name}}</text>
+      </view>
+      <view>
+        <text class="col">￥0</text>
+        <text class="col">￥1</text>
+        <text>￥0</text>
+      </view>
+     
     </view>
     <view>
       <text>小计</text>
@@ -21,7 +26,7 @@
     </view>
 
 
-    <view>
+    <view class="last">
       <view>
         商品总价：
         <text>￥0.02</text>
@@ -42,10 +47,10 @@
         支付方式
         <text>￥0.02</text>
       </view>
-      <view>
+      <!-- <view>
         桌号
         <text>￥0.02</text>
-      </view>
+      </view> -->
     </view>
     
   </view>

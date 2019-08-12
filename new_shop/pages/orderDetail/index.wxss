@@ -1,1 +1,70 @@
 /* pages/orderDetail/index.wxss */
+.header {
+  border-bottom: 1px solid rgba(184, 180, 180, 0.685);
+  padding-bottom: 40rpx;
+}
+.header > view {
+  text-align: center;
+  font-size: 28rpx;
+}
+.header > view:nth-child(1) {
+  text-align: right;
+  font-size: 24rpx;
+  color: #999;
+  margin-right: 20rpx;
+}
+.header > view:nth-child(3) {
+  color: rgb(240, 66, 23);
+  font-size: 44rpx;
+  margin-top: 20rpx;
+  /* font-weight: bold; */
+}
+.shopInfo image {
+  width: 66rpx;
+  height: 66rpx;
+  margin-right: 10rpx;
+}
+.shopInfo {
+  padding: 0 30rpx;
+  font-size: 32rpx;
+  margin-top: 20rpx;
+}
+.shopInfo > view:nth-child(2) {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 26rpx;
+  margin-top: 30rpx;
+  border-bottom: 1px solid #999;
+  padding-bottom: 20rpx;
+}
+.shopInfo > view:nth-child(2) > view:first-child {
+  display: flex;
+  align-items: flex-start;
+}
+.shopInfo > view:nth-child(2) > view:last-child >text {
+  margin-left: 20rpx;
+}
+.col {
+  color:#999;
+}
+.shopInfo > view:nth-child(3) {
+text-align: right;
+padding: 30rpx 0;
+border-bottom: 1rpx solid #999;
+font-size: 28rpx;
+}
+.shopInfo > view:nth-child(3) > tetx {
+  color: #999;
+}
+.last {
+  padding: 30rpx;
+  font-size: 24rpx;
+  line-height: 54rpx;
+}
+.last > view {
+  color:#999;
+}
+.last > view>text {
+  color: #000;
+}

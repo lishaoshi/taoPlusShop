@@ -1,0 +1,21 @@
+<!--pages/shopImg/index.wxml-->
+<wxs module="util" src="../../utils/limit.wxs" />
+<view class="container">
+  <view class="left">
+    <view class="{{index==currentIndex?'activi':''}}" wx:for="{{targetArr}}" wx:key="{{index}}" bindtap="choooseType" data-type="{{item.type}}" data-index="{{index}}">
+      <text>{{item.name}}({{item.length}})</text>
+    </view>
+  </view>
+
+  <view class="right">
+    <view class="content">
+      <view bindtap="addImg">
+        <text>+</text>
+        新增图片
+      </view>
+      <block wx:for="{{targetList}}" wx:key="{{index}}">
+        <image bindlongtap="delImg" data-id="{{item.shop_pic_id}}" src="{{util.imgUrl(item.path)}}"></image>
+      </block>
+    </view>
+  </view>
+</view>

@@ -18,7 +18,8 @@
     "pages/account/index",
     "pages/shopDetailInfo/index",
     "pages/orderMng/index",
-    "pages/orderDetail/index"
+    "pages/orderDetail/index",
+    "pages/shopImg/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

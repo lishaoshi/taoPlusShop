@@ -4,6 +4,7 @@ page {
 }
 .container {
   padding: 0 30rpx;
+  background: #fff;
 }
 .top > view {
   padding-bottom: 20rpx;
@@ -13,6 +14,9 @@ page {
 }
 .top > view > input {
   margin-top :20rpx;
+}
+.top {
+  background: #fff;
 }
 .top > view > text {
   color: rgb(32, 120, 221);
@@ -34,4 +38,62 @@ radio {
 .address {
   display: flex;
   justify-content: space-between;
+}
+.bottom >  view > text {
+  color: rgb(32, 120, 221);
+}
+.bottom > view {
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid rgba(185, 182, 182, 0.664);
+  margin-top : 20rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+.bottom {
+  margin-top: 20rpx;
+  background: #fff;
+}
+.bottom > view > view {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bottom > view > picker,textarea,view {
+  margin-top :20rpx;
+}
+.picker {
+   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+picker {
+  height: 100%;
+}
+.right {
+  border-top: 1px solid #999;
+  border-right: 1px solid #999;
+  width: 20rpx;
+  height: 20rpx;
+  transform: rotate(45deg);
+  margin-top: 0;
+}
+textarea {
+  height: 200rpx;
+  width: 100%;
+  color: #000;
+}
+.time > text {
+  color: #999;
+}
+.time {
+  color: #000;
+}
+.confirm {
+  width: 70%;
+  padding: 20rpx 0;
+  margin: 30rpx auto;
+  background: rgb(16, 95, 241);
+  text-align: center;
+  color: #fff;
+  border-radius: 42rpx;
 }

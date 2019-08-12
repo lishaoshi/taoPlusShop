@@ -45,7 +45,7 @@ Page({
     let IMG = `https://api.olb8.com`
     if (pic_list[2] && pic_list[2][0]) {
       let url = `${IMG}${pic_list[2]}.th`
-      console.log(url)
+      // console.log(url)
       this.setData({
         shopImgUrl: url
       })
@@ -74,7 +74,7 @@ Page({
       pic_list[type] = [];
       pic_list[type].push(path);
     }
-    console.log(pic_list)
+    // console.log(pic_list)
   },
 
   /**

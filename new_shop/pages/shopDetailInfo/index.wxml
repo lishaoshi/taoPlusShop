@@ -1,15 +1,15 @@
+<wxs module="util" src="../../utils/limit.wxs" />
 <!--pages/shopDetailInfo/index.wxml-->
 <view class="container">
   <view class="top">
     <view>
       <text>店铺名称</text>
-      
-      <input placeholder="请填写店铺名称和"></input>
+      <input value="{{shopData.shop_name}}" bindblur="handleInput" data-flag="name" placeholder="请填写店铺名称和"></input>
     </view>
 
     <view>
       <text>客服联系电话</text>
-      <input placeholder="请填写联系电话"></input>
+      <input value="{{shopData.mobile}}" bindblur="handleInput" data-flag="mobile" placeholder="请填写联系电话"></input>
     </view>
 
     <view>
@@ -20,25 +20,69 @@
         </label>
       </radio-group>
       <view class="address" bindtap="chooseMap" wx:if="{{isMap}}">
-        {{address}}
+      <text wx:if="{{!shopData.address}}">请选择店铺地址</text>
+        {{shopData.address}}
         <image src="/images/address.svg"></image>
       </view>
     </view>
 
-    <view>
+    <!-- <view>
       <text>推荐人</text>
       <input placeholder="请填写推荐人电话"></input>
+    </view> -->
+  </view>
+
+  <view class="bottom">
+    <view>
+      <text>经营项目</text>
+       <picker mode="multiSelector" range-key="type_name"	 bindchange="handleChangProject" bindcolumnchange="handleColumnProject" value="{{projectIndex}}" range="{{projectArr}}">
+        <view class="picker">
+          <text wx:if="{{!projectArr[1][projectIndex[1]].type_name && !shopData.spt_type_name}}">请选择</text>
+          <text wx:if="{{!projectArr[1][projectIndex[1]].type_name}}">{{shopData.spt_type_name}}</text>
+          <!-- 当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}} -->
+          {{projectArr[1][projectIndex[1]].type_name}}
+          <view class="right"></view>
+        </view>   
+        
+      </picker>
+    </view>
+
+    <view>
+      <text>开始经营时间</text>
+       <picker value="{{util.time(startTime)}}" mode="time" bindchange="handleTime" data-flag="start" start="06:00" end="07:01">
+        <view class="picker time">
+          <text wx:if="{{!startTime}}">请选择开始营业时间</text>
+          {{util.time(startTime)}}
+          <view class="right"></view>
+        </view>   
+        
+      </picker>
+    </view>
+
+    <view>
+      <text>结束经营时间</text>
+       <picker mode="time" value="{{util.time(endTime)}}" bindchange="handleTime" data-falg="end" start="06:00:00" >
+        <view class="picker time">
+          <text wx:if="{{!endTime}}">请选择结束营业时间</text>
+          {{util.time(endTime)}}
+          <view class="right"></view> 
+        </view>  
+      </picker>
+    </view>
+
+    <view bindtap="goEditImg">
+      <text>店铺图片修改</text>
+      <view>
+        <text>店铺图片修改</text>
+        <view class="right"></view>
+      </view>
+    </view>
+
+    <view>
+      <text>店铺信息</text>
+      <textarea value="{{shopData.content}}" bindblur="bindTextAreaBlur" placeholder="请填写店铺信息" />
     </view>
   </view>
 
-  <!-- <view class="bottom">
-    <view>
-      <text>经营项目</text>
-       <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}"              range="{{multiArray}}">
-        <view class="picker">
-          当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
-        </view>   
-      </picker>
-    </view>
-  </view> -->
+  <view class="confirm" bindtap="save">修改</view>
 </view>
