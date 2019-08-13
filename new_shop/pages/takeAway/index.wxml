@@ -1,0 +1,25 @@
+<!--pages/takeAway/index.wxml-->
+<!-- <wxs module="util" src="../../utils/order.wxs"/> -->
+<view class="container">
+  <view class="title">
+    <text>提现至</text>
+    <text bindtap="chooseBankCard" class="bankInfo" wx:if="{{bankCardInfo}}">{{text}}</text>
+    <text bindtap="bindBankCar" wx:else>绑定银行卡</text>
+  </view>
+
+  <view class="content">
+    <text>提现金额</text>
+    <!-- <view class="input_box">
+      <text>￥</text>
+      <input class="input" />
+    </view> -->
+    <view class="input_box">
+      <text>￥</text><input bindblur="bindblur" value="{{inputValue}}" placeholder-class="plce" type="number" class="input" placeholder="请输入提现金额" />
+    </view>
+    <view class="prompt">
+      当前余额{{total?total:'0.00'}}，提现手续费每笔1元. 
+      <text bindtap="allTx">全部提现</text>
+    </view>
+    <bottom-btn class="bottom_btn" buttonName="提现" bind:tapBtn="tapBtn"></bottom-btn>
+  </view>
+</view>

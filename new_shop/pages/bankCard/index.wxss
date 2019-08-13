@@ -1,0 +1,62 @@
+/* pages/bankCard/index.wxss */
+page {
+  background:rgba(248,248,248,1);
+}
+.container {
+  padding: 0 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+.container > text {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 20rpx;
+}
+.add_bank_card {
+  width: 100%;
+  height: 200rpx;
+  font-weight:600;
+  color:rgb(25, 70, 216);
+  font-size: 32rpx;
+  background: #fff;
+  line-height: 200rpx;
+  text-align: center;
+  margin-top:38rpx;
+  border-radius:12rpx;
+}
+.bank_card_list {
+  display: flex;
+  padding: 0 20rpx;
+  margin-top: 20rpx;
+  background: #fff;
+  border-radius:12px;
+}
+.bank_card_list > image {
+  width: 48rpx;
+  height: 48rpx;
+  margin-top: 20rpx;
+  margin-right: 20rpx;
+}
+.bank_card_list > view {
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+.bank_card_list > view > text:nth-child(1) {
+  font-size:32rpx;
+  line-height: 56rpx;
+  font-weight: bold;
+}
+.bank_card_list > view > text:nth-child(2) {
+  font-size:24rpx;
+  color:rgba(179,179,179,1);
+  line-height: 56rpx;
+}
+.bank_card_list > view > text:nth-child(3) {
+  font-size:32rpx;
+  line-height: 56rpx;
+  /* font-weight: bold; */
+  color:rgba(26,26,26,1);
+  margin-bottom: 20rpx;
+}
+

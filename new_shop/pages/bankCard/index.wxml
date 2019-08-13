@@ -1,0 +1,18 @@
+<!--pages/bankCard/index.wxml-->
+<view class="container">
+  <text>提示：长按解绑银行卡</text>
+  <block wx:for="{{dataList}}" wx:key="index">
+     <view bindtap="chooseBankCard" data-item="{{item}}" bindlongtap="tostDelBank" data-bankCardId="{{item.bankcardId}}"  class="bank_card_list">
+      <!-- <image src="{{item.imgPath}}"></image> -->
+      <view>
+        <text>{{item.bankcardName}}</text>
+        <text>{{bankcardType[item.bankcardType]}}</text>
+        <text>{{item.bankcardNum}}</text>
+      </view>
+    </view>
+  </block>
+  <view class="add_bank_card" wx:if="{{!dataList.length}}" bindtap="addBankCard">
+  +
+  <text>添加银行卡</text>
+  </view>
+</view>

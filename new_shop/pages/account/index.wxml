@@ -1,6 +1,6 @@
 <!--pages/account/index.wxml-->
 <view class="container">
-  <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+  <picker wx:if="{{!type}}" mode="date" value="{{date}}" bindchange="bindDateChange">
     <view class="picker">
     <image src="/images/date.svg"></image>
        {{date}}
@@ -10,11 +10,11 @@
   <view class="account_box">
     <block wx:for="{{dataList}}" wx:key="{{index}}">
       <view class="account_info">
-          <image src="{{item.portraitUrl}}"></image>
+          <image src="{{item.avatar}}"></image>
           <view class="info">
             <view>
-              <view>让利分润</view>
-              <view>{{item.payment}}元</view>
+              <view>{{item.typeName}}</view>
+              <view class="{{item.flag?'add':''}}"><text wx:if="{{item.income!=0}}">{{item.flag?'+':'-'}}</text>{{item.income}}元</view>
             </view>
             <view>
               <text>{{item.described}}</text>
@@ -22,7 +22,7 @@
 
             <view>
               <view>{{item.createTime}}</view>
-              <view>微信公众号</view>
+              <view>{{item.payTypeName}}</view>
             </view>
           </view>
         </view>

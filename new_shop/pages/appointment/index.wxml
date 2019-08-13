@@ -1,0 +1,6 @@
+<!--pages/appointment/index.wxml-->
+<view class="container">
+  <view class="type-list" bindtap="goTargetPage" data-index="{{index}}" wx:for="{{list}}" wx:key="{{index}}">
+    <text>{{item}}</text>
+  </view>
+</view>

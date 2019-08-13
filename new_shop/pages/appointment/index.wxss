@@ -1,0 +1,6 @@
+/* pages/appointment/index.wxss */
+.type-list {
+  font-size: 28rpx;
+  padding: 20rpx 30rpx;
+  border-bottom: 1px solid rgba(241, 236, 236, 0.541);
+}

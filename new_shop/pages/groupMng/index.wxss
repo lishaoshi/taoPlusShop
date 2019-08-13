@@ -1,0 +1,66 @@
+/* pages/groupMng/index.wxss*/
+page {
+  background: rgba(221, 221, 221, 0.301);
+}
+.container {
+  font-size: 28rpx;
+}
+.header {
+  margin-top: 20rpx;
+  background: #fff;
+  display: flex;
+  /* align-items: flex-start; */
+  padding: 20rpx;
+  align-items: center;
+}
+.header > text:first-child {
+  padding: 6rpx 14rpx;
+  font-size: 36rpx;
+  border: 1px dashed #999;
+  margin-right: 20rpx;
+  color: #999;
+}
+.group-box {
+  background: #fff;
+  padding: 0 30rpx;
+  margin-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.group-list {
+  padding: 10rpx 0;
+  border-bottom: 1px solid rgba(228, 227, 227, 0.658);
+}
+.dialog {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  margin-left: -40%;
+  /* height: 200rpx; */
+  z-index: 99;
+  /* color: #fff; */
+  width: 80%;
+  background: #fff;
+  padding:0 10rpx;
+}
+.dialog > view > view:first-child{
+  text-align: center;
+  padding: 10rpx 0;
+}
+.addGroup > input {
+  height: 60rpx;
+  padding: 30rpx;
+}
+.dialog-btn {
+  display: flex;
+  border-top: 1px solid rgba(194, 192, 192, 0.575);
+  padding: 20rpx 30rpx;
+  justify-content: space-around;
+  font-size: 32rpx;
+}
+.dialog-btn > view {
+  flex: 1;
+  text-align: center;
+}
+.dialog-btn > view:first-child {
+  border-right: 1px solid rgba(194, 192, 192, 0.575);
+}

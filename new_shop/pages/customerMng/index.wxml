@@ -1,0 +1,46 @@
+<!--pages/customerMng/index.wxml-->
+<view class="container">
+  <view class="input-box">
+    <view>
+      <image src="/images/search.svg"></image>
+      <input bindconfirm="getInputValue" placeholder-class="placeholder" placeholder="请输入搜索昵称、手机号"></input>
+    </view>
+  </view>
+
+  <scroll-view scroll-x>
+    <view class="customer-type">
+      <block wx:for="{{typeArr}}" wx:key="{{index}}">
+      <view bindtap="chooseType" data-index="{{index}}" class="{{index==currentIndex?'activi':''}}">
+        {{item.name}}
+      </view>
+      </block>
+    </view>
+  </scroll-view>
+
+  <view class="customer-box">
+   <block wx:for="{{dataList}}" wx:key="{{index}}">
+      <view class="customer-info">
+        <view class="info">
+          <image src="{{item.portrait_url}}"></image>
+          <view class="cont">
+            <image wx:if="{{item.st_count}}" src="{{item.st_count==1?'/images/lock.png':''}}"></image>
+            <image wx:if="{{item.sp_count}}" src="{{item.sp_count==1?'/images/promoters.png':''}}"></image>
+            <text>{{item.nickname||''}}</text>
+            <view>
+              <text>{{item.mobile||''}}</text>
+              <image src="/images/tel.svg"></image>
+            </view>
+          </view>
+         
+        </view>
+         <view>消费次数{{item.order_count||''}}次</view>
+      
+      </view>
+     </block>
+  </view>
+  
+
+  <view class="bot" bindtap="openBtn">
+    <text>+</text>
+  </view>
+</view>

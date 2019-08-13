@@ -1,0 +1,45 @@
+<!--pages/serviceMng/index.wxml-->
+<view class="container">
+  <view class="left">
+    <block wx:for="{{tableList}}" wx:key="{{index}}">
+      <view class="list {{index==currentTableIndex?'activi':''}}" bindtap="chooseTable" data-index="{{index}}" data-id="{{item.floor_id}}">
+        <view class="overflowWrap">{{item.position_name}}</view>
+      </view>
+    </block>
+    <view class="add-box">
+    <text>+</text>
+    </view>
+  </view>
+
+
+  <view class="right">
+    <checkbox-group bindchange="checkboxChange">
+      <block wx:for="{{dataList}}" wx:key="{{item.floor_seat_id}}">
+        <view class="room-list">
+          <view>{{item.seat_name}}</view>
+          <view wx:if="{{!flagDel}}">{{item.seat}}</view>
+          <label class="checkbox">
+          <checkbox wx:if="{{flagDel}}" value="{{item.floor_seat_id}}" checked="{{item.checked}}"/>{{item.value}}
+          </label>
+        </view>
+      </block>
+    </checkbox-group>
+    <view class="addRoom">
+      <text>添加</text>
+      <image src="/images/icon-table.png"></image>
+    </view>
+  </view>
+
+  <view wx:if="{{flagDel}}" class="confrimEdit" bindtap="del">
+    <text>确认删除</text>
+  </view>
+  
+  
+   
+
+
+  <view class="setTime">
+    <view>设置时段</view>
+    <view bindtap="delTabel">{{flagDel?'取消':'删除'}}</view>
+  </view>
+</view>

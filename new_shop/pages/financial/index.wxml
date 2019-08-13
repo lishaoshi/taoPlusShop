@@ -1,0 +1,21 @@
+<!--pages/financial/index.wxml-->
+<view class="container">
+  <view class="header">
+		<!-- <view class="title"> -->
+			<!-- <text class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></text> -->
+			<!-- <text class="h1">财务管理</text>
+		</view> -->
+
+		<view class="header-box">
+			<view class="header-left i-b v-t">
+				<text class="money">{{balance}}</text>
+				<text class="text">账户余额（元）</text>
+				<text class="block simple-jump" bindtap="queryDetail">详情</text>
+			</view>
+		</view>
+
+    <view class="btn" bindtap="goTakeAway">
+      <text>提现</text>
+    </view>
+	</view>
+</view>

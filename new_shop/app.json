@@ -19,7 +19,15 @@
     "pages/shopDetailInfo/index",
     "pages/orderMng/index",
     "pages/orderDetail/index",
-    "pages/shopImg/index"
+    "pages/shopImg/index",
+    "pages/customerMng/index",
+    "pages/groupMng/index",
+    "pages/financial/index",
+    "pages/takeAway/index",
+    "pages/bankCard/index",
+    "pages/addBankCard/index",
+    "pages/appointment/index",
+    "pages/serviceMng/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -45,7 +45,7 @@ App({
     },
 
     // 测试试用token
-    // token: '13246800297_16ebce58149546bf8a503a98471303a3',
+    token: '13246800297_16ebce58149546bf8a503a98471303a3',
 
     // // 测试用户userId
     // userId: '5ec67fd5e7a44ebfa5344bd60667a605',
@@ -57,7 +57,7 @@ App({
     agency_id:"504442e12c4d4d9497b7704e3ddfa146",
 
     // 正式试用token
-    token: '13246800297_2f4e0406a9d64e0ab9400b86de893605',
+    // token: '13246800297_2f4e0406a9d64e0ab9400b86de893605',
 
     // 正式用户userId
     userId: '5ec67fd5e7a44ebfa5344bd60667a605',

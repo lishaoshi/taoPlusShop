@@ -1,0 +1,50 @@
+<!--pages/addBankCard/index.wxml-->
+<view class="container">
+  <view class="title">
+    请绑定持卡人的银行卡
+  </view>
+
+  <view class="info_box">
+    <!-- <view>
+      <text>银行</text>
+      <text>{{bankCardData.bankName?bankCardData.bankName:'选择银行'}}</text>
+    </view> -->
+      <picker class="picker" bindchange="bindPickerChangeFn" value="{{index}}" range="{{bankNameList}}" range-key="bank_name">
+        <view class="bankName">
+          <text>银行</text>
+          <view>
+            {{bankNameList[index].bank_name}}
+            <text class='bank-name {{showBank? "":"hide"}}'>选择银行</text>
+          </view>
+          <!-- <input class='v-m' type='text' bindinput='bankNmeFn' placeholder='请输入银行名称'></input>
+        <image bindtap='delBankNumFn' class='v-m' src='../../images/delete.png'></image> -->
+        </view>
+      </picker>
+    
+    <view>
+      <text>卡号</text>
+      <input placeholder-class="place" bindblur="getBankCardNum" placeholder="请输入卡号" />
+    </view>
+    <view>
+      <text>持卡人</text>
+      <input placeholder-class="place" bindblur="getUserName" placeholder="请输入姓名" />
+    </view>
+    <view>
+      <text>身份证</text>
+      <input placeholder-class="place" bindblur="getIdCard" placeholder="请输入持卡人身份证号" />
+    </view>
+    <view>
+      <text>手机号</text>
+      <input placeholder-class="place" bindblur="getPhone" placeholder="请输入预留手机号" />
+    </view>
+    <view>
+      <text>验证码</text>
+      <input placeholder-class="place" bindblur="getInputCode" placeholder="请输入短信验证码" />
+      <view class="codes {{flag?'getCode':''}}" bindtap="getCode">{{code}}</view>
+    </view>
+  </view>
+
+  <view class="btn_box">
+    <bottom-btn bind:tapBtn="submitBankInfo" buttonName="保存"></bottom-btn>
+  </view>
+</view>

@@ -1,0 +1,28 @@
+<!--pages/groupMng/index.wxml-->
+<view class="container">
+  <view class="header" bindtap="showDialog">
+    <text>+</text>
+    <text>添加分组</text>
+  </view>
+
+  <view class="group-box">
+    <block wx:for="{{dataList}}" wx:key="{{indedx}}">
+      <view class="group-list" bindtap="editGroup" data-id="{{item.shop_member_group_id}}" data-name="{{item.name}}">
+        <text>{{item.name}}</text>
+      </view>
+    </block>
+  </view>
+
+<model wx:if="{{show}}"></model>
+  <!-- 弹出框 -->
+  <view class="dialog" wx:if="{{show}}">
+    <view class="addGroup">
+      <view>{{isEdit?'编辑分组':'添加分组'}}</view>
+      <input value="{{value}}" bindblur="getInputValue" placeholder="请输入分组名" />
+      <view class="dialog-btn">
+        <view bindtap="cancel">取消</view>
+        <view class="ok" bindtap="confirm">确定</view>
+      </view>
+    </view>
+  </view>
+</view>

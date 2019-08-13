@@ -46,3 +46,6 @@
   display: flex;
   justify-content: space-between;
 }
+.add {
+  color: rgb(218, 113, 16);
+}

@@ -1,0 +1,128 @@
+/* pages/serviceMng/index.wxss */
+page {
+  height: 100%;
+  background: rgba(219, 219, 219, 0.432);
+}
+.container {
+  padding: 20rpx 20rpx 0;
+  display: flex;
+  /* margin-top: 20rpx; */
+  align-items: flex-start;
+  position: relative;
+}
+.left {
+  background: #000;
+  height: 90%;
+  color: #fff;
+  font-size: 22rpx;
+  border-radius: 40rpx;
+
+  /* padding: 0 16rpx; */
+}
+.list {
+  margin-top:80rpx;
+  width: 76rpx;
+  text-align: center;
+}
+.add-box {
+  padding: 10rpx 0rpx;
+  margin: 0 auto;
+  width: 70%;
+  border: 1px dotted #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80rpx;
+  border-radius: 8rpx;
+}
+.right {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20rpx;
+  align-items: flex-start;
+}
+checkbox-group {
+  display: flex;
+}
+.room-list {
+  width: 140rpx;
+  height: 140rpx;
+  background: #fff;
+  border-radius: 8rpx;
+  text-align: center;
+  font-size: 24rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 10rpx;
+}
+.addRoom > image {
+  width: 22rpx;
+  height: 22rpx;
+  margin-top: 10rpx;
+}
+.addRoom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 8rpx;
+  border: 1px dotted #000;
+}
+.setTime {
+  padding: 10rpx;
+  position: absolute;
+  left: 10rpx;
+  bottom: 10rpx;
+  font-size: 22rpx;
+  display: flex;
+}
+.setTime > view {
+  background: #fff; 
+  padding: 10rpx;
+  border: 1px solid rgba(189, 187, 187, 0.705);
+  border-radius: 4rpx;
+  margin-right: 10rpx;
+}
+/* 未选中的 背景样式 */
+checkbox .wx-checkbox-input{
+   border-radius: 50%;/* 圆角 */
+   width: 40rpx; /* 背景的宽 */
+   height: 40rpx; /* 背景的高 */
+}
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+   border: none;
+   background: rgb(50, 103, 219);
+}
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+   border-radius: 50%;/* 圆角 */
+   width: 40rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+   height: 40rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+   line-height: 40rpx;
+   text-align: center;
+   font-size:30rpx; /* 对勾大小 30rpx */
+   color:#fff; /* 对勾颜色 白色 */
+   background: transparent;
+   transform:translate(-50%, -50%) scale(1);
+   -webkit-transform:translate(-50%, -50%) scale(1);
+}
+.activi {
+  color: rgb(50, 103, 219);
+}
+.confrimEdit {
+  position: absolute;
+  bottom: 10%;
+  left: 106rpx;
+  width: 80%;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 20rpx 0;
+  border-radius: 3
+}
