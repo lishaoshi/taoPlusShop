@@ -1,0 +1,47 @@
+<!--pages/addServer/index.wxml-->
+<view class="container">
+  <view class="info-box">
+    <view>
+        <text>添加编号</text>
+        <view>
+          <input bindblur="getInputValue" value="{{inputValue}}" placeholder="例如：001"></input>
+        </view>  
+    </view>
+
+    <view>
+      <text>区域</text>
+      <view class="picker-box">
+        <picker bindchange="bindPickerChange" range-key="position_name" value="{{index}}" range="{{floorList}}">
+          <view class="picker">
+          <view>
+             {{floorList[index].position_name}}
+          </view>
+           
+             <image src="/images/icon-4.png"></image>
+          </view>
+        </picker>
+       
+        <view></view>
+      </view>
+    </view>
+
+    <view>
+      <text>人数</text>
+      <view>
+        <image src="/images/icon-1.png" bindtap="del"></image>
+        <view class="count">{{currentIndex}}</view>
+        <image src="/images/icon-2.png" bindtap="add"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="code">
+    <image src="{{qrCode}}" wx:if="{{qrCode}}"></image>
+    <view bindtap="genereateQrcode">
+      <text>{{qrCode?'保存二维码':'生成二维码'}}</text>
+    </view>
+  </view>
+
+
+    <button-btn buttonName="完成" bind:tapBtn="addTale"></button-btn>
+</view>

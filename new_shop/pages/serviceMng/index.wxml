@@ -6,8 +6,8 @@
         <view class="overflowWrap">{{item.position_name}}</view>
       </view>
     </block>
-    <view class="add-box">
-    <text>+</text>
+    <view class="add-box" bindtap="goFloor">
+      <text>+</text>
     </view>
   </view>
 
@@ -15,7 +15,7 @@
   <view class="right">
     <checkbox-group bindchange="checkboxChange">
       <block wx:for="{{dataList}}" wx:key="{{item.floor_seat_id}}">
-        <view class="room-list">
+        <view class="room-list" bindtap="editRoom" data-item="{{item}}">
           <view>{{item.seat_name}}</view>
           <view wx:if="{{!flagDel}}">{{item.seat}}</view>
           <label class="checkbox">
@@ -24,7 +24,7 @@
         </view>
       </block>
     </checkbox-group>
-    <view class="addRoom">
+    <view class="addRoom" bindtap="goAddRoom">
       <text>添加</text>
       <image src="/images/icon-table.png"></image>
     </view>
@@ -39,7 +39,7 @@
 
 
   <view class="setTime">
-    <view>设置时段</view>
+    <view bindtap="setTime">设置时段</view>
     <view bindtap="delTabel">{{flagDel?'取消':'删除'}}</view>
   </view>
 </view>

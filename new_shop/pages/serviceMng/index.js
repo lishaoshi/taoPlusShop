@@ -39,6 +39,13 @@ Page({
     })
   },
 
+  // 设置时间端
+  setTime() {
+    wx.navigateTo({
+      url: '/pages/timePeriod/index',
+    })
+  },
+
   // 删除按钮
   delTabel() {
     this.setData({
@@ -71,6 +78,32 @@ Page({
         '操作失败' + data.message
         showToast(`操作失败${res.message}`)
       }
+    })
+  },
+
+  // 添加桌台区域
+  goAddRoom() {
+    wx.setStorageSync('floor', this.data.tableList)
+    wx.navigateTo({
+      url: '/pages/addServer/index?index=' + this.data.currentTableIndex,
+    })
+  },
+
+  // 编辑桌台区域
+  editRoom(e) {
+    let item = e.currentTarget.dataset.item
+    wx.setStorageSync('floor', this.data.tableList)
+    wx.setStorageSync('roomInfo', item)
+    wx.navigateTo({
+      url: '/pages/addServer/index?index=' + this.data.currentTableIndex+'&isEdit=1',
+    })
+  },
+
+  // 添加桌台
+  goFloor() {
+    wx.setStorageSync('floor', this.data.tableList)
+    wx.navigateTo({
+      url: '/pages/areaEdit/index'
     })
   },
 

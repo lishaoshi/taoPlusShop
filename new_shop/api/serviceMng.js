@@ -36,6 +36,61 @@ class serviceMng extends http {
     }
     return this.request(params)
   }
+  // 添加座台
+  // /bcdshop/delSeat
+  addSeat(data) {
+    let url = `/bcdshop/addSeat`
+    let params = {
+      url,
+      data
+    }
+    return this.request(params)
+  }
+
+  // 修改座台
+  editSeat(data) {
+    let url = `/bcdshop/updateSeat`
+    let params = {
+      url,
+      data
+    }
+    return this.request(params)
+  }
+
+  // 添加区域
+  addArea(data) {
+    let url = `/bcdshop/addFloor`
+
+    let params = {
+      url,
+      data
+    }
+    return this.request(params)
+  }
+
+  // 删除区域
+  // /bcdshop/delFloor
+  delArea(data) {
+    let url = `/bcdshop/delFloor`
+    let params = {
+      url,
+      data
+    }
+    return this.request(params)
+  }
+
+  // 修改区域
+  // /bcdshop/updateFloor
+  editArea(data) {
+    let url = `/bcdshop/updateFloor`
+    let params = {
+      url,
+      data
+    }
+    return this.request(params)
+  }
+
+ 
 }
 
 export default serviceMng

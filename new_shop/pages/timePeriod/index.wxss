@@ -1,0 +1,44 @@
+/* pages/timePeriod/index.wxss */
+page {
+  height: 100%；
+}
+.container {
+  font-size: 28rpx;
+}
+.angle {
+  width: 20rpx;
+  height: 20rpx;
+  border-top: 1px solid #999;
+  border-right: 1px solid #999;
+  transform: rotate(45deg)
+}
+.list {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 20rpx 20rpx 0;
+  margin-left: 30rpx;
+  border-bottom: 1px solid rgba(199, 191, 191, 0.514);
+  /* flex-direction: column; */
+}
+.list > view:nth-child(2) {
+  flex: 1;
+  margin-left: 30rpx;
+  display: flex;
+}
+.week {
+  margin-right: 20rpx;
+}
+.addBtn{
+	position: absolute;
+	right: 10rpx;
+	bottom: 10rpx;
+  border-radius:50%;
+	z-index: 9999;
+	background-color: darkcyan;
+  display: flex;
+  align-items: center;
+}
+.addBtn >image {
+  width: 56rpx;
+  height: 56rpx;
+}

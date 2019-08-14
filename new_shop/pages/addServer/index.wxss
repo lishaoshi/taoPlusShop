@@ -1,0 +1,76 @@
+/* pages/addServer/index.wxss */
+.container {
+  padding: 0 30rpx;
+  font-size: 24rpx;
+}
+.info-box image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.info-box > view {
+  display: flex;
+  align-items: center;
+  height: 74rpx;
+}
+.info-box > view text {
+  width: 120rpx;
+}
+.info-box > view > view {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+  border-bottom: 1px solid rgba(202, 200, 200, 0.575);
+}
+.count {
+  margin: 0 10rpx;
+}
+.picker-box {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.picker-box > image {
+  width: 34rpx;
+  height: 34rpx;
+}
+picker {
+  flex: 1;
+  /* height: 100%; */
+}
+.picker {
+ display: flex;
+ height: 100%;
+ /* align-items: center; */
+ justify-content: space-between;
+  width: 100%;
+}
+input { 
+  width: 100%;
+}
+.code {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60rpx;
+}
+.code > view:last-child {
+  padding: 6rpx 20rpx;
+  border: 1rpx solid rgba(202, 197, 197, 0.555);
+  border-radius: 32rpx;
+  margin-top: 20rpx;
+}
+.code > image {
+  width: 300rpx;
+  height: 300rpx;
+  border: 1px solid #999;
+}
+
+button-btn {
+  padding:0;
+  position: absolute;
+  bottom: 20rpx;
+  width: 80%;
+  left: 50%;
+  margin-left:-40%;
+}

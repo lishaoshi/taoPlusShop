@@ -27,7 +27,11 @@
     "pages/bankCard/index",
     "pages/addBankCard/index",
     "pages/appointment/index",
-    "pages/serviceMng/index"
+    "pages/serviceMng/index",
+    "pages/addServer/index",
+    "pages/areaEdit/index",
+    "pages/timePeriod/index",
+    "pages/addTimePeviod/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

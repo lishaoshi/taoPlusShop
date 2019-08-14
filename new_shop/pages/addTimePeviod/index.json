@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "bottom-btn":"/components/button/button"
+  },
+  "navigationBarTitleText": "添加/修改时段"
+}

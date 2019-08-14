@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "bootm-btn":"/components/button/button"
+  },
+  "navigationBarTitleText": "区域编辑"
+}

@@ -1,0 +1,16 @@
+<!--pages/timePeriod/index.wxml-->
+<view class="container">
+  <block wx:for="{{dataList}}" wx:key="{{interval_id}}">
+    <view class="list" bindtap="editTime" data-item="{{item}}">
+      <view>{{item.start_time}}~{{item.end_time}}</view>
+      <view>
+        <view class="week" wx:for="{{item.weeks}}" wx:key="{{index}}">{{item}}</view>
+      </view>
+      <view class="angle"></view>
+    </view>
+  </block>
+
+  <view class="addBtn" bindtap="addOrEditTime">
+    <image src="/images/icon-addDate.png"></image>
+  </view>
+</view>

@@ -1,0 +1,35 @@
+/* pages/addTimePeviod/index.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  font-size: 28rpx;
+  padding: 0 30rpx;
+}
+.weekList {
+  display: flex;
+  margin-top: 20rpx;
+}
+.container > view {
+  border-bottom: 1px solid rgba(185, 184, 184, 0.61);
+  padding: 30rpx;
+}
+.date > view:first-child {
+  color: #999;
+}
+.weekList >view {
+margin-right: 40rpx;
+width: 48rpx;
+height: 48rpx;
+justify-content: center;
+display: flex;
+align-items: center;
+border: 1px solid transparent;
+}
+.checked {
+  border: 1px solid darkcyan!important;
+  border-radius: 50%;
+}
+.btn {
+  border: 0!important;
+  margin-top: 200rpx;
+}

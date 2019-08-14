@@ -1,0 +1,39 @@
+<!--pages/areaEdit/index.wxml-->
+<view class="container">
+  <view class="header flex_row">
+    <input bindblur="getInputValue" placeholder-class="placeholder" placeholder="请输入新增区域名称"></input>
+    <view bindtap="addBtn">
+      <text>添加</text>
+    </view>
+  </view>
+
+  <view class="prompt">
+    <text>已有分类</text>
+    <text bindtap="editArea">编辑</text>
+  </view>
+
+  <view class="info">
+    <block wx:for="{{dataList}}" wx:if="{{!isEdit}}" wx:key="{{item.floor_id}}">
+      <view class="list">
+        <text>{{item.position_name}}</text>
+      </view>
+    </block>
+
+    <block wx:for="{{dataList}}" wx:if="{{isEdit}}" wx:key="{{item.floor_id}}">
+      <view class="list">
+        <view>
+          <image bindtap="delArea" data-id="{{item.floor_id}}" src="/images/icon-reduce.png"></image>
+          <input value="{{item.position_name}}" bindblur="getInputValueArea" data-index="{{index}}"></input>
+        </view>
+        <view>
+          <image bindtap="sortArea" data-index="{{index}}" class="{{index==0?'trans':''}}" src="/images/icon-up.png"></image>
+          <!-- <image wx:if="{{index==0}}" src="/images/icon-up.png"></image> -->
+        </view>
+      </view>
+    </block>
+  </view>
+<view class="bootm-btn" wx:if="{{isEdit}}">
+  <bootm-btn bind:tapBtn="_editArea" buttonName="确认"></bootm-btn>
+</view>
+  
+</view>

@@ -1,0 +1,30 @@
+<!--pages/addTimePeviod/index.wxml-->
+<view class="container">
+  <view class="startTime">
+    <picker mode="time" value="{{value}}" bindchange="bindTimeChange" data-flag="start">
+      <view class="picker">
+        开始时间: {{startTime}}
+      </view>
+    </picker>
+  </view>
+  <view class="endTime">
+    <picker mode="time" value="{{value}}" bindchange="bindTimeChange" data-flag="end">
+      <view class="picker">
+        结束时间: {{endTime}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="date">
+    <view>重复日期</view>
+    <view class="weekList">
+      <view wx:for="{{weekDate}}" wx:key="{{index}}" bindtap="chooseDate" data-index="{{index}}" class="{{item.flag?'checked':''}}">
+        <view>{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="btn">
+    <bottom-btn bind:tapBtn="addTime" buttonName="完成"></bottom-btn>
+  </view>
+</view>
