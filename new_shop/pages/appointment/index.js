@@ -19,6 +19,8 @@ Page({
   goTargetPage(e) {
     let index = e.currentTarget.dataset.index
     index==0&&wx.navigateTo({url: '/pages/serviceMng/index'})
+    index == 1 && wx.navigateTo({ url: '/pages/makeAppoint/index' })
+    index == 2 && wx.navigateTo({ url: '/pages/lineUp/index' })
   },
 
   /**

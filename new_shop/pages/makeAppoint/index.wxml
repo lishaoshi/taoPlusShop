@@ -1,0 +1,34 @@
+<!--pages/makeAppoint/index.wxml-->
+<view class="container">
+  <view class="header">
+    <view bindtap="chooseType" data-index="{{index}}" class="{{index==currentIndex?'activi':''}}" wx:for="{{headerList}}" wx:key="{{index}}">{{item}}</view>
+  </view>
+
+  <view class="info">
+  <block wx:for="{{dataList}}" wx:key="{{item.reserve_tables_id}}">
+    <view class="list">
+      <image src="{{item.img}}"></image>
+      <view>
+        <view class="">
+          到店时间：
+          <text>{{item.arrive_time}} {{item.start_time}}</text>
+        </view>
+        <view>
+          人数：{{item.population}}/{{item.position_name}}/{{item.seat_name}}
+        </view>
+        <view>
+          联系人：{{item.username}}/{{item.mobile}}
+        </view>
+      </view>
+
+      <view class="btn">
+        <view wx:if="{{item.type==1}}" bindtap="handleCancel" data-id="{{item.reserve_tables_id}}" class="cancel">取消</view>
+        <view wx:if="{{item.type==1}}" bindtap="handleSuccess" data-id="{{item.reserve_tables_id}}" class="success">完成</view>
+       
+        <view wx:elif="{{item.type==3}}" class="canceled">已取消</view>
+         <view wx:else class="successed">已使用</view>
+      </view>
+    </view>
+  </block>  
+  </view>
+</view>

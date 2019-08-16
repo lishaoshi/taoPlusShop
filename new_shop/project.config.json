@@ -13,7 +13,7 @@
 		"coverView": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.8.0",
+	"libVersion": "2.7.7",
 	"appid": "wxcee4c397ce015602",
 	"projectname": "%E5%95%86%E5%AE%B6%E5%B0%8F%E7%A8%8B%E5%BA%8F",
 	"debugOptions": {
@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 19,
+			"current": 26,
 			"list": [
 				{
 					"id": -1,
@@ -179,6 +179,55 @@
 					"id": -1,
 					"name": "t添加修改时段",
 					"pathName": "pages/addTimePeviod/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "预约管理",
+					"pathName": "pages/makeAppoint/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "排队取号",
+					"pathName": "pages/lineUp/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "入驻页",
+					"pathName": "pages/merchant_entry/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "收款码",
+					"pathName": "pages/receiptCode/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "分享码",
+					"pathName": "pages/myProgram/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新手了解",
+					"pathName": "pages/newProple/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新手指南",
+					"pathName": "pages/guidePage/index",
 					"query": "",
 					"scene": null
 				}

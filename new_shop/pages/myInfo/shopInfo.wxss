@@ -1,0 +1,81 @@
+page{
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  width: 100%;
+}
+
+.container{
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  width: 100%;
+}
+
+.top{
+  height: 30%
+}
+
+.head_photo{
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.img,.top_text{
+  display: flex;
+  justify-content: center;
+}
+
+.img > image{
+  width: 5rem;
+  height: 5rem;
+}
+
+.mid{
+  display: flex;
+  flex-flow: column nowrap;
+  height: 30%;
+}
+
+.list{
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.list_left{
+  margin: 1rem 1rem;
+  width: 80%;
+}
+
+.list_right{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 1rem;
+}
+
+.list_right > image{
+  height: 1rem;
+  width: 1rem;
+  margin: 0.5rem 0.5rem;
+}
+
+.bottom{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.bottom>view{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    height: 100rpx;
+    border-radius: 50rpx;
+    background: #0075fa;
+    font-size: 40rpx;
+    color: #fff;
+    text-align: center;
+    margin-top: 3rem;
+}

@@ -33,7 +33,25 @@ Page({
     notMe : '',
     promote : '',
     dataList: [],
-    imgsrc: '/images/lock.png'
+    imgsrc: '/images/lock.png',
+    flagModel: false,
+    checkList: [
+      {
+        name: '我锁定的',
+        type: 1,
+        checked: false
+      },
+      {
+        name: '非我锁定的',
+        type: 2,
+        checked: false
+      },
+      {
+        name: '推广员',
+        type: 3,
+        checked: false
+      }
+    ]
   },
 
   /**
@@ -41,11 +59,13 @@ Page({
    */
   onLoad: function (options) {
     this._getCustomerList()
+    this._getGroupList()
   },
 
   // 点击头部选择客户类型
   chooseType(e) {
     let index = e.currentTarget.dataset.index
+    let name = e.currentTarget.dataset.name
     switch(index) {
       case 0:
         this.setData({
@@ -74,6 +94,16 @@ Page({
           promote: '0'
         })
         break;
+      default:
+        this.setData({
+          name: name,
+          keyword: '',
+          isMe: '',
+          notMe: '',
+          promote: '0'
+        })
+
+
     }
     this.setData({
       currentIndex: index
@@ -109,15 +139,58 @@ Page({
     })
   },
 
+  // 筛选
+  checkboxChange(e) {
+    // console.log(e)
+    let valueArr = e.detail.value
+    if (valueArr.includes('1')) {
+      this.setData({
+        isMe: 1
+      })
+    }
+    if (valueArr.includes('2')) {
+      this.setData({
+        notMe: 2
+      })
+    }
+    if (valueArr.includes('3')) {
+      this.setData({
+        promote: 3
+      })
+    }
+  },
+
+  // 确认筛选按钮
+  confirmChoose() {
+    this.setData({
+      flagModel: false
+    })
+    this._getCustomerList()
+  },
+
+  // 获取分组列表
+  _getGroupList() {
+    customeMngModel.getGroupList({},app.globalData.shopId).then(res=>{
+      let arr = this.data.typeArr.slice(0, 3)
+      this.setData({
+        typeArr: [...arr, ...res]
+      })
+    })
+  },
+
   // 打开选择
   openBtn() {
     wx.showActionSheet({
       itemList: ['分组管理', '筛选'],
-      success(res) {
+      success:(res)=> {
         // console.log(res.tapIndex)
         if(res.tapIndex==0) {
           wx.navigateTo({
             url: '/pages/groupMng/index',
+          })
+        } else if (res.tapIndex==1) {
+          this.setData({
+            flagModel: true
           })
         }
       },

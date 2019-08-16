@@ -1,0 +1,22 @@
+/* pages/newProple/index.wxss */
+page {
+  background: rgba(233, 230, 230, 0.377);
+}
+.right {
+  width: 20rpx;
+  height: 20rpx;
+  transform: rotate(45deg);
+  border-right: 1rpx solid #999;
+  border-top: 1rpx solid #999;
+}
+.container {
+  padding: 0 30rpx;
+  background: #fff;
+}
+.container > view {
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  line-height: 64rpx;
+  align-items: center;
+}

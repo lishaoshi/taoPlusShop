@@ -1,0 +1,19 @@
+<!--pages/receiptCode/index.wxml-->
+<!-- <text>pages/receiptCode/index.wxml</text> -->
+<wxs module="util" src="../../utils/limit.wxs" />
+<view class="container">
+  <view>
+    <image src="/img/logo_text.png"></image>
+  </view>
+  
+  <view class="img-box" bindtap="_saveImg">
+    <image class="fixedBg" src="/img/code_bg.png"></image>
+    <view class="info">
+      <image src="/img/title.png"></image>
+      <image class="code" src="{{util.imgUrl(imgUrl, false)}}"></image>
+      <view>
+        {{shopName}}
+      </view>
+    </view>
+  </view>
+</view>

@@ -138,7 +138,9 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    let pages = getCurrentPages()
+    let perPage = pages[pages.length-2]
+    perPage.onLoad()
   },
 
   /**

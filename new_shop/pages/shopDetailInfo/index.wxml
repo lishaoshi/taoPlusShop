@@ -26,10 +26,10 @@
       </view>
     </view>
 
-    <!-- <view>
+    <view>
       <text>推荐人</text>
       <input placeholder="请填写推荐人电话"></input>
-    </view> -->
+    </view>
   </view>
 
   <view class="bottom">
@@ -70,7 +70,7 @@
       </picker>
     </view>
 
-    <view bindtap="goEditImg">
+    <view bindtap="goEditImg" wx:if="{{!isIn}}">
       <text>店铺图片修改</text>
       <view>
         <text>店铺图片修改</text>
@@ -78,7 +78,7 @@
       </view>
     </view>
 
-    <view>
+    <view wx:if="{{!isIn}}">
       <text>店铺信息</text>
       <textarea value="{{shopData.content}}" bindblur="bindTextAreaBlur" placeholder="请填写店铺信息" />
     </view>

@@ -1,0 +1,27 @@
+<wxs module="util" src="../../utils/limit.wxs" />
+
+<view class="container">
+    <view class='top'>
+      <block wx:for="{{list}}" wx:key="{{index}}">
+        <view class='list' bindtap="editBanner" data-item="{{item}}">
+          <view class='list_left'>
+            <view class='list_left_name'>
+                <text>名称：{{item.name}}</text>
+            </view>
+            <view class='list_left_createtime'>
+                <text>创建时间：{{item.create_time}}</text>
+            </view>
+          </view>
+          <view class='list_right'>
+            <image src='{{util.imgUrl(item.path)}}' mode='scaleToFill'></image>
+            <view>></view>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <view class='bottom' bindtap="goAddBanner">
+        <view>添加</view>
+    </view>
+
+</view>

@@ -1,0 +1,20 @@
+<!--pages/merchant_entry/index.wxml-->
+<view class="container">
+  <image src="/img/merchant_bg.png"></image>
+  <view class="tel" bindtap="goCall">
+    入驻热线：
+    <text>4001314199</text>
+  </view>
+  <view class="list-box">
+    <block wx:for="{{list}}" wx:key="{{index}}">
+      <view class="list">
+        <image src="{{item.img}}"></image>
+        <text>{{index+1}}, {{item.name}}</text>
+      </view>
+    </block>
+  </view>
+
+  <view class="btn" bindtap="goIn">
+    <text>快速入驻</text>
+  </view>
+</view>

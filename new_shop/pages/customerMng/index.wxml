@@ -10,7 +10,7 @@
   <scroll-view scroll-x>
     <view class="customer-type">
       <block wx:for="{{typeArr}}" wx:key="{{index}}">
-      <view bindtap="chooseType" data-index="{{index}}" class="{{index==currentIndex?'activi':''}}">
+      <view bindtap="chooseType" data-index="{{index}}" data-name="{{item.name}}" class="{{index==currentIndex?'activi':''}}">
         {{item.name}}
       </view>
       </block>
@@ -39,7 +39,18 @@
      </block>
   </view>
   
+    <model-box wx:if="{{flagModel}}"></model-box>
+    <view class="screening" wx:if="{{flagModel}}">
+      <checkbox-group bindchange="checkboxChange">
+        <label class="checkbox" wx:for="{{checkList}}">
+          <checkbox value="{{item.type}}" checked="{{item.checked}}"/>{{item.name}}
+        </label>
+      </checkbox-group>
 
+      <view class="confirm" bindtap="confirmChoose">
+        <text>确定</text>
+      </view>
+    </view>
   <view class="bot" bindtap="openBtn">
     <text>+</text>
   </view>

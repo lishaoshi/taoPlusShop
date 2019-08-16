@@ -1,0 +1,114 @@
+/* pages/guidePage/index.wxss */
+page {
+  background: rgb(39, 91, 236);
+}
+.container {
+  /* background: rgb(39, 91, 236); */
+}
+image {
+  display: flex;
+}
+.info > image:first-child {
+  width: 400rpx;
+  height: 70rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
+ 
+}
+.first {
+  position: relative;
+  width: 100%;
+  margin-top: 40rpx;
+  height: 556rpx;
+}
+.first > image:last-child {
+  display: block;
+  width: 494rpx;
+  height: 494rpx;
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  bottom: -16rpx;
+  margin-left: -247rpx;
+  z-index: -1;
+}
+.first > image:first-child {
+  height: 100%;
+  width: 556rpx;
+  position: absolute;
+  left: -4rpx;
+}
+.text > image {
+  width: 90%;
+  margin: 0 auto;
+  height: 100rpx;
+  margin-top: 40rpx;
+}
+.center {
+  width: 366rpx!important;
+  margin: 0 auto;
+  left: 50%!important;
+  margin-left: -188rpx!important;
+}
+.less {
+  height: 40rpx!important;
+}
+.flex_row {
+  justify-content: flex-end;
+}
+.right-box > image:last-child{
+  display: block;
+  width: 494rpx;
+  height: 494rpx;
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  bottom: -16rpx;
+  margin-left: -247rpx;
+  z-index: -1;
+}
+.right-box {
+  position: relative;
+  width: 100%;
+  margin-top: 40rpx;
+  height: 556rpx;
+}
+.right-box  > image:first-child {
+  height: 100%;
+  width: 556rpx;
+  position: absolute;
+  /* left: -4rpx; */
+}
+.right {
+  right: 4rpx!important;
+  /* left: 50%!important; */
+}
+.texts {
+  height: 80rpx!important
+}
+.rights {
+  right: -6rpx!important;
+}
+.new-box > image:last-child {
+  margin-left: -234rpx!important;
+}
+.bottom-new {
+  bottom: 0rpx!important;
+}
+.all {
+  width: 100%!important;
+}
+.new-fiex-right {
+  bottom: 14rpx!important;
+  margin-left: -240rpx!important;
+}
+
+.boottm-box {
+  margin-top: 100rpx;
+  margin-bottom: 40rpx;
+}
+.boottm-box >image {
+  width: 400rpx;
+  height: 30rpx;
+  margin: 0 auto;
+}

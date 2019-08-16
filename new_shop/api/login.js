@@ -19,12 +19,45 @@ class login extends http {
 
 //发送验证码
   sendCode(params) {
-    let url = `/user/sendVcode`
+    let url = `/api/basic/mobile/vlidate-code`
     let data = {
       url,
-      method: `POST`,
-      data: params
+      data: params,
+      method: 'POST'
     }
+    return this.request(data)
+  }
+
+// 注册
+// /user/registerAPP
+  registerAPP(data) {
+    let url = `/user/registerAPP`
+    let params = {
+      url,
+      data
+    }
+    return this.request(params)
+  }
+
+  // 验证找回密码
+  validateMobileAndVocde(data) {
+    let url = `/shop/validateMobileAndVocde`
+    let params= {
+      url,
+      data
+    }
+    return this.request(params)
+  }
+
+  // 修改密码
+  // shop/setNewPassword
+  setNewPassword(data) {
+    let url = `/shop/setNewPassword`
+    let params = {
+      url,
+      data
+    }
+    return this.request(params)
   }
 }
 

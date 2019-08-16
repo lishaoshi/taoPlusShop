@@ -10,42 +10,42 @@
     <view>{{orderInfo.shop_name}}</view>
     <view>
        <view>
-        <image></image>
+        <image src="{{orderInfo.avatar}}"></image>
         <text>{{orderInfo.orderDetailsList[0].name}}</text>
       </view>
       <view>
-        <text class="col">￥0</text>
-        <text class="col">￥1</text>
-        <text>￥0</text>
+        <text class="col">￥{{orderInfo.price}}</text>
+        <text class="col">×{{orderInfo.orderDetailsList[0].num}}</text>
+        <text>￥{{orderInfo.orderDetailsList[0].total_price}}</text>
       </view>
      
     </view>
     <view>
       <text>小计</text>
-      ￥0.02
+      ￥{{orderInfo.actual_price}}
     </view>
 
 
     <view class="last">
       <view>
         商品总价：
-        <text>￥0.02</text>
+        <text>{{orderInfo.actual_price}}</text>
       </view>
       <view>
         订单号：
-        <text>￥0.02</text>
+        <text>{{orderInfo.sn}}</text>
       </view>
       <view>
         手机号：
-        <text>￥0.02</text>
+        <text>{{orderInfo.user_mobile}}</text>
       </view>
       <view>
         支付时间
-        <text>￥0.02</text>
+        <text>{{orderInfo.create_time}}</text>
       </view>
       <view>
         支付方式
-        <text>￥0.02</text>
+        <text>{{orderInfo.typeName}}</text>
       </view>
       <!-- <view>
         桌号

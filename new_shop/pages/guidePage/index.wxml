@@ -1,0 +1,82 @@
+<!--pages/guidePage/index.wxml-->
+<view class="container">
+  <view class="info">
+    <image src="/img/img-1.png"></image>
+
+    <view class="first">
+      <image src="/imgs/img-2.png"></image>
+      <image src="/imgs/img-3.png"></image>
+    </view>
+
+    <view class="text">
+      <image src="/imgs/img-4.png"></image>
+    </view>
+    <view class="first">
+      <image class="center" src="/imgs/img-5.png"></image>
+      <image src="/imgs/img-3.png"></image>
+    </view>
+
+    <view class="text">
+      <image class="less" src="/imgs/img-6.png"></image>
+    </view>
+    
+     <view class="right-box flex_row">
+      <image class="right" src="/imgs/img-7.png"></image>
+      <image src="/imgs/img-3.png"></image>
+    </view>
+
+    <view class="text">
+      <image class="texts" src="/imgs/img-8.png"></image>
+    </view>
+
+    <view class="first">
+      <image src="/imgs/img-9.png"></image>
+      <image src="/imgs/img-3.png"></image>
+    </view>
+
+    <view class="text">
+      <image class="texts" src="/imgs/img-10.png"></image>
+    </view>
+
+    <view class="right-box new-box flex_row">
+      <image class="rights" src="/imgs/img-11.png"></image>
+      <image src="/imgs/img-3.png"></image>
+    </view>
+
+    <view class="text">
+      <image class="texts" src="/imgs/img-12.png"></image>
+    </view>
+
+    <view class="first">
+      <image src="/imgs/img-13.png"></image>
+      <image class="bottom-new" src="/imgs/img-3.png"></image>
+    </view>
+
+    <view class="text">
+      <image class="texts" src="/imgs/img-14.png"></image>
+    </view>
+
+    <view class="first">
+      <image class="all" src="/imgs/img-15.png"></image>
+      <image class="new-fiex-right" src="/imgs/img-3.png"></image>
+    </view>
+
+    <view class="text">
+      <image class="texts" src="/imgs/img-16.png"></image>
+    </view>
+
+    <view class="right-box new-box flex_row">
+      <image class="rights" src="/imgs/img-17.png"></image>
+      <image src="/imgs/img-3.png"></image>
+    </view>
+
+    <view class="text">
+      <image class="texts" src="/imgs/img-18.png"></image>
+    </view>
+
+    <view class="boottm-box">
+       <image src="/imgs/img-19.png"></image>
+    </view>
+
+  </view>
+</view>

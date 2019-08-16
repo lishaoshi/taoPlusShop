@@ -1,0 +1,55 @@
+<!--pages/lineUp/index.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="{{index==currentIndex?'activi':''}}" bindtap="chooseType" data-index="{{index}}" wx:for="{{headerList}}" wx:key="{{index}}">
+      {{item}}
+    </view>
+  </view>
+
+  <view class="title">
+    <view>
+      <text>排队号码</text>
+    </view>
+    <view>
+      <picker bindchange="bindPickerChange" value="{{index}}" range-key="position_name" range="{{tableList}}">
+        <view class="picker">
+          {{tableList[index].position_name}}
+        </view>
+    </picker>
+      <image src="/images/icon-5.png"></image>
+    </view>
+    <view>
+      <text>人数</text>
+    </view>
+    <view>
+      <text>下单时间</text>
+    </view>
+  </view>
+  <block wx:for="{{dataList}}" wx:key="{{item.take_number_id}}">
+    <view class="info">
+      <view>
+        0{{item.number}}
+        <text wx:if="{{item.type==1}}" class="will">即将</text>
+      </view>
+      <view>
+        {{item.position_name}}
+      </view>
+      <view>
+        {{item.population}}人
+      </view>
+      <view>
+        {{item.create_time}}
+      </view>
+    </view>
+  </block>
+
+  <view class="next" bindtap="next">
+    <view>
+    <image src="/images/icon-next.png"></image>
+      下一个
+      
+    </view>
+    <!-- <image src="/images/icon-next.png" alt="" /> -->
+    
+  </view>
+</view>

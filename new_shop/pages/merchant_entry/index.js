@@ -1,11 +1,24 @@
-// pages/myInfo/index.js
+// pages/merchant_entry/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    list: [
+      {
+        img: '/img/icon-1.png',
+        name: '提交资料'
+      },
+      {
+        img: '/img/icon-2.png',
+        name: '店铺审核'
+      },
+      {
+        img: '/img/icon-3.png',
+        name: '上线营业'
+      },
+    ]
   },
 
   /**
@@ -13,6 +26,20 @@ Page({
    */
   onLoad: function (options) {
 
+  },
+
+  // 前往入驻页
+  goIn() {
+    wx.navigateTo({
+      url: '/pages/shopDetailInfo/index?isIn=1',
+    })
+  },
+
+  // 拨打电话
+  goCall() {
+    wx.makePhoneCall({
+      phoneNumber: '4001314199',
+    })
   },
 
   /**

@@ -1,0 +1,37 @@
+
+
+<wxs module="util" src="../../utils/limit.wxs" />
+<view class="container">
+    <view class='top'>
+        <view class='name'>
+          <text>广告名称：</text>
+          <input bindblur="getInputValue" value="{{inputValue}}" placeholder='请输入广告名称'></input>
+        </view>
+
+        <view class='img'>
+          <text>广告图片：</text>
+          <view>
+              <image bindtap="addImg" class='add' src='../../img/add.png' mode='scaleToFill'></image>
+              <image class='add_img' src='{{util.imgUrl(imgPath)}}' mode='scaleToFill'></image>
+          </view>
+        </view>
+
+        <view class="sec">
+          <picker mode="multiSelector" range-key="class_name" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+            <view class="picker">
+              <view wx:if="{{!flag}}">选择绑定的商品</view>
+              <!-- <view wx:else>{{multiArray[1][multiIndex[1]].goods_name}}</view> -->
+              <view wx:else>{{goodsName}}</view>
+            </view>
+          </picker>
+        </view>
+
+    </view>
+
+    <view class='bottom'>
+        <view wx:if="{{!isEdit}}" class='bottom_update' bindtap="_addShopGoodsPic">添加</view>
+        <view wx:if="{{isEdit}}" class='bottom_update' bindtap="editBanner">修改</view>
+        <view wx:if="{{isEdit}}" class='bottom_delete' bindtap="_delBanner">删除</view>
+    </view>
+
+</view>

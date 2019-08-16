@@ -74,7 +74,8 @@ Page({
         break;
     }
     data.status = status
-    console.log(data)
+    // console.log(data)
+    data.price = data.orderDetailsList[0].total_price / data.orderDetailsList[0].num
     this.setData({
       orderInfo: data
     })

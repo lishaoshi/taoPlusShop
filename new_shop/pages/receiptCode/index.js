@@ -1,0 +1,108 @@
+
+import receiptCode from '../../api/receiptCode.js'
+let receiptCodeModel = new receiptCode()
+const app = getApp()
+import { showToast, saveImg } from '../../utils/util.js'
+// pages/receiptCode/index.js
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    imgUrl: '',
+    shopName: ''
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    let data = wx.getStorageSync('shopInfo')
+    this.setData({
+      shopName: data.shop_name
+    })
+    this._getCode()
+  },
+
+  // 获取二维码
+  _getCode() {
+    
+    let data = {
+      shopId : app.globalData.shopId
+    }
+    receiptCodeModel.getCode(data).then(res=>{
+      if(res.code==0) {
+        this.setData({
+          imgUrl: res.total
+        })
+      }
+    })
+  },
+
+  // 保存图片
+  _saveImg() {
+    let url = this.data.imgUrl
+    if (!url) {
+      showToast('没有图片')
+      return
+    }
+    wx.showActionSheet({
+      itemList: ['保存图片'],
+      success: res=>{
+        if(res.tapIndex==0) {
+          saveImg(url)
+        }
+      }
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

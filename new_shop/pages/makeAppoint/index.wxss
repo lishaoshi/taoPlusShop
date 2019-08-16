@@ -1,0 +1,54 @@
+/* pages/makeAppoint/index.wxss */
+.container {
+  font-size: 22rpx;
+  padding: 0 30rpx;
+}
+.header {
+  display: flex;
+  justify-content: space-around;
+  line-height: 44rpx;
+}
+.header > view{
+  padding-bottom: 10rpx;
+}
+.activi{
+  border-bottom: 1px solid rgba(27, 94, 236, 0.815);
+}
+.list > image {
+  width: 66rpx;
+  height: 66rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+  margin-top: 10rpx;
+}
+.list {
+  display: flex;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid rgba(212, 209, 209, 0.418);
+  margin-top: 10rpx;
+}
+.list > view:nth-child(2) {
+  flex: 1;
+}
+.list > view:nth-child(2) > view {
+  margin-top:10rpx;
+}
+.btn > view {
+  padding: 10rpx 20rpx;
+  border: 1px solid rgb(231, 116, 8);
+  border-radius: 8rpx;
+  color: rgb(231, 116, 8);
+}
+.btn > view:nth-child(2) {
+  color: rgb(22, 197, 6);
+  border-color: rgb(22, 197, 6);
+  margin-top: 10rpx;
+}
+.canceled {
+  color: rgb(231, 116, 8);
+  border: 0!important;
+}
+.successed {
+  color: rgb(22, 197, 6)!important;
+   border: 0!important;
+}

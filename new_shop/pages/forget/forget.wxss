@@ -1,0 +1,78 @@
+/* pages/mine/bank/bank.wxss */
+page {
+  display: flex;
+  flex-flow: column wrap;
+  height: 100%;
+  width: 100%;
+}
+
+.top{
+  display: flex;
+  flex-flow: column nowrap;
+   background: linear-gradient(#2561e2, rgb(124, 73, 219));
+  height: 8rem;
+  width: 100%;
+}
+
+.title,.con{
+  display: flex;
+  justify-content: center;
+  height: 1rem;
+  color: white;
+  font-family: SimSun;
+  font-size: 40rpx;
+  margin-top: 2rem;
+}
+.con {
+  font-size: 28rpx;
+}
+
+.mid{
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+
+.register_view >view {
+  border-bottom: 1px solid rgba(223, 220, 220, 0.493);
+}
+
+.register_view{
+  margin: 1rem 2rem;
+}
+
+.register_view .code{
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.register_view .code text{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 7rem;
+  border: 1px solid #999;
+  font-size: 35rpx;
+}
+
+.mid input{
+  font-size: 45rpx;
+  margin: 1rem 0rem; 
+}
+
+.register_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100rpx;
+    border-radius: 50rpx;
+    background: rgb(42, 116, 252);
+    font-size: 33rpx;
+    color: #fff;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+

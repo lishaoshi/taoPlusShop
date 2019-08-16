@@ -90,7 +90,48 @@ class serviceMng extends http {
     return this.request(params)
   }
 
- 
+//  获取订座列表
+// /bcdshop/reserveTablesList
+  reserveTablesList(data) {
+    let url = `/bcdshop/reserveTablesList`
+    let params = {
+      url,
+      data
+    }
+    return this.request(params)
+  }
+
+  //修改订座状态
+  updateTableType(data) {
+    let url = `/bcdshop/editReserveTables`
+    let params = {
+      url,
+      data
+    }
+    return this.request(params)
+  }
+
+  // 获取排队列表
+  // /bcdshop/takeNumberList
+  takeNumberList(data) {
+    let url = `/bcdshop/takeNumberList`
+    let params = {
+      url,
+      data
+    }
+    return this.request(params)
+  }
+
+  // 下一个
+  // /bcdshop/editTakeNumber
+  editTakeNumber(data) {
+    let url = `/bcdshop/editTakeNumber`
+    let params = {
+      url,
+      data
+    }
+    return this.request(params)
+  }
 }
 
 export default serviceMng

@@ -1,8 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/login/login",
     "pages/verify/index",
-    "pages/myInfo/index",
+    "pages/shopInfo/shopInfo",
     "pages/localtion/index",
     "pages/spellGroup/index",
     "pages/goodsMng/index",
@@ -31,7 +32,14 @@
     "pages/addServer/index",
     "pages/areaEdit/index",
     "pages/timePeriod/index",
-    "pages/addTimePeviod/index"
+    "pages/addTimePeviod/index",
+    "pages/makeAppoint/index",
+    "pages/lineUp/index",
+    "pages/merchant_entry/index",
+    "pages/receiptCode/index",
+    "pages/myProgram/index",
+    "pages/newProple/index",
+    "pages/guidePage/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

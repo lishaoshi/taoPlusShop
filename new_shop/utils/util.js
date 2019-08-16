@@ -22,7 +22,17 @@ const showToast = function (title, duration, icon) {
   })
 }
 
+// 保存图片
+const saveImg = ()=>{
+  wx.saveImageToPhotosAlbum({
+    success:(res)=> {
+      this.showToast('保存成功')
+    }
+  })
+}
+
 module.exports = {
   formatTime: formatTime,
-  showToast
+  showToast,
+  saveImg
 }

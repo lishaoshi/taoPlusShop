@@ -20,7 +20,7 @@ Page({
         checked: true
       }
     ],
-    isMap: true,
+    isMap: false,
     address: '请选择地址',
     addressInfo: {},
     projectIndex: [0, 0],
@@ -33,13 +33,21 @@ Page({
     shopMobile: '',
     productTypeId: '',
     provinceName: '',
-    cityName: ''
+    cityName: '',
+    isIn: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let isIn = options.isIn
+    if(isIn) {
+      this.setData({
+        isIn: true,
+
+      })
+    }
     this._getProjectData().then(res=>{
       let obj = {
         product_type_id: '',
@@ -50,8 +58,9 @@ Page({
         projectArr: [[...res.result], []]
       })
     })
-
-    this.getShopData()
+    if(!isIn) {
+      this.getShopData()
+    }
   },
 
   // 获取店铺信息
@@ -61,6 +70,7 @@ Page({
       let key = `radio[0].checked`
       this.setData({
         [key] : true,
+        isMap: true,
         shopData: shopData,
         startTime: shopData.start_time,
         endTime: shopData.end_time,
@@ -72,6 +82,7 @@ Page({
       let key = `radio[1].checked`
       this.setData({
         [key]: false,
+        isMap: false,
         shopData: shopData,
         startTime: shopData.start_time,
         endTime: shopData.end_time,

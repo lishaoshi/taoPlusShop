@@ -1,0 +1,36 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+
+    <view class="top">
+        <view class="title"><text>找回密码</text></view>
+        <view class="con"><text>请验证手机号并重置密码</text></view>
+    </view>
+
+    <view class="mid">
+
+        <view class="register_view" hidden="{{hidden_register}}">
+            <view class="mobile">
+                <input bindblur="getInputValue" data-flag="mobile" type='number' placeholder='手机号'></input>
+            </view>
+
+            <view class="code">
+                 <input bindblur="getInputValue" data-flag="code" type='number' placeholder='验证码'></input>
+                 <text class="send_code" bindtap="getCode">{{code}}</text>
+            </view>
+
+            <view class="password">
+                 <input bindblur="getInputValue" data-flag="password" type='text' password="true" placeholder='重置密码'></input>
+            </view>
+
+            <view class="confirm_password">
+                 <input bindblur="getInputValue" data-flag="confirmPsw" type='text' password="true" placeholder='确认密码'></input>
+            </view>
+
+            <view class="register_btn" bindtap="_validateMobileAndVocde">
+                 <view>确认</view>
+            </view>
+        </view>
+
+    </view>
+
+</view>

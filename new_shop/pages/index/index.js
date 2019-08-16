@@ -3,8 +3,8 @@ import index from '../../api/index.js'
 let indexMedel = new index()
 //获取应用实例
 const app = getApp()
-let userId = app.globalData.userId
-let shopId = app.globalData.shopId
+// let userId = app.globalData.userId
+// let shopId = app.globalData.shopId
 
 Page({
   data: {
@@ -101,8 +101,9 @@ Page({
       },
       {
         img: '../../images/confirm.png',
-        title: '收款码',
+        title: '收款码', 
         note: '扫码向我付钱',
+        navigate_url: '/pages/receiptCode/index',
         left: true,
         top: true,
         right: true,
@@ -112,9 +113,10 @@ Page({
         img: '../../images/confirm.png',
         title: '新手手册',
         note: '了解平台功能',
+        navigate_url: '/pages/newProple/index',
         left: true,
         top: true,
-        right: false,
+        right: false, 
         bottom: true
       },
       {
@@ -130,7 +132,8 @@ Page({
       {
         img: '../../images/confirm.png',
         title: '小程序',
-        note: '小程序分享码',
+        note: '小程序分享码', 
+        navigate_url: '/pages/myProgram/index',
         left: true,
         top: true,
         right: true,
@@ -140,6 +143,7 @@ Page({
         img: '../../images/confirm.png',
         title: '轮播图',
         note: '小程序轮播图',
+        navigate_url: '/pages/banner/banner',
         left: true,
         top: true,
         right: false,
@@ -152,12 +156,12 @@ Page({
     status: false
   },
   onLoad: function () {
-    this.isUserAuth()
     // console.log(app)
-    // this.getUserLocaltion()
-    this._getBusinissInfo()
+    app.getStorage()
+    this.isUserAuth()
+    // this._getBusinissInfo()
     this._getShopInfo()
-    // this._getShopBalance()
+    
   },
 
   // 前往账户明细
@@ -192,39 +196,47 @@ Page({
   },
 
   // 获取商家营业数据（今日收益、浏览人数、订单数、点评数、收藏数）
-  _getBusinissInfo() {
-    let data = {
-      shopId: shopId
-    }
-    indexMedel.getBusinissInfo(data).then(res=>{
-      // this.data.iconList.forEach((item, index, arr)=>{
-        this.setData({
-          price: res.result.balance
-        })
-      for (let i = 0; i < this.data.iconList.length;i++) {
-        let key = `iconList[${i}].count`
-        // key =
-        if(i==0) {
-          this.setData({
-            [key]: res.result.see_count
-          })
-        } else if(i==1) {
-          this.setData({
-            [key]: res.result.collect_count
-          })
-        } else {
-          this.setData({
-            [key]: res.result.evaluate_man
-          })
-        }
-       }
-    })
-  },
+  // _getBusinissInfo() {
+  //   let data = {
+  //     shopId: app.globalData.shopId
+  //   }
+  //   indexMedel.getBusinissInfo(data).then(res=>{
+  //     // this.data.iconList.forEach((item, index, arr)=>{
+  //       if(res.code==1000) {
+  //         wx.reLaunch({
+  //           url: '/pages/login/login',
+  //         })
+  //         return
+  //       }
+  //     let key = `iconList[0].count`
+  //       this.setData({
+  //         price: res.result.balance,
+  //         [key]: res.result.see_count
+  //       })
+  //     // for (let i = 0; i < this.data.iconList.length;i++) {
+  //     //   let key = `iconList[${i}].count`
+  //     //   // key =
+  //     //   if(i==0) {
+  //     //     this.setData({
+  //     //       [key]: res.result.see_count
+  //     //     })
+  //     //   } else if(i==1) {
+  //     //     this.setData({
+  //     //       [key]: res.result.collect_count
+  //     //     })
+  //     //   } else {
+  //     //     this.setData({
+  //     //       [key]: res.result.evaluate_man
+  //     //     })
+  //     //   }
+  //     //  }
+  //   })
+  // },
   // 设置商家营业状态
   _setShopWorkStatus(flag) {
     let data = {
-      userId: userId,
-      shopId: shopId,
+      userId: app.globalData.userId,
+      shopId: app.globalData.shopId,
       workStatus: flag?1:2
     }
     indexMedel.setShopWorkStatus(data)
@@ -250,15 +262,39 @@ Page({
   // 获取商家信息
   _getShopInfo() {
     let data = {
-      shopId: shopId
+      shopId: app.globalData.shopId
     }
     indexMedel.getShopInfo(data).then(res=>{
+      if (res.code == 1000) {
+        wx.reLaunch({
+          url: '/pages/login/login',
+        })
+        return
+      }
       wx.setStorageSync('shopInfo', res.result)
+      for (let i = 0; i < this.data.iconList.length;i++) {
+        let key = `iconList[${i}].count`
+        // key =
+        if(i==0) {
+          this.setData({
+            [key]: res.result.see_count
+          })
+        } else if(i==1) {
+          this.setData({
+            [key]: res.result.collect_count
+          })
+        } else {
+          this.setData({
+            [key]: res.result.bonus_count
+          })
+        }
+       }
       this.setData({
         shopName: res.result.shop_name,
         imgSrc: `https://api.olb8.com${res.result.portrait_url}`,
         status: res.result.status==1?true:false,
-        type: res.result.status == 1 ? '营业中' : '休息中'
+        type: res.result.status == 1 ? '营业中' : '休息中',
+        price: res.result.newTime
       })
     })
   },
@@ -325,7 +361,7 @@ Page({
   // 前往商家详情
   queryShopDetail() {
     wx.navigateTo({
-      url: '/pages/myInfo/index',
+      url: '/pages/shopInfo/shopInfo',
     })
   },
   /**

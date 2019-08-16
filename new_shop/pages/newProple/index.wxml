@@ -1,0 +1,7 @@
+<!--pages/newProple/index.wxml-->
+<view class="container">
+  <view wx:for="{{list}}" bindtap="goNavigate" data-index="{{index}}" wx:key="{{index}}">
+    <text>{{item}}</text>
+    <view class="right"></view>
+  </view>
+</view>

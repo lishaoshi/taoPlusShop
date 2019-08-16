@@ -1,0 +1,63 @@
+/* pages/myProgram/index.wxss */
+.container {
+  width: 100%;
+  height: 100%;
+}
+.container > view {
+  width: 100%;
+  height: 100%;
+}
+.container > view > image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.info image:first-child {
+  width: 106rpx;
+  height: 46rpx;
+  display: block;
+  margin: 0 auto;
+}
+.info {
+  padding: 150rpx 0 0;
+}
+.top {
+  color: #fff;
+  font-size: 24rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 40rpx;
+}
+.tip {
+  color: #999;
+  font-size: 22rpx;
+  text-align: center;
+  margin-top: 10rpx;
+}
+.info image:nth-last-child(4) {
+  width: 410rpx;
+  height: 410rpx;
+  display: block;
+  margin: 20rpx auto 0;
+}
+.info image:nth-last-child(3) {
+  width: 410rpx;
+  height: 28rpx;
+  display: block;
+  margin: 20rpx auto 0;
+}
+.code-tip {
+  color: #fff;
+  text-align: center;
+  width: 410rpx;
+  font-size: 24rpx;
+  margin: 20rpx auto 0;
+}
+.info image:last-child {
+  width: 60%;
+  height: 26rpx;
+  display: block;
+  margin:0 auto;
+  margin-top: 80rpx;
+}
