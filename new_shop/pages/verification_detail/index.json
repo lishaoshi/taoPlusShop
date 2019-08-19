@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "bottom-btn": "/components/button/button"
+  },
+  "navigationBarTitleText": "订单管理"
+}

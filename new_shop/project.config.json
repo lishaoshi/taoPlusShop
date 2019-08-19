@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 26,
+			"current": 27,
 			"list": [
 				{
 					"id": -1,
@@ -99,10 +99,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 8,
 					"name": "修改店铺信息",
 					"pathName": "pages/shopDetailInfo/index",
-					"query": "",
+					"query": "isIn=1",
 					"scene": null
 				},
 				{
@@ -229,6 +229,13 @@
 					"name": "新手指南",
 					"pathName": "pages/guidePage/index",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": 27,
+					"name": "和小订单",
+					"pathName": "pages/verification_detail/index",
+					"query": "code=7795637081040",
 					"scene": null
 				}
 			]

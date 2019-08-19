@@ -1,0 +1,43 @@
+/* pages/verification_detail/index.wxss */
+.container {
+  padding: 0 20rpx;
+}
+.top > image {
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 20rpx;
+}
+.top {
+  display: flex;
+  padding: 20rpx 0;
+}
+.top > view {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.info {
+  font-size: 28rpx;
+}
+.info > text:nth-child(2) {
+  color: rgb(219, 108, 17);
+}
+.info > text:nth-child(3) {
+  font-size: 22rpx;
+}
+.bom >view:first-child {
+  border-bottom: 1px solid rgba(218, 211, 211, 0.534);
+  padding: 20rpx 0;
+}
+.data > view {
+  line-height: 66rpx;
+  display: flex;
+}
+.data > view >text:first-child {
+  min-width: 20%;
+  display: block;
+  text-align: right;
+}
+.btn {
+  margin-top: 120rpx;
+}

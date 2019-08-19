@@ -27,7 +27,7 @@ radio {
 .radio {
   color: #999;
 }
-.radio-group,.address {
+.radio-group {
   margin-top: 20rpx;
   color: #999;
 }
@@ -35,8 +35,12 @@ radio {
   width: 32rpx;
   height: 32rpx;
 }
+.address > input {
+  flex: 1;
+}
 .address {
   display: flex;
+  margin-top: 20rpx;
   justify-content: space-between;
 }
 .bottom >  view > text {

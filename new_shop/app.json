@@ -39,7 +39,8 @@
     "pages/receiptCode/index",
     "pages/myProgram/index",
     "pages/newProple/index",
-    "pages/guidePage/index"
+    "pages/guidePage/index",
+    "pages/verification_detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

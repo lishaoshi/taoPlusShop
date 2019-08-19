@@ -111,6 +111,14 @@ Page({
     this._getCustomerList()
   },
 
+  // 打电话
+  goCall(e) {
+    let phone = e.currentTarget.dataset.phone 
+    wx.makePhoneCall({
+      phoneNumber: phone,
+    })
+  },
+
   // 获取客户列表
   _getCustomerList() {
     let data = {
@@ -141,19 +149,19 @@ Page({
 
   // 筛选
   checkboxChange(e) {
-    // console.log(e)
+    console.log(e)
     let valueArr = e.detail.value
     if (valueArr.includes('1')) {
       this.setData({
         isMe: 1
       })
     }
-    if (valueArr.includes('2')) {
+    else if (valueArr.includes('2')) {
       this.setData({
         notMe: 2
       })
     }
-    if (valueArr.includes('3')) {
+    else if (valueArr.includes('3')) {
       this.setData({
         promote: 3
       })

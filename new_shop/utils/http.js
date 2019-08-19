@@ -44,6 +44,12 @@ class http {
         method: params.method,
         success: (res) => {
           if (res.statusCode == 200) {
+            if(res.data.code==1000) {
+              wx.reLaunch({
+                url: '/pages/login/login',
+              })
+              return
+            }
             resolve(res.data);
           } else {
             errorShow(res.data.message || '服务器错误');

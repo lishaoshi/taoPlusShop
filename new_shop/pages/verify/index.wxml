@@ -4,7 +4,7 @@
     <text>请输入券码</text>
   </view>
   <view class="scan_box">
-    <input class="input" bindblur="getCode" value="{{inputValue}}"></input>
+    <input class="input" bindblur="getCode" value="{{value}}"></input>
     <view class="right" bindtap="openScanCode">
       <image src="../../images/scan.svg"></image>
       <text>点击扫描二维码</text>

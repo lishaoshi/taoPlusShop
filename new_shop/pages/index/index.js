@@ -153,7 +153,8 @@ Page({
     shopName: '',
     imgSrc: '',
     isHidden: false,
-    status: false
+    status: false,
+    examineStatus: 1
   },
   onLoad: function () {
     // console.log(app)
@@ -161,7 +162,6 @@ Page({
     this.isUserAuth()
     // this._getBusinissInfo()
     this._getShopInfo()
-    
   },
 
   // 前往账户明细
@@ -188,6 +188,10 @@ Page({
     console.log(e)
     let url = e.currentTarget.dataset.url
     if(!url) {
+      return
+    }
+    if (this.data.examineStatus!=2) {
+      showToast('请到店铺管理完善信息并等候审核')
       return
     }
     wx.navigateTo({
@@ -271,6 +275,9 @@ Page({
         })
         return
       }
+      this.setData({
+        examineStatus: res.result.examine_status
+      })
       wx.setStorageSync('shopInfo', res.result)
       for (let i = 0; i < this.data.iconList.length;i++) {
         let key = `iconList[${i}].count`
@@ -372,7 +379,7 @@ Page({
     this.isUserAuth()
     // console.log(app)
     // this.getUserLocaltion()
-    this._getBusinissInfo()
+    // this._getBusinissInfo()
     this._getShopInfo()
   },
 })

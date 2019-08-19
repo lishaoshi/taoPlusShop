@@ -26,7 +26,7 @@
             <image wx:if="{{item.st_count}}" src="{{item.st_count==1?'/images/lock.png':''}}"></image>
             <image wx:if="{{item.sp_count}}" src="{{item.sp_count==1?'/images/promoters.png':''}}"></image>
             <text>{{item.nickname||''}}</text>
-            <view>
+            <view catchtap="goCall" data-phone="{{item.mobile}}">
               <text>{{item.mobile||''}}</text>
               <image src="/images/tel.svg"></image>
             </view>
@@ -34,7 +34,6 @@
          
         </view>
          <view>消费次数{{item.order_count||''}}次</view>
-      
       </view>
      </block>
   </view>

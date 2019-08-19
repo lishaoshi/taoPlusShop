@@ -36,6 +36,37 @@ class shopMng extends http {
     return this.request(params)
   }
 
+  // 获取省市区列表
+  // /sys/getRegion
+  gazetteBillRegion(data) {
+    let url = `/sys/getRegion`
+    let params = {
+      url,
+      data
+    }
+    return this.request(params)
+  }
+
+  // 商家入驻
+  addShop(data) {
+    let url = `/shop/addShopV3-1`
+    let params = {
+      url,
+      data
+    }
+    return this.request(params)
+  }
+
+  // 编辑商家信息
+  updataShopInfo(data) {
+    let url = `/shop/updateShopV3-1`
+    let params = {
+      url,
+      data
+    }
+    return this.request(params)
+  }
+
   // 添加图片
   addShopPhoto(data) {
     let url = `/shop/addShopPhoto`

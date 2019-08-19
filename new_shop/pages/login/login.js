@@ -93,6 +93,15 @@ Page({
          return
        } else if(res.code==163) {
          showToast('商家正在审核')
+         wx.setStorageSync('shopLoginInfo', res.result)
+         wx.reLaunch({
+           url: '/pages/index/index',
+         })
+         return
+       }
+       else if (res.code == 165) {
+         showToast('商家审核不通过，重新修改信息审核')
+         wx.setStorageSync('shopLoginInfo', res.result)
          wx.reLaunch({
            url: '/pages/index/index',
          })
