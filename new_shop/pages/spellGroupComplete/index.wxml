@@ -1,7 +1,9 @@
 <!--pages/spellGroupComplete/index.wxml-->
 <view class="container">
-  <view class="detail_box">
-    <text>玫瑰</text>
-    <text>发起人</text>
-  </view>
+  <block wx:for="{{data}}" wx:key="{{index}}">
+    <view class="detail_box">
+      <text>{{item.nickname}}</text>
+      <text>{{item.is_head==1?'发起人':'成员'}}</text>
+    </view>
+  </block>
 </view>

@@ -38,7 +38,7 @@ Page({
   _getBankCardList() {
     // let userId = app.gd.userId
     let data = {
-      userId: app.globalData.shopId,
+      userId: app.globalData.userId,
       pageNum: this.data.pageNo,
       pageSize: this.data.pageSize
     }

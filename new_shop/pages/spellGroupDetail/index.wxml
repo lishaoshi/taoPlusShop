@@ -11,7 +11,7 @@
   <view class="detail">
     <block wx:for="{{dataList}}" wx:key="{{index}}">
       <view class='bg_box'></view>
-      <view bindtap="goDetail" class="detail_box">
+      <view bindtap="goDetail" data-item="{{item}}" class="detail_box">
         <view>
           <text>发起人</text>
           <text>{{item.nickname}}</text>

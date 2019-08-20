@@ -99,8 +99,10 @@ Page({
 
   // 查看性情
   goDetail(e) {
+    console.log(e)
+    let grouponsId = e.currentTarget.dataset.item.groupons_id
     wx.navigateTo({
-      url: '/pages/spellGroupComplete/index',
+      url: '/pages/spellGroupComplete/index?grouponsId=' + grouponsId,
     })
   },
 

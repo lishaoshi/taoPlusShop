@@ -1,3 +1,6 @@
+import spellGroup from '../../api/spellGroup.js'
+let spellGroupModel = new spellGroup()
+const app = getApp()
 // pages/spellGroupComplete/index.js
 Page({
 
@@ -5,14 +8,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    grouponsId:'',
+    data: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      grouponsId: options.grouponsId
+    })
+    this._queryGroupUser()
+  },
 
+
+  // 获取拼团用户列表
+  _queryGroupUser() {
+    spellGroupModel.queryGroupUser({}, this.data.grouponsId).then(res=>{
+      if(res) {
+        this.setData({
+          data: res
+        })
+      }
+      
+    })
   },
 
   /**
