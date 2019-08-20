@@ -20,6 +20,7 @@ Page({
 
   },
 
+
   // 打开扫码
   openScanCode() {
     wx.scanCode({
@@ -100,16 +101,15 @@ Page({
       showToast('券码不能为空！')
       return
     }
-    wx.navigateTo({
-      url: '/pages/verification_detail/index?code=' + this.data.value,
-    })
     let data = {
       shopId: app.globalData.shopId
     }
     verifyModel.queryTicket(data, this.data.value, app.globalData.shopId).then(res=>{
       if (res.length > 0) {
         let orderId = res[0].orderId;
-        
+        wx.navigateTo({
+          url: '/pages/verification_detail/index?code=' + JSON.stringify(res[0])
+        })
       } else {
         showToast('该商家没有此券码或已使用该券码');
       }

@@ -17,28 +17,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let val = options.code
-    this.queryOrder(val)
-  },
-  // 查询要销毁的订单
-  queryOrder(val) {
-    let data = {
-      shopId: app.globalData.shopId
-    }
-    verifyModel.queryTicket(data, val, app.globalData.shopId).then(res => {
-      if (res.length > 0) {
-        let orderId = res[0].orderId;
-        this.setData({
-          orderInfo: res[0],
-          orderId: orderId
-        })
-
-      } else {
-        showToast('该商家没有此券码或已使用该券码');
-      }
+    let val = JSON.parse(options.code)
+    this.setData({
+      orderInfo: val,
+      orderId: val.orderId
     })
+    // this.queryOrder(val)
   },
-
+  // // 查询要销毁的订单
+  // queryOrder(val) {
+  //   let data = {
+  //     shopId: app.globalData.shopId
+  //   }
+  //   verifyModel.queryTicket(data, val, app.globalData.shopId).then(res => {
+  //     if (res.length > 0) {
+  //       let orderId = res[0].orderId;
+  //       this.setData({
+  //         orderInfo: res[0],
+  //         orderId: orderId
+  //       })
+  //     } else {
+  //       showToast('该商家没有此券码或已使用该券码');
+  //     }
+  //   })
+  // },
+// 核销订单
   _verifyOrder() {
     wx.showModal({
       title: '提示',

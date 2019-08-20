@@ -87,6 +87,7 @@ Page({
            url: '/pages/index/index',
          })
        } else if(res.code==160) {
+         wx.setStorageSync('shopLoginInfo', res.result)
          wx.navigateTo({
            url: '/pages/merchant_entry/index',
          })
