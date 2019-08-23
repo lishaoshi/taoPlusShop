@@ -38,4 +38,6 @@
       <text>{{item.note}}</text>
     </view>
   </view>
+
+  <view style="height: 60rpx;background: red;" bindtap="confirmPay"> 确认支付</view>
 </view>

@@ -1,0 +1,126 @@
+<!--pages/addCoupon/index.wxml-->
+<view class="container">
+  <view class="form-box">
+    <view>
+      <text>优惠券面额：</text>
+      <input placeholder="优惠券面额" value="{{couponInfo.amount}}" bindblur="getInputValue" data-input="amount"></input>
+    </view>
+
+    <view>
+      <text>是否能转赠：</text>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{items}}">
+          <radio value="{{item.type}}" checked="{{item.checked}}"/>{{item.name}}
+        </label>
+      </radio-group>
+    </view>
+
+    <!-- <view>
+      <text>使用开始时间：</text>
+      <picker mode="date" value="{{couponInfo.couponStartTime}}" bindchange="bindTimeChange" data-timeFlag="couponStartTime">
+        <view class="picker">
+          <text wx:if="{{!couponInfo.couponStartTime}}">请选择</text>
+          <text wx:else>{{couponInfo.couponStartTime}}</text>
+        </view>
+      </picker>
+    </view> -->
+     <view>
+      <text>使用开始时间：</text>
+      <picker mode="multiSelector" value="{{dateTime}}" bindchange="bindTimeChange" data-timeFlag="couponStartTime"  bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
+        <view class="tui-picker-detail">
+          <text wx:if="{{!couponInfo.couponStartTime}}">请选择</text>
+          <text wx:else>
+            {{couponInfo.couponStartTime}}
+          </text>
+        </view>
+      </picker>
+    </view>
+
+    <!-- <view>
+      <text>使用结束时间：</text>
+      <picker mode="date" value="{{couponInfo.couponEndTime}}" bindchange="bindTimeChange" data-timeFlag="couponEndTime">
+        <view class="picker">
+          <text wx:if="{{!couponInfo.couponEndTime}}">请选择</text>
+          <text wx:else>{{couponInfo.couponEndTime}}</text>
+        </view>
+      </picker>
+    </view> -->
+
+    <view>
+      <text>使用结束时间：</text>
+      <picker mode="multiSelector" value="{{dateTime}}" bindchange="bindTimeChange" data-timeFlag="couponEndTime"  bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
+        <view class="tui-picker-detail">
+          <text wx:if="{{!couponInfo.couponEndTime}}">请选择</text>
+          <text wx:else>
+            {{couponInfo.couponEndTime}}
+          </text>
+        </view>
+      </picker>
+    </view>
+
+    <view>
+      <text>数量：</text>
+      <input placeholder="优惠券数量" value="{{couponInfo.num}}" bindblur="getInputValue" data-input="num"></input>
+    </view>
+
+    <view>
+      <text>领取的条件：</text>
+      <input placeholder="订单金额满足后方可领取" value="{{couponInfo.totalOrderAmount}}" bindblur="getInputValue"   data-input="totalOrderAmount"></input>
+    </view>
+
+    <view>
+      <text>规则开始时间：</text>
+      <picker mode="multiSelector" value="{{dateTime}}" bindchange="bindTimeChange" data-timeFlag="ruleStartTime"  bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
+        <view class="tui-picker-detail">
+          <text wx:if="{{!couponInfo.ruleStartTime}}">请选择</text>
+          <text wx:else>
+            {{couponInfo.ruleStartTime}}
+          </text>
+        </view>
+      </picker>
+    </view>
+
+    <!-- <view>
+      <text>规则开始时间：</text>
+      <picker mode="date" value="{{couponInfo.ruleStartTime}}" bindchange="bindTimeChange" data-timeFlag="ruleStartTime">
+        <view class="picker">
+          <text wx:if="{{!couponInfo.ruleStartTime}}">请选择</text>
+           <text wx:else>{{couponInfo.ruleStartTime}}</text>
+        </view>
+      </picker>
+    </view> -->
+
+    <!-- <view>
+      <text>规则结束时间：</text>
+      <picker mode="date" value="{{couponInfo.ruleEndTime}}" bindchange="bindTimeChange" data-timeFlag="ruleEndTime">
+        <view class="picker">
+          <text wx:if="{{!couponInfo.ruleEndTime}}">请选择</text>
+          <text wx:else>{{couponInfo.ruleEndTime}}</text>
+        </view>
+      </picker>
+    </view> -->
+    <view>
+      <text>规则结束时间：</text>
+      <picker mode="multiSelector" value="{{dateTime}}" bindchange="bindTimeChange" data-timeFlag="ruleEndTime"  bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
+        <view class="tui-picker-detail">
+          <text wx:if="{{!couponInfo.ruleEndTime}}">请选择</text>
+          <text wx:else>
+            {{couponInfo.ruleEndTime}}
+          </text>
+        </view>
+      </picker>
+    </view>
+
+    <view>
+      <text>满足金额：</text>
+      <input placeholder="满足金额" value="{{couponInfo.satisfactionAmount}}" bindblur="getInputValue" data-input="satisfactionAmount"></input>
+    </view>
+
+    <view>
+      <text>优惠券名称：</text>
+      <input placeholder="优惠券名称" value="{{couponInfo.couponName}}" bindblur="getInputValue" data-input="couponName"></input>
+    </view>
+  </view>
+
+  <button-box bind:tapBtn="confirmForm" buttonName="{{isEdit?'修改':'保存'}}"></button-box>
+</view>

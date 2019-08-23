@@ -1,6 +1,10 @@
 //index.js
 import index from '../../api/index.js'
 let indexMedel = new index()
+import { showToast } from '../../utils/util.js'
+import config from '../../config.js'
+import shopPayBalance from '../../api/shopPayBalance.js'
+let shopPayBalanceModel = new shopPayBalance()
 //获取应用实例
 const app = getApp()
 // let userId = app.globalData.userId
@@ -11,6 +15,7 @@ Page({
     type: '休息中',
     price: null,
     userAuth: true,
+    shopInPrice: 0,
     iconList: [
       {
         img: '../../images/customer.svg',
@@ -147,8 +152,29 @@ Page({
         left: true,
         top: true,
         right: false,
+        bottom: true
+      },
+      {
+        img: '../../images/confirm.png',
+        title: '优惠券管理',
+        note: '商品优惠券',
+        navigate_url: '/pages/coupon/index',
+        left: false,
+        top: true,
+        right: true,
         bottom: false
-      }
+      },
+      {
+        img: '../../images/confirm.png',
+        title: '红包管理',
+        note: '设置红包',
+        navigate_url: '/pages/redBag/index',
+        left: true,
+        top: true,
+        right: true,
+        bottom: false
+      },
+      
     ],
     shopName: '',
     imgSrc: '',
@@ -162,6 +188,7 @@ Page({
     this.isUserAuth()
     // this._getBusinissInfo()
     this._getShopInfo()
+    this._getShopPayAmount()
   },
 
   // 前往账户明细
@@ -255,6 +282,30 @@ Page({
     })
   },
 
+  // 获取商家入驻价格
+  _getShopPayAmount() {
+    console.log('get')
+    shopPayBalanceModel.getShopPayAmount({}).then(res => {
+      this.setData({
+        shopInPrice: res.value
+      })
+    })
+  },
+
+  // 确认支付
+  confirmPay() {
+    // console.log('comfrimPay')
+    // return
+    let data = {
+      shopId: app.globalData.shopId,
+      price: this.data.shopInPrice,
+      openId: app.globalData.openId
+    }
+    shopPayBalanceModel.confirmPay(data).then(res=>{
+
+    })
+  },
+
   // 隐藏今日收益
   priceHidden() {
     console.log('隐藏')
@@ -298,7 +349,7 @@ Page({
        }
       this.setData({
         shopName: res.result.shop_name,
-        imgSrc: `https://api.olb8.com${res.result.portrait_url}`,
+        imgSrc: `${config.IMG}${res.result.portrait_url}`,
         status: res.result.status==1?true:false,
         type: res.result.status == 1 ? '营业中' : '休息中',
         price: res.result.newTime

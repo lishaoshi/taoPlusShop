@@ -1,0 +1,27 @@
+/* pages/coupon/index.wxss */
+.list-box > view {
+  padding: 30rpx 20rpx;
+}
+.addGoodsBox {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  left: 10rpx;
+  bottom: 10rpx;
+}
+.addGoodsBox > view {
+  width: 46rpx;
+  border-radius: 50%;
+  border: 1px solid rgb(63, 140, 228);
+  height: 46rpx;
+  /* line-height: 46rpx; */
+  vertical-align: middle;
+  text-align: center;
+  font-weight: bold;
+  margin-right: 10rpx;
+  color: rgb(63, 140, 228);
+}
+.addGoodsBox > text {
+  color: #999;
+  font-size: 22rpx;
+}

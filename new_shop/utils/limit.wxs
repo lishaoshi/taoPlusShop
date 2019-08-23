@@ -13,7 +13,9 @@ var imgUrl = function (path, flag=true) {
   if(!path) {
     return
   }
-  var url = 'https://api.olb8.com'
+  // var url = 'https://api.olb8.com'
+  // 本地图片url
+  var url = 'http://134.175.171.231:9081'
   var imgPath
   if(flag) {
     imgPath = url + path+'.th'

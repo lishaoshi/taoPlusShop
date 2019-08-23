@@ -40,7 +40,11 @@
     "pages/myProgram/index",
     "pages/newProple/index",
     "pages/guidePage/index",
-    "pages/verification_detail/index"
+    "pages/verification_detail/index",
+    "pages/redBag/index",
+    "pages/coupon/index",
+    "pages/addCoupon/index",
+    "pages/addRedBag/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

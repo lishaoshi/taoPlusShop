@@ -16,6 +16,20 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         let code = res.code
+        wx.request({
+          url: `${config.base_url}/settled/shop/wxLogin`,
+          data: {
+            code: res.code
+          },
+          method: 'POST',
+          header: {
+            'content-type': 'application/x-www-form-urlencoded'
+          },
+          success:(data)=>{
+            // console.log(data)
+            this.globalData.openId = data.data.openid
+          }
+        })
         // 用户登录获取token
         // loginModel.signIn()
       }
@@ -45,11 +59,16 @@ App({
   getStorage() {
     // console('11')
    let data = wx.getStorageSync('shopLoginInfo')
-    if (data.token) {
+    if (data.token &&data.shop_id) {
       this.globalData.token = data.token
       this.globalData.agency_id = data.agency_id
       this.globalData.userId = data.user_id
       this.globalData.shopId = data.shop_id
+    } else {
+      wx.reLaunch({
+        url: '/pages/login/login',
+      })
+      return
     }
   },
   globalData: {
@@ -76,6 +95,7 @@ App({
     userId: '',
 
     // 正式用户shopId
-    shopId: ''
+    shopId: '',
+    openId: ''
   }
 })

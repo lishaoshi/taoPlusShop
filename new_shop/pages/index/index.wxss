@@ -84,7 +84,7 @@ height: 32rpx !important;
   margin-top: 12rpx;
 }
 .business_box {
-  width: 30%;
+  width: 32%;
   align-items: center;
   font-size: 24rpx;
   line-height: 42rpx;
@@ -114,7 +114,10 @@ height: 32rpx !important;
 }
 .business {
   flex-wrap: wrap;
-  justify-content: center;
+  /* justify-content: center;
+   */
+   margin: 0 auto;
+   align-items: flex-start;
   margin-top: 20rpx;
   /* font-size: 24rpx; */
 }

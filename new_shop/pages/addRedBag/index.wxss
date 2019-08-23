@@ -1,0 +1,11 @@
+/* pages/addCoupon/index.wxss */
+.form-box > view {
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+}
+button-box {
+  /* width: 80%; */
+  margin: 60rpx 40rpx!important;
+  display: block;
+}

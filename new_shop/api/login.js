@@ -39,6 +39,16 @@ class login extends http {
     return this.request(params)
   }
 
+// 获取openId
+  // getWXOpenId(data) {
+  //   let url = `/settled/shop/wxLogin`
+  //   let params = {
+  //     url,
+  //     data
+  //   }
+
+  //   retur
+  // }
   // 验证找回密码
   validateMobileAndVocde(data) {
     let url = `/shop/validateMobileAndVocde`

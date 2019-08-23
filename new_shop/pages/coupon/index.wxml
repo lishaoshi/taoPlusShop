@@ -1,0 +1,18 @@
+<!--pages/coupon/index.wxml-->
+<view class="container">
+  <view class="list-box">
+    <block wx:for="{{couponRuleList}}" wx:key="{{item.id}}">
+      <view bindtap="_updateCoupon" data-item="{{item}}">
+        <text>优惠券名称</text>
+        {{item.id}}
+      </view>
+    </block>
+  </view>
+
+  <view class="addGoodsBox" bindtap="goAddCoupon">
+    <view>
+    +
+    </view>
+    <text>添加优惠券</text>
+  </view>
+</view>

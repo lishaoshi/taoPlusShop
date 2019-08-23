@@ -32,7 +32,7 @@ class http {
     if (!params.data) {
       params.data = {};
     }
-    params.data.token = app.globalData.token;
+    params.data.token = wx.getStorageSync('shopLoginInfo').token || '';
     params.method = params.method ? params.method : 'POST'
     const promise = new Promise((resolve, reject) => {
       wx.request({
@@ -48,6 +48,7 @@ class http {
               wx.reLaunch({
                 url: '/pages/login/login',
               })
+              wx.clearStorageSync()
               return
             }
             resolve(res.data);

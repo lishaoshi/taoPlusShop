@@ -1,3 +1,5 @@
+import shopPayBalance from '../../api/shopPayBalance.js'
+let shopPayBalanceModel = new shopPayBalance()
 // pages/merchant_entry/index.js
 Page({
 
@@ -25,7 +27,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this._getShopPayAmount()
   },
 
   // 前往入驻页
