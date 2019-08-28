@@ -1,0 +1,249 @@
+<!--index.wxml-->
+
+<view style='position: relative;height:100%'>
+
+
+  <!--list -->
+  <view class='list-box clear hide'>
+    <view class='list-item fl' wx:for="{{list}}" wx:key="shop-list">
+      <image class='list-item-img' src='../../images/shop/food.png'></image>
+      <text class='list-item-title block ellipsis'>{{item.title}}</text>
+      <text class='list-item-sale block t-gray'>月销{{item.sale}}</text>
+      <text class='list-item-info block t-gray ellipsis'>{{item.info}}</text>
+      <view class='flex j-b list-item-foot'>
+        <text>￥{{item.money}}</text>
+        <text class='choice-btn'>选规格</text>
+      </view>
+    </view>
+  </view>
+
+
+  <!--第二种list  -->
+  <view class='list2-box clear' style="top: {{scrollTop}}rpx; background: {{bgColor}}" bindtouchstart='touchstartFn' bindtouchend='touchendFn'>
+    <view class='header-info flex j-b'>
+      <view class='target '>
+
+        <!-- <navigator target="miniProgram" open-type='navigate' app-id="wx463b5a1c2c851de8" version="{{toMiniProgramEnvVersion}}" bindfail="失败"> -->
+          <!-- <image class='back' src='../../images/back.png'> </image> 返回</navigator> -->
+
+        <navigator bindtap="goback" wx:if="{{ isBackShow }}">
+          <image class='back' src='../../images/back.png'> </image>
+          返回
+        </navigator>
+
+      </view>
+      <image class='shop-img v-t' src='{{IMG}}{{shopInfo.portrait_url}}'></image>
+      <view class='i-b v-t header-info-right' bindtap='JumpToInfoFn'>
+        <view class='flex j-b'>
+          <view class='w-90 '>
+            <text class='header-info-title ellipsis block'>{{shopInfo.shop_name}}</text>
+            <text class='header-info-time block'>营业时间：{{shopInfo.start_time}}-{{shopInfo.end_time}}</text>
+          </view>
+          <image class=' more' src='../../images/shop/arrow-right.png'></image>
+        </view>
+      </view>
+
+    </view>
+    <!--左边菜单  -->
+    <view class='list2-tab fl'>
+      <scroll-view scroll-y style="height:900rpx" scroll-with-animation="true" scroll-into-view="{{scrollTitle}}">
+
+        <view class='list2-tab-item  {{(isShowTap[index])||(isShowTap==null && currentCategory == index && isShow==false)? "list2-tab-item-act":""}}' wx:for="{{cateList}}" wx:key="leftMenu" bindtap='clickScrollInTo' data-name="{{'i'+index}}" data-index="{{index}}"
+          id="{{'i'+index}}">
+          <image class='act-logo v-m' wx:if="{{item.class_id ==119}}" src='../../images/ativit-logo.png'></image>
+          <text data-classid="{{item.class_id}}">{{item.class_name}}</text>
+          <text class='list2-tab-item-num topnum' wx:if="{{item.num != 0}}">{{item.num}}</text>
+        </view>
+      </scroll-view>
+    </view>
+
+    <!--右边  -->
+    <scroll-view class='list2-view' scroll-y='true' bindscroll='scroll' scroll-with-animation="true" style='height:{{scrollHeight}}px' scroll-into-view="{{scrollInTo}}" bindscrolltolower='loadMoreFn'>
+
+      <!-- 普通商品 -->
+      <view class="{{isShow? 'hide':'block'}}" style="margin-bottom:110rpx;">
+        <view wx:for="{{goodsList}}" wx:key="list-view" bindtouchstart='touchstartFn' bindtouchend='touchendFn'>
+          <!-- <text class='list2-view-title block t-gray' id="menu-{{index}}">{{item.title}}</text> -->
+          <view class='anchor' id="{{'i'+index}}">{{item.name}}</view>
+          <view class='list2-view-item' wx:for='{{item.data}}' wx:key='index'>
+            <navigator class='i-b' url='../goods_detail/goods_detail?goodsId={{item.goods_id}}&shopId={{item.shop_id}}' hover-class="none">
+              <view class='group-list2-img'>
+                <image lazy-load='true' class='list2-view-item-img v-t' mode='aspectFill' src='{{IMG}}{{item.path}}'></image>
+                <text class='groupon-sum {{item.groupon_sum!=null?"block": "hide"}}'>{{item.groupon_sum}}人团</text>
+              </view>
+            </navigator>
+
+            <view class='list2-view-item-info i-b v-t'>
+              <!-- <navigator url='../shop_detail/shop_detail?goodsId={{item.goods_id}}'> -->
+              <navigator class='i-b nav-text' url='../goods_detail/goods_detail?goodsId={{item.goods_id}}&shopId={{item.shop_id}}' hover-class="none">
+                <view>
+                  <text class='list2-view-item-info-title ellipsis'>{{item.goods_name}}</text>
+                  <!-- <text class='group-img v-b'  wx:if="{{item.groupon_sum}}">{{item.groupon_sum+'人团'}}</text> -->
+
+                </view>
+                <view class='list2-described'>
+
+                  <text class='t-gray block ellipsis act-described'>{{item.described !=null ? item.described : '' }}</text>
+                </view>
+                <view class='flex j-b sale_num'>
+                  <text class='list2-view-item-info-sale t-gray block'>销量{{item.sales_volume+(item.inital_sales_volume || 0 )}}</text>
+                  <image class='group-buy-logo' src='../../images/shoping-logo.png' wx:if="{{item.goods_unit_id}}"></image>
+                 
+                  <!-- 加减购物车 -->
+                  <view class='flex shopping-cart' wx:if="{{!item.goods_unit_id}}">
+                    <image class='shop-car-detail-item-img v-m' src='../../images/radue.png' data-id="{{item.goods_id}}" data-shopid="{{item.shop_id}}" data-op="-1" catchtap='changeCarNumFn' wx:if="{{item.num != 0}}"></image>
+
+                    <text class='shop-car-detail-item-num' wx:if="{{item.num != 0}}">{{item.num}}</text>
+                    
+                    <image class='shop-car-detail-item-img v-m' src='../../images/add-jia.png' data-id="{{item.goods_id}}" data-shopid="{{item.shop_id}}" data-num="{{item.num}}" data-op="1" catchtap='changeCarNumFn'></image>
+                  </view>
+                  <!--加减购物车-->
+                </view>
+
+
+              </navigator>
+
+              <!-- <view class='{{item.groupon_sum!=null?"block": "hide"}}'> -->
+
+              <!-- </view> -->
+              <view class='list2-view-item-foot flex j-b'>
+                <view class='list2-view-item-foot-money red-money flex'>
+                  <navigator class='i-b nav-text' url='../goods_detail/goods_detail?goodsId={{item.goods_id}}&shopId={{item.shop_id}}' hover-class="none">
+                    <text class='symbol'>￥</text>
+                    <text>{{item.groupon_price !=null ? item.groupon_price:item.shop_price }}</text> </navigator>
+                </view>
+                <view class='g-old-price'>
+                  <navigator class='i-b nav-text' url='../goods_detail/goods_detail?goodsId={{item.goods_id}}&shopId={{item.shop_id}}' hover-class="none">
+                    <text class='old-price {{item.groupon_sum!=null?"hide": "block"}}'>{{item.market_price && item.market_price !='null' &&item.market_price !='undefined'  ? '原价¥'+item.market_price :''}}</text>
+                  </navigator>
+                </view>
+
+                <view class='groupon-real' wx:if="{{item.goods_unit_id}}">
+                  <text>单买价</text>
+                  <text class='unit-symbols'>¥</text>
+                  <text class='unit-price-num'>{{item.shop_price}}</text>
+                </view>
+
+                <text class='choice-btn hide' data-parent="{{item.title}}" data-index="{{cIndex}}" bindtap='showFormatFn'>选规格</text>
+
+              </view>
+            </view>
+
+          </view>
+        </view>
+        <view class='no-more {{noMore ? "block":"hide"}}'>
+          <text>没有数据了</text>
+        </view>
+      </view>
+      <!-- 普通商品 -->
+
+      <view class='p-100'></view>
+    </scroll-view>
+  </view>
+</view>
+
+<my-tab></my-tab>
+
+<bind_phone bind:bindphonecb="bindPhoneCbFn" phone-show="{{phoneShow}}"></bind_phone>
+
+<!--购物车  -->
+<view class="shop-car {{isShow? 'hide':'block'}} ">
+  <view class='shop-car-box clear'>
+    <view class='shop-car-left fl'>
+      <view class='shop-car-l-icon i-b v-m' bindtap='showCarFn'>
+        <image class='shop-car-l-icon-img' src='../../images/shop/shopping-car.png'></image>
+        <text class='shop-car-l-icon-text topnum' wx:if="{{carNum != 0}}">{{carNum}}</text>
+      </view>
+      <text class='i-b v-m shop-car-l-money' wx:if="{{carNum!=0}}">共￥{{carMoney}}</text>
+      <text class='i-b v-m shop-car-l-money ' wx:if="{{carNum==0}}">购物车是空的</text>
+    </view>
+    <view class='shop-car-right fr'>
+      <text bindtap='jumpToFn'>选好了</text>
+    </view>
+  </view>
+
+</view>
+
+<!--遮罩  -->
+<view class='mask' wx:if="{{showMask}}" bindtap='triggerMaskFn'></view>
+
+<!--规格  -->
+<view class='format' wx:if="{{showFormat}}">
+  <text class='format-title block'>{{currentGoods.title}}</text>
+  <view class='format-item'>
+    <text class='block format-item-title'>口味：</text>
+    <radio-group class='remarks-box' bindchange="choiseTasteFn">
+      <label class='radio i-b v-m {{item.check? "checkedbox": ""}}' wx:for="{{taste}}" wx:key="taste">
+        <radio value='{{item.name}}' checked='{{item.check}}' />{{item.name}}
+      </label>
+    </radio-group>
+  </view>
+  <view class='format-item'>
+    <text class='block format-item-title'>份额：</text>
+    <radio-group class='remarks-box' bindchange="choiseSizeFn">
+      <label class='radio i-b v-m {{item.check? "checkedbox": ""}}' wx:for="{{size}}" wx:key="size">
+        <radio value='{{item.name}}' checked='{{item.check}}'>{{item.name}}</radio>
+      </label>
+    </radio-group>
+  </view>
+  <view class='format-foot flex j-b'>
+    <text class='format-foot-money'>￥{{currentGoods.money}}</text>
+    <text class='format-foot-btn' bindtap='choiseFormatFinishFn'>选好了</text>
+  </view>
+</view>
+
+<!--购物车详情  -->
+<view class='shop-car-detail' wx:if="{{showCar}}">
+  <image class='triangle' src='../../images/shop/triangle.png'></image>
+  <view class='flex j-b shop-car-detail-head'>
+    <text class=''>购物车</text>
+    <view class='i-b'>
+      <image class='shop-car-detail-head-icon v-m' src='../../images/shop/clear.png'></image>
+      <text class='t-gray v-m' bindtap='clearFn'>清空购物车</text>
+    </view>
+  </view>
+
+  <view class='shop-car-detail-item flex j-b' wx:for="{{carList}}" wx:key="{{cartList}}">
+    <text class='ellipsis half'>{{item.goods_name}}</text>
+    <view class='i-b v-m'>
+      <text class='shop-car-detail-item-money'>￥{{item.goods_shop_price}}</text>
+      <image class='shop-car-detail-item-img v-m' src='../../images/shop/reduce.png' data-id="{{item.goods_id}}" data-op="-1" bindtap='changeCarNumFn'></image>
+      <text class='shop-car-detail-item-num'>{{item.num}}</text>
+      <image class='shop-car-detail-item-img v-m' src='../../images/shop/add.png' data-id="{{item.goods_id}}" data-op="1" bindtap='changeCarNumFn'></image>
+    </view>
+  </view>
+
+
+</view>
+
+
+
+<!-- 骨架图 -->
+<view class='skeleton fixed' animation="{{skeleton}}" wx:if="{{skeletonShow}}">
+  <view class='sk-head'></view>
+  <view class='flex sk-body'>
+    <view class='sk-menu'>
+      <text wx:for="{{[1,2,3,4,5]}}" class='sk-menu-item' wx:key="menu"></text>
+      <text class='sk-menu-btn'></text>
+    </view>
+
+    <view class='sk-goods'>
+      <text wx:for="{{[1,2,3]}}" class='sk-goods-item' wx:key="goods"></text>
+    </view>
+  </view>
+  <view class='sk-shopCar'></view>
+</view>
+<bind_phone bind:bindphonecb="bindPhoneCbFn" phone-show="{{phoneShow}}"></bind_phone>
+<view wx:if="{{userButton}}">
+  <view class='bind-phone-box fixed t-c'>
+    <view class="content">
+      <text>为了更好的用户体验，需获取您的用户头像及昵称</text>
+    </view>
+
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="authorization" hover-class="none">点击获取</button>
+  </view>
+  <view class='mask' v-if></view>
+</view>
+
+<!-- 领取代金券模态框组件 -->
+<coupon-modal id="thridModal" couponData="{{couponData}}"></coupon-modal>

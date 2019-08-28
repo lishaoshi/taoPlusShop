@@ -1,0 +1,131 @@
+/** 模态 **/
+@import "../../common.wxss";
+.modal{
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  bottom: 0rpx;
+  width: 100%;
+  height: 100%; 
+  z-index: 100;
+}
+
+.modal-mask{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 97;
+  background-color: rgba(0,0,0,0.30);
+}
+
+
+.modal-layer-sm{
+   width: 60%; 
+   transform : translate3d(-50%,-50%,0);
+   left : 50%;  
+} 
+
+.modal-layer-md{
+   width: 80%; 
+   transform : translate3d(-50%,-50%,0);
+   left : 50%;    
+} 
+
+.modal-layer-full{
+   width: 100%; 
+   left: 0;  
+} 
+
+.modal-layer-radius {
+  
+    
+}
+
+.modal-layer{
+  position: absolute;
+  background: transparent;
+  top: 50%;    
+  display: flex;
+  flex-direction: column;
+  z-index: 98;   
+
+  box-shadow: 0 4rpx 14rpx rgba(0,0,0,.4); 
+  padding:0rpx 4rpx;
+}
+
+
+.modal-body{
+  flex:  1;  
+}
+.modal-footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.modal-close{
+  color: #fff;
+  font-size: 48rpx;
+  position: absolute;
+  right: 40rpx;
+  top: 0;
+  z-index: 98;
+}
+
+
+.pay_redbag{
+  box-sizing:border-box;
+  width:100%;
+  /* padding:20rpx 10rpx; */
+  /* margin:100rpx auto;  */
+  margin:6rpx 0rpx;
+  /* border-top:1px solid #e4e4e4; */
+  /* border-bottom:1px solid #e4e4e4; */
+}
+.pay_redbag_info{
+  width:100%;
+  background: #f6f6f6;
+  border-radius:12rpx;
+  padding:20rpx;
+}
+.pay_redbag_info .info_money{
+  color:#f32d5d;
+  margin-right:24rpx;
+}
+.pay_redbag_info .info_money .info_money_sign{
+  font-size:24rpx;
+  margin:0 4rpx;
+  margin-top:14rpx;
+}
+.pay_redbag_info .info_money .info_money_num{
+  font-size:80rpx;
+}
+.pay_redbag_info .info_desc view{
+  margin:6rpx 0;
+  margin-right:10rpx;
+  color:#949796;
+  font-size:28rpx;
+}
+.pay_redbag_info .info_desc .info_desc_name{
+ color:#393c3b;
+ font-size:36rpx;
+ font-weight: bold;
+}
+/* 
+.pay_redbag text{
+  padding:16rpx 100rpx;
+  border-radius:100rpx;
+  background:#fff630;
+  color:red;
+} */
+.pay_redbag button{
+  font-size:28rpx;
+  margin-right:0;
+  width:120rpx;
+}
+
+.pay_done button{
+  margin-top:320rpx;
+  width:54%;
+}

@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "goods_list": "/components/goods_list/goods_list",
+    "my-tabbar": "/components/tabbar/tabbar"
+  },
+  "navigationBarTitleText": "活动专区"
+}

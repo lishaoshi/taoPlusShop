@@ -1,0 +1,135 @@
+<!--index.wxml-->
+<view class='container' style="height: {{scrollHeight}}px;" scroll-y="{{isScroll}}" bindscroll="onPageScroll" bindscrolltolower="onReachBottom">
+  <!-- 头部搜索 star -->
+  <view class='search-box fixed'>
+    <navigator url='../search/search' class='search'>
+      <image class='search-icon i-b v-m' src='../../../images/search-icon.png'></image>
+      <text class='i-b v-m'>搜索商品或商店</text>
+    </navigator>
+  </view>
+  <!--头部搜索 end  -->
+
+  <!-- banner star -->
+  <swiper class='banner banner-box' autoplay="true" interval="5000" duration="1000" indicator-dots="true" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#ffffff">
+    <block wx:for="{{banner}}" wx:key="banner">
+      <swiper-item>
+        <navigator class='banner'>
+          <image class=' banner slide-image' src='{{item.path}}' mode='aspectFill'></image>
+        </navigator>
+
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- banner end -->
+
+  <!-- menu start -->
+  <view class='menu-list flex j-a'>
+    <view class='menu' wx:for="{{shopSort}}" wx:key="{{shop}}">
+      <navigator class='flex d-c menu-nav' url='../type_search/type_search?id={{item.product_type_id}}'>
+        <image class='menu-img' src='{{item.path}}'></image>
+        <text class='menu-text'>{{item.type_name}}</text>
+      </navigator>
+    </view>
+
+  </view>
+
+  <!-- menu end -->
+
+  <view class='ad'>
+    <image class='ad-img' src="../../../images/banner.png"></image>
+  </view>
+
+  <view class='flex d-c a-c bar border-b'>
+    <text>一为你推荐一</text>
+  </view>
+
+
+
+  <!-- 列表 star -->
+
+  <view class='list-box '>
+    <!-- 列表导航条 star -->
+    <view class='list-bar flex border-b t-c hide'>
+      <view class='bar-item flex-item t-c' wx:for="{{screenBar}}" wx:key="screenBar" data-index="{{index}}" bindtap='changeScreenFn'>
+        <text class="v-m bar-item-text ellipsis {{index == screenIndex ? 'bar-item-act':''}}">{{item}}</text>
+        <image class='bar-item-icon v-m' hidden="{{index == screenIndex && screenShow}}" src='../../../images/select-down.png'></image>
+        <image class='bar-item-icon v-m' hidden="{{index != screenIndex || !screenShow}}" src='../../../images/select-up.png'></image>
+      </view>
+
+    </view>
+    <!-- 列表导航条 end -->
+
+    <!-- <view class='list'>
+      <navigator class='list-item' url='../goods_detail/goods_detail?goodsId={{item.goodsId}}&shopId={{item.shopId}}' wx:for="{{goodsList}}" wx:key="goods">
+        <view class='list-item-head flex j-b'>
+          <view class='shopname'>
+            <image class='shop-icon v-b' src='../../../images/shop-icon.png'></image>
+            <text class='v-b'>{{item.shopName}}</text>
+          </view>
+          <!-- <text>距离我400m</text> -->
+    <!-- </view>
+
+        <view class='flex'>
+          <image class='list-item-img' src='{{item.path}}' binderror="imgErrorFn" data-date="goodsList" data-index="{{index}}" data-field="path"></image>
+          <view class='list-item-info flex d-c j-b'>
+            <view class='w-100'>
+              <text class='title block ellipsis'>{{item.goodsName}}</text>
+              <text class='block ellipsis described'>{{item.described!=null?item.described:"好"}}</text>
+            </view>
+            <view class='w-100'>
+              <view class='money-light i-b'>
+                <text class='money-symbol'>￥</text>
+                <text>{{item.shopPrice}}</text>
+              </view>
+              <view class='money-dark i-b hide'>
+                <text class='money-symbol'>￥</text>
+                <text>{{item.marketPrice}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+
+      <view class='no-more' hidden='{{!noMore}}'>
+        <text>没有数据了</text>
+      </view>
+    </view>  -->
+    <goods_list goodsList="{{goodsList}}"></goods_list>
+    <view class='no-more' hidden='{{!noMore}}'>
+      <text>没有数据了</text>
+    </view>
+
+  </view>
+  <!-- 列表 end -->
+  <view class='mark' hidden='{{!screenShow}}' bindtap='hideScreenFn'></view>
+  <!-- 列表导航条 star -->
+  <view class='list-bar flex border-b t-c list-bar-fixed hide' hidden='{{!barClass}}'>
+    <view class='bar-item flex-item t-c' wx:for="{{screenBar}}" wx:key="screenBar" data-index="{{index}}" bindtap='changeScreenFn'>
+      <text class="v-m bar-item-text ellipsis {{index == screenIndex ? 'bar-item-act':''}}">{{item}}</text>
+      <image class='bar-item-icon v-m' hidden="{{index == screenIndex && screenShow}}" src='../../../images/select-down.png'></image>
+      <image class='bar-item-icon v-m' hidden="{{index != screenIndex || !screenShow}}" src='../../../images/select-up.png'></image>
+    </view>
+
+    <view class='screen-box' hidden='{{!screenShow}}'>
+      <text class="screen-item block {{item.checked? 'screen-item-act':''}}" wx:for="{{screenContent[screenIndex]}}" wx:key="screenContent" data-checked="{{index}}" bindtap='screenCheckedFn'>{{item.title}}</text>
+    </view>
+  </view>
+  <!-- 列表导航条 end -->
+  <bind_phone bind:bindphonecb="bindPhoneCbFn" phone-show="{{phoneShow}}">
+  </bind_phone>
+
+
+</view>
+<view wx:if="{{userButton}}">
+  <view class='bind-phone-box fixed t-c'>
+    <view class="content">
+      <text>为了更好的用户体验，需获取您的用户头像及昵称</text>
+    </view>
+
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="authorization" hover-class="none">点击获取</button>
+  </view>
+  <view class='mask' v-if></view>
+
+</view>
+
+<my-tabbar tabbar="{{tabbar}}"></my-tabbar>

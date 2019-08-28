@@ -1,0 +1,208 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.8.0",
+	"appid": "wx463b5a1c2c851de8",
+	"projectname": "taoplus_full",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 22,
+			"list": [
+				{
+					"id": 1,
+					"name": "测试",
+					"pathName": "pages/share_detail/share_detail",
+					"query": "goodsId=5878e14e256b44e79ff95e17c02ac9f8&grouponsId=a6214ddf20d5457295444c0e35f61b69&shopId=45769c969e5e4a549074bd9d98adec3f&type=order&price=0.01&orderId=6db5bc14db0840afbd83a4d6631284aa",
+					"scene": "1007"
+				},
+				{
+					"id": -1,
+					"name": "测试2",
+					"pathName": "pages/share_detail/share_detail",
+					"query": "groupInfo.type === 3&&groupInfo.groupon_goods_type === 1&&hasGrouped"
+				},
+				{
+					"id": 3,
+					"name": "dev",
+					"pathName": "pages/share_detail/share_detail",
+					"query": "shopId=4a0ad436a02f47ba875cf60cb67d866f&goodsId=c2d5409608c54e2e9b9d56de6e8d744c",
+					"scene": "1036",
+					"referrerInfo": {}
+				},
+				{
+					"id": 3,
+					"name": "pages/city/index/index",
+					"pathName": "pages/city/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "pages/shop/page/index/index",
+					"pathName": "pages/shop/page/index/index",
+					"query": "type=shop",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/district/index/index",
+					"pathName": "pages/district/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "components/pay_after/pay_after",
+					"pathName": "components/pay_after/pay_after",
+					"query": "orderId=977fa23988244ffa8293acedd81988eb&shopName=小肥羊测试&money=1",
+					"scene": null
+				},
+				{
+					"id": 19,
+					"name": "pages/shop/page/order_success/order_success",
+					"pathName": "pages/shop/page/order_success/order_success",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/city/order_success/order_success",
+					"pathName": "pages/city/order_success/order_success",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "components/pay_after/pay_after",
+					"pathName": "components/pay_after/pay_after",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "pages/city/pay/pay",
+					"pathName": "pages/city/pay/pay",
+					"query": "shop_id=7cd2d98763844a9b8ac874093adc66f6&goods_id=4cd1f178106848d38fd184aa58c9fa64&original_price=12&user_mobile=13856896523&goodsJSON=%5B%7B%22goodsId%22%3A%224cd1f178106848d38fd184aa58c9fa64%22%2C%22sum%22%3A%221%22%2C%22sunMoney%22%3A12%2C%22money%22%3A12%2C%22goodsName%22%3A%22%E8%8A%B1%E7%94%9F%22%2C%22path%22%3A%22http%3A%2F%2F192.168.3.133%3A9082%2Fupload%2F3835800ea6e2404aa5d5048fffed16c2.jpg.th%22%2C%22goods_sku_id%22%3A%22%22%7D%5D&access_token=01589066-dac1-40ac-b66f-4ef9670211d0&order_id=be47d77c4ff54b5cb1f97960dfb496b0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "components/bag_coupon/bag_coupon",
+					"pathName": "components/bag_coupon/bag_coupon",
+					"query": "type=bag",
+					"scene": null
+				},
+				{
+					"id": 12,
+					"name": "pages/city/pay/pay",
+					"pathName": "pages/city/pay/pay",
+					"query": "userId=18fbdda731154ab0a81f912268f7012a&shop_id=7cd2d98763844a9b8ac874093adc66f6&goods_id=4cd1f178106848d38fd184aa58c9fa64&original_price=12&user_mobile=13856896523&goodsJSON=%5B%7B%22goodsId%22%3A%224cd1f178106848d38fd184aa58c9fa64%22%2C%22sum%22%3A%221%22%2C%22sunMoney%22%3A12%2C%22money%22%3A12%2C%22goodsName%22%3A%22%E8%8A%B1%E7%94%9F%22%2C%22path%22%3A%22http%3A%2F%2F192.168.3.133%3A9082%2Fupload%2F3835800ea6e2404aa5d5048fffed16c2.jpg.th%22%2C%22goods_sku_id%22%3A%22%22%7D%5D&access_token=24dc58c0-058c-4d3f-9f9f-87365f114b04",
+					"scene": null
+				},
+				{
+					"id": 13,
+					"name": "pages/city/submit_orders/submit_orders",
+					"pathName": "pages/city/submit_orders/submit_orders",
+					"query": "goodsId=4cd1f178106848d38fd184aa58c9fa64&shopId=7cd2d98763844a9b8ac874093adc66f6&type=normal&shopName=小肥羊测试",
+					"scene": null
+				},
+				{
+					"id": 14,
+					"name": "pages/shop/page/shop_pay/shop_pay",
+					"pathName": "pages/shop/page/shop_pay/shop_pay",
+					"query": "goodsId=4cd1f178106848d38fd184aa58c9fa64&shopId=7cd2d98763844a9b8ac874093adc66f6&type=normal&shopName=小肥羊测试",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "components/bag_coupon/bag_coupon",
+					"pathName": "components/bag_coupon/bag_coupon",
+					"query": "goodsId=4cd1f178106848d38fd184aa58c9fa64&shopId=7cd2d98763844a9b8ac874093adc66f6&type=normal&shopName=小肥羊测试",
+					"scene": null
+				},
+				{
+					"id": 16,
+					"name": "pages/shop/page/submit_orders/submit_orders",
+					"pathName": "pages/shop/page/submit_orders/submit_orders",
+					"query": "goodsId=4cd1f178106848d38fd184aa58c9fa64&shopId=7cd2d98763844a9b8ac874093adc66f6&type=normal&shopName=小肥羊测试",
+					"scene": null
+				},
+				{
+					"id": 17,
+					"name": "pages/district/submit_orders/submit_orders",
+					"pathName": "pages/district/submit_orders/submit_orders",
+					"query": "goodsId=4cd1f178106848d38fd184aa58c9fa64&shopId=7cd2d98763844a9b8ac874093adc66f6&type=normal&shopName=小肥羊测试",
+					"scene": null
+				},
+				{
+					"id": 18,
+					"name": "components/gift/gift",
+					"pathName": "components/gift/gift",
+					"query": "userId=18fbdda731154ab0a81f912268f7012a&shopId=7cd2d98763844a9b8ac874093adc66f6",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/city/user/user",
+					"pathName": "pages/city/user/user",
+					"query": "userId=18fbdda731154ab0a81f912268f7012a&goodsId=4cd1f178106848d38fd184aa58c9fa64&shopId=7cd2d98763844a9b8ac874093adc66f6&type=normal&shopName=小肥羊测试",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "components/gift/gift",
+					"pathName": "components/gift/gift",
+					"query": "userId=18fbdda731154ab0a81f912268f7012a&goodsId=4cd1f178106848d38fd184aa58c9fa64&shopId=7cd2d98763844a9b8ac874093adc66f6&type=normal&shopName=小肥羊测试",
+					"scene": null
+				},
+				{
+					"id": 21,
+					"name": "components/gift_detail/gift_detail",
+					"pathName": "components/gift_detail/gift_detail",
+					"query": "currentCoupon={\"id\":\"78d008d1e11949f9844bb22125a7219d\",\"satisfactionAmount\":10,\"amount\":2,\"discount\":null,\"couponType\":1,\"canGiftGiving\":1,\"targetId\":\"7cd2d98763844a9b8ac874093adc66f6\",\"belongId\":\"18fbdda731154ab0a81f912268f7012a\",\"couponStartTime\":null,\"couponEndTime\":null,\"status\":1,\"createTime\":\"2019-08-22 14:44:58\",\"modifyTime\":null,\"alias\":\"NORMAL_COUPON\",\"couponRuleId\":\"3d4eb1f8c9d34787b872c2a6377d14d7\",\"couponName\":null,\"shopName\":\"小肥羊测试\"}",
+					"scene": null
+				},
+				{
+					"id": 22,
+					"name": "components/gift_put/gift_put",
+					"pathName": "components/gift_put/gift_put",
+					"query": "giftTip=亲，你的快递到了&currentId=78d008d1e11949f9844bb22125a7219d",
+					"scene": null
+				}
+			]
+		}
+	}
+}

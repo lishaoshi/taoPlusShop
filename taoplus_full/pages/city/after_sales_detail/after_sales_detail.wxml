@@ -1,0 +1,129 @@
+<!--pages/after_sales_detail/after_sales_detail.wxml-->
+<view class='container'>
+    <view class='header'>
+        <view class='refund'>
+            <text class='refund-text'>退款金额</text>
+            <text class='symbol'>￥</text>
+            <text class='refund-sum'>{{sum}}</text>
+        </view>
+        <view class='refund refund-account'>
+            <text class='refund-text'>退回账户</text>
+            <text class='refund-san'>微信账户或余额账户</text>
+        </view>
+        <view class='refund refund-time'>
+            <text class='refund-text'>到账时间</text>
+            <text class='refund-san'>预计最晚</text>
+            <text class='account-time'>{{time}}</text>
+            <text class='refund-san'>到账</text>
+        </view>
+        <view class='refund-detail'>
+            <view class='detail-header'>
+                <text class='detail-text'>退款金额</text>
+            </view>
+            <view class='all-detail'>
+                <view class='audit'>
+                    <view class='audit-header'>
+                          <image class='audit-img v-m' src='../../../images/after-pay.png'></image>
+                        <text class='audit-text v-m'>平台审核中</text>
+                    </view>
+                    <view class='audit-detail'>
+                        <view class='detail-money'>
+                            <text class='detail-sum'>{{actualPrice}}元</text>
+                            <text class='detail-text'>的退款申请已提交</text>
+                        </view>
+                        <view class='detail-time'>
+                            <text>{{refundDetails[0].create_time}}</text>
+                        </view>
+                    </view>
+                </view>
+               <view class='{{isBalance ?"hide":"block"}}'>
+                     <view class='audit after-pay' wx:if="{{refundDetails[0].pay_type===1}}">
+                    <view class='pay-header flex'>
+                       <image class='audit-img v-m  {{isDeal?"block":"hide"}}' src='../../../images/refund.png'></image>
+                        <image wx:if="{{orderStatus==5 || orderStatus==6}}" class='audit-img v-m' src='../../../images/after-pay.png'></image>
+                        <text class='audit-text v-m'>退款中（微信支付账户）</text>
+                    </view>
+                    <view class='audit-detail  {{orderStatus == 7 ? "no-detail-main":"detail-main"}}'>
+                        <view class='detail-money'>
+                            <text class='detail-sum'>预计会在</text>
+                            <text class='detail-text'>1~7</text>
+                            <text class='detail-text'>个工作日处理完成。请耐心等待</text>
+                        </view>
+                        <view class='detail-time'>
+                            <text>{{time}}</text>               
+                        </view>
+                    </view>
+                </view>
+                <view class='audit after-pay balance' wx:if="{{refundDetails[0].pay_type===2}}">
+                    <view class='pay-header flex'>
+                         <image class='audit-img v-m {{isDeal?"block":"hide"}}' src='../../../images/refund.png'></image>
+                         <image wx:if="{{orderStatus==5 || orderStatus==6 }}" class='audit-img v-m' src='../../../images/after-pay.png'></image>
+                        <text class='audit-text v-m'>退款中（余额支付账户）</text>
+                    </view>
+                    <view class='audit-detail  {{orderStatus == 7 ? "no-detail-main":"detail-main"}}'>
+                        <view class='detail-money'>
+                            <text class='detail-sum'>预计会在</text>
+                            <text class='detail-text'>1~7</text>
+                            <text class='detail-text'>个工作日处理完成。请耐心等待</text>
+                        </view>
+                        <view class='detail-time'>
+                              <text>{{time}}</text> 
+                        </view>
+                    </view>
+                </view>
+               </view>
+                <view class='{{!isBalance ?"hide":"block"}}'>
+                     <view class='audit after-pay'>
+                    <view class='pay-header'>
+                        <image class='audit-img v-m' src='../../../images/after-pay.png'></image>
+                        <text class='audit-text v-m'>退款中（微信支付账户）</text>
+                    </view>
+                    <view class='audit-detail  {{orderStatus == 7 ? "no-detail-main":"detail-main"}}'>
+                        <view class='detail-money'>
+                            <text class='detail-sum'>预计会在</text>
+                            <text class='detail-text'>1~7</text>
+                            <text class='detail-text'>个工作日处理完成。请耐心等待</text>
+                        </view>
+                        <view class='detail-time'>
+                            <text>{{time}}</text>               
+                        </view>
+                    </view>
+                </view>
+                <view class='audit after-pay balance'>
+                    <view class='pay-header'>
+                        <image class='audit-img v-m' src='../../../images/after-pay.png'></image>
+                        <text class='audit-text v-m'>退款中（余额支付账户）</text>
+                    </view>
+                    <view class='audit-detail  {{orderStatus == 7 ? "no-detail-main":"detail-main"}}'>
+                        <view class='detail-money'>
+                            <text class='detail-sum'>预计会在</text>
+                            <text class='detail-text'>1~7</text>
+                            <text class='detail-text'>个工作日处理完成。请耐心等待</text>
+                        </view>
+                        <view class='detail-time'>
+                              <text>{{time}}</text> 
+                        </view>
+                    </view>
+                </view>
+               </view>
+                <view class='audit after-pay'>
+                    <view class='pay-header flex'>
+                        <image class='audit-img v-m {{isFinish?"block":"hide"}} ' src='../../../images/refund.png'></image>
+                         <image class='audit-img v-m' wx:if="{{orderStatus==6}}" src='../../../images/after-pay.png'></image>
+                        <text class='hao-text v-m'>退款到账</text>
+                    </view>
+                    <view class='account-sum'>
+                        <view class='account-text'>
+                            <text>平台将会在退款申请完成后 7天 内完成入账</text>
+                        </view>
+                    </view>
+                </view>
+
+
+            </view>
+
+        </view>
+    </view>
+
+    
+</view>

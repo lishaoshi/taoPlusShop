@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "淘上品",
+    "usingComponents": {
+        "bind_phone": "../../components/bind_phone/bind_phone"
+    }
+}

@@ -1,0 +1,45 @@
+<view class='container'>
+  <view class='pay'>
+    <view class='header'>
+      <view class='shop-pay'>付款给商家</view>
+      <view class='shop-name'>
+        <text>昵称</text>
+        <text> {{shopName}}</text>
+      </view>
+    </view>
+
+    <view class='pay-sum'>
+      <text class='sum-text'>金额</text>
+      <view class='flex pay-money'>
+        <text class='money-symbol'>¥</text>
+        <input class='money' type='digit' value="{{ money }}" bindinput='changeInputFn'  bindblur="inputWatch" ></input>
+      </view>
+    </view>
+
+    <view style="position:relative">
+      <!-- 选择红包 -->
+      <!-- 引入优惠券组件 ： 仅红包 -> alias: all(红包redbags+代金券coupons)  -->
+	    <prefer sum="{{money}}" alias="redbags" reGet="{{reGet}}"></prefer>
+
+      <view class="fr paid">实付：¥{{ (money - couponSum) || 0 }}</view>
+    </view>
+
+    <view>
+      <button class='pay-btn' bindtap='payBtbFn'>付款</button>
+    </view>
+
+  </view>
+
+  <bind_phone bind:bindphonecb="getShopNameFn" phone-show="{{phoneShow}}"></bind_phone>
+
+</view>
+<view wx:if="{{userButton}}">
+  <view class='bind-phone-box fixed t-c'>
+    <view class="content">
+      <text>为了更好的用户体验，需获取您的用户头像及昵称</text>
+    </view>
+
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="authorization" hover-class="none">点击获取</button>
+  </view>
+  <view class='mask' v-if></view>
+</view>

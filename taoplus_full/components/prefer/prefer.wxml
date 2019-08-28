@@ -1,0 +1,35 @@
+<!--components/prefer/perfer.wxml-->
+<view class="red_coupon">
+  <!-- <view class="redbags flex j-b a-c" data-type="bag" bindtap="gotoBagCoupon">
+    <view class="prefer_title">红包</view>
+    <view class="prefer_cont flex a-c">
+      <view class="prefer_use">
+        <view wx:if="{{bagNum}}">
+          <view wx:if="{{isSelectBag}}">- ¥{{bagMoney.amount}}</view>
+          <view wx:else>{{bagNum}}个可用</view>
+        </view>
+        <view wx:else class='nouse'>无可用</view>
+      </view>
+      <view>
+        <image class="user-list-item-icon" src="../../images/arrow-right.png"></image>
+      </view>
+    </view>
+  </view> -->
+  
+  <view class="coupons flex j-b a-c" data-type="coupon" bindtap="gotoBagCoupon">
+    <view class="prefer_title">请选择优惠</view>
+    <view class="prefer_cont flex a-c">
+      <view class="prefer_use">
+        <view wx:if="{{ couponNum }}">
+          <!-- reGet 判断是否金额改变。。如果再次改变需要重选优惠券 -->
+          <text wx:if="{{ reGet ? !reGet : isSelectCoupon }}">- ¥{{couponMoney.amount}}</text>
+          <text wx:else>{{couponNum}}张优惠券</text>
+        </view>
+        <view wx:else class='nouse'>无可用</view>
+      </view>
+      <view>
+        <image class="user-list-item-icon" src="../../images/arrow-right.png"></image>
+      </view>
+    </view>
+  </view>
+</view>

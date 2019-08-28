@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "my-tab": "../../components/tab/tab",
+        "my-table": "../../components/table/table",
+        "bind_phone": "../../components/bind_phone/bind_phone",
+        "prefer": "/components/prefer/prefer"
+    },
+    "navigationBarTitleText": "提交订单"
+}

@@ -1,0 +1,70 @@
+<!--pages/user/user.wxml-->
+<view class='container'>
+  <view class='header flex a-c d-c'>
+    <view class='remain'>
+      <text class='balance-text'>账户余额</text>
+    </view>
+    <view class='balance'>
+      <text class='symbol'>￥</text>
+      <text class='sum'>{{sum}}</text>
+    </view>
+    <view class='type flex d-r'>
+      <navigator class='cash v-m' url='../withdraw/withdraw'>
+        <image class='withdraw v-m' src='../../../images/withdraw.png'></image>
+        <text class='v-m'>提现</text> 
+      </navigator>
+      <text class='line v-m'>|</text>
+      <navigator class='detail v-m' url='../detailed/detailed'>
+        <image class='detailed v-m' src='../../../images/detailed.png'></image>
+        <text class='v-m'>明细</text> 
+      </navigator>
+    </view>
+  </view>
+  <view class='center flex d-c'>
+    <navigator class='list' url='../bank_card_list/bank_card_list'>
+      <image class='v-m bank' src='../../../images/bank.png'></image>
+      <text class='v-m'>我的银行卡</text>
+    </navigator>
+    <navigator class='list' url='../order_list/order_list' open-type='navigate'>
+      <image class='v-m' src='../../../images/my_order.png'></image>
+      <text class='v-m'>我的订单</text>
+    </navigator>
+
+    <navigator url='/components/spread/spread' class='list'>
+      <image class='user-list-item-img v-m' src='/pages/shop/images/user/lineUp.png'></image>
+      <text class='v-m'>推广商家</text>
+    </navigator>
+
+    <navigator url='/components/gift/gift' class='list'>
+      <image class='user-list-item-img v-m' src='../../../images/my_order.png'></image>
+      <text class='v-m'>我的优惠券</text>
+    </navigator>
+
+    <navigator class='list' url='../collection/collection'>
+      <image class='v-m' src='../../../images/collection.png'></image>
+      <text class='v-m'>我的收藏</text>
+    </navigator>
+    <navigator class='list' url='../address_list/address_list'>
+      <image class='v-m' src='../../../images/address.png'></image>
+      <text class='v-m'>我的地址</text>
+    </navigator>
+    <navigator class='list' url='../user_detail/user_detail'>
+      <image class='v-m' src='../../../images/data.png'></image>
+      <text class='v-m'>个人资料</text>
+    </navigator>
+    
+    <view class='list ' bindtap='clearFn'>
+      <image class='v-m' src='../../../images/cache.png'></image>
+      <text class='v-m'>清理缓存</text>
+    </view>
+    <view class='list last' bindtap='callSomeBody' data-moblile="{{mobile}}">
+        <image class='phone v-m'  src="../../../images/mobil-logo.png" ></image>
+      <!-- <image class='v-m' src='../../../images/cache.png'></image> -->
+      <text class='v-m'>联系客服 </text>
+    </view>
+  </view>
+
+    <bind_phone bind:bindphonecb="bindPhoneCbFn" phone-show="true"></bind_phone>
+</view>
+
+<my-tabbar tabbar="{{tabbar}}"></my-tabbar>

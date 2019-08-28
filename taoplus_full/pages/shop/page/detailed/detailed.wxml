@@ -1,0 +1,19 @@
+<!--pages/detailed/detailed.wxml-->
+<view class='container'>
+    <view class='detailed-list' wx:for = '{{detailList}}'>
+        <navigator url='../detailed_detail/detailed_detail?income={{item.income }}&payment={{item.payment}}&createTime={{item.create_time}}&type={{item.type}}&sn={{item.sn!=null?item.sn:""}}' class='list-item flex j-b border-b'>
+            <view>
+                <text class='list-item-title block'>{{item.described}}</text>
+                <text class='list-item-time'>{{item.create_time}}</text>
+            </view>
+            <text class='list-item-add i-b' wx:if="{{item.income!=null &&item.income>0}}">+{{item.income}}</text>
+            <text class='list-item-add i-b' wx:if="{{item.income!=null &&item.income<=0}}">{{item.income}}</text>
+            <text class='list-item-reduce i-b' wx:if="{{item.payment!=null &&item.payment<=0}}">{{item.payment}}</text>
+             <text class='list-item-reduce i-b' wx:if="{{item.payment!=null &&item.payment>0}}">+{{item.payment}}</text>
+        </navigator>
+    </view>
+
+    <view class='no-more' hidden='{{!noMore}}'>
+        <text>没有数据了</text>
+    </view>
+</view>

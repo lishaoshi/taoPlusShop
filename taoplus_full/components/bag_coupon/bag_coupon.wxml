@@ -1,0 +1,33 @@
+<!--components/bag_coupon/bag_coupon.wxml-->
+<view class="bag_coupon">
+  <!-- <radio-group class="radio-group"> -->
+
+    <view class="pay_redbag flex d-r j-b a-c {{item.noUse ? 'noUseBg':'' }}" bindtap="clickRadio" wx:for="{{currentData}}" data-id="{{ item.id }}" wx:key="{{item.id}}" data-nouse="{{item.noUse}}">
+      <label>
+        <view class="pay_redbag_info flex j-b">
+          <view class="info_money flex a-c">
+            <text class="info_money_sign">¥</text>
+            <text class="info_money_num">{{ item.amount }}</text>
+          </view>
+          <view class="info_desc flex d-c">
+            <view class="info_desc_name">{{ item.alias == 'RED_PAPER_COUPON' ? '红包' : item.alias == 'NORMAL_COUPON' ? '代金券' : '其它' }}</view>
+            <view>
+              <text decode='true'>·&nbsp;{{ item.couponStartTime ? item.couponStartTime+'至'+item.couponEndTime : '永久' }}</text>
+            </view>
+            <view>
+              <text decode='true'>·&nbsp;{{ item.satisfactionAmount ? '满'+item.satisfactionAmount+'元可用' : '不限制使用' }}</text>
+            </view>
+          </view>
+          <view class="pay_redbag_get flex a-c">
+            <radio value="{{ item.id }}" disabled="{{item.noUse}}"/>
+          </view>
+        </view>
+      </label>
+    </view>
+
+  <!-- </radio-group> -->
+
+  <view class='no-more' hidden='{{!noMore}}'>
+      <text>没有数据了</text>
+    </view>
+</view>

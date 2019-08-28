@@ -1,0 +1,35 @@
+<!--pages/myCenter/myCenter.wxml-->
+<view class='container'>
+  <view class='header flex a-c d-c'>
+    <view class='balance'>
+      <text class='balance-text'>余额</text>
+      <text class='symbol'>￥</text>
+      <text class='sum'>{{sum}}</text>
+    </view>
+    <view class='type flex d-r'>
+      <navigator class='cash v-m' url='###'>提现</navigator>
+      <text class='line v-m'>|</text>
+      <navigator class='detail v-m' url='###'>明细</navigator>
+    </view>
+  </view>
+  <view class='center flex d-c'>
+    <navigator class='list' url='###'>
+      <image class='v-m' src='../../../images/my_order.png'></image>
+      <text class='v-m' url='###'>我的订单</text>
+    </navigator>
+    <navigator class='list' url='###'>
+      <image class='v-m' src='../../../images/collection.png'></image>
+      <text class='v-m' url='###'>我的收藏</text>
+    </navigator>
+    <navigator class='list' url='###'>
+      <image class='v-m' src='../../../images/address.png'></image>
+      <text class='v-m' url='###'>我的地址</text>
+    </navigator>
+    <navigator class='list last' url='###'>
+      <image class='v-m' src='../../../images/data.png'></image>
+      <text class='v-m'>个人资料</text>
+    </navigator>
+
+  </view>
+
+</view>

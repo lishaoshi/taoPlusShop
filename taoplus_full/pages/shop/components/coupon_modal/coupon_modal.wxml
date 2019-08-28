@@ -1,0 +1,30 @@
+<view animation="{{animationData}}" hidden="{{!isShow}}" class='modal'>
+
+  <view data-type="mask" catchtap='hideModal' class='modal-mask'></view>
+
+  <view class='modal-layer  modal-layer-radius {{modalSize == "sm" ? " modal-layer-sm" : " modal-layer-md" }} '>
+    <!-- 头部 -->
+    <view class="pay_redbag flex d-r j-b a-c" wx:for="{{couponData}}" wx:key="{{item.id}}" data-id="{{item.id}}" data-couponId="{{item.couponId}}" data-isOnlyOne="{{item.isOnlyOne}}" wx:if="{{item.isGet}}">
+      <view class="pay_redbag_info flex j-b">
+        <view class="info_money flex a-c">
+          <text class="info_money_sign">¥</text>
+          <text class="info_money_num">{{item.amount}}</text>
+        </view>
+
+        <view class="info_desc flex d-c">
+          <view class="info_desc_name">{{ item.couponName || '代金券' }}</view>
+          <view>
+            <text decode='true'>·&nbsp;{{ item.couponStartTime ? (item.couponStartTime + '至' + item.couponEndTime) : "永久" }}</text>
+          </view>
+          <view>
+            <text decode='true'>·&nbsp;{{item.satisfactionAmount ? '满'+item.satisfactionAmount+'元可用' : '任意使用'}}</text>
+          </view>
+        </view>
+
+        <view class="pay_redbag_get flex a-c">
+          <button class="" type="primary" data-id="{{item.id}}" data-index="{{index}}" bindtap="saveCoupon">领取</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

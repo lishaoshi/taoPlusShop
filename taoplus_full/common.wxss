@@ -1,0 +1,537 @@
+/*公共样式*/
+
+.clear {
+    zoom: 1;
+}
+
+.clear:after {
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: visible;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.t-f {
+    text-align: left;
+}
+
+.t-r {
+    text-align: right;
+}
+
+.p-l-20 {
+    padding-left: 20rpx;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-item {
+    flex: 1;
+}
+
+.j-a {
+    justify-content: space-around;
+}
+
+.j-b {
+    justify-content: space-between;
+}
+.j-c {
+    justify-content: center;
+}
+
+.d-c {
+    flex-direction: column;
+}
+
+.d-r {
+    flex-direction: row;
+}
+
+.d-r-r {
+    flex-direction: row-reverse;
+}
+
+.a-s {
+    align-items: start;
+}
+
+.a-c {
+    align-items: center;
+}
+
+.v-m {
+    vertical-align: middle;
+}
+
+.v-t {
+    vertical-align: top;
+}
+
+.i-b {
+    display: inline-block;
+}
+
+.block {
+    display: block !important;
+}
+
+.hide {
+    display: none !important;
+    opacity: 0;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.show {
+    display: block;
+    opacity: 0;
+}
+
+.t-c {
+    text-align: center;
+}
+
+.t-l {
+    text-align: left;
+}
+
+.w-100 {
+    width:100%;
+}
+
+.submit {
+    width: 100%;
+    height: 96rpx;
+    line-height: 96rpx;
+    background: #fe791d;
+    text-align: center;
+    color: #fff;
+    font-size: 36rpx;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.submit-btn {
+    width: 680rpx;
+    border: none;
+    background: #ff6e0b;
+    height: 96rpx;
+    color: #fff;
+}
+
+/*字体颜色  */
+
+.t-gray {
+    color: #b2b2b5;
+}
+
+.border-t {
+    border-top: 1px solid #ededed;
+}
+
+
+/*补充间隔  */
+
+.p-100 {
+    width: 100%;
+    height: 100rpx;
+    background: transparent;
+}
+
+/*边框  */
+
+.border-b {
+    border-bottom: 1px solid #ddd;
+}
+
+/* 省略号 */
+
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.w-90 {
+    width: 90%;
+}
+
+.half {
+    width: 48%;
+}
+
+/*箭头  */
+
+.arrow-r {
+    width: 14rpx;
+    height: 28rpx;
+}
+
+.b-r {
+    border-radius: 8rpx;
+}
+
+.m-b-20 {
+    margin-bottom: 20rpx;
+}
+
+.mask {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.topnum {
+    position: absolute;
+    font-size: 20rpx;
+    color: #fff;
+    /* padding: 10rpx 15rpx; */
+    background: #ff6e0b;
+    border-radius: 50%;
+    width: 45rpx;
+    height: 45rpx;
+    line-height: 45rpx;
+    text-align: center;
+}
+
+.red-money {
+    font-weight: 700;
+    font-size: 30rpx;
+    color: #fe4c40;
+    vertical-align: middle;
+    line-height: 30rpx;
+}
+
+/* money star */
+
+.money-light {
+    font-size: 44rpx;
+    color: #fd1a3f;
+    margin-right: 20rpx;
+    font-weight: bold;
+}
+
+.money-symbol {
+    font-size: 28rpx;
+}
+
+/* money end */
+
+.fixed {
+    position: fixed;
+    z-index: 999;
+}
+
+/* 头部导航 star */
+
+.bar-box {
+    width: 100%;
+    height: 76rpx;
+    line-height: 76rpx;
+    font-size: 30rpx;
+    color: #666;
+    background: #fff;
+    left: 0;
+    top: 0;
+}
+
+.bar-item {
+    position: relative;
+}
+
+.bar-act {
+    color: #fe791d;
+}
+
+.bar-line {
+    width: 100%;
+    height: 6rpx;
+    background: #fe791d;
+    position: absolute;
+    left: 0;
+    bottom: -20rpx;
+}
+
+/* 头部导航 end */
+
+.no-more {
+    font-size: 28rpx;
+    color: #999;
+    line-height: 3;
+    text-align: center;
+}
+
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+
+radio .wx-radio-input.wx-radio-input-checked {
+    border: 1px solid #ccc !important;
+    background: #fff !important;
+}
+
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+
+radio .wx-radio-input.wx-radio-input-checked::before {
+    content: '';
+    width: 25rpx;
+    height: 25rpx;
+    text-align: center;
+    line-height: 40rpx;
+    border-radius: 50%;
+    background: #ff6e0b;
+}
+
+.radio {
+    line-height: 1;
+    padding: 20rpx 24rpx;
+    border: 1px solid #d5d5d5;
+    border-radius: 10rpx;
+    margin: 0 20rpx 30rpx 0;
+    font-size: 28rpx;
+}
+
+.checkedbox {
+    border: 1px solid #ff6e0b;
+    color: #ff6e0b;
+}
+
+/*  重写 checkbox 样式  */
+
+/* 未选中的 背景样式 */
+
+.radio .wx-radio-input {
+    width: 0; /* 背景的宽 */
+    height: 0; /* 背景的高 */
+    border: none;
+}
+
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+
+.radio .wx-radio-input.wx-radio-input-checked {
+    border: none !important;
+}
+
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+
+.radio .wx-radio-input.wx-radio-input-checked::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border: none;
+}
+
+
+/* 骨架图 */
+.skeleton {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100000;
+    background: #fff;
+}
+
+.sk-head {
+    height: 360rpx;
+    margin-bottom: 20rpx;
+    background: #ddd;
+}
+
+.sk-body {
+    /* height: 100%; */
+}
+
+.sk-menu {
+    width: 178rpx;
+    height: 100%;
+    margin-right: 5%;
+}
+
+.sk-menu-btn {
+    width: 160rpx;
+    height: 160rpx;
+    display: block;
+    border-radius: 50%;
+    background: #ddd;
+    margin-left: 20rpx;
+}
+
+.sk-menu-item {
+    width: 90%;
+    height: 80rpx;
+    background: #ddd;
+    margin: 25rpx 20rpx;
+    display: block;
+}
+
+.sk-goods {
+    width: 70%;
+    height: 100%;
+}
+
+.sk-goods-item {
+    width: 90%;
+    height: 200rpx;
+    display: block;
+    background: #ddd;
+    margin: 25rpx 0;
+}
+
+.sk-shopCar {
+    width: 90%;
+    height: 100rpx;
+    background: #ddd;
+    border-radius: 50rpx;
+    margin: 20rpx 5%;
+}
+/* flex布局 */
+/*公共样式*/
+
+.clear {
+    zoom: 1;
+}
+
+.clear:after {
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: visible;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.t-f {
+    text-align: left;
+}
+
+.t-r {
+    text-align: right;
+}
+
+.p-l-20 {
+    padding-left: 20rpx;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-item {
+    flex: 1;
+}
+
+.j-a {
+    justify-content: space-around;
+}
+
+.j-b {
+    justify-content: space-between;
+}
+
+.d-c {
+    flex-direction: column;
+}
+
+.d-r {
+    flex-direction: row;
+}
+
+.d-r-r {
+    flex-direction: row-reverse;
+}
+
+.a-s {
+    align-items: start;
+}
+
+.a-c {
+    align-items: center;
+}
+
+.v-m {
+    vertical-align: middle;
+}
+
+.v-t {
+    vertical-align: top;
+}
+
+.i-b {
+    display: inline-block;
+}
+
+.block {
+    display: block !important;
+}
+
+.hide {
+    display: none !important;
+    opacity: 0;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.show {
+    display: block;
+    opacity: 0;
+}
+
+.t-c {
+    text-align: center;
+}
+
+.t-l {
+    text-align: left;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+/* // 支付页面小计样式 */
+.allTotal{
+  padding:18rpx 32rpx;
+  text-align:right;
+  font-size:44rpx;
+  font-weight: bold;
+  color:#383838;
+}
+.allTotal .allTotal_name{
+  color:#2e2e2e;
+  font-size:30rpx;
+  margin:20rpx;
+  vertical-align: top;
+}
+
+/* // 提交订单页面：总计+实计样式 */
+.foot.fl.j-a{
+  box-sizing: border-box;
+  padding-left:12rpx;
+}

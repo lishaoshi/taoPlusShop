@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "下单成功",
+  "usingComponents": {
+        "bind_phone": "/components/bind_phone/bind_phone"
+    }
+}

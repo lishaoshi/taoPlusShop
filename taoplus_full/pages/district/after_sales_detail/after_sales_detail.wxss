@@ -1,0 +1,140 @@
+/* pages/after_sales_detail/after_sales_detail.wxss */
+@import "../../../common.wxss";
+page{
+  background: #f5f5f5;
+}
+.container{
+  width: 100%;
+}
+.header{
+  width: 100%;
+  height: 198rpx;
+  margin-top: 20rpx;
+  background-color: #ffffff;  
+}
+.refund{
+  width: 100%;
+  height: 66rpx;
+  margin-left: 20rpx;
+  line-height: 66rpx;
+}
+.refund-text{
+  font-size: 28rpx;
+  color: #999999;
+  display: inline-block;
+  margin-right: 40rpx;
+}
+.symbol{
+  font-size: 28rpx;
+  color: #fe791d;
+}
+.refund-sum{
+  font-size: 36rpx;
+  color: #fe791d;
+}
+.refund-san{
+  color: #333333;
+  font-size: 32rpx;
+}
+.account-time{
+  font-size: 30rpx;
+  color: #00a0fc;
+  margin: 0 10rpx;
+}
+.refund-detail{
+  width: 100%;
+   background-color: #ffffff;
+}
+.detail-header{
+  width: 95%;
+  height: 88rpx;
+  line-height: 88rpx;
+ margin-left: 20rpx;
+  margin-top: 20rpx;
+  border-bottom: 1rpx solid #dddddd;
+}
+.detail-text{
+  font-size: 32rpx;
+  color:#999999; 
+}
+.all-detail{
+  width: 100%;
+  padding-bottom: 20rpx;
+ background-color: #ffffff;
+}
+.audit-header{
+width: 100%;
+margin-left: 20rpx;
+margin-top: 31rpx;
+}
+.pay-header{
+  margin-top: 0rpx;
+  width: 100%;
+margin-left: 20rpx;
+align-items: center;
+}
+.audit-img{
+  width: 30rpx;
+  height: 30rpx;
+}
+.audit-text{
+  font-size: 32rpx;
+  color: #333333;
+  margin-left: 20rpx;
+}
+.audit-detail{
+  width: 100%;
+  height: 126rpx;
+  margin-left: 35rpx;
+  border-left: 1rpx solid #19c381;
+}
+.detail-main{
+   border-left: 1rpx solid #19c381;
+}
+.no-detail-main{
+   border-left: 1rpx solid #aaa;
+}
+.detail-money{
+  height: 50rpx;
+  padding-top: 12rpx;
+}
+.detail-sum{
+  margin-left: 35rpx;
+  font-size: 30rpx;
+  color: #333333;
+}
+.detail-text{
+  font-size: 30rpx;
+  color: #333333;
+  margin-left: 14rpx;
+}
+.detail-time text{
+  font-size: 30rpx;
+  color: #666666;
+  margin-left: 35rpx;
+}
+.hours{
+  margin-left: 30rpx;
+}
+.after-pay{
+  margin-top: -5rpx;
+}
+.account-text{
+  font-size: 30rpx;
+  color:#999999;
+  margin-left: 70rpx;
+  margin-top: 32rpx; 
+  }
+  .hao-text{
+    font-size: 32rpx;
+    color: #999999;
+    margin-left: 20rpx;
+  }
+  .account-type{
+      color: #19c381;
+      font-size: 30rpx;
+  }
+  .type{
+      margin-left: 20rpx;
+      color: #999999;
+  }

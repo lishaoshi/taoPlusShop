@@ -1,0 +1,95 @@
+/* pages/withdraw_success/withdraw_success.wxss */
+@import '../../../common.wxss';
+
+.all-detail {
+    width: 100%;
+    padding-bottom: 20rpx;
+    background-color: #fff;
+}
+
+.audit-header {
+    width: 100%;
+    margin-left: 20rpx;
+    margin-top: 31rpx;
+}
+
+.pay-header {
+    margin-top: 0rpx;
+    width: 100%;
+    margin-left: 20rpx;
+}
+
+.audit-img {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.audit-text {
+    font-size: 32rpx;
+    color: #333;
+    margin-left: 20rpx;
+}
+
+.audit-detail {
+    width: 100%;
+    height: 126rpx;
+    margin-left: 35rpx;
+    border-left: 1rpx solid #fe791d;
+}
+
+.detail-time {
+    margin-top: 32rpx;
+}
+
+.detail-main {
+    border-left: 1rpx solid #19c381;
+}
+
+.detail-money {
+    height: 50rpx;
+    padding-top: 12rpx;
+}
+
+.detail-sum {
+    margin-left: 35rpx;
+    font-size: 30rpx;
+    color: #666;
+}
+
+.detail-text {
+    font-size: 30rpx;
+    color: #666;
+    margin-left: 14rpx;
+}
+
+.detail-time text {
+    font-size: 30rpx;
+    color: #666;
+    margin-left: 35rpx;
+}
+
+.hours {
+    margin-left: 30rpx;
+}
+
+.after-pay {
+    margin-top: -5rpx;
+}
+
+.account-text {
+    font-size: 30rpx;
+    color: #999;
+    margin-left: 70rpx;
+    margin-top: 32rpx;
+}
+
+.hao-text {
+    font-size: 32rpx;
+    color: #999;
+    margin-left: 20rpx;
+}
+
+.navigator-hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    opacity: 0.7;
+}

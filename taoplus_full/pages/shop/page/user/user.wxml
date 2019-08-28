@@ -1,0 +1,134 @@
+<!--pages/user/user.wxml-->
+<!-- <view class='user-head'>
+    <block>
+        <navigator url='../setup/setup?avatarUrl={{portraitUrl1}}'> -->
+<!-- <image class='user-head-img' wx:if="{{!info.portrait_url}}" src='{{avatarUrl}}'></image> -->
+<!-- <image class='user-head-img' src='{{IMG}}{{info.portrait_url}}'></image> -->
+
+<!-- <image class='user-head-img' src='{{avatarUrl}}'></image> -->
+<!-- <image class='user-head-img' wx:if="{{portraitUrl1}}"  src='{{portraitUrl1}}' ></image> -->
+
+<!-- <image class='setup-head-img'  wx-if="{{!avatarUrl}}" src='{{headUrl}}'></image>
+<image class='setup-head-img' wx-else src='{{avatarUrl}}'></image> -->
+<!-- <text class='block'>{{info.username || userName}}</text> -->
+<!-- <text class='block'>{{userName}}</text> -->
+<!-- <text class='block' wx:if="{{nickName1}}">{{nickName1}}</text>
+        </navigator>
+    </block>
+    <button wx-if="{{showButton}}" class='getInfoBtn' open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo">获取头像</button>
+</view> -->
+<view class='header flex a-c d-c'>
+    <view class='remain'>
+        <text class='balance-text'>账户余额</text>
+    </view>
+    <view class='balance'>
+        <text class='symbol'>￥</text>
+        <text class='sum'>{{sum}}</text>
+    </view>
+    <view class='type flex d-r'>
+        <navigator class='cash v-m' url='../withdraw/withdraw' hover-class="none">
+            <image class='withdraw v-m' src='../../images/withdraw.png'></image>
+            <text class='v-m'>提现</text>
+        </navigator>
+        <text class='line v-m'>|</text>
+        <navigator class='detail v-m' url='../detailed/detailed' hover-class="none">
+            <image class='detailed v-m' src='../../images/detailed.png'></image>
+            <text class='v-m'>明细</text>
+        </navigator>
+    </view>
+</view>
+
+<view class='user-list'>
+    <navigator url='../order_list/order_list' class='user-list-item flex j-b' hover-class="none">
+        <view>
+            <image class='user-list-item-img v-m' src='../../images/user/order.png'></image>
+            <text class='v-m'>订单中心</text>
+        </view>
+        <image class='user-list-item-icon v-m' src='/pages/shop/images/shop/arrow-right.png'></image>
+    </navigator>
+
+    <navigator url='../reservations_list/reservations_list' class='user-list-item flex j-b' hover-class="none">
+        <view>
+            <image class='user-list-item-img v-m' src='../../images/user/reservations.png'></image>
+            <text class='v-m'>我的预定</text>
+        </view>
+        <image class='user-list-item-icon v-m' src='/pages/shop/images/shop/arrow-right.png'></image>
+    </navigator>
+
+    <navigator url='/components/spread/spread' class='user-list-item flex j-b'  hover-class="none">
+     <view>
+       <image class='user-list-item-img v-m' src='/pages/shop/images/user/lineUp.png'></image>
+      <text class='v-m'>推广商家</text>
+     </view>
+     <image class='user-list-item-icon v-m' src='/pages/shop/images/shop/arrow-right.png'></image>
+    </navigator>
+
+    <navigator url='/components/gift/gift' class='user-list-item flex j-b'  hover-class="none">
+     <view>
+       <image class='user-list-item-img v-m' src='../../images/my_order.png'></image>
+      <text class='v-m'>我的优惠券</text>
+     </view>
+     <image class='user-list-item-icon v-m' src='/pages/shop/images/shop/arrow-right.png'></image>
+    </navigator>
+
+    <!-- <navigator url='/components/gift/gift' class='list'>
+      <image class='user-list-item-img v-m' src='../../../images/my_order.png'></image>
+      <text class='v-m'>我的优惠券</text>
+    </navigator> -->
+
+    <navigator url='../bank_card_list/bank_card_list' class='user-list-item flex j-b' hover-class="none">
+        <view>
+            <image class='user-list-item-img v-m bank-icon' src='../../images/bank.png'></image>
+            <text class='v-m'>我的银行卡</text>
+        </view>
+        <image class='user-list-item-icon v-m' src='/pages/shop/images/shop/arrow-right.png'></image>
+    </navigator>
+
+    <navigator url='../lineUp_list/lineUp_list' class='user-list-item flex j-b' hover-class="none">
+        <view>
+            <image class='user-list-item-img v-m' src='../../images/user/lineUp.png'></image>
+            <text class='v-m'>我的排队</text>
+        </view>
+        <image class='user-list-item-icon v-m' src='/pages/shop/images/shop/arrow-right.png'></image>
+    </navigator>
+
+    <navigator url='../my_collected/my_collected' class='user-list-item flex j-b' hover-class="none">
+        <view>
+            <image class='user-list-item-img v-m' src='../../images/user/collect.png'></image>
+            <text class='v-m'>我的收藏</text>
+        </view>
+        <image class='user-list-item-icon v-m' src='/pages/shop/images/shop/arrow-right.png'></image>
+    </navigator>
+
+    <navigator url='../address_list/address_list' class='user-list-item flex j-b' hover-class="none">
+        <view>
+            <image class='user-list-item-img v-m' src='../../images/user/address.png'></image>
+            <text class='v-m'>地址管理</text>
+        </view>
+        <image class='user-list-item-icon v-m' src='/pages/shop/images/shop/arrow-right.png'></image>
+    </navigator>
+    <navigator url='../marketing/marketing' class='user-list-item flex j-b' wx:if="{{isGeneralizer}}" hover-class="none">
+        <view>
+            <image class='user-list-item-img v-m' src='../../images/user/ic_marketing.png'></image>
+            <text class='v-m'>我的营销</text>
+        </view>
+        <image class='user-list-item-icon v-m' src='/pages/shop/images/shop/arrow-right.png'></image>
+    </navigator>
+    <navigator url='../user_detail/user_detail' class='user-list-item flex j-b' hover-class="none">
+        <view>
+            <image class='user-list-item-img v-m' src='../../images/user/data.png'></image>
+            <text class='v-m'>个人资料</text>
+        </view>
+        <image class='user-list-item-icon v-m' src='/pages/shop/images/shop/arrow-right.png'></image>
+    </navigator>
+    <!-- <navigator url='../setup/setup?avatarUrl={{avatarUrl}}' class='user-list-item flex j-b '>
+        <view>
+            <image class='user-list-item-img v-m' src='../../images/user/setup.png'></image>
+            <text class='v-m'>设置</text>
+        </view>
+        <image class='user-list-item-icon v-m' src='/pages/shop/images/shop/arrow-right.png'></image>
+    </navigator> -->
+</view>
+
+<my-tab top="{{tab_top}}" left="10"></my-tab>
+<bind_phone bind:bindphonecb="bindPhoneCbFn" phone-show="{{phoneShow}}"></bind_phone>

@@ -1,0 +1,35 @@
+/* pages/detailed_detail/detailed_detail.wxss */
+@import "../../../common.wxss";
+
+page {
+    background: #f5f5f5;
+}
+.detailed-detail {
+    width: 100%;
+    margin-top: 20rpx;
+    padding: 0 20rpx;
+    background: #fff;
+}
+
+.detailed-detail-head {
+    height: 150rpx;
+    line-height: 150rpx;
+    font-size: 44rpx;
+    color: #333;
+}
+
+.detailed-detail-key {
+    font-size: 32rpx;
+    color: #999;
+    margin-right: 40rpx;
+}
+
+.detailed-detail-value {
+    font-size: 32rpx;
+    color: #333;
+}
+
+.detailed-detail-content {
+    line-height: 62rpx;
+    padding:  13rpx 0rpx;
+}

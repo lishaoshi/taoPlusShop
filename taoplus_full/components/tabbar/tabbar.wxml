@@ -1,0 +1,21 @@
+<!-- 自定义 tabbar -->
+<!-- <view class="nav-tabs">
+  <view class="tab-list {{currentTab == idx ? 'active' : 'default' }}" wx:for="{{items}}" wx:key="prototype" wx:for-index="idx" wx:for-item="item" data-current="{{idx}}" bindtap="swichNav">
+    <text class="tab-text" wx:for-index="idx" data-current="{{idx}}" src="{{currentTab == idx ? item.selectedIconPath : item.iconPath }}">{{item.text}}</text>
+    <image class="iconPath" wx:for-index="idx" data-current="{{idx}}" src="{{currentTab == idx ? item.selectedIconPath : item.iconPath }}"></image>
+  </view>
+</view> -->
+
+<view class='tabbar_box' style='background-color:{{tabbar.backgroundColor}}'>
+<!-- 此处用到了循环，里面的数据动态获取 hover-class="none" -->
+  <block wx:for="{{tabbar.list}}"  wx:key="{{item.pagePath}}">
+    <navigator url="{{item.pagePath}}"  class="tabbar_nav" url="{{item.pagePath}}" style="color:{{tabbar.currentTab == index ? tabbar.selectedColor : tabbar.color}}"
+       data-num="{{ index }}" bindtap="onTap"  open-type='redirect' 
+    >
+      <image class="iconPath" src="{{tabbar.currentTab == index ? item.selectedIconPath : item.iconPath }}"></image>
+      <text>{{item.text}}</text>
+    </navigator>
+  </block>
+</view>
+
+

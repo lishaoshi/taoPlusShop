@@ -1,0 +1,416 @@
+/* pages/goods_detail/goods_detail.wxss */
+@import '../../common.wxss';
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+page {
+    background: #f5f5f5;
+}
+
+.banner {
+    width: 100%;
+    height: 750rpx;
+}
+
+.header {
+    padding: 0 20rpx 10rpx;
+    background: #fff;
+}
+
+.header-top {
+    font-size: 26rpx;
+    line-height: 85rpx;
+    color: #999;
+}
+
+.header-bottom {
+    font-size: 34rpx;
+    color: #333;
+    line-height: 60rpx;
+}
+
+.promotion {
+    /* border: 1rpx solid #eee; *//* border-radius: 50%; *//* width:100rpx ;
+    height: 100rpx; *//* text-align: center; */
+    color: #333;
+    font-size: 34rpx;
+    width: 100rpx;
+}
+
+.h-64 {
+    height: 50rpx;
+    text-align: center;
+}
+
+.promotion-image {
+    width: 45rpx;
+    height: 45rpx;
+}
+
+.name {
+    width: 80%;
+    height: 100rpx;
+    line-height: 50rpx;
+}
+
+.ellips {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.promotion-text {
+    font-size: 22rpx;
+    color: rgba(153, 153, 153, 1);
+    height: 30rpx;
+    line-height: 30rpx;
+    text-align: center;
+}
+
+/* 拼单 star */
+
+.collage {
+    background: #fff;
+    margin-top: 20rpx;
+}
+
+.collage-head, .collage-rules {
+    padding: 0 20rpx;
+    font-size: 30rpx;
+    color: #333;
+    line-height: 82rpx;
+}
+
+.more {
+    font-size: 28rpx;
+    color: #999;
+}
+
+.collage-content {
+    max-height: 294rpx;
+    overflow-y: hidden;
+}
+
+.collage-item {
+    padding: 0 20rpx;
+    line-height: 98rpx;
+    height: 98rpx;
+}
+
+.collage-item:first-child {
+    border-top: none;
+}
+
+.collage-item .userinfo {
+    width: 270rpx;
+    font-size: 28rpx;
+    color: #333;
+}
+
+.collage-item .userinfo .portrait {
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+    margin-right: 20rpx;
+}
+
+.collage-item .timer {
+    height: 98rpx;
+    flex: 2;
+}
+
+.collage-item .timer-over {
+    font-size: 23rpx;
+    line-height: 1;
+    color: #333;
+}
+
+.collage-item .timer-top {
+    font-size: 24rpx;
+    line-height: 1;
+    padding: 18rpx 0 12rpx 0;
+    color: #666;
+}
+
+.collage-item .timer .red {
+    color: #e11b21;
+}
+
+.collage-btn {
+    height: 98rpx;
+    flex-direction: row-reverse;
+    font-size: 0;
+}
+
+.collage-btn .btn {
+    width: 117rpx;
+    height: 54rpx;
+    background-color: #fe791d;
+    border-radius: 8rpx;
+    color: #fff;
+    font-size: 26rpx;
+    line-height: 54rpx;
+    /* margin-bottom: 12rpx; */
+}
+
+/* 拼单 end */
+
+/* 拼单弹窗 star */
+
+.collage-popup {
+    position: fixed;
+    left: 20rpx;
+    top: 196rpx;
+    width: 710rpx;
+    z-index: 10000;
+}
+
+.popup-head {
+    height: 98rpx;
+    line-height: 98rpx;
+    font-size: 34rpx;
+    color: #333;
+    position: relative;
+    border-top-left-radius: 8rpx;
+    border-top-right-radius: 8rpx;
+    background: #fff;
+}
+
+.popup-close {
+    position: absolute;
+    top: -30rpx;
+    right: -30rpx;
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.popup-content {
+    width: 100%;
+    height: 538rpx;
+    background: #fff;
+    overflow-y: scroll;
+}
+
+.popup-foot {
+    height: 88rpx;
+    line-height: 88rpx;
+    font-size: 26rpx;
+    color: #333;
+    background: #fff;
+    border-bottom-left-radius: 8rpx;
+    border-bottom-right-radius: 8rpx;
+}
+
+.popup-content .userinfo {
+    width: 250rpx;
+}
+
+/* 拼单弹窗 end */
+/*商店地址*/
+.address{
+    width: 100%;
+    background-color: #fff;
+    padding: 30rpx;
+     color: #646464;
+    font-size: 28rpx;
+    margin-bottom: 20rpx;
+    border-top: 1rpx solid #e2e2e2;
+}
+.shop-address-text{
+    color: #646464;
+    width: 600rpx;
+    display: inline-block;
+    margin-left: 10rpx;
+    
+}
+.address-shop-time{
+    margin-top: 20rpx;
+    color: #646464;
+}
+
+/* 商品详情 star */
+
+.goods-detail {
+    background: #fff;
+    padding-bottom: 100rpx;
+    margin-top: 20rpx;
+}
+
+.goods-detail-title {
+    line-height: 80rpx;
+    font-size: 32rpx;
+    padding: 0 20rpx;
+    color: #333;
+}
+
+.goods-detail-content {
+    padding: 20rpx;
+    font-size: 28rpx;
+    color: #333;
+    line-height: 48rpx;
+}
+
+.goods-des {
+    margin-bottom: 20rpx;
+}
+
+.goods-detail-content .goods-img {
+    width: 100%;
+}
+
+/* 商品详情 end */
+
+/* 购买栏 star */
+
+.buy-bar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 96%;
+    height: 140rpx;
+    background: #fff;
+    border-top: 1rpx solid #e2e2e2;
+    padding: 1% 2%;
+}
+
+.buy-item-one {
+    height: 100rpx;
+    font-size: 20rpx;
+    color: #999;
+    line-height: 40rpx;
+    width: 10%;
+    margin-top:5rpx;
+
+}
+
+.m-r {
+    margin-right: 10rpx;
+}
+
+.buy-item-one .icon {
+    width: 42rpx;
+    height: 37rpx;
+    margin: 14rpx auto 0;
+    margin-bottom: 4px;
+}
+
+.collect-icon {
+    width: 41rpx;
+    height: 38rpx;
+    margin: 14rpx auto 0;
+    margin-bottom: 4px;
+}
+
+.share-box {
+    position: relative;
+}
+
+.share {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.buy-item-two {
+    height: 100rpx;
+    font-size: 26rpx;
+    line-height: 1;
+    flex: 2;
+    color: #fff;
+}
+
+.buy-item-two .money {
+    padding: 12rpx 0 16rpx 0;
+}
+
+.buy-item-two .symbol {
+    font-size: 22rpx;
+}
+
+.collage-buy {
+    width: 250rpx;
+    height: 100rpx;
+    border-top-right-radius: 50rpx;
+    border-bottom-right-radius: 50rpx;
+    background: #fe791d !important;
+}
+
+.raduis-left {
+    border-top-left-radius: 50rpx;
+    border-bottom-left-radius: 50rpx;
+    background: #fea568;
+}
+
+.raduis-right {
+    border-top-right-radius: 50rpx;
+    border-bottom-right-radius: 50rpx;
+    background-color: #fe791d;
+}
+
+.same-buy {
+    background-color: #f3a46f;
+}
+
+.color {
+    color: #fff;
+}
+
+/* 购买栏 end */
+
+.sales-text {
+    font-size: 24rpx;
+}
+
+.sales-num {
+    font-size: 26rpx;
+}
+
+.big {
+    font-size: 30rpx;
+    padding: 18rpx 0 13rpx 0 !important;
+}
+
+.arrow-r {
+    width: 12rpx;
+    height: 21rpx;
+    margin-left: 20rpx;
+}
+
+/* money star */
+
+.money-light {
+    font-size: 44rpx;
+    color: #fd1a3f;
+    margin-right: 20rpx;
+    font-weight: bold;
+}
+
+.money-symbol {
+    font-size: 28rpx;
+}
+
+.flex-item {
+    flex: 1;
+}
+.old-price{
+    color: #dddddd;
+    font-size: 30rpx;
+    margin-left: 20rpx;
+    font-weight: 500;
+    text-decoration: line-through;
+}

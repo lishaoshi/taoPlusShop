@@ -1,0 +1,78 @@
+<!-- components/gift/gift.wxml -->
+
+<view class="gift">
+
+  <view class='bar-box flex border-b fixed'>
+    <view class=' flex-item t-c' wx:for="{{bar}}" wx:key="bar" data-index="{{index}}" bindtap='changeBarFn'>
+      <text class=" bar-item {{index == barIndex ? 'bar-act':''}} ">{{item}} 
+        <text class='bar-line' hidden='{{index != barIndex}}'></text>
+      </text>
+    </view>
+  </view>
+
+  <view class="bag_coupon" wx:if="{{barIndex == 0}}">
+    <view class="pay_redbag flex d-r j-b a-c {{item.noUse ? 'noUseBg':'' }}" wx:for="{{currentData}}" data-id="{{ item.id }}" wx:key="{{item.id}}">
+      <label>
+        <view class="pay_redbag_info flex j-b">
+          <view class="info_money flex a-c">
+            <text class="info_money_sign">¥</text>
+            <text class="info_money_num">{{ item.amount }}</text>
+          </view>
+          <view class="info_desc flex d-c">
+            <view class="info_desc_name">
+              {{ item.alias == 'RED_PAPER_COUPON' ? (item.couponName || '')+'红包' : item.alias == 'NORMAL_COUPON' ? (item.couponName || '')+'代金券' : '其它' }}
+            </view>
+            <view>
+              <text decode='true'>·&nbsp;{{ item.couponStartTime ? item.couponStartTime+'至'+item.couponEndTime : '永久' }}</text>
+            </view>
+            <view>
+              <text decode='true'>·&nbsp;{{ item.satisfactionAmount ? '满'+item.satisfactionAmount+'元可用' : '不限制使用' }}</text>
+            </view>
+          </view>
+          <view class="pay_redbag_get flex d-c a-c j-c">
+            <!-- <radio value="{{ item.id }}" disabled="{{item.noUse}}"/> -->
+            <!-- <button type="primary" size="mini">使用</button> -->
+
+            <button type="primary" size="mini" bindtap="useCoupon" data-id="{{ item.id }}" data-target-id="{{item.targetId}}">使用</button>
+            <button class="gift_btn" type="warn" size="mini" data-id="{{ item.id }}" data-target-id="{{item.targetId}}" open-type="share" wx:if="{{ item.canGiftGiving == 1 }}">转赠</button>
+            
+          </view>
+        </view>
+      </label>
+    </view>
+    <view class='no-more' hidden='{{!noMore}}'>
+      <text>没有数据了</text>
+    </view>
+  </view>
+
+  <view class="bag_coupon" wx:else>
+    <view class="pay_redbag flex d-r j-b a-c {{item.noUse ? 'noUseBg':'' }}" wx:for="{{ currentData }}" data-id="{{ item.id }}" wx:key="{{item.id}}">
+      <label>
+        <view class="pay_redbag_info flex j-b">
+          <view class="info_money flex a-c">
+            <text class="info_money_sign">¥</text>
+            <text class="info_money_num">{{ item.amount }}</text>
+          </view>
+          <view class="info_desc flex d-c">
+            <view class="info_desc_name">{{ item.alias == 'RED_PAPER_COUPON' ? '红包' : item.alias == 'NORMAL_COUPON' ? '代金券' : '其它' }}</view>
+            <view>
+              <text decode='true'>·&nbsp;{{ item.couponStartTime ? item.couponStartTime+'至'+item.couponEndTime : '永久' }}</text>
+            </view>
+            <view>
+              <text decode='true'>·&nbsp;{{ item.satisfactionAmount ? '满'+item.satisfactionAmount+'元可用' : '不限制使用' }}</text>
+            </view>
+          </view>
+          <view class="pay_redbag_get flex d-c a-c j-c">
+            <!-- <radio value="{{ item.id }}" disabled="{{item.noUse}}"/> -->
+            <!-- <button type="primary" size="mini">使用</button> -->
+
+            <button type="warn" size="mini" bindtap="giftGiving" data-id="{{ item.id }}">转赠中</button>
+          </view>
+        </view>
+      </label>
+    </view>
+    <view class='no-more' hidden='{{!noMore}}'>
+      <text>没有数据了</text>  
+    </view>
+  </view>
+</view>

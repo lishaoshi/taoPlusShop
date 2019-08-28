@@ -1,0 +1,37 @@
+.tabbar_box {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  height: 100rpx;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid #a9abac;
+  box-sizing: border-box;
+  padding-top: 12rpx;
+}
+
+.tabbar_box text {
+  font-size: 20rpx;
+}
+
+.tabbar_box .icon {
+  font-size: 45rpx;
+}
+
+.tabbar_box .tabbar_nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+}
+
+.iconPath {
+  width: 54rpx;
+  height: 54rpx;
+}
+
+.tabbar_box .navigator-hover {
+  background-color: transparent;
+  opacity: 0;
+}

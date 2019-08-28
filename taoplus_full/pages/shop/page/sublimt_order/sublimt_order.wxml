@@ -1,0 +1,135 @@
+<!--pages/sublimt_order/sublimt_order.wxml-->
+<!--头部  -->
+<view class='submit-head'>
+  <view wx:if="{{!positionName}}">
+    <view class='submit-head-item flex j-b border-b'>
+      <text>取商品方式</text>
+      <view>
+        <picker bindchange="bindPickerChange" value="{{tIndex}}" range="{{Types}}">
+          <view class="picker">
+            <text class='choise-btn i-b v-m'>{{Types[tIndex]}}</text>
+            <image class='submit-head-item-icon' src='../../images/arrow-right.png'></image>
+          </view>
+        </picker>
+
+
+      </view>
+    </view>
+    <!-- 选择配送 -->
+    <!-- <navigator wx:if="{{tIndex == 0}}" class='submit-head-item flex j-b' url='../address_list/address_list?source=1'>
+            <text class='' wx:if="{{shippingAddress == ''}}">选择地址</text>
+            <view class='has-address' wx:if="{{shippingAddress != ''}}">
+                <text class='block has-address-top'>{{shippingAddress}}</text>
+                <text class='block t-gray has-address-bottom'>{{shippingName}}   {{shippingPhone}}</text>
+            </view>
+            <image class='submit-head-item-icon' src='../../images/arrow-right.png'></image>
+        </navigator> -->
+  </view>
+
+  <view class='submit-head-item flex j-b border-b' wx:if="{{positionName}}">
+    <text>位置</text>
+    <view>
+      <text class='choise-btn i-b v-m'>{{positionName}}/{{seatName}}</text>
+    </view>
+  </view>
+
+
+  <!--到店自取  -->
+  <view class='submit-head-item flex j-b hide'>
+    <text>选择桌台</text>
+    <view>
+      <text class='submit-head-item-text t-gray i-b v-m'>请选择桌台</text>
+      <image class='submit-head-item-icon v-m' src='../../images/arrow-right.png'></image>
+    </view>
+  </view>
+</view>
+
+<!--订单列表  -->
+<view class='submit-list'>
+  <text class='submit-list-head block border-b'>{{shopName}}</text>
+
+  <view class='border-b submit-list-box'>
+    <view class='submit-list-item clear' wx:for="{{carList}}" wx:key="carList">
+      <image class='submit-list-item-img fl' mode='aspectFill' src='{{IMG}}{{item.path}}'></image>
+      <view class='submit-list-item-info flex j-b '>
+        <text>{{item.goods_name}}</text>
+        <view>
+          <text class='t-gray submit-list-item-info-num'>x{{item.num}}</text>
+          <text>￥{{item.goods_shop_price}}</text>
+
+
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='submit-list-foot'>
+    <text class='t-gray submit-list-foot-sum'>小计</text>
+    <view class='list2-view-item-foot-money i-b'>
+      <text class='symbol'></text>
+      <text>￥{{sumMoney}}</text>
+    </view>
+  </view>
+</view>
+
+<!-- 引入优惠券组件 ： alias: all(红包redbags+代金券coupons)  -->
+<prefer sum="{{sumMoney}}" num="{{num}}" alias="all" pagehtml="shop_car"></prefer>
+
+
+<!--备注/餐具份数/发票  -->
+<!-- <navigator class='sublimt-remarks flex j-b' url='../remind/remind'>
+    <text class='t-gray i-b v-m sublimt-remarks-text ellipsis'>{{remind}}</text>
+    <image class='submit-head-item-icon' src='../../images/arrow-right.png'></image>
+</navigator> -->
+<navigator url="../order_note/order_note">
+  <view class='center_bottom'>
+    <view class='flex j-b center-inner a-c'>
+      <view class='group v-m a-c j-b'>
+        <text>备注说明</text>
+      </view>
+      <view class=" w-70 a-c j-b">
+        <input class='must ellipsis' placeholder='(选填)' placeholder-style='color:#999' value="{{content}}" disabled></input>
+      </view>
+      <image class='item-icon a-c j-b' src='../../images/arrow-right.png'></image>
+    </view>
+  </view>
+</navigator>
+
+<!-- <text class='submit-tip block '>10分钟内商户未接单，将自动取消</text> -->
+
+<!--下单  -->
+<!-- <view class='submit-foot clear'>
+    <text class="submit-btn fr" bindtap='submitFn'>去下单</text>
+</view> -->
+
+<view class='foot fl j-a'>
+  <view class='fl d-c w-60 flex a-c j-c'>
+    <!-- <view class="w-100">
+      <text class='sum-real'>实付:<text class='symbol'>¥</text>
+      <text class='sum-num'>{{sumMoney}}</text></text>
+    </view> -->
+
+    <!-- <view class="w-100">
+      <text class='sum-real'>总计:<text class='symbol'>¥</text>
+      <text class='sum-num'>{{sumMoney}}</text></text>
+    </view> -->
+    
+    <view class="w-100">
+      <text class='sum-real'>实付:<text class='symbol'>¥</text>
+      <!-- <text class='sum-num'>{{sumMoney - couponSum}}</text></text> -->
+      <text class='sum-num'>{{ (sumMoney*1000 - couponSum*1000)/1000 }}</text></text>
+    </view>
+
+  </view>
+  <view class='fl w-40' bindtap='submitFn'>
+    <button class='submit_order submit_btn'>提交订单</button>
+  </view>
+
+</view>
+
+<bind_phone bindbindphonecb="bindPhoneCbFn" phone-show="{{phoneShow}}"></bind_phone>
+<!-- 我的切换tabBar -->
+<my-tab></my-tab>
+
+<!--选择餐桌  -->
+<my-table table-show="{{tableShow}}"></my-table>

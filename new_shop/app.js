@@ -26,7 +26,7 @@ App({
             'content-type': 'application/x-www-form-urlencoded'
           },
           success:(data)=>{
-            // console.log(data)
+            console.log(data)
             this.globalData.openId = data.data.openid
           }
         })

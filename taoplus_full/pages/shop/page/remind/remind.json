@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "my-tab": "../../components/tab/tab"
+    },
+    "navigationBarTitleText": "提醒商家"
+}

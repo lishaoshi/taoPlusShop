@@ -1,0 +1,65 @@
+<!--pages/pay/pay.wxml-->
+<view class='container'>
+  <view class='center'>
+    <view class='time '>
+      <text>支付剩余时间</text>
+      <text>{{hhh}}:{{mmm}}:{{sss}}</text>
+    </view>
+    <view class='sum'>
+      <text class='symbol'>￥</text>
+      <text>{{money}}</text>
+    </view>
+    <view class='meals'>
+      <text>{{goodsName}}</text>
+    </view>
+  </view>
+
+  <view class='order-pay' bindtap='payFn'>
+    <text class='order-pay-price'>去支付</text>
+  </view>
+
+  <view class='checkbox-main  border-b'>
+    <radio-group bindchange="radioChange">
+      <view>
+        <view class="checkbox flex j-b">
+          <view class='chat flex'>
+            <image class='chat-pay iocn' src='../../../images/chat-pay.png'></image>
+            <text>微信支付</text>
+          </view>
+          <radio value="3" checked='checked' />
+
+        </view>
+      </view>
+      <view class="checkbox flex j-b">
+        <view class='balance flex'>
+          <image class='balance-pay iocn' src='../../../images/blance-icon.png'></image>
+          <view class='flex d-c'>
+            <view>
+              <text>余额支付</text>
+            </view>
+            <text class='balance-num'>可支付余额<text class='c-num'>{{sum}}</text>元</text>
+          </view>
+        </view>
+        <radio value="2" disabled='{{disabled}}' />
+
+      </view>
+      <view class="checkbox flex j-b">
+        <view class='balance flex'>
+          <image class='balance-pay iocn' src='../../../images/total-pay-1.png'></image>
+          <view class='flex d-c'>
+            <view>
+              <text>组合支付</text>
+              <text class='group'>余额支付+微信支付</text>
+            </view>
+            <text class='balance-num'>可支付余额<text class='c-num'>{{sum}}</text>元</text>
+          </view>
+        </view>
+        <radio value="1" disabled='{{isUser}}' />
+
+      </view>
+    </radio-group>
+  </view>
+
+  <bind_phone bind:bindphonecb="bindPhoneCbFn" phone-show="{{phoneShow}}"></bind_phone>
+
+</view>
