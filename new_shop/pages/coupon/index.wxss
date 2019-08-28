@@ -1,6 +1,9 @@
 /* pages/coupon/index.wxss */
 .list-box > view {
-  padding: 30rpx 20rpx;
+  padding: 20rpx 20rpx 0;
+}
+.list-box > view:last-child {
+  margin-bottom: 60rpx;
 }
 .addGoodsBox {
   display: flex;
@@ -8,6 +11,7 @@
   position: fixed;
   left: 10rpx;
   bottom: 10rpx;
+  background: #fff;
 }
 .addGoodsBox > view {
   width: 46rpx;
@@ -24,4 +28,34 @@
 .addGoodsBox > text {
   color: #999;
   font-size: 22rpx;
+}
+.list-info {
+  font-size: 24rpx;
+  margin-left: 30rpx;
+}
+.list-info > view:first-child {
+  font-size: 32rpx;
+}
+.list-info > view:nth-child(2) {
+  color: #999;
+  margin-top: 10rpx;
+}
+.list-info > view:nth-child(2) > text {
+  margin-right: 20rpx;
+}
+.list-info > view:nth-child(3) {
+  color: #999;
+  margin-top: 10rpx;
+}
+.list-info > view:nth-child(3) > text {
+  margin-right: 20rpx;
+  color: #999;
+}
+.list-info > view:nth-child(4) {
+  margin-top: 10rpx;
+   color: #999;
+}
+.list-info > view:nth-child(4) > text {
+  margin-right: 20rpx;
+   /* color: #999; */
 }

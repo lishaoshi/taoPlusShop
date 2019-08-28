@@ -302,7 +302,21 @@ Page({
       openId: app.globalData.openId
     }
     shopPayBalanceModel.confirmPay(data).then(res=>{
-
+      let data = JSON.parse(res.pay_info)
+      console.log(data)
+      wx.requestPayment({
+        timeStamp: data.timeStamp,
+        nonceStr: data.nonceStr,
+        package: data.package,
+        signType: data.signType,
+        paySign: data.paySign,
+        success:(res)=>{
+          console.log(res)
+        },
+        fail:(err)=>{
+          console.log(err)
+        }
+      })
     })
   },
 

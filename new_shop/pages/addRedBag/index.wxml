@@ -28,10 +28,10 @@
       <text>使用开始时间：</text>
       <picker mode="multiSelector" value="{{dateTime}}" bindchange="bindTimeChange" data-timeFlag="couponStartTime"  bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
         <view class="tui-picker-detail">
-          <text wx:if="{{!redBagInfo.couponStartTime}}">请选择</text>
-          <text wx:else>
+          <view wx:if="{{!redBagInfo.couponStartTime}}">请选择</view>
+          <view wx:else>
             {{redBagInfo.couponStartTime}}
-          </text>
+          </view>
         </view>
       </picker>
     </view>
@@ -50,10 +50,10 @@
       <text>使用结束时间：</text>
       <picker mode="multiSelector" value="{{dateTime}}" bindchange="bindTimeChange" data-timeFlag="couponEndTime"  bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
         <view class="tui-picker-detail">
-          <text wx:if="{{!redBagInfo.couponEndTime}}">请选择</text>
-          <text wx:else>
+          <view wx:if="{{!redBagInfo.couponEndTime}}">请选择</view>
+          <view wx:else>
             {{redBagInfo.couponEndTime}}
-          </text>
+          </view>
         </view>
       </picker>
     </view>
@@ -72,10 +72,10 @@
       <text>规则开始时间：</text>
       <picker mode="multiSelector" value="{{dateTime}}" bindchange="bindTimeChange" data-timeFlag="ruleStartTime"  bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
         <view class="tui-picker-detail">
-          <text wx:if="{{!redBagInfo.ruleStartTime}}">请选择</text>
-          <text wx:else>
+          <view wx:if="{{!redBagInfo.ruleStartTime}}">请选择</view>
+          <view wx:else>
             {{redBagInfo.ruleStartTime}}
-          </text>
+          </view>
         </view>
       </picker>
     </view>
@@ -103,10 +103,10 @@
       <text>规则结束时间：</text>
       <picker mode="multiSelector" value="{{dateTime}}" bindchange="bindTimeChange" data-timeFlag="ruleEndTime"  bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
         <view class="tui-picker-detail">
-          <text wx:if="{{!redBagInfo.ruleEndTime}}">请选择</text>
-          <text wx:else>
+          <view wx:if="{{!redBagInfo.ruleEndTime}}">请选择</view>
+          <view wx:else>
             {{redBagInfo.ruleEndTime}}
-          </text>
+          </view>
         </view>
       </picker>
     </view>

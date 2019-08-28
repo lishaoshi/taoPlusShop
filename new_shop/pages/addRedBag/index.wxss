@@ -1,11 +1,31 @@
 /* pages/addCoupon/index.wxss */
+.container {
+  padding: 0 20rpx;
+}
 .form-box > view {
-  margin-top: 20rpx;
+  margin-top: 50rpx;
   display: flex;
   align-items: center;
 }
 button-box {
   /* width: 80%; */
   margin: 60rpx 40rpx!important;
+  display: block;
+}
+.tui-picker-detail {
+  /* display: flex; */
+  /* flex: 1; */
+  width: 100%;
+
+  /* align-items: flex-start; */
+}
+picker {
+  flex: 1;
+  /* display: flex; */
+  /* align-items: flex-start; */
+  height: 100%;
+  display: block;
+}
+.tui-picker-detail > text {
   display: block;
 }

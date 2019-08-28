@@ -2,9 +2,29 @@
 <view class="container">
   <view class="list-box">
     <block wx:for="{{redRuleList}}" wx:key="{{item.id}}">
-      <view bindtap="_updateCoupon" data-item="{{item}}">
-        <text>红包名称</text>
-        {{item.id}}
+      <view class="list-info" bindtap="_updateCoupon" data-item="{{item}}">
+        <!-- <text>红包名称</text>
+        {{item.id}} -->
+        <view>
+          <text>{{item.couponName}}</text>
+        </view>
+
+        <view>
+          <text>面额：{{item.amount}}</text>
+          <text>满足金额：{{item.satisfactionAmount}}</text>
+        </view>
+
+        <view>
+          <text>数量：{{item.num}}</text>
+          <text>领取条件：{{item.orderAmount}}</text>
+        </view>
+
+        <view>
+          <text>有效时间：</text> 
+          <text>
+            {{item.couponStartTime}} -- {{item.couponEndTime}}
+          </text>
+        </view>
       </view>
     </block>
   </view>
