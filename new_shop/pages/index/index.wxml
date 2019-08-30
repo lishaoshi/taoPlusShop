@@ -39,5 +39,5 @@
     </view>
   </view>
 
-  <view style="height: 60rpx;background: red;" bindtap="confirmPay"> 确认支付</view>
+  <!-- <view style="height: 60rpx;background: red;text-align:center;margin-top:20px;line-height:60rpx;"> 确认支付</view> -->
 </view>

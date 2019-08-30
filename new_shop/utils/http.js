@@ -50,7 +50,7 @@ class http {
               })
               wx.clearStorageSync()
               return
-            }
+            }    
             resolve(res.data);
           } else {
             errorShow(res.data.message || '服务器错误');

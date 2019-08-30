@@ -3,9 +3,11 @@
   padding: 0 30rpx;
 }
 .form-box > view {
-  margin-top: 40rpx;
+  margin-top: 20rpx;
   display: flex;
   align-items: center;
+  padding-bottom: 30rpx;
+  border-bottom: 1px solid #999;
 }
 button-box {
   /* width: 80%; */

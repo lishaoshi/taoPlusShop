@@ -96,6 +96,7 @@ App({
 
     // 正式用户shopId
     shopId: '',
-    openId: ''
+    openId: '',
+    isPay: true  //商家是否已经支付  true：已经支付  false：未支付
   }
 })
