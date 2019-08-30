@@ -1,0 +1,48 @@
+/* pages/reservations_success/reservations_success.wxss */
+
+@import '../../common.wxss';
+
+.header {
+    margin-bottom: 140rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #282828;
+}
+
+.header .icon {
+    width: 92rpx;
+    height: 96rpx;
+    margin-top: 53rpx;
+    margin-bottom: 18rpx;
+}
+
+.header-tip {
+    font-size: 38rpx;
+    color: #FF6F06;
+    line-height: 80rpx;
+}
+
+.info-box {
+    line-height: 60rpx;
+    font-size: 28rpx;
+    color: #3F3F3F;
+    margin-bottom: 140rpx;
+    padding-left: 56rpx;
+}
+
+.info-box-left {
+    margin-right: 15rpx;
+}
+
+.share {
+    width: 670rpx;
+    height: 100rpx;
+    border: 1px solid #282828;
+    border-radius: 50rpx;
+    background: #fff;
+    line-height: 100rpx;
+    font-size: 33rpx;
+    color: #282828;
+    text-align: center;
+    margin: 0 auto;
+}

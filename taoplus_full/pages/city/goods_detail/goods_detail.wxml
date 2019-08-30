@@ -1,0 +1,199 @@
+<!--pages/goods_detail/goods_detail.wxml-->
+<scroll-view class='container' style="height: {{scrollHeight}}px;" scroll-y="{{isScroll}}">
+  <!-- banner star -->
+  <swiper class='banner banner-box' autoplay="true" interval="5000" duration="1000" indicator-dots="true" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#ffffff">
+    <block wx:for="{{banner}}" wx:key="banner">
+      <swiper-item>
+        <image class=' banner slide-image' src='{{item}}' mode='aspectFill' binderror="imgErrorFn" data-date="banner" data-index="{{index}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- banner end -->
+
+  <!-- 头部信息 star -->
+  <view class='header m-b-20'>
+    <view class='flex j-b header-top'>
+      <view class='flex'>
+        <view class='money-light'>
+          <text class='money-symbol'>￥</text>
+          <text>{{isGroup ? grouponPrice:info.shop_price}}</text>
+          <text wx:if="{{!isGroup}}" class='old-price'>{{info.market_price !=null ? '原价¥'+info.market_price :''}}</text>
+        </view>
+        <view class='real-price' wx:if="{{isGroup}}">
+          <text>单买价</text>
+          <text class='shop-money-symbol'>￥</text>
+          <text class='shop-real-price'>{{info.shop_price}}</text>
+
+        </view>
+      </view>
+      <text class='sales-text'>销量 <text class='sales-num'>{{info.sales_volume+(info.inital_sales_volume||0)}}</text>{{info.unit_name}}</text>
+    </view>
+
+    <view class='header-bottom '>
+      <text class=''>{{info.goods_name}}({{info.unit_name}})</text>
+    </view>
+  </view>
+  <!-- 头部信息 end -->
+
+  <!-- 拼单 star -->
+  <view class='collage m-b-20 '>
+    <view class='collage-rules flex j-b border-b' wx:if="{{isGroup}}">
+      <text>拼团规则</text>
+      <view bindtap='goToGroupRules'>
+        <text class='more'>前往了解</text>
+        <image class='arrow-r' src="../../../images/open.png"></image>
+      </view>
+    </view>
+    <view class='collage-head flex j-b border-b' wx:if="{{grouponList.length>0}}">
+      <text>{{groupingNum}}人正在拼单 可立即参与</text>
+      <view bindtap='showMoreFn'>
+        <text class='more'>查看更多</text>
+        <image class='arrow-r' src="../../../images/open.png"></image>
+      </view>
+    </view>
+
+    <view class='collage-content'>
+      <view class='collage-item border-t flex' wx:for="{{grouponList}}" wx:key="groupon">
+        <view class='userinfo ellipsis'>
+          <image class='portrait v-m' src='{{item.portrait_url}}' binderror="imgErrorFn" data-date="grouponList" data-index="{{index}}" data-field="portrait_url"></image>
+          <text class='name v-m'>{{item.groupons_name}}</text>
+        </view>
+        <view class='timer flex-item t-c v-t'>
+          <text class='timer-top block'>差 <text class='red'>{{item.num}}</text> 人拼成 </text>
+          <text class='timer-over block'>还剩{{item.timeStr}}结束</text>
+        </view>
+        <view class='flex-item flex v-t collage-btn a-c' wx:if="{{item.over}}">
+          <view class=' btn block t-c'>已结束</view>
+        </view>
+        <!-- <navigator url='../submit_orders/submit_orders?goodsId={{info.goods_id}}&grouponsId={{item.groupons_id}}&shopId={{info.shop_id}}&type=order&price={{grouponPrice}}' class='flex-item flex v-t collage-btn a-c' > -->
+
+        <view class="flex-item flex v-t collage-btn a-c" bindtap='goToCrowdordering' data-index='{{index}}' wx:else>
+          <text class='btn block t-c'>去拼单</text>
+        </view>
+        <!-- </navigator> -->
+
+      </view>
+    </view>
+  </view>
+  <!-- 拼单 end -->
+
+  <!-- 拼单弹窗 star -->
+
+  <view class='collage-popup ' hidden='{{!isShow}}'>
+    <view class='popup-head t-c border-b'>
+      <text>正在拼单</text>
+      <image class='popup-close'></image>
+    </view>
+    <view class='popup-content'>
+      <view class='collage-item border-b flex' wx:for="{{grouponList}}" wx:key="groupon">
+        <view class='userinfo ellipsis'>
+          <image class='portrait v-m' src='{{item.portrait_url}}' binderror="imgErrorFn" data-date="grouponList" data-index="{{index}}" data-field="portrait_url"></image>
+          <text class='name v-m'>{{item.groupons_name}}</text>
+        </view>
+        <view class='timer flex-item t-c v-t'>
+          <text class='timer-top block'>差 <text class='red'>{{item.num}}</text> 人拼成 </text>
+          <text class='timer-over block'>还剩{{item.timeStr}}结束</text>
+        </view>
+        <view class='flex-item flex v-t collage-btn a-c' wx:if="{{item.over}}">
+          <view class=' btn block t-c'>已结束</view>
+        </view>
+        <navigator url='../submit_orders/submit_orders?goodsId={{info.goods_id}}&grouponsId={{item.groupons_id}}&shopId={{info.shop_id}}&type=order&price={{grouponPrice}}' class='flex-item flex v-t collage-btn a-c' wx:else>
+          <view class=' btn block t-c'>去拼单</view>
+        </navigator>
+      </view>
+    </view>
+    <view class='popup-foot t-c'>
+      <text>仅显示前十名</text>
+    </view>
+  </view>
+
+  <view class='mask' hidden='{{!isShow}}' bindtap='showMoreFn'></view>
+  <!-- 拼单弹窗 end -->
+
+  <!-- 商店 star -->
+  <view class='shop-info flex j-b border-b  a-c'>
+    <view>
+      <image class='shop-img v-m' src="{{shopInfo.portrait_url}}" binderror="imgErrorFn" data-date="shopInfo" data-index="{{-1}}" data-field="portrait_url"></image>
+      <view class='i-b v-m'>
+        <text class='shop-name block ellipsis'>{{shopInfo.shop_name}}</text>
+        <text class='shop-num' wx:if="{{isGroup}}">已拼团: {{groupsNum}}次</text>
+      </view>
+    </view>
+    <!-- <navigator class='shop-btn t-c' url='../shop_index/shop_index?shopId={{shopId}}'>进店逛逛</navigator> -->
+    <navigator class='shop-btn t-c' url='/pages/shop/page/index/index?shopId={{shopId}}'>进店逛逛</navigator>
+  </view>
+  <!-- 商店 end -->
+  <!-- 商店地址 -->
+  <view class='address'>
+    <view class='shop-address'>
+      <text class='v-m'>商家地址:</text>
+      <view class='shop-address-text v-m ' bindtap='openLocation'>{{shopInfo.province_name}}{{shopInfo.city_name}}{{shopInfo.area_name}}{{shopInfo.address}}
+        <image wx:if="{{shopInfo.latitude}}" class='address-icon' style='width:20px; height:20px;' src="../../../images/order-address.png"></image>
+      </view>
+
+    </view>
+    <view class='address-shop-time'>
+      <text class='address-text' bindtap='callPhoneFn'>商家电话：{{shopInfo.mobile}}</text>
+    </view>
+    <view class='address-shop-time'>
+      <text>营业时间：</text>
+      <text class='shop-address-time'>{{shopInfo.start_time}}-{{shopInfo.end_time}}</text>
+    </view>
+  </view>
+
+
+
+  <!-- 商店地址 -->
+
+
+  <!-- 商品详情 star -->
+  <view class='goods-detail'>
+    <view class='goods-detail-title border-b'>产品详情</view>
+    <view class='goods-detail-content'>
+      <view class='goods-des'>
+        <text>{{info.described !==null? info.described:"好"}}</text>
+      </view>
+
+      <image class='goods-img' mode='widthFix' wx:for="{{banner}}" wx:key="goodsImg" src="{{item}}" binderror="imgErrorFn" data-date="banner" data-index="{{index}}"></image>
+    </view>
+  </view>
+  <!-- 商品详情 end -->
+
+  <!-- 购买栏 star -->
+  <view class="buy-bar flex">
+    <navigator url='/pages/city/index/index' open-type='switchTab' class='flex-item t-c buy-item-one'>
+      <image class='block icon' src='../../../images/goods-home.png'></image>
+      <text>首页</text>
+    </navigator>
+    <view class='flex-item t-c buy-item-one share-box'>
+      <view>
+        <image class='block icon' src='../../../images/goods-share.png'></image>
+        <text>分享</text>
+      </view>
+      <button class='share' open-type="share"></button>
+    </view>
+    <view class='flex-item t-c buy-item-one' wx:if="{{info.is_collect}}" bindtap='removeCollectFn'>
+      <image class='block icon' src='../../../images/goods-collected.png'></image>
+      <text>已收藏</text>
+    </view>
+    <view class='flex-item t-c buy-item-one' wx:else="{{info.is_collect}}" bindtap='collectFn'>
+      <image class='block icon' src='../../../images/goods-collect.png'></image>
+      <text>收藏</text>
+    </view>
+
+    <navigator url='../submit_orders/submit_orders?goodsId={{info.goods_id}}&shopId={{info.shop_id}}&type=normal&shopName={{shopInfo.shop_name}}' class='flex-item t-c buy-item-two {{isGroup? "same-buy": "collage-buy"}}'>
+      <view class='money'>
+        <text class='symbol'>￥</text> {{info.shop_price}}</view>
+      <text>购买</text>
+    </navigator>
+
+    <view bindtap='onclickFn' url='../submit_orders/submit_orders?goodsId={{info.goods_id}}&shopId={{info.shop_id}}&type=groupons&price={{grouponPrice}}&shopName={{shopInfo.shop_name}}' class='flex-item t-c buy-item-two collage-buy ' wx:if="{{isGroup}}">
+      <view class='money big'>
+        <text class='symbol'>￥</text> {{grouponPrice}}</view>
+      <text>发起拼单</text>
+    </view>
+
+  </view>
+  <!-- 购买栏 end -->
+  <bind_phone bind:bindphonecb="bindPhoneCbFn" phone-show="{{bindPhone}}"></bind_phone>
+</scroll-view>

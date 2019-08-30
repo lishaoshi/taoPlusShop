@@ -1,0 +1,12 @@
+{
+    "onReachBottomDistance": 50,
+    "navigationBarTitleText": "淘上品",
+    "usingComponents": {
+        "goods_list": "/components/goods_list/goods_list",
+        "bind_phone": "/components/bind_phone/bind_phone",
+       "my-tabbar": "/components/tabbar/tabbar"
+        
+    },
+
+    "backgroundTextStyle": "light"
+}

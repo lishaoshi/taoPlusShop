@@ -1,0 +1,38 @@
+<!--components/pay_after/pay_after.wxml-->
+<view class="pay_after">
+  <view class="pay_success flex d-c a-c">
+    <image src="../../images/chat-pay.png"></image>
+    <text>支付成功</text>
+  </view>
+
+  <view class="pay_info flex d-c a-c">
+    <text class="pay_info_name">{{ shopName }}</text>
+    <text class="pay_info_price">¥{{money}}</text>
+  </view>
+
+  <view class="pay_redbag flex d-r j-b a-c">
+    <view class="pay_redbag_info flex j-b" wx:for="{{redBagData}}" wx:key="{{item.id}}">
+      <view class="info_money flex a-c">
+        <text class="info_money_sign">¥</text>
+        <text class="info_money_num">{{item.amount}}</text>
+      </view>
+      <view class="info_desc flex d-c">
+        <view class="info_desc_name">{{ item.couponName || '红包优惠券' }}</view>
+        <view>
+          <text decode='true'>·&nbsp;{{ couponStartTime ? couponStartTime+'至'+couponEndTime : '永久' }}</text>
+        </view>
+        <view>
+          <text decode='true'>·&nbsp;{{ satisfactionAmount ? '满'+satisfactionAmount+'元可用' : '无限制条件' }}</text>
+        </view>
+      </view>
+
+      <view class="pay_redbag_get flex a-c">
+        <button class="{{ item.isSave ? 'saved' : '' }}" type="primary" data-id="{{item.id}}" data-index="{{index}}" bindtap="saveCoupon" >领取</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="pay_done">
+    <button type="primary" plain="true" bindtap="gotoHome">完成</button>
+  </view>
+</view>

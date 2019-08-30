@@ -1,0 +1,62 @@
+<!--pages/add_address/add_address.wxml-->
+<view class='add-address'>
+    <view class='add-address-item clear'>
+        <text class='add-address-item-name fl'>联系人</text>
+        <view class='add-address-item-right'>
+            <input class='add-address-item-input block' id="userName" placeholder='您的姓名' bindinput='changeInputFn'></input>
+            <radio-group class="block radio-group border-t" id="sex" bindchange="changeInputFn">
+                <label class='i-b v-m radio-group-label'>
+                    <radio value='0' checked='true'>先生</radio>
+                </label>
+
+                <label class='i-b v-m radio-group-label'>
+                    <radio value='1' checked='false'>女士</radio>
+                </label>
+            </radio-group>
+        </view>
+    </view>
+
+    <view class='add-address-item clear'>
+        <text class='add-address-item-name fl'>手机号</text>
+        <view class='add-address-item-right'>
+            <input class='add-address-item-input block' id="mobile" type='number' placeholder='配送人员联系您的电话'  bindinput='changeInputFn'></input>
+        </view>
+    </view>
+
+    <navigator class='add-address-item clear'  url='../map_search/map_search'>
+        <text class='add-address-item-name fl'>收货地址</text>
+        <view class='add-address-item-right clear'>
+            <image class='add-address-item-img v-m' src="../../images/map.png"></image>
+            <text class='add-address-item-text i-b v-m'>{{address}}</text>
+            <image class='add-address-item-icon v-m fr' src="../../images/arrow-right.png"></image>
+        </view>
+    </navigator>
+
+    <view class='add-address-item clear'>
+        <text class='add-address-item-name fl'>门牌号</text>
+        <view class='add-address-item-right'>
+            <input class='add-address-item-input block' id="doorNumber" placeholder='详细地址，例：1号楼一单元101室' bindinput='changeInputFn'></input>
+        </view>
+    </view>
+
+    <view class='add-address-item clear'>
+        <text class='add-address-item-name fl'>是否默认</text>
+        <view class='add-address-item-right'>
+           <radio-group class="block " id="isDefault" bindchange="changeInputFn">
+                <label class='i-b v-m radio-group-label'>
+                    <radio value='1' checked='true'>是</radio>
+                </label>
+
+                <label class='i-b v-m radio-group-label'>
+                    <radio value='2' checked='false'>否</radio>
+                </label>
+            </radio-group>
+        </view>
+    </view>
+</view>
+
+<view class='add-address-btn' bindtap='submitFn'>保存</view>
+
+<my-tab></my-tab>
+<bind_phone bind:bindphonecb="bindPhoneCbFn" phone-show="{{phoneShow}}"></bind_phone>
+

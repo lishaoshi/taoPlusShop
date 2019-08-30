@@ -1,0 +1,42 @@
+<!--pages/user_detail/user_detail.wxml-->
+<view class='container'>
+<block>
+  <view class='head-img'>
+    <image class='setup-head-img' wx:if="{{portraitUrl1}}"  src='{{portraitUrl1}}' ></image>
+    <!-- <image class='setup-head-img'  src='{{userInfo.avatarUrl}}' wx:if="{{userInfo.avatarUrl&& !portraitUrl1}}"></image> -->
+    <!-- 需要使用 button 来授权登录 -->
+    <!-- <button wx:if="{{!userInfo.avatarUrl&&!portraitUrl}}" class='authSetting' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfoFn">获取头像</button> -->
+  </view>
+  </block>
+
+       <button wx:if="{{showButton}}" class='authSetting' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfoFn">获取头像</button>
+  <view class='user-ceter'>
+    <view class='user-name flex d-r list a-c'>
+      <text>昵称</text>
+      <!-- <input type='text' bindinput='nameFn' placeholder='未填写' value='{{name || userInfo.nickName}}'></input> -->  
+       <!-- <input type='text' bindinput='nameFn' placeholder='未填写' value='{{userInfo.nickName}}' wx:if="{{!nickName1}}"></input> -->
+        <input type='text' bindinput='nameFn' placeholder='未填写' value='{{nickName1}}' wx:if="{{nickName1}}"></input>
+    </view>
+    <view class='user-sex  flex d-r list a-c'>
+      <text>性别</text>
+      <!-- <input type='text' value='{{sex}}'></input> -->
+      <picker class='array-picker' bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          {{array[index]}}
+        </view>
+      </picker>
+    </view>
+    <view class='user-phone  flex d-r list a-c'>
+      <text>手机号</text>
+      <input type='text' bindinput='mobileFn' placeholder='未填写' value='{{phoneShow}}'></input>
+    </view>
+
+  </view>
+
+  <view class='user-save' bindtap='userSaveFn'>
+    <text>保存</text>
+
+  </view>
+
+
+</view>

@@ -1,0 +1,26 @@
+<view class='mask {{tableShowClass}}' animation="{{animationData}}" bindtap='hideTableFn'></view>
+<view class='choise-table {{tableShowClass}}' animation="{{animationData}}">
+    <text class='choise-table-head block' bindtap='changeDataFn'>确认</text>
+    <!-- <text class='choise-table-top block'>外带</text> -->
+    <view class='choise-table-content clear'>
+        <view class='choise-table-tab fl'>
+            <!-- <view class='choise-table-tab-item choise-table-tab-act'>大厅</view> -->
+            <block wx:for="{{table_floor}}" wx:key="table_floor">
+                <view wx:if="{{item.current}}" class='choise-table-tab-item choise-table-tab-act'  data-floorid="{{item.floor_id}}" bindtap='changeFloorFn'>{{item.position_name}}</view>
+                <view wx:else class='choise-table-tab-item'  data-floorid="{{item.floor_id}}" bindtap='changeFloorFn'>{{item.position_name}}</view>
+            </block>
+            
+        </view>
+
+        <view class='choise-table-list clear'>
+             <view class='choise-table-list-item fl' wx:for="{{table_list}}" wx:key="table" bindtap='choiseSeatFn' data-seatid="{{item.floor_seat_id}}" data-index="{{index}}">
+                <!-- <text wx:if="{{item.booking_seats == 2}}" class='choise-table-list-item-tip tip-green'>闲</text>
+                <text wx:elif="{{item.booking_seats == 1}}" class='choise-table-list-item-tip tip-orange'>顶</text>
+                <text wx:elif="{{item.booking_seats == 3}}" class='choise-table-list-item-tip tip-gray'>停</text> -->
+                <text class='choise-table-list-item-title block'>{{item.seat_name}}</text>
+                <text class='choise-table-list-item-text block'>{{item.seat}}</text>
+                <image wx:if="{{item.checked}}" class='choise-table-list-item-img ' src='../../images/checked.png'></image>
+            </view> 
+        </view>
+    </view>
+</view>

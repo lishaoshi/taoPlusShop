@@ -1,0 +1,16 @@
+<!--pages/map_search/map_search.wxml-->
+<view class='map-search'>
+    <input class='i-b v-m map-search-input' type='text' confirm-type='search' placeholder='请输入地址'  bindconfirm="search" bindinput="inputChange"></input>
+    <text class='i-b v-m map-search-btn' bindtap='search'>搜索</text>
+</view>
+
+<view class='map-list'>
+<view class='location border-b'>
+    <text class='block location-title '>定位地址</text>
+    <text class='block location-text' data-address="{{address}}" data-longitude="{{longitude}}" data-latitude="{{latitude}}" bindtap='choiseAddress'>{{address}}</text>
+</view>
+    <view class='map-list-item border-b' wx:for="{{map_data}}" data-address="{{item.address}}" data-longitude="{{item.location.lng}}" data-latitude="{{item.location.lat}}" wx:key="map" bindtap='choiseAddress'>
+        <text class='map-list-item-name block'>{{item.title}}</text>
+        <text class='map-list-item-address t-gray block'>{{item.address}}</text>
+    </view>
+</view>

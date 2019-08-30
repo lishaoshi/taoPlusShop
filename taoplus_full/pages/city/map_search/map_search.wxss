@@ -1,0 +1,67 @@
+/* pages/map_search/map_search.wxss */
+@import '../../../common.wxss';
+
+.map-search {
+    padding: 20rpx;
+    font-size: 0;
+    background: #fff;
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    left: 0;
+    top: 0;
+}
+
+.map-search-input {
+    width: 78%;
+    border: 1px solid #ededed;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-indent: 20rpx;
+    font-size: 33rpx;
+}
+
+.map-search-btn {
+    width: 20%;
+    height: 60rpx;
+    line-height: 60rpx;
+    border: 1px solid #FF6B07;
+    text-align: center;
+    background: #FF6B07;
+    font-size: 33rpx;
+    color: #fff;
+}
+
+.map-list {
+    padding: 20rpx;
+    margin-top: 70rpx;
+}
+
+.map-list-item {
+    padding: 20rpx 0;
+    
+}
+
+.map-list-item-name {
+    font-size: 33rpx;
+    color: #3F3F3F;
+    line-height: 60rpx;
+}
+
+.map-list-item-address {
+    font-size: 25rpx;
+}
+
+/*定位  */
+.location-title {
+    font-size: 33rpx;
+    color: #FF6B07;
+    line-height: 2;
+}
+
+.location-text {
+    font-size: 28rpx;
+    color: #3F3F3F;
+    line-height: 2;
+    padding-bottom: 20rpx;
+}

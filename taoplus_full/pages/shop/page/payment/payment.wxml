@@ -1,0 +1,24 @@
+<!--pages/payment/payment.wxml-->
+<view class='payment'>
+    <text class='payment-title block '>支付金额：</text>
+    <text class='payment-money block'>￥{{sumMoney}}</text>
+    <text class='block t-gray'>{{shopName}}</text>
+</view>
+
+<view class='payment-type'>
+    <view class='type-item' bindtap='paymentFn'>
+        <image class='type-item-image weixin v-m' src='../../images/weixin.png'></image>
+        <text class='v-m'>微信</text>
+    </view>
+    <!-- <view class='type-item'>
+        <image class='type-item-image zhifubao v-m' src='../../images/zhifubao.png'></image>
+        <text class='v-m'>支付宝</text>
+    </view> -->
+    <!-- <view class='type-item'>
+        <image class='type-item-image cash v-m' src='../../images/cash.png'></image>
+        <text class='v-m'>现金付款</text>
+    </view> -->
+</view>
+
+<my-tab></my-tab>
+

@@ -1,0 +1,22 @@
+<view class='container'>
+  <view >
+      <navigator url="../goods_detail/goods_detail?goodsId={{item.goods_id}}&shopId={{item.shop_id}}" class='collection-all flex d-r a-c' wx:for='{{colleList}}'>
+          <view class='collection-img v-m'>
+            <image  src='{{item.path}}' binderror="imgErrorFn" data-date="colleList" data-index="{{index}}" data-field="path"></image>
+          </view>
+          <view class='collection-detail flex d-c v-m'>
+            <text class='name ellipsis'>{{item.goods_name}}</text>
+            <text class='type ellipsis'>{{item.described}}</text>
+            <view class='price'>
+              <text class='symbol'>￥</text>
+              <text class='price-text'>  {{item.shop_price}}</text>
+               <text class='original-price hide'>￥299</text>
+              </view>         
+          </view>
+      </navigator>
+  </view>
+
+  <view class='no-more' hidden='{{!noMore}}'>
+    <text>暂时没有数据</text>
+  </view>
+</view>

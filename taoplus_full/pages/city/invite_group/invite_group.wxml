@@ -1,0 +1,37 @@
+<!--pages/invite_group/invite_group.wxml-->
+<view class='container'>
+    <view class='goods-detail'>
+        <view class='left flex'>
+            <image class='goods-img' src="{{info.path}}"></image>
+            <view class='sum flex d-c'>
+                <text class='sum-num'><text class='symbol'>¥</text>{{info.grouponPrice}}</text>
+                <text class='old-price'>￥{{info.shopPrice}}</text>
+                <text class='save-price'>限时立省 <text class='save-num'>{{leaveMoney}}</text> 元</text>
+            </view>
+        </view>
+        <view class='goods-name flex d-c'>
+            <text class='nane-tex ellipsis'>{{info.goodsName}}</text>
+            <text class='detail ellipsis'>{{info.described}}</text>
+        </view>
+        <view class='user-portrait border-t ellipsis'>
+            <text class='user-tex w-100'>发起人</text>
+            <view class='all-img fl'>
+                <image class='first-img fl' src="{{commanderList.portrait_url}}"></image>
+                <text class='line fl' wx:if="{{groupUser[index].is_head !== 1}}">|</text>
+                <image class='user-img fl' wx:if="{{groupUser[index].is_head !== 1}}" wx:for="{{groupUser}}" src="{{groupUser[index].portrait_url}}"></image>
+                <image class='finish-img' src="../../../images/finish.png" wx:if="{{info.type === 5}}"> </image>
+                <image class='user-img  v-m' src="../../../images/pic90.png" wx:if="{{info.type !== 5}}"></image>
+            </view>
+            <text class="omit fl" wx:if="{{groupUser.length >=3}}">...</text>
+        </view>
+
+    </view>
+    <view class='all-invite'>
+        <view class='invite-btn'>
+            <button open-type='share' class='invite-tex' wx:if="{{info.type !== 5&&nowTime <= endTime}}">{{timeList.timeStr}}后结束 邀请好友拼团</button>
+            <button class='invite-tex' wx:if="{{info.type === 5}}" bindtap='goIndex'>该拼团完成,回到首页</button>
+            <button class='invite-tex' bindtap='goIndex' wx:if="{{nowTime > endTime && info.type !== 5}}">该拼团已结束,回到首页</button>
+        </view>
+        <bind_phone bind:bindphonecb="bindPhoneCbFn" phone-show="{{phoneShow}}"></bind_phone>
+    </view>
+</view>

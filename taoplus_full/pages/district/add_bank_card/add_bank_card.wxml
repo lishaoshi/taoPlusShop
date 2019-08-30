@@ -1,0 +1,71 @@
+<!--pages/add_bank_card/add_bank_card.wxml-->
+<view class='container'>
+  <view class='title flex  a-c'>
+    <text>请绑定持卡人的银行卡</text>
+  </view>
+
+  <view class='add-bank  flex d-c'>
+    <picker bindchange="bindPickerChangeFn" value="{{index}}" range="{{bankCardList}}" range-key="bank_name">
+      <view class=' list flex d-r a-c'>
+        <text class='v-m'>银行</text>
+        <view class="picker">
+          {{bankCardList[index].bank_name}}
+          <text class='bank-name {{showBank? "":"hide"}}'>选择银行</text>
+        </view>
+        <!-- <input class='v-m' type='text' bindinput='bankNmeFn' placeholder='请输入银行名称'></input>
+       <image bindtap='delBankNumFn' class='v-m' src='../../../images/delete.png'></image> -->
+      </view>
+    </picker>
+    <view class='card-num list flex d-r a-c'>
+      <text class='v-m'>卡号</text>
+      <input class='v-m' type='number' value='{{bankCardNum}}' bindinput='changeInputFn' id="bankCardNum" data-index="0" placeholder='请输入卡号'></input>
+      <image class="{{isShowArray[0].isShow? 'hide':'block'}} v-m" data-index="0" data-field="bankCardNum" bindtap='delBankNumFn'  src='../../../images/delete.png'></image>
+    </view>
+    <view class='card-num list flex d-r a-c'>
+      <text class='v-m'>持卡人</text>
+      <input class='v-m' type='text' value='{{userName}}' bindinput='changeInputFn' id='userName' data-index="1" placeholder='请输入姓名'></input>
+      <image class="{{isShowArray[1].isShow? 'hide':'block'}} v-m" data-index="1" data-field='userName' bindtap='delBankNumFn' src='../../../images/delete.png'></image>
+    </view>
+
+    <!-- <view class='card-num list flex d-r a-c'>
+     <text class='v-m'>卡类型</text>
+      <radio-group class="block radio-group "  bindchange="changeRadioFn">
+                <label class='i-b v-m radio-group-label'>
+                    <radio value='1' checked>储蓄卡</radio>
+                </label>
+
+                <label class='i-b v-m radio-group-label'>
+                    <radio value='2' >信用卡</radio>
+                </label>
+            </radio-group>
+    </view> -->
+
+
+
+    <view class='idcard list flex d-r a-c'>
+      <text class='v-m'>身份证</text>
+      <input class='v-m' type='idcard' value='{{idCard}}' id='idCard' bindinput='changeInputFn' data-index="2" placeholder='请输入持卡人身份证号'></input>
+      <image class="{{isShowArray[2].isShow? 'hide':'block'}} v-m" data-index="2" data-field='idCard' bindtap='delBankNumFn' src='../../../images/delete.png'></image>
+    </view>
+
+  </view>
+  <view class='phone'>
+    <view class='phone-num list flex  a-c'>
+      <text class='v-m'>手机号</text>
+      <input class='v-m' type='number' value='{{mobile}}' id='mobile' data-index="3" bindinput='changeInputFn'   placeholder='请输入预留手机号'></input>
+      <image class="{{isShowArray[3].isShow? 'hide':'block'}} v-m" data-index="3" data-field='mobile' bindtap='delBankNumFn' src='../../../images/delete.png'></image>
+    </view>
+    <view class='code-num  flex a-c'>
+      <text class='code-text v-m'>验证码</text>
+      <input class='v-m'  bindinput='codeFn'  type='number' placeholder='请输入短信验证码'></input>
+
+      <button class="v-m  {{isColor? 'b' : 'a'}}" plain='plain' bindtap='changeCodeFn' disabled="{{disabled}}">
+        <text hidden="{{codeDis}}">{{phoneCode}}</text>
+        <text hidden="{{!codeDis}}">{{codeTime}}s后重新获取</text>
+      </button>
+    </view>
+  </view>
+  <view class='submit' bindtap='saveCardFn'>
+    <text>下一步</text>
+  </view>
+</view>

@@ -1,0 +1,95 @@
+<view class='container'>
+    <!-- 头部搜索 star -->
+    <view class='search-box fixed'>
+        <navigator url='../search/search' class='search'>
+            <image class='search-icon i-b v-m' src='../../../images/search-icon.png'></image>
+            <text class='i-b v-m'>搜索商品</text>
+        </navigator>
+    </view>
+    <!--头部搜索 end  -->
+
+    <!-- 菜单导航 star -->
+    <view class='bar border-b fixed'>
+        <view class='bar-list t-c fl' wx:for="{{bar}}" wx:key="bar" data-index="{{index}}">
+            <text class="bar-text {{index == barIndex ?'bar-act':''}}">{{item}}</text>
+        </view>
+
+    </view>
+    <!-- 菜单导航  end -->
+    <view class='goods fl '>
+
+        <!-- 侧边导航 start -->
+       
+        <view class='side-nav fl d-c t-f'>
+         <scroll-view scroll-y style="height:900rpx" scroll-into-view="{{scrollTitle}}" scroll-with-animation="true">
+            <view class='side border-b fld-c a-c {{currentCategory == index ? "side-act":""}}' wx:for="{{sideArr}}" wx:key="sideArr" data-index="{{index}}"  bindtap='clickScrollInTo' data-id='{{item.product_type_id}}' data-name="{{'i'+index}}" id="{{'i'+index}}">
+                <text class='side-text ellipsis'>{{item.type_name}}</text>
+            </view>
+            </scroll-view>
+        </view>
+
+        <!-- 侧边导航 end -->
+
+        <!-- 商品列表 star -->
+        <view class='goods-list fr'>
+            <scroll-view scroll-y style="height:1000rpx" bindscroll='scroll' class='list' scroll-with-animation='true' scroll-into-view="{{scrollInTo}}">
+            <view wx:for="{{goodsList}}" wx:key='index'>
+            <view class='anchor'   id="{{'i'+index}}" > {{item.name}}</view>
+                <navigator class='list-item' url='../goods_detail/goods_detail?goodsId={{item.goods_id}}&shopId={{item.shop_id}}' wx:for="{{item.data}}" wx:key="goods">
+                    <view class='list-item-head flex j-b'>
+                        <view class='shopname'>
+                            <!-- <image class='shop-icon v-b' src='../../../images/activity-shop-icon.png'></image> -->
+                            <text class='shop-name-text ellipsis v-b'>{{item.shop_name}}</text>
+                        </view>
+                        <text class='distance {{item.juli!=null? "block": "hide"}}'>{{item.juli}}</text>
+                    </view>
+
+                    <view class='flex'>
+                        <view class='list-group-img'>
+                            <image lazy-load="true" class='list-item-img' src='{{Img+item.path}}' binderror="imgErrorFn" data-date="goodsList" data-index="{{index}}" data-field="path"></image>
+                              <text class='groupon_sum  {{item.groupon_sum!=null?"block": "hide"}}'>{{item.groupon_sum}}人团</text> 
+                        </view>
+                        <view class='list-item-info flex d-c j-b'>
+                            <view class='w-100'>
+                                <text class='title block ellipsis'>{{item.goods_name}}</text>
+                                <text class='block ellipsis described'>{{item.described!=null?item.described:"好"}}</text>
+                            </view>
+                           <view class='unit-price flex j-b'>
+                            <text class='group-text'>销量<text class='group-num'>{{item.sales_volume+(item.inital_sales_volume||0)}}</text>件</text>
+                             <image class='group-buy-logo' src='../../../images/shoping-logo.png'></image> 
+                            </view>
+                            <view class='flex j-b'>
+                                <view class='money-light flex'>
+                                    <view class='flex group-shop-price'>
+                                    <text class='money-symbol-price'>￥</text>
+                                    <text>{{item.groupon_price!= null?item.groupon_price:item.shop_price}}
+                                    </text>
+                                    
+                                    </view>
+                                    <view class='groupon-right'>
+                                         <text>单买价</text>
+                                        <text class='unit-symbols'>¥</text>
+                                        <text class='unit-price-num'>{{item.shop_price}}</text>
+                                    </view>
+                                    
+                                </view>
+                                
+                            </view>
+
+                        </view>
+                       
+                    </view>
+                </navigator>
+              </view>
+                <view class='no-more' hidden='{{!noMore}}'>
+                    <text>没有数据了</text>
+                </view>
+            </scroll-view>
+        </view>
+
+        <!-- 商品列表 end -->
+
+    </view>
+
+</view>
+<my-tabbar tabbar="{{tabbar}}"></my-tabbar>

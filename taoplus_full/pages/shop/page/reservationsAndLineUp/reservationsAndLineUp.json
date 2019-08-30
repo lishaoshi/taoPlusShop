@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "my-tab": "../../components/tab/tab",
+        "bind_phone": "../../components/bind_phone/bind_phone"
+    },
+    "navigationBarTitleText": "预定"
+}

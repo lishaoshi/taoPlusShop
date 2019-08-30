@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "my-tab": "../../components/tab/tab",
+    "bind_phone": "../../components/bind_phone/bind_phone",
+    "coupon-modal":"../../components/coupon_modal/coupon_modal"
+  },
+"navigationBarTitleText": "商店名称" ,
+ "enablePullDownRefresh": false,
+ "disableScroll": true
+} 

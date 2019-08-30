@@ -1,0 +1,58 @@
+<view class="bag_coupon">
+    <view class="pay_redbag flex d-r j-b a-c" data-id="{{ currentCoupon.id }}">
+      <label>
+        <view class="pay_redbag_info flex j-b">
+          <view class="info_money flex a-c">
+            <text class="info_money_sign">¥</text>
+            <text class="info_money_num">{{ currentCoupon.amount }}</text>
+          </view>
+          <view class="info_desc flex d-c">
+            <view class="info_desc_name">
+              {{ currentCoupon.alias == 'RED_PAPER_COUPON' ? (currentCoupon.couponName || '')+'红包' : currentCoupon.alias == 'NORMAL_COUPON' ? (currentCoupon.couponName || '')+'代金券' : '其它' }}
+            </view>
+            <view>
+              <text decode='true'>·&nbsp;{{ currentCoupon.couponStartTime ? currentCoupon.couponStartTime+'至'+currentCoupon.couponEndTime : '永久' }}</text>
+            </view>
+            <view>
+              <text decode='true'>·&nbsp;{{ currentCoupon.satisfactionAmount ? '满'+currentCoupon.satisfactionAmount+'元可用' : '不限制使用' }}</text>
+            </view>
+          </view>
+          <view class="pay_redbag_get flex d-c a-c j-c">
+            <!-- <radio value="{{ currentCoupon.id }}" disabled="{{currentCoupon.noUse}}"/> -->
+            <!-- <button type="primary" size="mini">使用</button> -->
+
+            <!-- <button type="primary" size="mini" bindtap="useCoupon" data-id="{{ currentCoupon.id }}" data-target-id="{{currentCoupon.targetId}}">使用</button> -->
+            <button size="mini" disabled="true">{{ currentCoupon.shopName }}</button>
+            
+          </view>
+        </view>
+      </label>
+    </view>
+
+    <!-- <view class="giftTip">
+      <text>{{ giftTip }}</text>
+    </view> -->
+    <view class="giftTip">
+      <text>您的优惠券将于24小时后失效，请赶紧领取</text>
+    </view>
+
+    <button class="gift_btn" type="warn" wx:if="{{ currentCoupon.status == 3 }}" bindtap="getGift" data-id="{{ currentCoupon.id }}">领取</button>
+    <button class="gift_btn git_btn_after" disabled="true"  wx:else >已被领取</button>
+
+    <view class="gotoShop">
+      <navigator bindtap="useCoupon" data-id="{{ currentCoupon.id }}" data-target-id="{{currentCoupon.targetId}}">快去商家购买吧</navigator>
+    </view>
+    
+  </view>
+
+  <view wx:if="{{userButton}}">
+    <view class='bind-phone-box fixed t-c'>
+        <view  class="content">
+            <text>为了更好的用户体验，需获取您的用户头像及昵称</text>
+        </view>
+
+        <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="authorization" hover-class="none">点击获取</button>
+    </view>
+    <view class='mask' v-if></view>
+</view>
+

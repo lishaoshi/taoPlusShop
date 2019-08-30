@@ -1,0 +1,40 @@
+<!--components/gift_detail/gift_detail.wxml-->
+<view class="bag_coupon">
+    <view class="pay_redbag flex d-r j-b a-c {{currentCoupon.noUse ? 'noUseBg':'' }}" data-id="{{ currentCoupon.id }}">
+      <label>
+        <view class="pay_redbag_info flex j-b">
+          <view class="info_money flex a-c">
+            <text class="info_money_sign">¥</text>
+            <text class="info_money_num">{{ currentCoupon.amount }}</text>
+          </view>
+          <view class="info_desc flex d-c">
+            <view class="info_desc_name">
+              {{ currentCoupon.alias == 'RED_PAPER_COUPON' ? (currentCoupon.couponName || '')+'红包' : currentCoupon.alias == 'NORMAL_COUPON' ? (currentCoupon.couponName || '')+'代金券' : '其它' }}
+            </view>
+            <view>
+              <text decode='true'>·&nbsp;{{ currentCoupon.couponStartTime ? currentCoupon.couponStartTime+'至'+currentCoupon.couponEndTime : '永久' }}</text>
+            </view>
+            <view>
+              <text decode='true'>·&nbsp;{{ currentCoupon.satisfactionAmount ? '满'+currentCoupon.satisfactionAmount+'元可用' : '不限制使用' }}</text>
+            </view>
+          </view>
+          <view class="pay_redbag_get flex d-c a-c j-c">
+            <!-- <radio value="{{ currentCoupon.id }}" disabled="{{currentCoupon.noUse}}"/> -->
+            <!-- <button type="primary" size="mini">使用</button> -->
+
+            <!-- <button type="primary" size="mini" bindtap="useCoupon" data-id="{{ currentCoupon.id }}" data-target-id="{{currentCoupon.targetId}}">使用</button> -->
+            <button size="mini" disabled="true">{{ currentCoupon.shopName }}</button>
+            
+          </view>
+        </view>
+      </label>
+    </view>
+
+    <!-- <textarea class="gift_tip" bindinput="inputeidt" auto-focus="true" placeholder="小小卡片, 浓浓情意" value="{{ gift_tip }}"></textarea> -->
+
+    <button class="gift_btn" type="warn" open-type="share" wx:if="{{ afterCoupon.status == 1 }}">转赠</button>
+    <button class="gift_btn" type="warn"  open-type="share"  wx:if="{{ afterCoupon.status == 3 }}">再次转赠</button>
+    <button class="gift_btn" type="default" disabled="true" wx:if="{{ afterCoupon.status == 2 }}">已使用</button>
+    <button class="gift_btn" type="default" disabled="true" wx:if="{{ afterCoupon.status == 4 }}">已转赠</button>
+    
+  </view>

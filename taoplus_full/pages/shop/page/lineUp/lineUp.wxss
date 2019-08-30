@@ -1,0 +1,3 @@
+/* pages/lineUp/lineUp.wxss */
+
+@import '../add_address/add_address.wxss';

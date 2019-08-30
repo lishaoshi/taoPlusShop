@@ -1,0 +1,36 @@
+<!--pages/order/order.wxml-->
+<!-- <text class='order-title block'>全部订单</text> -->
+
+<view class='order-list'>
+
+    <!--第一种  -->
+    <view class='order-list-item clear' wx:for="{{order_list}}" wx:key="order">
+        <image class='order-list-item-img  fl' mode='aspectFill' src='{{item.path}}'></image>
+
+        <view class='order-list-item-info'>
+        <navigator url='../order_detail/order_detail?orderId={{item.order_id}}'>
+            <view class='order-list-item-info-top clear'>
+                <text class='v-m'>{{item.shop_name}}</text>
+                <image class='order-list-item-info-icon v-m' src='../../images/arrow-right.png'></image>
+                <text class='order-list-item-info-text fr'>{{item.pay_status_text}}</text>
+            </view>
+            <text class='order-list-item-info-time block'>{{item.createTime}}</text>
+            <view class='flex j-b order-list-item-info-foot'>
+                <text>{{item.orderDetailsList[0].name}}等{{item.orderDetailsList.length}}件商品</text>
+                 <view class=' red-money i-b'><text class='symbol'>￥</text> <text>{{item.actual_price}}</text></view>
+            </view>
+        </navigator>
+            <view class='order-list-item-btns'>
+                <!-- <navigator class='order-list-item-btn more  i-b' wx:if="{{item.order_status == 2}}">再来一单</navigator> -->
+                <!-- <navigator class='order-list-item-btn estimate i-b' url="../comment/comment?orderId={{item.order_id}}" wx:if="{{item.order_status == 1 && !item.is_evaluate}}">评论商品</navigator> -->
+                <navigator class='order-list-item-btn estimate i-b' url='../payment/payment?sumMoney={{item.actual_price}}&orderId={{item.order_id}}&shopName={{item.shop_name}}' wx:if="{{item.order_status == 1}}">去支付</navigator>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class='t-gray no-more' wx:if="{{!loadMore}}">没有更多数据</view>
+
+<my-tab></my-tab>
+<bind_phone bind:bindphonecb="bindPhoneCbFn" phone-show="{{phoneShow}}"></bind_phone>
+

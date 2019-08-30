@@ -1,0 +1,18 @@
+/* components/spread/spread.wxss */
+.imagesize{
+ display:flex;                    
+ justify-content: center;        
+}
+
+.gotoBtns{
+  position: fixed;
+  bottom:200rpx;
+  width:100%;
+}
+.gotoBtns .btns{
+  display: flex;
+  justify-content: space-around;
+}
+.gotoBtns .btns button{
+  width:25%;
+}

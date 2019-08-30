@@ -1,0 +1,15 @@
+<!--components/spread/spread.wxml-->
+<view>
+  <view class="imagesize">
+    <image src="{{ qrCode }}" show-menu-by-longpress mode="widthFix" style="margin:0 auto;text-align:center;"></image>
+  </view>
+  <view style="dispaly:block;width:100%;text-align:center;"><text >(可长按识别二维码)</text></view>
+
+<view class="gotoBtns">
+  <view class="btns">
+    <button type="primary" size="mini" bindtap="saveImg"> 保存 </button>
+    <button type="primary" size="mini" bindtap="shareImg"  open-type="share"> 分享 </button>
+  </view>
+
+</view>
+</view>

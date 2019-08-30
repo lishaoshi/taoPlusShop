@@ -1,0 +1,10 @@
+<view wx:if="{{isShow}}">
+    <view class='bind-phone-box fixed t-c'>
+        <view class='bind-phone-title'>
+            <text>为了更好的用户体验,需绑定您的手机号码</text>
+        </view>
+        <button class='bind-phone-btn' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" hover-class="none">点击绑定</button>
+    </view>
+    <view class='mask'></view>
+    
+</view>

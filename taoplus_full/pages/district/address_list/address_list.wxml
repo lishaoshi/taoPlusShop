@@ -1,0 +1,41 @@
+<!--pages/address_list/address_list.wxml-->
+<view class='container'>
+  <view class='address' wx:for="{{addressList}}">
+    <view class='detail-all flex  d-c' bindtap='choiceFn' data-id="{{item.user_address_id}}" 
+    data-index="{{index}}">
+      <view class='address-name'>
+        <text class='address-left'>{{item.user_name}}</text>
+        <text class='address-right'>{{item.mobile}}</text>
+      </view>
+      <view class='address-detail'>
+        <text>{{item.address}}</text>
+      </view>
+    </view>
+    <view class='address-default flex '>
+      <view data-index="{{index}}" class="{{item.is_default!=1? 'fade-out':''}}">
+        <radio class='v-m' checked="{{item.is_default==1}}"></radio>
+        <!-- <image class='v-m img-path' src='{{item.imgPath}}'></image> -->
+        <text class='v-m' class="a" >默认地址</text>
+      </view>
+      <view class='manag-address flex'>
+ <navigator class='address-edit' url='../edit_address/edit_address?userAddressId={{item.user_address_id}}'>
+          <image class='v-m img' src='../../../images/address_ic_edit.png'></image>
+          <text class='v-m'>编辑</text>
+        </navigator>
+        <view class='address-delete' bindtap='modalcntFn' data-id="{{item.user_address_id}}" data-index="{{index}}">
+          <image class='v-m img' src='../../../images/address_ic_del.png'></image>
+          <text class='v-m' >删除</text>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+  <view class='no-more' hidden='{{!noMore}}'>
+    <text>暂时没有数据</text>
+  </view>
+
+  <view class='add-address'>
+    <navigator url='../add_address/add_address' hover-class="navigator-hover">添加地址</navigator>
+  </view>
+</view>

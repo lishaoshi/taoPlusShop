@@ -1,0 +1,54 @@
+/* pages/my_collected/my_collected.wxss */
+
+@import '../../common.wxss';
+
+.collect-item {
+    padding: 37rpx;
+    color: #3F3F3F;
+    font-size: 21rpx;
+}
+
+.collect-img {
+    width: 120rpx;
+    height: 120rpx;
+}
+
+.collect-right {
+    margin-left: 145rpx;
+}
+
+.collect-title {
+    font-size: 28rpx;
+}
+
+.collect-text {
+    line-height: 65rpx;
+}
+
+.money {
+    font-size: 28rpx;
+}
+
+.collect-des {
+    width: 150rpx;
+    display: inline-block;
+    line-height: 30rpx;
+
+}
+
+.no-collected {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #F5F5F5;
+    font-size: 28rpx;
+    text-align: center;
+}
+
+.no-img {
+    width: 207rpx;
+    height: 198rpx;
+    margin: 337rpx auto 45rpx;
+}

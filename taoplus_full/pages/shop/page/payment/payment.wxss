@@ -1,0 +1,55 @@
+/* pages/payment/payment.wxss */
+
+@import '../../common.wxss';
+
+.payment {
+    color: #282828;
+    padding-top: 78rpx;
+    line-height: 1;
+    text-align: center;
+    font-size: 28rpx;
+}
+
+
+.payment-money {
+    font-size: 87rpx;
+    color: #FF6E0B;
+    line-height: 1;
+    padding: 54rpx 0 32rpx 0;
+}
+
+.payment-type {
+    width: 100%;
+    margin-top: 56rpx;
+}
+
+.type-item {
+    width: 650rpx;
+    margin: 25rpx auto;
+    border: 1px solid transparent;
+    box-shadow: 0 0 30rpx #ccc;
+    border-radius: 30rpx;
+    font-size: 42rpx;
+    color: #282828;
+    height: 150rpx;
+    line-height: 150rpx;
+}
+
+.type-item-image {
+    margin: 0 40rpx 0 80rpx;
+}
+
+.zhifubao {
+    width: 94rpx;
+    height: 76rpx;
+}
+
+.weixin {
+    width: 94rpx;
+    height: 74rpx;
+}
+
+.cash {
+    width: 94rpx;
+    height: 94rpx;
+}

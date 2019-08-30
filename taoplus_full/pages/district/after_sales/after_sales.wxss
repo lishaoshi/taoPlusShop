@@ -1,0 +1,64 @@
+/* pages/after_sales/after_sales.wxss */
+/* @import "../../common.wxss"; */
+page{
+background: #f5f5f5;
+}
+.container{
+  width: 100%;
+}
+.refund,.refund_type,.refund_reason{
+  width: 100%;
+  margin-left: 35rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+.refund text,.refund_type text,.refund_reason text{
+  color: #666666;
+  font-size: 28rpx;
+
+}
+.refund_num,.refund_sum{
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background-color: #ffffff;
+}
+.refund-reason-type{
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dddddd;
+}
+.refund_text,.refund_sum_text,.refund-reason-type text{
+  color: #333333;
+  font-size: 30rpx;
+  margin-left: 35rpx;
+}
+.refund-reason-type radio{
+  float: right;
+  margin-right: 20rpx;
+}
+.refund_amount{
+  margin-left: 30rpx;
+  color: #fe791d;
+  font-size: 36rpx;
+}
+.refund_day{
+  font-size: 30rpx;
+  margin-left: 35rpx;
+  color: #00a0fc;
+}
+.submit{
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+  height: 96rpx;
+  line-height: 96rpx;
+  text-align: center;
+  background-color: #fe791d;
+}
+.submit-text{
+  color: #ffffff;
+  font-size: 36rpx;
+}

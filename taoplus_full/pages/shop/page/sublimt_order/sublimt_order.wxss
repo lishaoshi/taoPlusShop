@@ -1,0 +1,351 @@
+/* pages/sublimt_order/sublimt_order.wxss */
+@import '../../common.wxss';
+
+page {
+    background: #eee;
+    padding-bottom: 30rpx;
+}
+
+.submit-head, .submit-list, .sublimt-remarks {
+    margin: 22rpx 0;
+    background: #fff;
+    color: #3f3f3f;
+    font-size: 30rpx;
+}
+.submit-head{
+     margin: 22rpx 0rpx;
+}
+
+.submit-head-item {
+    line-height: 123rpx;
+    padding: 0 17rpx;
+}
+
+.choise-btn {
+    width: auto;
+    padding: 0 15rpx;
+    height: 53rpx;
+    line-height: 53rpx;
+    text-align: center;
+    font-size: 25rpx;
+    color: #fff;
+    border-radius: 26rpx;
+    margin-right: 23rpx;
+    background: #ff6e0b;
+}
+
+.center_bottom {
+    width: 94%;
+    height: 98rpx;
+    line-height: 98rpx;
+    background-color: #fff;
+    padding: 0 3% 0 3%;
+}
+.w-60 {
+    width: 60%;
+    height: 120rpx;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.submit_btn {
+    width: 248rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    background-color: #fe791d;
+    border-radius: 8rpx;
+}
+
+.foot {
+    width: 100%;
+    height: 120rpx;
+    position: fixed;
+    bottom: 0rpx;
+    z-index: 999;
+    margin: 0rpx auto;
+    text-align: center;
+    background-color: #fff;
+    align-items: center;
+}
+.submit-head-item-icon {
+    width: 12rpx;
+    height: 23rpx;
+    margin-right: 20rpx;
+}
+
+.submit_order {
+    color: #fff;
+    font-size: 36rpx;
+}
+
+.sum-real {
+    color: #333;
+    font-size: 28rpx;
+}
+
+.symbol {
+    color: #111;
+    font-size: 24rpx;
+}
+
+.sum-num {
+    color: #111;
+    font-size: 34rpx;
+}
+
+.money-back {
+    color: #333;
+    margin-top: 10rpx;
+    font-size: 28rpx;
+}
+
+.symbol {
+    margin-left: 10rpx;
+}
+
+.must {
+    color: #999;
+    font-size: 30rpx;
+    margin-left: 10rpx;
+    width: 100%;
+    /* margin-top: 29rpx; */
+}
+
+.block {
+    display: block;
+}
+
+.submit-head-item {
+    line-height: 123rpx;
+    padding: 0 17rpx;
+    font-size: 30rpx;
+}
+
+.choise-btn {
+    width: auto;
+    padding: 0 15rpx;
+    height: 53rpx;
+    line-height: 53rpx;
+    text-align: center;
+    font-size: 25rpx;
+    color: #fff;
+    border-radius: 26rpx;
+    margin-right: 23rpx;
+    background: #ff6e0b;
+}
+
+.submit-head-item-icon {
+    width: 10rpx;
+    height: 18rpx;
+    margin-right: 10rpx;
+}
+
+.has-address {
+    width: 90%;
+    font-size: 28rpx;
+    color: #3f3f3f;
+    padding: 25rpx 0 30rpx 0;
+    line-height: 50rpx;
+}
+
+.has-address-bottom {
+    font-size: 25rpx;
+}
+
+.submit-head-item-text {
+    margin-right: 15rpx;
+}
+
+.address-class {
+    height: 123rpx;
+    line-height: 123rpx;
+}
+
+.w-70 {
+    width: 70%;
+}
+
+
+
+.w-40 {
+    width: 35%;
+    margin-top: 22rpx;
+}
+
+.h-60 {
+    height: 60rpx;
+    line-height: 60rpx;
+}
+
+.line {
+    color: #eee;
+    width: 1rpx;
+    height: 3rpx;
+}
+
+.center-inner {
+    margin-top: 20rpx;
+    height: 98rpx;
+    line-height: 98rpx;
+    /* align-items: center; */
+}
+
+.must {
+    color: #999;
+    font-size: 30rpx;
+    margin-left: 10rpx;
+    width: 100%;
+    /* margin-top: 29rpx; */
+}
+
+.w-70 {
+    width: 70%;
+}
+
+.group {
+    width: 18%;
+    color: #333;
+    font-size: 30rpx;
+}
+
+.item-icon {
+    width: 12rpx;
+    height: 23rpx;
+    margin-right: 30rpx;
+    /* margin-top: 40rpx; */
+    margin-left: 15rpx;
+}
+
+.remark {
+    width: 93%;
+    height: 88rpx;
+    line-height: 88rpx;
+    background-color: #fff;
+    padding: 0 5% 0 2%;
+}
+
+.submit-head-item-icon {
+    width: 10rpx;
+    height: 18rpx;
+    margin-right: 10rpx;
+}
+
+.has-address {
+    width: 90%;
+    font-size: 28rpx;
+    color: #3f3f3f;
+    padding: 25rpx 0 30rpx 0;
+    line-height: 50rpx;
+}
+
+.has-address-bottom {
+    font-size: 25rpx;
+}
+
+.submit-head-item-text {
+    margin-right: 15rpx;
+}
+
+.seat {
+    padding-left: 15rpx;
+    color: red;
+    font-weight: bold;
+}
+
+/*订单列表 star  */
+
+.submit-list {
+    padding: 0 20rpx;
+}
+
+.list2-view-item-foot-money {
+    font-weight: 700;
+    font-size: 30rpx;
+    color: #fe4c40;
+    vertical-align: middle;
+    line-height: 30rpx;
+}
+
+.submit-list-head {
+    font-size: 33rpx;
+    line-height: 1;
+    padding: 45rpx 0 45rpx 0;
+}
+
+.submit-list-box {
+    margin-top: 40rpx;
+}
+
+.submit-list-item {
+    margin-bottom: 36rpx;
+    font-size: 28rpx;
+    color: #3f3f3f;
+    line-height: 1;
+}
+
+.submit-list-item-img {
+    width: 99rpx;
+    height: 99rpx;
+    border-radius: 10rpx;
+    margin-right: 20rpx;
+}
+
+.submit-list-item-info-num {
+    margin-right: 46rpx;
+}
+
+.submit-list-foot {
+    text-align: right;
+    line-height: 92rpx;
+    font-size: 28rpx;
+    color: #3f3f3f;
+}
+
+.submit-list-foot-sum {
+    font-size: 25rpx;
+    margin-right: 20rpx;
+}
+
+/*订单列表 end  */
+
+/*备注/餐具份数/发票 star  */
+
+.sublimt-remarks {
+    font-size: 28rpx;
+    padding: 0 20rpx 0 24rpx;
+    line-height: 113rpx;
+    align-items: center;
+}
+
+.sublimt-remarks-text {
+    width: 90%;
+}
+
+/*备注/餐具份数/发票 end  */
+
+.submit-tip {
+    font-size: 22rpx;
+    color: #8f8f8f;
+    text-align: right;
+    padding: 37rpx 33rpx 115rpx 0;
+}
+
+.submit-foot {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    background: #fff;
+}
+
+.submit-btn {
+    width: 187rpx;
+    height: 100%;
+    text-align: center;
+    font-size: 28rpx;
+    color: #fff;
+    background: #ff6e0b;
+}

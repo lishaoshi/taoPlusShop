@@ -1,0 +1,39 @@
+/* pages/detailed/detailed.wxss */
+@import "../../../common.wxss";
+
+page {
+    background: #f5f5f5;
+}
+
+.detailed-list {
+    margin-top: 15rpx;
+    background: #fff;
+}
+
+.list-item {
+    padding:  0 20rpx;
+}
+
+.list-item-title {
+    font-size: 34rpx;
+    color: #333;
+    padding-top: 27rpx;
+}
+
+.list-item-time {
+    font-size: 30rpx;
+    color: #999;
+    padding: 31rpx 0;
+}
+
+.list-item-add {
+    line-height: 144rpx;
+    font-size: 38rpx;
+    color: #f36300;
+}
+
+.list-item-reduce {
+    line-height: 144rpx;
+    font-size: 38rpx;
+    color: #12925a;
+}

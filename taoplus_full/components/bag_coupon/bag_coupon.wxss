@@ -1,0 +1,74 @@
+/* components/bag_coupon/bag_coupon.wxss */
+/* components/pay_after/pay_after.wxss */
+@import '../../common.wxss';
+
+.pay_redbag{
+  box-sizing:border-box;
+  width:90%;
+  padding:20rpx 10rpx;
+  margin:0rpx auto; 
+  /* border-top:1px solid #e4e4e4; */
+  /* border-bottom:1px solid #e4e4e4; */
+  position: relative;
+}
+/* .noUseBg::after{
+  color:#ccc !important;
+  box-sizing:border-box;
+  position: absolute;
+  content:'';
+  width:98%;
+  height: 80%;
+  background: rgba(0,0,0,0.3);
+} */
+.pay_redbag>label{
+  width:94%;
+}
+
+.pay_redbag_info{
+  width:100%;
+  background: #f6f6f6;
+  border-radius:12rpx;
+  padding:20rpx;
+}
+.pay_redbag_info .info_money{
+  color:#f32d5d;
+  margin-right:24rpx;
+}
+.pay_redbag_info .info_money .info_money_sign{
+  font-size:24rpx;
+  margin:0 4rpx;
+  margin-top:14rpx;
+}
+.pay_redbag_info .info_money .info_money_num{
+  font-size:80rpx;
+}
+.pay_redbag_info .info_desc view{
+  margin:6rpx 0;
+  margin-right:10rpx;
+  color:#949796;
+  font-size:28rpx;
+}
+.pay_redbag_info .info_desc .info_desc_name{
+ color:#393c3b;
+ font-size:36rpx;
+ font-weight: bold;
+}
+
+/* 
+.pay_redbag text{
+  padding:16rpx 100rpx;
+  border-radius:100rpx;
+  background:#fff630;
+  color:red;
+} */
+
+.pay_redbag button{
+  font-size:28rpx;
+  margin-right:0;
+  width:120rpx;
+}
+
+.pay_done button{
+  margin-top:320rpx;
+  width:54%;
+}
