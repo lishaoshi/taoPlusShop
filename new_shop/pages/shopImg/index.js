@@ -132,7 +132,7 @@ Page({
           this.data.environmentImg.push(data[j])
           let key = `targetArr[2].length`
           this.setData({
-            environmentImg: this.data.environmentImg.push(data[j]),
+            environmentImg: this.data.environmentImg,
             [key]: this.data.environmentImg.length
           })
         } else if (data[j].type == 5) {
@@ -142,8 +142,11 @@ Page({
             otherImg: this.data.otherImg,
             [key]: this.data.otherImg.length
           })
+         
         }
+      
       }
+    console.log(this.data.environmentImg)
     this.data.currentIndex == 0 && this.setData({ targetList: this.data.logoImg})
     this.data.currentIndex == 1 && this.setData({ targetList: this.data.headerImg})
     this.data.currentIndex == 2 && this.setData({ targetList: this.data.environmentImg})

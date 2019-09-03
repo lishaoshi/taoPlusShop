@@ -1,5 +1,6 @@
 import shopPayBalance from '../../api/shopPayBalance.js'
 let shopPayBalanceModel = new shopPayBalance()
+const app = getApp()
 // pages/merchant_entry/index.js
 Page({
 
@@ -35,6 +36,13 @@ Page({
     wx.navigateTo({
       url: '/pages/shopDetailInfo/index?isIn=1',
     })
+  },
+
+  // 获取商家登陆缓存数据
+  _getShopPayAmount() {
+    let data = wx.getStorageSync('shopLoginInfo')
+    app.globalData.userId = data.user_id
+    app.globalData.token = data.token
   },
 
   // 拨打电话

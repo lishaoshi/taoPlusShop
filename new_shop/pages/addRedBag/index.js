@@ -45,19 +45,26 @@ Page({
 
 // 时间变动触发
   bindTimeChange(e) {
-    var arr = this.data.dateTime, dateArr = this.data.dateTimeArray;
-    arr = e.detail.value;
-    dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
-    this.setData({
-      dateTimeArray: dateArr,
-      dateTime: arr
-    });
+    // var arr = this.data.dateTime, dateArr = this.data.dateTimeArray;
+    // arr = e.detail.value;
+    // dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
+    // this.setData({
+    //   dateTimeArray: dateArr,
+    //   dateTime: arr
+    // });
+    // let flag = e.currentTarget.dataset.timeflag
+    // let key = `redBagInfo.${flag}`
+    // let data = `${this.data.dateTimeArray[0][this.data.dateTime[0]]}-${this.data.dateTimeArray[1][this.data.dateTime[1]]}-${this.data.dateTimeArray[2][this.data.dateTime[2]]} ${this.data.dateTimeArray[3][this.data.dateTime[3]]}:${this.data.dateTimeArray[4][this.data.dateTime[4]]}:${this.data.dateTimeArray[5][this.data.dateTime[5]]}`
+    // this.setData({
+    //   [key]: data
+    // })
     let flag = e.currentTarget.dataset.timeflag
+    let data = e.detail.value;
     let key = `redBagInfo.${flag}`
-    let data = `${this.data.dateTimeArray[0][this.data.dateTime[0]]}-${this.data.dateTimeArray[1][this.data.dateTime[1]]}-${this.data.dateTimeArray[2][this.data.dateTime[2]]} ${this.data.dateTimeArray[3][this.data.dateTime[3]]}:${this.data.dateTimeArray[4][this.data.dateTime[4]]}:${this.data.dateTimeArray[5][this.data.dateTime[5]]}`
     this.setData({
       [key]: data
     })
+    console.log(data)
   },
 
   // 获取所有输入框内容

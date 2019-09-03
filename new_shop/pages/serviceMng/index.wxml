@@ -13,17 +13,19 @@
 
 
   <view class="right">
-    <checkbox-group bindchange="checkboxChange">
+    
       <block wx:for="{{dataList}}" wx:key="{{item.floor_seat_id}}">
-        <view class="room-list" bindtap="editRoom" data-item="{{item}}">
-          <view>{{item.seat_name}}</view>
+        <view class="room-list" data-item="{{item}}">
+          <view catchtap="editRoom">{{item.seat_name}}</view>
           <view wx:if="{{!flagDel}}">{{item.seat}}</view>
-          <label class="checkbox">
-          <checkbox wx:if="{{flagDel}}" value="{{item.floor_seat_id}}" checked="{{item.checked}}"/>{{item.value}}
-          </label>
+          <checkbox-group bindchange="checkboxChange">
+            <label class="checkbox">
+            <checkbox wx:if="{{flagDel}}" value="{{item.floor_seat_id}}" checked="{{item.checked}}"/>{{item.value}}
+            </label>
+           </checkbox-group>
         </view>
       </block>
-    </checkbox-group>
+   
     <view class="addRoom" bindtap="goAddRoom">
       <text>添加</text>
       <image src="/images/icon-table.png"></image>

@@ -103,6 +103,9 @@ Page({
       }
       goodsMngModel.addGoodsType(data).then(res=>{
         showToast('添加成功')
+        this.setData({
+          className:''
+        })
         this._queryGoodsTypeList()
       })
 
@@ -125,13 +128,16 @@ Page({
 
   // 点击排序
   sortTypleList(e) {
-    // console.log(e)
     let index = e.currentTarget.dataset.index
+    
     if(index==0) {
-      let arr = this.data.dataList.splice(index, 1, this.data.dataList[index + 1])
-      this.data.dataList.splice(index+1, 1, arr[0])
+      let arr = [...this.data.dataList]
+      arr[1] = arr.splice(index, 1, arr[index + 1])[0]
+      arr.forEach((item, key, arr) => {
+        arr[key].sort = key + 1
+      })
       this.setData({
-        dataList: this.data.dataList
+        dataList: arr
       })
       return
     }

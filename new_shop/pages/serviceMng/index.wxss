@@ -16,7 +16,7 @@ page {
   color: #fff;
   font-size: 22rpx;
   border-radius: 40rpx;
-
+  min-width: 60rpx;
   /* padding: 0 16rpx; */
 }
 .list {
@@ -44,6 +44,8 @@ page {
 }
 checkbox-group {
   display: flex;
+  justify-content: center;
+  padding-top: 10rpx;
 }
 .room-list {
   width: 140rpx;
@@ -54,8 +56,10 @@ checkbox-group {
   font-size: 24rpx;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   margin-right: 10rpx;
+}
+.room-list > view:first-child {
+  padding-top: 30rpx;
 }
 .addRoom > image {
   width: 22rpx;

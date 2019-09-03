@@ -112,10 +112,11 @@ Page({
 
   // 拼团类型
   bindPickerChange(e) {
-    // console.log(e)
+    console.log(e)
     let type = e.detail.value+1
     this.setData({
-      grouponGoodsType: type
+      grouponGoodsType: type,
+      index: e.detail.value
     })
   },
 
@@ -211,7 +212,9 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    let pages = getCurrentPages()
+    let prePage = pages[pages.length-2]
+    prePage._getGroupList()
   },
 
   /**

@@ -50,7 +50,7 @@
 
     <view>
       <text>开始经营时间</text>
-       <picker value="{{util.time(startTime)}}" mode="time" bindchange="handleTime" data-flag="start" start="06:00" end="07:01">
+       <picker value="{{util.time(startTime)}}" mode="time" bindchange="handleTime" data-flag="start">
         <view class="picker time">
           <text wx:if="{{!startTime}}">请选择开始营业时间</text>
           {{util.time(startTime)}}
@@ -62,7 +62,7 @@
 
     <view>
       <text>结束经营时间</text>
-       <picker mode="time" value="{{util.time(endTime)}}" bindchange="handleTime" data-falg="end" start="06:00:00" >
+       <picker mode="time" value="{{util.time(endTime)}}" bindchange="handleTime" data-falg="end">
         <view class="picker time">
           <text wx:if="{{!endTime}}">请选择结束营业时间</text>
           {{util.time(endTime)}}

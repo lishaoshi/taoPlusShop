@@ -196,15 +196,20 @@ Page({
     }
     let data = {
       mobile: this.data.upMobile,
-      password: this.upPsw,
+      password: this.data.upPsw,
       vCode: this.data.vCode
     }
     loginModel.registerAPP(data).then(res=>{
       showToast(res.message, 1000)
       if(res.code==0) {
         this.setData({
-          hidden_login: true,
-          hidden_register: false
+          upPsw: '',
+          vCode: '',
+          upMobile: '',
+          hidden_login: false,
+          hidden_register: true,
+          c_w: "white",
+          c_b: "black"
         })
       }
     })
@@ -264,12 +269,17 @@ Page({
       hidden_login: false,
       hidden_register: true,
       c_w: "white",
-      c_b: "black"
+      c_b: "black",
+      password: '',
+      mobile: ''
     })
   },
 
   register: function (e) {
     this.setData({
+      upPsw: '',
+      vCode:'',
+      upMobile: '',
       hidden_login: true,
       hidden_register: false,
       c_w: "black",

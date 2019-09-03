@@ -44,7 +44,7 @@
     <view>
       <text class="foure">拼团类型</text>
       <view>
-        <picker bindchange="bindPickerChange" data-index="{{index}}" value="{{index}}" range="{{array}}">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
           <view class="pickers" style="height: 100%;width:100%;">
             {{array[index]}}
           </view>

@@ -65,6 +65,7 @@ App({
       this.globalData.userId = data.user_id
       this.globalData.shopId = data.shop_id
     } else {
+      wx.clearStorageSync()
       wx.reLaunch({
         url: '/pages/login/login',
       })

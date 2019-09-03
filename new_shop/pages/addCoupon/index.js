@@ -34,10 +34,10 @@ Page({
       }
     ],
     isEdit: false,
-    startYear: 2000,
-    endYear: 2050,
-    dateTime: null,
-    dateTimeArray: null 
+    // startYear: 2000,
+    // endYear: 2050,
+    // dateTime: null,
+    // dateTimeArray: null 
   },
 
   /**
@@ -47,16 +47,19 @@ Page({
     // console.log(options.item)
     this.getCouponInfo(options.item)
     // 获取完整的年月日 时分秒，以及默认显示的数组
-    var obj = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
-    console.log(obj)
-    this.setData({
-      dateTime: obj.dateTime,
-      dateTimeArray: obj.dateTimeArray
-    });
+    // var obj = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
+    // console.log(obj)
+    // this.setData({
+    //   dateTime: obj.dateTime,
+    //   dateTimeArray: obj.dateTimeArray
+    // });
+
+
   },
 
   //获取优惠券详情
   getCouponInfo(data) {
+    
     if (!data) {
       return
     }
@@ -65,6 +68,7 @@ Page({
     let key 
     if (info.canGiftGiving) key =`items[0].checked`
     else key = `items[1].checked`
+    console.log(info)
     this.setData({
       [key]: true,
       couponInfo: info,
@@ -74,21 +78,27 @@ Page({
 
   // 时间列变动出发
   bindTimeChange(e) {
+    // console.log(e)
+    // var arr = this.data.dateTime, dateArr = this.data.dateTimeArray;
+    // arr = e.detail.value;
+    // dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
+    // this.setData({
+    //   dateTimeArray: dateArr,
+    //   dateTime: arr
+    // });
+    // let flag = e.currentTarget.dataset.timeflag
+    // let key = `couponInfo.${flag}`
+    // // let data = `${this.data.dateTimeArray[0][this.data.dateTime[0]]}-${this.data.dateTimeArray[1][this.data.dateTime[1]]}-${this.data.dateTimeArray[2][this.data.dateTime[2]]} ${this.data.dateTimeArray[3][this.data.dateTime[3]]}:${this.data.dateTimeArray[4][this.data.dateTime[4]]}:${this.data.dateTimeArray[5][this.data.dateTime[5]]}`
+    // // this.setData({
+    // //   [key]: data
+    // // })
+    // console.log(this.data, key)
     console.log(e)
-    var arr = this.data.dateTime, dateArr = this.data.dateTimeArray;
-    arr = e.detail.value;
-    dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
-    this.setData({
-      dateTimeArray: dateArr,
-      dateTime: arr
-    });
-    let flag = e.currentTarget.dataset.timeflag
-    let key = `couponInfo.${flag}`
-    let data = `${this.data.dateTimeArray[0][this.data.dateTime[0]]}-${this.data.dateTimeArray[1][this.data.dateTime[1]]}-${this.data.dateTimeArray[2][this.data.dateTime[2]]} ${this.data.dateTimeArray[3][this.data.dateTime[3]]}:${this.data.dateTimeArray[4][this.data.dateTime[4]]}:${this.data.dateTimeArray[5][this.data.dateTime[5]]}`
+    let data = e.detail.value
+    let key = `couponInfo.${e.currentTarget.dataset.timeflag}`
     this.setData({
       [key]: data
     })
-    console.log(this.data, key)
   },
 
   // 获取所有输入框内容

@@ -224,7 +224,7 @@ Page({
 
   // 点击跳转相应模块
   goTarget(e) {
-    console.log(e)
+    // console.log(e)
     let url = e.currentTarget.dataset.url
     if(!url) {
       return
@@ -295,6 +295,7 @@ Page({
       shopId: app.globalData.shopId,
       workStatus: flag?1:2
     }
+    // console.log(data)
     indexMedel.setShopWorkStatus(data)
   },
   // 用户授权获取地理位置
@@ -339,6 +340,7 @@ Page({
           // console.log(res)
           showToast('支付成功')
           app.globalData.isPay = true
+          this._getShopInfo()
         },
         fail:(err)=>{
           showToast('取消支付')
@@ -396,8 +398,8 @@ Page({
       this.setData({
         shopName: res.result.shop_name,
         imgSrc: `${config.IMG}${res.result.portrait_url}`,
-        status: res.result.status==1?true:false,
-        type: res.result.status == 1 ? '营业中' : '休息中',
+        status: res.result.work_status==1?true:false,
+        type: res.result.work_status == 1 ? '营业中' : '休息中',
         price: res.result.newTime
       })
     })
