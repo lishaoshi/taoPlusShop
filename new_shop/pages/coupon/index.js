@@ -33,16 +33,18 @@ Page({
   },
 
   // 获取优惠券规则列表
-  _queryCouponRule() {
-    this.setData({
-      couponRuleList: []
-    })
+  _queryCouponRule(flag='') {
+    flag && this.setData({ couponRuleList: [], pageNo: 1})
     let data = {
       index: this.data.pageNo,
       pageSize: this.data.pageSize,
       alias: 'NORMAL_COUPON'
     }
     couponsModel.queryCouponRule(data).then(res=>{
+      res.records.forEach((item, index, arr)=>{
+        arr[index].couponStartTime = arr[index].couponStartTime.split(' ')[0]
+        arr[index].couponEndTime = arr[index].couponEndTime.split(' ')[0]
+      })
       this.setData({
         couponRuleList: [...this.data.couponRuleList, ...res.records],
         total: res.total

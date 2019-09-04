@@ -388,14 +388,15 @@ Page({
     }
     shopMngModel.addShop(data).then(res => {
       if (res.code == 0) {
-        let data = JSON.parse(res);
-        showToast(res.message)
-        let shopInfo = wx.getStorageSync('shopLoginInfo')
-        shopInfo.shop_id = data.result
-        wx.setStorageSync('shopLoginInfo', shopInfo)
+        // let data = JSON.parse(res);
+        showToast(res.message, 0, 'success')
+        // let shopInfo = wx.getStorageSync('shopLoginInfo')
+        // shopInfo.shop_id = data.result
+        // wx.setStorageSync('shopLoginInfo', shopInfo)
+        wx.clearStorageSync()
         setTimeout(()=>{
           wx.reLaunch({
-            url: '/pages/index/index',
+            url: '/pages/login/login',
           })
         }, 1000)
       } else if(data.code==167) {

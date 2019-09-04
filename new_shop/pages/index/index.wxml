@@ -8,7 +8,9 @@
       <text>{{shopName}}</text>
       <view class="arrow"></view>
     </view>
-    <switch color="rgb(21, 125, 243)" bindchange="changSwitch" checked="{{status}}">{{type}}</switch>
+   
+      <switch color="rgb(21, 125, 243)" bindchange="changSwitch" checked="{{status}}">{{type}}</switch>
+    
   </view>
 
   <!-- 今日收益 -->

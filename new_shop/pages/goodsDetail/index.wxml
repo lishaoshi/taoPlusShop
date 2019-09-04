@@ -22,9 +22,9 @@
     <text>￥ {{info.shop_price}}元</text>
   </view>
 
-  <view>
+  <view class="content">
     <text>商品描述</text>
-    <text>{{info.described}}</text>
+    <view>{{info.described}}</view>
   </view>
 
   <view class="edit" bindtap="goEditGoods">

@@ -23,10 +23,8 @@ Page({
   },
 
   //查询商家创建红包规则
-  _queryredBagRule() {
-    this.setData({
-      redRuleList: []
-    })
+  _queryredBagRule(flag) {
+    flag&&this.setData({ redRuleList: [], pageNo: 1})
     let data = {
       index: this.data.pageNo,
       pageSize: this.data.pageSize,
@@ -34,6 +32,12 @@ Page({
       // shopId: app.globalData.shopId
     }
     couponsModel.queryCouponRule(data).then(res => {
+      // console.log(res)
+      res.records.forEach((item, index, arr)=>{
+        // console.log(arr[index])
+        arr[index].couponStartTime = arr[index].couponStartTime.split(' ')[0]
+        arr[index].couponEndTime = arr[index].couponStartTime.split(' ')[0]
+      })
       this.setData({
         redRuleList: [...this.data.redRuleList,...res.records],
         total: res.total

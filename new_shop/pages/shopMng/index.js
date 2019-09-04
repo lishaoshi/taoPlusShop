@@ -32,6 +32,9 @@ Page({
     shopMngModel.getShopDetail(data).then(res=>{
       wx.setStorageSync('shopData', res.result)
       var shopPicList = res.result.shopPicList;
+      this.setData({
+        pic_list: {}
+      })
       shopPicList.forEach((item, index)=> {
         this.pushImg(item.type, item.path);
       });
@@ -46,16 +49,17 @@ Page({
   showImg() {
     // let IMG = `https://api.olb8.com`
     // console.log(this.data.pic_list)
-
+    console.log(this.data.pic_list)
     if (this.data.pic_list[2] && this.data.pic_list[2][0]) {
-      let url = `${config.IMG}${this.data.pic_list[2]}.th`
+      
+      let url = `${config.IMG}${this.data.pic_list[2][0]}.th`
       // console.log(url)
       this.setData({
         shopImgUrl: url
       })
     }
     if (this.data.pic_list[3] && this.data.pic_list[3][0]) {
-      let url = `${config.IMG}${this.data.pic_list[3]}.th`
+      let url = `${config.IMG}${this.data.pic_list[3][0]}.th`
       this.setData({
         shopImgUrl2: url
       })
@@ -71,18 +75,22 @@ Page({
 
   // 处理显示店铺图片
   pushImg(type, path) {
-    // console.log(pic_list[type]);
+    // console.log(type, path)
     if(this.data.pic_list[type]) {
+      let key = `pic_list${type}`
       let data = this.data.pic_list[type].push(path);
       this.setData({
-        pic_list: data
+        [key]: data
       })
     }else{
       let key = `pic_list[${type}]`
       this.data.pic_list[type] = []
       this.data.pic_list[type].push(path)
+      this.setData({
+        [key]: this.data.pic_list[type]
+      })
     }
-    // console.log(pic_list)
+    // console.log(this.data.pic_list)
   },
 
   /**

@@ -407,6 +407,7 @@ Page({
 
   // 控制营业状态
   changSwitch(e) {
+    console.log(e)
     if (!app.globalData.isPay) {
       wx.showModal({
         title: '提示',
@@ -426,6 +427,9 @@ Page({
       type
     })
     this._setShopWorkStatus(flag)
+  },
+  tabSwitch() { 
+    console.log('tab')
   },
 // 判断用户是否授权获取用户信息
   isUserAuth() {

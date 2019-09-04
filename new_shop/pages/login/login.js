@@ -182,6 +182,7 @@ Page({
 
   // 注册
   _signup() {
+    // console.log(this.data)
     if (!this.data.upMobile) {
       showToast('手机号不能为空')
       return

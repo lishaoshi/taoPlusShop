@@ -2,8 +2,8 @@
 <view class="container">
   <view class="form-box">
     <view>
-      <text>优惠券面额：</text>
-      <input placeholder="优惠券面额" value="{{redBagInfo.amount}}" bindblur="getInputValue" data-input="amount"></input>
+      <text>红包面额：</text>
+      <input placeholder="红包面额" value="{{redBagInfo.amount}}" bindblur="getInputValue" data-input="amount"></input>
     </view>
 
     <!-- <view>
@@ -60,7 +60,7 @@
 
     <view>
       <text>数量：</text>
-      <input placeholder="优惠券数量" value="{{redBagInfo.num}}" bindblur="getInputValue" data-input="num"></input>
+      <input placeholder="红包数量" value="{{redBagInfo.num}}" bindblur="getInputValue" data-input="num"></input>
     </view>
 
     <view>
@@ -117,8 +117,8 @@
     </view>
 
     <view>
-      <text>优惠券名称：</text>
-      <input placeholder="优惠券名称" value="{{redBagInfo.couponName}}" bindblur="getInputValue" data-input="couponName"></input>
+      <text>红包名称：</text>
+      <input placeholder="红包名称" value="{{redBagInfo.couponName}}" bindblur="getInputValue" data-input="couponName"></input>
     </view>
   </view>
 

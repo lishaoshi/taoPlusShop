@@ -15,6 +15,7 @@ const formatNumber = n => {
 }
 
 const showToast = function (title, duration, icon) {
+  // console.log(title, duration,icon )
   wx.showToast({
     title: title,
     duration: duration ? duration: 1500,
