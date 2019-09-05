@@ -37,7 +37,7 @@ Page({
    */
   onLoad: function (options) {
     this._queryGoodsTypeList()
-    this._queryGoodsList
+    // this._queryGoodsList()
   },
 
   // 点击商品类型

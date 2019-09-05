@@ -231,11 +231,12 @@ Page({
     if (type==1) {
       this.setData({
         isMap: false,
-        
+        natureStatus: type
       })
     } else {
       this.setData({
-        isMap: true
+        isMap: true,
+        natureStatus: type
       })
     }
   },

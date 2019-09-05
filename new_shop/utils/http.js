@@ -24,10 +24,11 @@ class http {
   constructor() {
     this.baseUrl = config.base_url;
   }
-  request(params = {}, flag = false) {
+  request(params = {}, flag=true) {
     // if (flag) {
     //   showLoading()
     // }
+    console.log(params, flag)
     flag && showLoading()
     if (!params.data) {
       params.data = {};

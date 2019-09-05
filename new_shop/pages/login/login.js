@@ -122,8 +122,12 @@ Page({
 
   // 点击获取验证码
   getCode() {
-    var compare = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    var compare = /^1(3|4|5|6|7|8|9)\d{9}$/;
     console.log(this.data.upMobile)
+    
+    if (this.data.flag) {
+      return
+    }
     if (!compare.test(this.data.upMobile)) {
       wx.showToast({
         title: '请输入正确的手机号！',
@@ -131,9 +135,6 @@ Page({
         image: '',
         duration: 1000
       })
-      return
-    }
-    if (this.data.flag) {
       return
     }
     this.setData({

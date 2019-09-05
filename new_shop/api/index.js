@@ -27,7 +27,7 @@ class index extends http {
       data: params
     }
     return this.awaitToken(data).then(data => {
-      return this.request(data)
+      return this.request(data, '123')
     })
   }
 

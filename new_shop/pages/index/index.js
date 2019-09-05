@@ -252,42 +252,42 @@ Page({
   },
 
   // 获取商家营业数据（今日收益、浏览人数、订单数、点评数、收藏数）
-  // _getBusinissInfo() {
-  //   let data = {
-  //     shopId: app.globalData.shopId
-  //   }
-  //   indexMedel.getBusinissInfo(data).then(res=>{
-  //     // this.data.iconList.forEach((item, index, arr)=>{
-  //       if(res.code==1000) {
-  //         wx.reLaunch({
-  //           url: '/pages/login/login',
-  //         })
-  //         return
-  //       }
-  //     let key = `iconList[0].count`
-  //       this.setData({
-  //         price: res.result.balance,
-  //         [key]: res.result.see_count
-  //       })
-  //     // for (let i = 0; i < this.data.iconList.length;i++) {
-  //     //   let key = `iconList[${i}].count`
-  //     //   // key =
-  //     //   if(i==0) {
-  //     //     this.setData({
-  //     //       [key]: res.result.see_count
-  //     //     })
-  //     //   } else if(i==1) {
-  //     //     this.setData({
-  //     //       [key]: res.result.collect_count
-  //     //     })
-  //     //   } else {
-  //     //     this.setData({
-  //     //       [key]: res.result.evaluate_man
-  //     //     })
-  //     //   }
-  //     //  }
-  //   })
-  // },
+  _getBusinissInfo() {
+    let data = {
+      shopId: app.globalData.shopId
+    }
+    indexMedel.getBusinissInfo(data).then(res=>{
+      // this.data.iconList.forEach((item, index, arr)=>{
+        if(res.code==1000) {
+          wx.reLaunch({
+            url: '/pages/login/login',
+          })
+          return
+        }
+      let key = `iconList[0].count`
+        this.setData({
+          price: res.result.balance,
+          [key]: res.result.see_count
+        })
+      // for (let i = 0; i < this.data.iconList.length;i++) {
+      //   let key = `iconList[${i}].count`
+      //   // key =
+      //   if(i==0) {
+      //     this.setData({
+      //       [key]: res.result.see_count
+      //     })
+      //   } else if(i==1) {
+      //     this.setData({
+      //       [key]: res.result.collect_count
+      //     })
+      //   } else {
+      //     this.setData({
+      //       [key]: res.result.evaluate_man
+      //     })
+      //   }
+      //  }
+    })
+  },
   // 设置商家营业状态
   _setShopWorkStatus(flag) {
     let data = {

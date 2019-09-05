@@ -322,9 +322,10 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    // let pages = getCurrentPages()
-    // let prevPage = pages[pages.length - 2]
-    // prevPage._queryGoodsTypeList()
+    let pages = getCurrentPages()
+    let prevPage = pages[pages.length - 2]
+    prevPage._queryGoodsTypeList()
+    // prevPage._queryGoodsList()
     // console.log(prevPage)
   },
 
