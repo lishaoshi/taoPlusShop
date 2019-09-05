@@ -229,7 +229,7 @@ Page({
     }
 
     let data = {
-      userId: app.globalData.userId,
+      userId: app.globalData.shopId,
       bankcardName: this.data.bankName,
       username: this.data.bankCardData.userName,
       bankcardNum: this.data.bankCardData.bankCardNum,
@@ -240,7 +240,7 @@ Page({
       identity: this.data.bankCardData.userIdCard, //身份证号
       vCode: this.data.bankCardData.code
     }
-    bankName.addBindBankCard(data).then(res => {
+    financialModel.addBindBankCard(data).then(res => {
       wx.showToast({
         title: '绑定成功'
       })

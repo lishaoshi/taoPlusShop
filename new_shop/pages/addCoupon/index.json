@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "button-box":"/components/button/button"
-  }
+  },
+  "navigationBarTitleText": "添加优惠券规则"
 }

@@ -3,9 +3,14 @@
   padding: 0 20rpx;
 }
 .form-box > view {
-  margin-top: 50rpx;
+  /* margin-top: 50rpx;
   display: flex;
-  align-items: center;
+  align-items: center; */
+    margin-top: 20rpx;
+    display: flex;
+    align-items: center;
+    padding-bottom: 30rpx;
+    border-bottom: 1px solid #999;
 }
 button-box {
   /* width: 80%; */

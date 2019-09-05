@@ -34,10 +34,10 @@ Page({
       }
     ],
     isEdit: false,
-    startYear: 2000,
-    endYear: 2050,
-    dateTime: null,
-    dateTimeArray: null 
+    // startYear: 2000,
+    // endYear: 2050,
+    // dateTime: null,
+    // dateTimeArray: null 
   },
 
   /**
@@ -47,24 +47,32 @@ Page({
     // console.log(options.item)
     this.getCouponInfo(options.item)
     // 获取完整的年月日 时分秒，以及默认显示的数组
-    var obj = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
-    console.log(obj)
-    this.setData({
-      dateTime: obj.dateTime,
-      dateTimeArray: obj.dateTimeArray
-    });
+    // var obj = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
+    // console.log(obj)
+    // this.setData({
+    //   dateTime: obj.dateTime,
+    //   dateTimeArray: obj.dateTimeArray
+    // });
+
+
   },
 
   //获取优惠券详情
   getCouponInfo(data) {
+    
     if (!data) {
       return
     }
     
     let info = JSON.parse(data)
+    info.couponEndTime && (info.couponEndTime = info.couponEndTime.split(' ')[0])
+    info.couponStartTime && (info.couponStartTime = info.couponStartTime.split(' ')[0])
+    info.ruleEndTime && (info.ruleEndTime = info.ruleEndTime.split(' ')[0])
+    info.ruleStartTime && (info.ruleStartTime = info.ruleStartTime.split(' ')[0])
     let key 
     if (info.canGiftGiving) key =`items[0].checked`
     else key = `items[1].checked`
+    // console.log(arr)
     this.setData({
       [key]: true,
       couponInfo: info,
@@ -74,21 +82,27 @@ Page({
 
   // 时间列变动出发
   bindTimeChange(e) {
+    // console.log(e)
+    // var arr = this.data.dateTime, dateArr = this.data.dateTimeArray;
+    // arr = e.detail.value;
+    // dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
+    // this.setData({
+    //   dateTimeArray: dateArr,
+    //   dateTime: arr
+    // });
+    // let flag = e.currentTarget.dataset.timeflag
+    // let key = `couponInfo.${flag}`
+    // // let data = `${this.data.dateTimeArray[0][this.data.dateTime[0]]}-${this.data.dateTimeArray[1][this.data.dateTime[1]]}-${this.data.dateTimeArray[2][this.data.dateTime[2]]} ${this.data.dateTimeArray[3][this.data.dateTime[3]]}:${this.data.dateTimeArray[4][this.data.dateTime[4]]}:${this.data.dateTimeArray[5][this.data.dateTime[5]]}`
+    // // this.setData({
+    // //   [key]: data
+    // // })
+    // console.log(this.data, key)
     console.log(e)
-    var arr = this.data.dateTime, dateArr = this.data.dateTimeArray;
-    arr = e.detail.value;
-    dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
-    this.setData({
-      dateTimeArray: dateArr,
-      dateTime: arr
-    });
-    let flag = e.currentTarget.dataset.timeflag
-    let key = `couponInfo.${flag}`
-    let data = `${this.data.dateTimeArray[0][this.data.dateTime[0]]}-${this.data.dateTimeArray[1][this.data.dateTime[1]]}-${this.data.dateTimeArray[2][this.data.dateTime[2]]} ${this.data.dateTimeArray[3][this.data.dateTime[3]]}:${this.data.dateTimeArray[4][this.data.dateTime[4]]}:${this.data.dateTimeArray[5][this.data.dateTime[5]]}`
+    let data = e.detail.value
+    let key = `couponInfo.${e.currentTarget.dataset.timeflag}`
     this.setData({
       [key]: data
     })
-    console.log(this.data, key)
   },
 
   // 获取所有输入框内容
@@ -119,45 +133,72 @@ Page({
 
   // 创建普通优惠券
   _addCoupon() {
+    if (!this.data.couponInfo.amount) return showToast('请输入优惠券面额')
+    if (this.data.couponInfo.canGiftGiving != 0 && this.data.couponInfo.canGiftGiving != 1) return showToast('请选择是否能转赠')
+    if (!this.data.couponInfo.couponEndTime) return showToast('请选择优惠券使用结束时间')
+    if (!this.data.couponInfo.couponStartTime) return showToast('请选择优惠券使用开始时间')
+    if (!this.data.couponInfo.num) return showToast('请输入优惠券数量')
+    if (!this.data.couponInfo.totalOrderAmount) return showToast('请输入领取条件的金额')
+    if (!this.data.couponInfo.ruleEndTime) return showToast('请选择规则结束时间')
+    if (!this.data.couponInfo.ruleStartTime) return showToast('请选择规则开始时间')
+    if (!this.data.couponInfo.satisfactionAmount) return showToast('请输入优惠券满足的金额')
+    if (!this.data.couponInfo.couponName) return showToast('请输入优惠券名称')
+
     let data = {
       shopId: app.globalData.shopId,
       amount: this.data.couponInfo.amount,   //优惠券面额
       canGiftGiving: this.data.couponInfo.canGiftGiving,  //能否转赠 1、能 0、不能
-      couponEndTime: this.data.couponInfo.couponEndTime,  //优惠券使用结束时间
-      couponStartTime: this.data.couponInfo.couponStartTime,   //优惠券使用开始时间
+      couponEndTime: `${this.data.couponInfo.couponEndTime} 23:59:59`,  //优惠券使用结束时间
+      couponStartTime: `${this.data.couponInfo.couponStartTime} 00:00:00`,   //优惠券使用开始时间
       num: this.data.couponInfo.num,   //设置可以领取当前创建的优惠券的数量  不填无限制
       totalOrderAmount: this.data.couponInfo.totalOrderAmount, //需要满足可以领取条件的金额
-      ruleEndTime: this.data.couponInfo.ruleEndTime,  //规则结束时间,
-      ruleStartTime: this.data.couponInfo.ruleStartTime,  //规则开始时间
+      ruleEndTime: `${this.data.couponInfo.ruleEndTime} 23:59:59`,  //规则结束时间,
+      ruleStartTime: `${this.data.couponInfo.ruleStartTime} 00:00:00`,  //规则开始时间
       satisfactionAmount: this.data.couponInfo.satisfactionAmount,  //使用需要满足的金额   //不填没有限制
       couponName: this.data.couponInfo.couponName     //优惠券名称
     }
+    // console.log(data)
+    // return
     couponsModel.addCoupon(data).then(res => {
-      wx.navigateBack()
+      showToast('新增成功', 0, 'success')
+        setTimeout(() => {
+          wx.navigateBack()
+        }, 1000)
     })
   },
 
   // 修改普通优惠券
   _updateCoupon(id) {
-    console.log(this.data)
-    if (!this.data.couponInfo.amount) return showToast('面额不能为空!')
-    if (!this.data.items[0].checked && !this.data.items[1].checked) return showToast('请选择是否能转赠!')
-    if (!this.data.couponInfo.totalOrderAmount) return showToast('领取条件不能为空!')
+    // console.log(this.data)
+    
+    if (!this.data.couponInfo.amount) return showToast('请输入优惠券面额')
+    if (this.data.couponInfo.canGiftGiving != 0 && this.data.couponInfo.canGiftGiving != 1) return showToast('请选择是否能转赠')
+    if (!this.data.couponInfo.couponEndTime) return showToast('请选择优惠券使用结束时间')
+    if (!this.data.couponInfo.couponStartTime) return showToast('请选择优惠券使用开始时间')
+    if (!this.data.couponInfo.num) return showToast('请输入优惠券数量')
+    if (!this.data.couponInfo.totalOrderAmount) return showToast('请输入领取条件的金额')
+    if (!this.data.couponInfo.ruleEndTime) return showToast('请选择规则结束时间')
+    if (!this.data.couponInfo.ruleStartTime) return showToast('请选择规则开始时间')
+    if (!this.data.couponInfo.satisfactionAmount) return showToast('请输入优惠券满足的金额')
+    if (!this.data.couponInfo.couponName) return showToast('请输入优惠券名称')
     let data = {
       shopId: app.globalData.shopId,
       amount: this.data.couponInfo.amount,   //优惠券面额
       canGiftGiving: this.data.couponInfo.canGiftGiving,  //能否转赠 1、能 0、不能
-      couponEndTime: this.data.couponInfo.couponEndTime,  //优惠券使用结束时间
-      couponStartTime: this.data.couponInfo.couponStartTime,   //优惠券使用开始时间
+      couponEndTime: `${this.data.couponInfo.couponEndTime} 23:59:59`,  //优惠券使用结束时间
+      couponStartTime: `${this.data.couponInfo.couponStartTime} 00:00:00`,   //优惠券使用开始时间
       num: this.data.couponInfo.num,   //设置可以领取当前创建的优惠券的数量  不填无限制
       totalOrderAmount: this.data.couponInfo.totalOrderAmount, //需要满足可以领取条件的金额
-      ruleEndTime: this.data.couponInfo.ruleEndTime,  //规则结束时间,
-      ruleStartTime: this.data.couponInfo.ruleStartTime,  //规则开始时间
+      ruleEndTime: `${this.data.couponInfo.ruleEndTime} 23:59:59`,  //规则结束时间,
+      ruleStartTime: `${this.data.couponInfo.ruleStartTime} 00:00:00`,  //规则开始时间
       satisfactionAmount: this.data.couponInfo.satisfactionAmount,  //使用需要满足的金额   //不填没有限制
       couponName: this.data.couponInfo.couponName     //优惠券名称
     }
     couponsModel.updateCoupon(data, id).then(res => {
-      wx.navigateBack()
+        showToast('修改成功', 0, 'success')
+        setTimeout(() => {
+          wx.navigateBack()
+        }, 1000)
     })
   },
 
@@ -188,7 +229,7 @@ Page({
   onUnload: function () {
     let pages = getCurrentPages()
     let prePage = pages[pages.length-2]
-    prePage._queryCouponRule()
+    prePage._queryCouponRule(true)
   },
 
   /**

@@ -8,7 +8,9 @@
       <text>{{shopName}}</text>
       <view class="arrow"></view>
     </view>
-    <switch color="rgb(21, 125, 243)" bindchange="changSwitch" checked="{{status}}">{{type}}</switch>
+   
+      <switch color="rgb(21, 125, 243)" bindchange="changSwitch" checked="{{status}}">{{type}}</switch>
+    
   </view>
 
   <!-- 今日收益 -->
@@ -39,5 +41,5 @@
     </view>
   </view>
 
-  <view style="height: 60rpx;background: red;" bindtap="confirmPay"> 确认支付</view>
+  <!-- <view style="height: 60rpx;background: red;text-align:center;margin-top:20px;line-height:60rpx;"> 确认支付</view> -->
 </view>

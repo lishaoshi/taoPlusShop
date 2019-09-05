@@ -149,7 +149,8 @@ Page({
     let data = {
       goodsId
     }
-    spellGroupModel.cancelGroupGoods(data).then(res=>{
+    spellGroupModel.cancelGroupGoods(data, goodsId).then(res=>{
+      this._getGroupList()
       wx.showToast({
         title: '取消成功',
       })

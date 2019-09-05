@@ -10,24 +10,24 @@
 
         <view class="register_view" hidden="{{hidden_register}}">
             <view class="mobile">
-                <input bindblur="getInputValue" data-flag="mobile" type='number' placeholder='手机号'></input>
+                <input bindinput="getInputValue" data-flag="mobile" type='number' placeholder='手机号'></input>
             </view>
 
             <view class="code">
-                 <input bindblur="getInputValue" data-flag="code" type='number' placeholder='验证码'></input>
+                 <input bindinput="getInputValue" data-flag="code" type='number' placeholder='验证码'></input>
                  <text class="send_code" bindtap="getCode">{{code}}</text>
             </view>
 
             <view class="password">
-                 <input bindblur="getInputValue" data-flag="password" type='text' password="true" placeholder='重置密码'></input>
+                 <input bindinput="getInputValue" data-flag="password" type='text' password="true" placeholder='重置密码'></input>
             </view>
 
             <view class="confirm_password">
-                 <input bindblur="getInputValue" data-flag="confirmPsw" type='text' password="true" placeholder='确认密码'></input>
+                 <input bindinput="getInputValue" data-flag="confirmPsw" type='text' password="true" placeholder='确认密码'></input>
             </view>
 
             <view class="register_btn" bindtap="_validateMobileAndVocde">
-                 <view>确认</view>
+                <view>确认</view>
             </view>
         </view>
 

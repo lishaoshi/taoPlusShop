@@ -188,11 +188,23 @@ Page({
     this.isUserAuth()
     // this._getBusinissInfo()
     this._getShopInfo()
-    this._getShopPayAmount()
+    // this._getShopPayAmount()
   },
 
   // 前往账户明细
   queryAccount() {
+    if (!app.globalData.isPay) {
+      wx.showModal({
+        title: '提示',
+        content: '请先支付入驻金额',
+        success: (res) => {
+          if (res.confirm) {
+            this.confirmPay()
+          }
+        }
+      })
+      return
+    }
     wx.navigateTo({
       url: '/pages/account/index',
     })
@@ -212,12 +224,25 @@ Page({
 
   // 点击跳转相应模块
   goTarget(e) {
-    console.log(e)
+    // console.log(e)
     let url = e.currentTarget.dataset.url
     if(!url) {
       return
     }
-    if (this.data.examineStatus!=2) {
+    if(!app.globalData.isPay) {
+      wx.showModal({
+        title: '提示',
+        content: '请先支付入驻金额',
+        success:(res)=>{
+          if(res.confirm) {
+            this.confirmPay()
+          }
+        }
+      })
+      return
+    }
+    // if(!app.globalData.isPay)
+    if (this.data.examineStatus != 2 && url !='/pages/shopMng/index') {
       showToast('请到店铺管理完善信息并等候审核')
       return
     }
@@ -270,6 +295,7 @@ Page({
       shopId: app.globalData.shopId,
       workStatus: flag?1:2
     }
+    // console.log(data)
     indexMedel.setShopWorkStatus(data)
   },
   // 用户授权获取地理位置
@@ -311,10 +337,13 @@ Page({
         signType: data.signType,
         paySign: data.paySign,
         success:(res)=>{
-          console.log(res)
+          // console.log(res)
+          showToast('支付成功')
+          app.globalData.isPay = true
+          this._getShopInfo()
         },
         fail:(err)=>{
-          console.log(err)
+          showToast('取消支付')
         }
       })
     })
@@ -344,6 +373,11 @@ Page({
         examineStatus: res.result.examine_status
       })
       wx.setStorageSync('shopInfo', res.result)
+      if (res.result.examine_status!=2 ) {   //未支付
+        this._getShopPayAmount()
+        app.globalData.isPay = false
+        // console.log(app)
+      }
       for (let i = 0; i < this.data.iconList.length;i++) {
         let key = `iconList[${i}].count`
         // key =
@@ -364,8 +398,8 @@ Page({
       this.setData({
         shopName: res.result.shop_name,
         imgSrc: `${config.IMG}${res.result.portrait_url}`,
-        status: res.result.status==1?true:false,
-        type: res.result.status == 1 ? '营业中' : '休息中',
+        status: res.result.work_status==1?true:false,
+        type: res.result.work_status == 1 ? '营业中' : '休息中',
         price: res.result.newTime
       })
     })
@@ -374,12 +408,28 @@ Page({
   // 控制营业状态
   changSwitch(e) {
     console.log(e)
+    if (!app.globalData.isPay) {
+      wx.showModal({
+        title: '提示',
+        content: '请先支付入驻金额',
+        success: (res) => {
+          if (res.confirm) {
+            this.confirmPay()
+          }
+        }
+      })
+      return
+    }
+    // console.log(e)
     const flag = e.detail.value
     let type = flag?'营业中':'休息中'
     this.setData({
       type
     })
     this._setShopWorkStatus(flag)
+  },
+  tabSwitch() { 
+    console.log('tab')
   },
 // 判断用户是否授权获取用户信息
   isUserAuth() {
@@ -395,27 +445,6 @@ Page({
       }
     })
   },
-  // 进入选择地图
-  // goChooseMap() {
-  //   // 这是选择地图页
-  //     // 地图选择
-  //     wx.chooseLocation({
-  //       success: function (res) {
-  //         // success
-  //         console.log(res, "location")
-  //         console.log(res.name)
-  //         console.log(res.latitude)
-  //         console.log(res.longitude)
-  //         wx.navigateBack()
-  //       },
-  //       // fail: function () {
-  //       //   // fail
-  //       // },
-  //       complete: function () {
-  //         // complete
-  //       }
-  //     })
-  // },
   // 用户授权回调
   callbackGetUserInfo(e) {
     // console.log(e)
@@ -432,6 +461,18 @@ Page({
 
   // 前往商家详情
   queryShopDetail() {
+    if (!app.globalData.isPay) {
+      wx.showModal({
+        title: '提示',
+        content: '请先支付入驻金额',
+        success: (res) => {
+          if (res.confirm) {
+            this.confirmPay()
+          }
+        }
+      })
+      return
+    }
     wx.navigateTo({
       url: '/pages/shopInfo/shopInfo',
     })

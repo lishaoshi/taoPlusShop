@@ -81,6 +81,7 @@ Page({
   // 获取店铺信息
   getShopData() {
     let shopData = wx.getStorageSync('shopData')
+    console.log(shopData.nature_status)
     if (shopData.nature_status==2) {
       let key = `radio[0].checked`
       this.setData({
@@ -107,16 +108,25 @@ Page({
     } else {
       let key = `radio[1].checked`
       this.setData({
-        [key]: false,
+        [key]: true,
         isMap: false,
         shopData: shopData,
         startTime: shopData.start_time,
         endTime: shopData.end_time,
+        content: shopData.content,
+        shopName: shopData.shop_name,
         shopMobile: shopData.mobile,
         address: shopData.address,
         natureStatus: shopData.nature_status,
         productTypeId: shopData.product_type_id,
-        content: shopData.content
+        latitude: shopData.latitude,
+        longitude: shopData.longitude,
+        provinceName: shopData.province_name,
+        provinceId: shopData.province_id,
+        cityName: shopData.city_name,
+        cityId: shopData.city_id,
+        areaName: shopData.area_name,
+        areaId: shopData.area_id,
       })
     }
     console.log(this.data)
@@ -292,7 +302,7 @@ Page({
         key = 'shopMobile'
         break;
       case 'tjMobile':
-        key = 'shopMobile'
+        key = 'tjMobile'
         break;
     }
     this.setData({
@@ -321,6 +331,7 @@ Page({
 
   // 入驻
   _addShop() {
+    // console.log(app)
     let PHONEEXP = /^((0\d{2,3}-\d{7,8})|(1[1234567890]\d{9}))$/;
     if (!this.data.shopName) {
       showToast('请填写商店名称');
@@ -356,7 +367,7 @@ Page({
     }
     let data = {
       userId: app.globalData.userId,
-      shopId: app.globaal.shopId,
+      shopId: app.globalData.shopId,
       productTypeId: this.data.productTypeId || '',
       provinceId: this.data.provinceId,
       provinceName: this.data.provinceName,
@@ -372,18 +383,20 @@ Page({
       natureStatus: this.data.natureStatus,
       mapFlag: this.data.mapsInfo,
       endTime: this.data.endTime,
-      startTime: this.data.startTime
+      startTime: this.data.startTime,
+      recomMobile: this.data.tjMobile
     }
     shopMngModel.addShop(data).then(res => {
-      let data = JSON.parse(res);
-      if (data.code == 0) {
-        showToast(res.message)
-        let shopInfo = wx.getStorageSync('shopLoginInfo')
-        shopInfo.shop_id = data.result
-        wx.setStorageSync('shopLoginInfo', shopInfo)
+      if (res.code == 0) {
+        // let data = JSON.parse(res);
+        showToast(res.message, 0, 'success')
+        // let shopInfo = wx.getStorageSync('shopLoginInfo')
+        // shopInfo.shop_id = data.result
+        // wx.setStorageSync('shopLoginInfo', shopInfo)
+        wx.clearStorageSync()
         setTimeout(()=>{
           wx.reLaunch({
-            url: '/pages/index/index',
+            url: '/pages/login/login',
           })
         }, 1000)
       } else if(data.code==167) {
@@ -450,6 +463,8 @@ Page({
     shopMngModel.updataShopInfo(data).then(res=>{
       if(res.code==0) {
         wx.navigateBack()
+      } else {
+        showToast(res.message)
       }
     })
   },

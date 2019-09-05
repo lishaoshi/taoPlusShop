@@ -47,7 +47,7 @@ height: 32rpx !important;
   /* height: 300rpx; */
    background: linear-gradient(to right, rgb(9, 107, 219) , rgb(87, 31, 219));
    border-radius:16rpx;
-   margin-top: 10rpx;
+   margin-top: 30rpx;
    padding: 0 30rpx;
    color: #fff;
 }

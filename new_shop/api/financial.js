@@ -9,7 +9,16 @@ class financial extends http {
   // 获取账户余额
   getBalance(data) {
     let url = `/shop/getAccountByDetails`
+    let params = {
+      url,
+      data
+    }
+    return this.request(params)
+  }
 
+  // 添加银行卡
+  addBindBankCard(data) {
+    let url = `/api/user/bankcard/saveBankcard`
     let params = {
       url,
       data

@@ -2,7 +2,7 @@
 <view class="container">
   <view class="header">
   <!-- <text hidden="{{isEdit}}">1111</text> -->
-    <input hidden="{{isEdit}}" bindblur="addGoodsTypeName" placeholder-class='placeholder' placeholder="请输入新增分类"></input>
+    <input hidden="{{isEdit}}" value="{{className}}" bindinput="addGoodsTypeName" placeholder-class='placeholder' placeholder="请输入新增分类"></input>
   </view>
 
   <view class="bottom_box">

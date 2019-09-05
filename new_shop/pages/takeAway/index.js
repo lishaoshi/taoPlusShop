@@ -22,7 +22,7 @@ Page({
   onLoad: function (options) {
     // console.log(options)
     let total = +options.total
-    console.log(typeof total, total)
+    // console.log(typeof total, total)
     this.setData({
       total: total.toFixed(2)
     })

@@ -29,7 +29,7 @@
     <view class="info">
       <view>
         0{{item.number}}
-        <text wx:if="{{item.type==1}}" class="will">即将</text>
+        <text wx:if="{{index==0}}" class="will">即将</text>
       </view>
       <view>
         {{item.position_name}}

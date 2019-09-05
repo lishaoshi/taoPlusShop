@@ -1,5 +1,7 @@
 import shopInfo from '../../api/shopInfo.js'
 let shopInfoModel = new shopInfo()
+import { showToast } from '../../utils/util.js'
+const app = getApp()
 // pages/change_password/change_password.js
 Page({
 
@@ -19,10 +21,16 @@ Page({
 
   },
 
+  // 确认密码
+  confirmChangPsw() {
+
+  },
+
   // 获取输出框
   getInputValue(e) {
     let value = e.detail.value
     let flag = e.currentTarget.dataset.flag
+    let key
     switch (flag) {
       case 'old':
         key =  'oldPsw'
@@ -53,9 +61,19 @@ Page({
       showToast('新密码与确认密码不一致')
       return
     }
+    let data = {
+      userId: app.globalData.userId,
+      oldPassword: this.data.oldPsw,
+      newPassword: this.data.newPsw
+    }
     shopInfoModel.changePassword(data).then(res=>{
-      if (data.code === 0) {
-        showToast('修改成功');
+      if (res.code === 0) {
+        showToast('修改成功', 0, 'success');
+        setTimeout(()=>{
+          wx.reLaunch({
+            url: '/pages/index/index',
+          })
+        }, 1000)
       } else {
         showToast(res.message);
       }

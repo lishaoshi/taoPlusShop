@@ -43,3 +43,10 @@
   bottom: 20rpx;
   color: rgb(26, 69, 207);
 }
+.content {
+  padding: 0 30rpx;
+}
+.content > view {
+  color: #999;
+  margin-top: 6rpx;
+}

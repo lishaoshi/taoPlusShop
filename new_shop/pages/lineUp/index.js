@@ -79,7 +79,7 @@ Page({
       return
     }
     let data = {
-      takeNumberId: this.data.dataList[0].take_number_id,
+      takeNumberId: this.data.dataList[0],
       shopId: app.globalData.shopId,
       type: 2,
     }
@@ -87,6 +87,11 @@ Page({
       if(res.code!=0) {
         showToast('操作失败，请稍后在试')
         return
+      } else {
+        let list = this.data.dataList.shift();
+        this.setData({
+          dataList: list
+        })
       }
     })
   },

@@ -1,0 +1,11 @@
+<!--pages/pay/index.wxml-->
+<view class="container">
+  <view>
+    <text>入驻金额：</text>
+    {{amount}}
+
+    <view class="btn">
+      <bottom-btn buttonName="确认支付" bind:tabBtn="confirmPay"></bottom-btn>
+    </view>
+  </view>
+</view>

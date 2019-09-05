@@ -1,27 +1,15 @@
+// pages/pay/index.js
 import shopPayBalance from '../../api/shopPayBalance.js'
 let shopPayBalanceModel = new shopPayBalance()
+import {showToast} from '../../utils/util.js'
 const app = getApp()
-// pages/merchant_entry/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list: [
-      {
-        img: '/img/icon-1.png',
-        name: '提交资料'
-      },
-      {
-        img: '/img/icon-2.png',
-        name: '店铺审核'
-      },
-      {
-        img: '/img/icon-3.png',
-        name: '上线营业'
-      },
-    ]
+    amount: 0
   },
 
   /**
@@ -31,24 +19,43 @@ Page({
     this._getShopPayAmount()
   },
 
-  // 前往入驻页
-  goIn() {
-    wx.navigateTo({
-      url: '/pages/shopDetailInfo/index?isIn=1',
+  // 获取商家入驻价格
+  _getShopPayAmount() {
+    console.log('get')
+    shopPayBalanceModel.getShopPayAmount({}).then(res => {
+      this.setData({
+        shopInPrice: res.value
+      })
     })
   },
 
-  // 获取商家登陆缓存数据
-  _getShopPayAmount() {
-    let data = wx.getStorageSync('shopLoginInfo')
-    app.globalData.userId = data.user_id
-    app.globalData.token = data.token
-  },
-
-  // 拨打电话
-  goCall() {
-    wx.makePhoneCall({
-      phoneNumber: '4001314199',
+  // 确认支付
+  confirmPay() {
+    // console.log('comfrimPay')
+    // return
+    let data = {
+      shopId: app.globalData.shopId,
+      price: this.data.shopInPrice,
+      openId: app.globalData.openId
+    }
+    shopPayBalanceModel.confirmPay(data).then(res => {
+      let data = JSON.parse(res.pay_info)
+      console.log(data)
+      wx.requestPayment({
+        timeStamp: data.timeStamp,
+        nonceStr: data.nonceStr,
+        package: data.package,
+        signType: data.signType,
+        paySign: data.paySign,
+        success: (res) => {
+          // console.log(res)
+          showToast('支付成功')
+          app.globalData.isPay = true
+        },
+        fail: (err) => {
+          showToast('取消支付')
+        }
+      })
     })
   },
 

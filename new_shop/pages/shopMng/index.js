@@ -1,7 +1,8 @@
 import shopMng from '../../api/shopMng.js'
+import config from '../../config.js'
 let shopMngModel = new shopMng()
 let app = getApp()
-let pic_list = {}
+// let pic_list = {}
 // pages/shopMng/index.js
 Page({
 
@@ -12,6 +13,7 @@ Page({
     shopInfo: {},
     shopImgUrl: '/images/confirm.png',
     shopImgUrl2: '/images/confirm.png',
+    pic_list: {}
   },
 
   /**
@@ -30,6 +32,9 @@ Page({
     shopMngModel.getShopDetail(data).then(res=>{
       wx.setStorageSync('shopData', res.result)
       var shopPicList = res.result.shopPicList;
+      this.setData({
+        pic_list: {}
+      })
       shopPicList.forEach((item, index)=> {
         this.pushImg(item.type, item.path);
       });
@@ -42,16 +47,19 @@ Page({
 
   // 处理显示图片
   showImg() {
-    let IMG = `https://api.olb8.com`
-    if (pic_list[2] && pic_list[2][0]) {
-      let url = `${IMG}${pic_list[2]}.th`
+    // let IMG = `https://api.olb8.com`
+    // console.log(this.data.pic_list)
+    console.log(this.data.pic_list)
+    if (this.data.pic_list[2] && this.data.pic_list[2][0]) {
+      
+      let url = `${config.IMG}${this.data.pic_list[2][0]}.th`
       // console.log(url)
       this.setData({
         shopImgUrl: url
       })
     }
-    if (pic_list[3] && pic_list[3][0]) {
-      let url = `${IMG}${pic_list[3]}.th`
+    if (this.data.pic_list[3] && this.data.pic_list[3][0]) {
+      let url = `${config.IMG}${this.data.pic_list[3][0]}.th`
       this.setData({
         shopImgUrl2: url
       })
@@ -67,14 +75,22 @@ Page({
 
   // 处理显示店铺图片
   pushImg(type, path) {
-    // console.log(pic_list[type]);
-    if(pic_list[type]) {
-      pic_list[type].push(path);
+    // console.log(type, path)
+    if(this.data.pic_list[type]) {
+      let key = `pic_list${type}`
+      let data = this.data.pic_list[type].push(path);
+      this.setData({
+        [key]: data
+      })
     }else{
-      pic_list[type] = [];
-      pic_list[type].push(path);
+      let key = `pic_list[${type}]`
+      this.data.pic_list[type] = []
+      this.data.pic_list[type].push(path)
+      this.setData({
+        [key]: this.data.pic_list[type]
+      })
     }
-    // console.log(pic_list)
+    // console.log(this.data.pic_list)
   },
 
   /**

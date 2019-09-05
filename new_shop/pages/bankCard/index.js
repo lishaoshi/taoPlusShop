@@ -38,7 +38,7 @@ Page({
   _getBankCardList() {
     // let userId = app.gd.userId
     let data = {
-      userId: app.globalData.userId,
+      shopId: app.globalData.shopId,
       pageNum: this.data.pageNo,
       pageSize: this.data.pageSize
     }
@@ -144,7 +144,9 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    let pages = getCurrentPages()
+    let prePage = pages[pages.length-2]
+    prePage._getBankCardList()
   },
 
   /**

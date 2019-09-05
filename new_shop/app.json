@@ -44,7 +44,8 @@
     "pages/redBag/index",
     "pages/coupon/index",
     "pages/addCoupon/index",
-    "pages/addRedBag/index"
+    "pages/addRedBag/index",
+    "pages/pay/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
