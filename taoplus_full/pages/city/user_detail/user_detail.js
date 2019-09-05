@@ -17,7 +17,7 @@ Page({
         phone: '',
         portraitUrl: 'http',
         IMG: app.globalData.IMG,
-        array: ['男', '女'],
+        array: ['请选择', '男', '女'],
         index: 0,
         sex: "1", //1 、男 2、女
         userInfo: {},

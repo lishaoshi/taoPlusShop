@@ -49,6 +49,7 @@ Page({
       }else{
         _this.getCouponFn();
       }
+      _this.getCouponFn();
     },
 
     /**
@@ -71,7 +72,7 @@ Page({
     onUnload: function() {
       if (this.data.type !== 'order') {
         wx.switchTab({
-          url: '/pages/index/index',
+          url: '/pages/city/index/index',
         })
       }
       
@@ -99,11 +100,15 @@ Page({
     getCouponFn: () => {
         utils.uGet(`${api.HOST}/api/user/${app.globalData.userId}/order/${_this.data.orderId}/succeed`, {}).then((res) => {
             console.log(res);
+          if (res.coupon_code){
             res.coupon_code = utils.bankCardStr(res.coupon_code);
+          }
             res.coupon_code_url = api.IMG + res.coupon_code_url;
             _this.setData({
                 info: res
             })
+            console.log("getCounpom:");
+            console.log(_this.data.info);
         })
     },
 

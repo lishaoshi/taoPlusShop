@@ -52,6 +52,7 @@ Page({
         shopName: options.shopName,
       });
 
+      console.log(options.grouponJson)
 
  
     },
@@ -212,7 +213,7 @@ Page({
                         } else if (res.cancel) {
                             console.log('用户点击取消');
                             wx.switchTab({
-                                url: '/pages/index/index'
+                                url: '/pages/city/index/index'
                             })
                         }
                     }
@@ -230,6 +231,7 @@ Page({
      * 支付函数
      */
     payFn: () => {
+      console.log('orderId:' + _this.data.orderId, "goodsName:" + _this.data.goodsName);
         clearInterval(_this.data.Interval);
         utils.uPost(api.pay, {
             orderId: _this.data.orderId,
@@ -248,6 +250,7 @@ Page({
             if (res.combine_pay_flag === '1'){
                 if (_this.data.type === 'normal') {
                     setTimeout(() => {
+                      console.log(`../order_success/order_success?orderId=${_this.data.orderId}&goodsName=${_this.data.goodsName}&grouponJson=${_this.data.grouponJson}`);
                         wx.showToast({
                             title: '正在生成券码',
                             duration: 3000,

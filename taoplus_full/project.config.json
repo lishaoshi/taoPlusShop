@@ -39,7 +39,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 22,
+			"current": 8,
 			"list": [
 				{
 					"id": 1,
@@ -98,10 +98,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/city/order_success/order_success",
+					"id": 8,
+					"name": "支付成功后页面",
 					"pathName": "pages/city/order_success/order_success",
-					"query": "",
+					"query": "orderId=94ff88bc140e4c13ab8c80ed1b4d679f&goodsName=gcx&grouponJson={\"goodsId\":\"2df119b4e58d4d918158b4dd7e8dc71e\",\"shopId\":\"a5ff12c1e6634bb69a786160d59d8979\",\"type\":\"normal\",\"grouponPrice\":\"\"}",
 					"scene": null
 				},
 				{
@@ -199,6 +199,20 @@
 					"id": 22,
 					"name": "components/gift_put/gift_put",
 					"pathName": "components/gift_put/gift_put",
+					"query": "giftTip=亲，你的快递到了&currentId=78d008d1e11949f9844bb22125a7219d",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/city/submit_orders/submit_orders",
+					"pathName": "pages/city/submit_orders/submit_orders",
+					"query": "giftTip=亲，你的快递到了&currentId=78d008d1e11949f9844bb22125a7219d",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/city/order_success/order_success",
+					"pathName": "pages/city/order_success/order_success",
 					"query": "giftTip=亲，你的快递到了&currentId=78d008d1e11949f9844bb22125a7219d",
 					"scene": null
 				}

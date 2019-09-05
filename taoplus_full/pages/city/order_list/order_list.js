@@ -223,6 +223,10 @@ Page({
         _this.setData({
           orderList: orderList,
         })
+        console.log('orderList:');
+        console.log(orderList);
+        console.log(JSON.stringify(orderList));
+
       }
 
       _this.setData({

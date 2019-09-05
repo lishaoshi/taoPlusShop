@@ -1,9 +1,9 @@
 <!--components/spread/spread.wxml-->
 <view>
   <view class="imagesize">
-    <image src="{{ qrCode }}" show-menu-by-longpress mode="widthFix" style="margin:0 auto;text-align:center;"></image>
+    <image src="{{ qrCode }}" show-menu-by-longpress mode="widthFix" style="margin:0 auto;text-align:center;" bindtap="previewImage" data-src="{{ qrCode }}"></image>
   </view>
-  <view style="dispaly:block;width:100%;text-align:center;"><text >(可长按识别二维码)</text></view>
+  <!-- <view style="dispaly:block;width:100%;text-align:center;"><text >(可长按识别二维码)</text></view> -->
 
 <view class="gotoBtns">
   <view class="btns">
