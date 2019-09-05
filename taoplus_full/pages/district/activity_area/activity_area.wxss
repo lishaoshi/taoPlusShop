@@ -178,7 +178,8 @@ page {
     color: #fd142a;
     font-weight: bold;
     align-items: center;
-    margin-top: 50rpx;
+    /* margin-top: 50rpx; */
+    margin-top: -24rpx;
 }
 
 .money-dark {

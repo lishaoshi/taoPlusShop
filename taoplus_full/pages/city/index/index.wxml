@@ -35,7 +35,7 @@
     <view class='menu-list flex j-a'>
         <view class='menu' wx:for="{{shopSort}}" wx:key="{{shop}}">
             <navigator class='flex d-c menu-nav' url='../type_search/type_search?id={{item.product_type_id}}&latitude={{latitude}}&longitude={{longitude}}&provinceName={{provinceName}}&cityName={{cityName}}'>
-                <image class='menu-img' src='{{item.path}}'></image>
+                <image class='menu-img' src='{{item.path}}' ></image>
                 <text class='menu-text'>{{item.type_name}}</text>
             </navigator>
         </view>

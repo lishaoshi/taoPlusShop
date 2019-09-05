@@ -186,8 +186,8 @@ Page({
         data: utils.getQueryString(q, 'agencyId'),
       })
     } else {
-      console.log('indexOption:');
-      console.log(app.globalData.agencyId);
+      // console.log('indexOption:');
+      // console.log(app.globalData.agencyId);
 
       let agencyId = app.globalData.agencyId;
       let shareAgencyId = options.shareAgencyId;
@@ -448,17 +448,20 @@ Page({
       _this.setData({
         noMore: noMore
       })
+      wx.stopPullDownRefresh()
 
 
     })
   },
   /*
-   * 获取商家分类(首页)
+   * 获取商家分类(首页) 
    * 
    */
   getShopFn: () => {
     utils.uGet(`${api.HOST}/api/shop/sys/getProdictTypeList`, {}).then((res) => {
       let shopSort = _this.data.shopSort;
+      // console.log(res);
+     
       if (res.length > 0) {
         res = utils.getDefaultImg(res, 'path');
         shopSort = shopSort.concat(res);
@@ -466,6 +469,7 @@ Page({
           shopSort: shopSort
         })
       }
+
     })
   },
   /**
@@ -491,7 +495,7 @@ Page({
         id: app.globalData.agencyId,
       },
       success(data) {
-        console.log('联系电话' + data.data.contact_phone)
+        // console.log('联系电话' + data.data.contact_phone)
         wx.setStorage({
           key: 'contact_phone',
           data: data.data.contact_phone,
@@ -521,22 +525,25 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function(e) {
-    // _this.setData({
-    //     goodsList: []
-    // });
-    // pageNum = 1;
-    // _this.getListFn()
+    wx.showToast({
+      title: '加载中...',
+    })
+    _this.setData({
+        goodsList: []
+    });
+    pageNum = 1;
+    _this.getListFn()
   },
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-    console.log(app.globalData.agencyId)
+    // console.log(app.globalData.agencyId)
     let shareAgencyId = app.globalData.agencyId
     return {
       title: '淘上品TopShopping',
       // path: '/pages/index/index? agencyId= ${app.globalData.agencyId}'
-      path: '/pages/index/index?shareAgencyId=' + shareAgencyId
+      path: '/pages/city/index/index?shareAgencyId=' + shareAgencyId
     }
   },
   bindPhoneCbFn: () => {

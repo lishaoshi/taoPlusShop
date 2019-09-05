@@ -69,7 +69,7 @@ Page({
       scrollTop: e.detail.scrollTop
     })
   },
-  // 点击分类跳转
+  // 点击分类跳转 
   clickScrollInTo(e) {
     this.setData({
       scrollInTo: e.currentTarget.dataset.name,

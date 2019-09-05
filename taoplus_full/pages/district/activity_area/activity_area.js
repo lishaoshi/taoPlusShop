@@ -35,7 +35,8 @@ Page({
     // 用于存储每次滚动结束之后的距离, 可用来判断滚动的方向
     moveStartPos: 0,
     // 点击分类的名称, 用于点击跳转
-    scrollInTo: ''
+    scrollInTo: '',
+    scrollViewHeight:0,// 商品列表滚动高度
   },
 
   /**
@@ -46,6 +47,7 @@ Page({
 
     app.editTabbar();
 
+    this.setScrollHeight();
   },
 
   /**
@@ -69,16 +71,65 @@ Page({
         })
       }
     })
+
+   
   },
   scroll: function(e) {
     this.onScrollViewScroll({
       scrollTop: e.detail.scrollTop
     })
   },
+  // 动态设置商品滚动高度
+  setScrollHeight:function(){
+    let _this = this;
+    // 先取出页面高度 windowHeight
+    wx.getSystemInfo({
+      success: function (res) {
+        
+        let  windowHeight =  res.windowHeight;
+
+        // 然后取出navbar和header的高度
+        // 根据文档，先创建一个SelectorQuery对象实例
+        let query = wx.createSelectorQuery().in(_this);
+        // 然后逐个取出navbar和header的节点信息
+        // 选择器的语法与jQuery语法相同
+        query.select('#navbar').boundingClientRect(); 
+        query.select('#header').boundingClientRect();
+        query.select('#tabbar').boundingClientRect();
+
+        
+
+        // 执行上面所指定的请求，结果会按照顺序存放于一个数组中，在callback的第一个参数中返回
+        query.exec((res) => {
+          // 分别取出navbar和header的高度
+          let navbarHeight = res[0].height;
+          let headerHeight = res[1].height;
+          let tabbarHeight = res[1].height;
+
+          // 然后就是做个减法
+          let scrollViewHeight = windowHeight - navbarHeight - headerHeight - tabbarHeight;
+          console.log(scrollViewHeight);
+          // 需要注意的是，上面scrollViewHeight计算出来的值，单位是px而不是rpx。
+
+          // 算出来之后存到data对象里面
+          _this.setData({
+            scrollViewHeight: scrollViewHeight
+          });
+        });
+
+        console.log('scrollViewHeight', _this.data.scrollViewHeight);
+
+        
+      }
+    });
+
+    
+  },
   // 点击分类跳转
   clickScrollInTo(e) {
     this.setData({
-      scrollInTo: e.currentTarget.dataset.name
+      scrollInTo: e.currentTarget.dataset.name,
+      currentCategory: e.currentTarget.dataset.index //点击左侧bar把当前的下标赋予currentCategory
     })
   },
   onScrollViewScroll(e) {

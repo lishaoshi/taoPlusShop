@@ -474,7 +474,7 @@ Page({
         return {
             title: '淘上品-' + _this.data.name,
             // path: '/pages/index/index? agencyId= ${app.globalData.agencyId}'
-            path: '/pages/index/index?shareAgencyId=' + shareAgencyId
+            path: '/pages/district/index/index?shareAgencyId=' + shareAgencyId
         }
     },
     bindPhoneCbFn: () => {

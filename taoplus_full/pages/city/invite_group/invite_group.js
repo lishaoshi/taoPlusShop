@@ -77,7 +77,7 @@ Page({
         clearInterval(_this.data.timeList.Interval);
         _this.data.timeList.Interval = null;
         wx.switchTab({
-            url: '/pages/index/index'
+            url: '/pages/city/index/index'
         })
     },
 
