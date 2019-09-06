@@ -28,7 +28,7 @@ class http {
     // if (flag) {
     //   showLoading()
     // }
-    console.log(params, flag)
+    // console.log(params, flag)
     flag && showLoading()
     if (!params.data) {
       params.data = {};

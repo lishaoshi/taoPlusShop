@@ -24,10 +24,11 @@ class index extends http {
     let url = `/user/getUserInfo`
     let data = {
       url,
-      data: params
+      data: params,
+       flag: true
     }
     return this.awaitToken(data).then(data => {
-      return this.request(data, '123')
+      return this.request(data)
     })
   }
 

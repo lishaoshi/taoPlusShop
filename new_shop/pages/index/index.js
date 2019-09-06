@@ -402,6 +402,7 @@ Page({
         type: res.result.work_status == 1 ? '营业中' : '休息中',
         price: res.result.newTime
       })
+      wx.stopPullDownRefresh();
     })
   },
 
@@ -482,7 +483,7 @@ Page({
   */
   onPullDownRefresh: function (e) {
     // console.log(e)
-    this.isUserAuth()
+    // this.isUserAuth()
     // console.log(app)
     // this.getUserLocaltion()
     // this._getBusinissInfo()

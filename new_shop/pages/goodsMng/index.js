@@ -62,6 +62,10 @@ Page({
 
   // 查询商品分类列表
   _queryGoodsTypeList() {
+    this.setData({
+      classId: '',
+      goodsTypeList: []
+    })
     let data = {
       shopId: app.globalData.shopId
     }

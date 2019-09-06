@@ -20,7 +20,7 @@
       <text>今日收益（元）</text>
       <image catchtap="priceHidden" src="{{!isHidden?'../../images/show.svg':'../../images/priceHidden.svg'}}"></image>
     </view>
-    <text>{{!isHidden?util.limitPrice(price):'******'}}</text>
+    <text>{{!isHidden?util.newLimitPrice(price):'******'}}</text>
   </view>
 
   <!-- 图标显示 -->

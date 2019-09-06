@@ -17,6 +17,15 @@ Component({
   data: {
     currentIndex: 0
   },
+  lifetimes: {
+  },
+  pageLifetimes: { 
+    hide() {
+      this.setData({
+        goodsTypeList: []
+      })
+    } 
+  },
 
   /**
    * 组件的方法列表
