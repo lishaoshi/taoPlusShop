@@ -1,4 +1,5 @@
 import config from '../../config.js'
+import { showToast, saveImg } from '../../utils/util.js'
 const app = getApp()
 // pages/myProgram/index.js
 Page({
@@ -19,6 +20,22 @@ Page({
       imgUrl
     })
    
+  },
+  // 保存图片
+  _saveImg() {
+    let url = this.data.imgUrl
+    if (!url) {
+      showToast('没有图片')
+      return
+    }
+    wx.showActionSheet({
+      itemList: ['保存图片'],
+      success: res => {
+        if (res.tapIndex == 0) {
+          saveImg(url)
+        }
+      }
+    })
   },
 
   /**

@@ -4,7 +4,7 @@
     <view>
         <text>添加编号</text>
         <view>
-          <input bindblur="getInputValue" value="{{inputValue}}" placeholder="例如：001"></input>
+          <input bindinput="getInputValue" value="{{inputValue}}" placeholder="例如：001"></input>
         </view>  
     </view>
 
