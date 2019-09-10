@@ -14,7 +14,7 @@
           <view class="info">
             <view>
               <view>{{item.typeName}}</view>
-              <view class="{{item.flag?'add':''}}"><text wx:if="{{item.income!=0}}">{{item.flag?'+':'-'}}</text>{{item.income}}元</view>
+              <view class="{{item.flag?'add':''}}"><text wx:if="{{item.income!=0}}">{{item.flag?'+':''}}</text>{{item.income}}元</view>
             </view>
             <view>
               <text>{{item.described}}</text>

@@ -6,7 +6,7 @@
       <image src="/img/login.png"></image>
       <view class="top">现在，进驻【淘上品】全世界都要你生意兴隆</view>
       <view class="tip">淘上品家小程序</view>
-      <image src="{{imgUrl}}"></image>
+      <image src="{{imgUrl}}" bindtap="_saveImg"></image>
       <image src="/img/code-title.png"></image>
       <view class="code-tip">比你有钱还长得好看的人都已经下载了</view>
       <image src="/img/footer.png"></image>

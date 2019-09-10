@@ -6,7 +6,17 @@ var limitPrice = function (price, num=2) {
     var new_price = '0.00'
     return new_price
   }
-  return price.toFixed(price, num)
+  return price.toFixed(num)
+}
+var newLimitPrice = function (price) {
+  if (price == null) {
+    return
+  }
+  if (price == 0) {
+    var new_price = '0.00'
+    return new_price
+  }
+  return price
 }
 
 var imgUrl = function (path, flag=true) {
@@ -39,6 +49,7 @@ var time = function (time) {
 
 module.exports = {
   limitPrice: limitPrice,
+  newLimitPrice: newLimitPrice,
   imgUrl: imgUrl,
   time: time
 }

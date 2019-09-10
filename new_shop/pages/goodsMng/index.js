@@ -37,7 +37,7 @@ Page({
    */
   onLoad: function (options) {
     this._queryGoodsTypeList()
-    this._queryGoodsList
+    // this._queryGoodsList()
   },
 
   // 点击商品类型
@@ -62,6 +62,10 @@ Page({
 
   // 查询商品分类列表
   _queryGoodsTypeList() {
+    this.setData({
+      classId: '',
+      goodsTypeList: []
+    })
     let data = {
       shopId: app.globalData.shopId
     }

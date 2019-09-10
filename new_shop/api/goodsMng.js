@@ -23,7 +23,7 @@ class goodsMng extends http {
       url,
       data
     }
-    return this.request(params)
+    return this.request(params, '123')
   }
   // 删除商品分类
   delGoodsType(data) {
@@ -41,7 +41,7 @@ class goodsMng extends http {
       url,
       data
     }
-    return this.request(params)
+    return this.request(params, true)
   }
   // 获取商品列表
   queryGoodsList(data) {

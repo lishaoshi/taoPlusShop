@@ -1,4 +1,4 @@
-import {showToast} from '../../utils/util.js'
+import { showToast, saveImg} from '../../utils/util.js'
 import config from '../../config.js'
 const app = getApp()
 import serviceMng from '../../api/serviceMng.js'
@@ -160,7 +160,7 @@ Page({
 
   // 封装二维码函数
   getQrcode() {
-    console.log('get')
+    // console.log('get')
     let seatName = this.data.inputValue
     let shopId = app.globalData.shopId
     let floorId = this.data.floorList[this.data.index].floor_id
@@ -168,7 +168,7 @@ Page({
       showToast('请完善资料')
       return
     }
-    let imagUrl = `${config.base_url}/bcdshop/booking/shop/floor/seat/code?shopId=${shopId}&seatName=${seatName}&floorId=${floorId}&token=${config.token}`
+    let imagUrl = `${config.base_url}/bcdshop/booking/shop/floor/seat/code?shopId=${shopId}&seatName=${seatName}&floorId=${floorId}&token=${app.globalData.token}`
     this.setData({
       qrCode: imagUrl
     })
@@ -185,14 +185,15 @@ Page({
   saveQrcode(url) {
     console.log('save', this.data.qrCode)
     if (url) {
-      console.log('save', this.data.qrCode)
-      wx.saveImageToPhotosAlbum({
-        filePath: url,
-        success: res=>{
-          // console.log(res)
-          showToast('保存成功')
-        }
-      })
+      // console.log('save', this.data.qrCode)
+      // wx.saveImageToPhotosAlbum({
+      //   filePath: url,
+      //   success: res=>{
+      //     // console.log(res)
+      //     showToast('保存成功')
+      //   }
+      // })
+      saveImg(url)
     }
   },
 

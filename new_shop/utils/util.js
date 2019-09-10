@@ -1,3 +1,4 @@
+import config from '../config.js'
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -24,10 +25,40 @@ const showToast = function (title, duration, icon) {
 }
 
 // 保存图片
-const saveImg = ()=>{
-  wx.saveImageToPhotosAlbum({
-    success:(res)=> {
-      this.showToast('保存成功')
+const saveImg = (url)=>{
+  // console.log(config.base_url + url)
+  // wx.saveImageToPhotosAlbum({
+  //   filePath: config.base_url+url,
+  //   success:(res)=> {
+  //     console.log(res,'111')
+  //     showToast('保存成功')
+  //   },
+  //   fail:()=>{
+  //     console.log('fail')
+  //   },
+  //   complete:()=>{
+  //     console.log('complete')
+  //   }
+  // })
+  // console.log(url.includes(config.base_url))
+  let confromUrl = url.includes(config.base_url) ? url : config.base_url+url
+  wx.downloadFile({
+    url: confromUrl, //仅为示例，并非真实的资源
+    success(res) {
+      // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
+      if (res.statusCode === 200) {
+        console.log(res)
+        wx.saveImageToPhotosAlbum({
+          filePath: res.tempFilePath,
+          success:()=>{
+            showToast('保存成功')
+          },
+          fail:()=>{
+            showToast('保存失败')
+          }
+        })
+        
+      }
     }
   })
 }
