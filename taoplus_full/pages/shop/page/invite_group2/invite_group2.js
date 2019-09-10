@@ -78,7 +78,7 @@ Page({
         clearInterval(_this.data.timeList.Interval);
         _this.data.timeList.Interval = null;
         wx.switchTab({
-            url: '/pages/index/index'
+            url: '/pages/shop/page/index/index'
         })
     },
 
@@ -88,7 +88,7 @@ Page({
     onShareAppMessage: function() {
         return {
             title: '我发起了拼团购买' + _this.data.goodsName,
-            path: `/pages/share_detail/share_detail?goodsId=${_this.data.grouponJson.goodsId}&grouponsId=${_this.data.grouponJson.grouponsId}&shopId=${_this.data.grouponJson.shopId}&type=${_this.data.grouponJson.type}&price=${_this.data.grouponJson.grouponPrice}`,
+          path: `/pages/shop/page/share_detail/share_detail?goodsId=${_this.data.grouponJson.goodsId}&grouponsId=${_this.data.grouponJson.grouponsId}&shopId=${_this.data.grouponJson.shopId}&type=${_this.data.grouponJson.type}&price=${_this.data.grouponJson.grouponPrice}`,
             imageUrl: _this.data.shareImg
         }
     },

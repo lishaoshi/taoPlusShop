@@ -1,7 +1,7 @@
 //app.js
 let config = {}
 
-let env = "test";
+let env = "prod";
 
 switch (env) {
   case "prod":

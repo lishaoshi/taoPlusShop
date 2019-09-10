@@ -77,7 +77,7 @@ Page({
         clearInterval(_this.data.timeList.Interval);
         _this.data.timeList.Interval = null;
         wx.switchTab({
-            url: '/pages/index/index'
+            url: '/pages/district/index/index'
         })
     },
 
@@ -89,7 +89,7 @@ Page({
         console.log('app.globalData.agencyId' + app.globalData.agencyId)
             return {
                 title: '我发起了拼团购买' + _this.data.goodsName,
-                path: `/pages/share_detail/share_detail?goodsId=${_this.data.grouponJson.goodsId}&grouponsId=${_this.data.grouponJson.grouponsId}&agencyId=${app.globalData.agencyId}&shopId=${_this.data.grouponJson.shopId}&type=${_this.data.grouponJson.type}&price=${_this.data.grouponJson.grouponPrice}&orderId=${_this.data.orderId}`,
+              path: `/pages/district/share_detail/share_detail?goodsId=${_this.data.grouponJson.goodsId}&grouponsId=${_this.data.grouponJson.grouponsId}&agencyId=${app.globalData.agencyId}&shopId=${_this.data.grouponJson.shopId}&type=${_this.data.grouponJson.type}&price=${_this.data.grouponJson.grouponPrice}&orderId=${_this.data.orderId}`,
                 imageUrl: _this.data.shareImg
             }
     },

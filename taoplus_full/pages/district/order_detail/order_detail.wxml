@@ -132,7 +132,7 @@
                 </view>
                 <view>
                     <text class='title'>手机号:</text>
-                    <text>{{orderInfo.mobile}}</text>
+                    <text>{{orderInfo.mobile  || ''}}</text>
                 </view>
                 <view>
                     <text class='title'>下单时间:</text>

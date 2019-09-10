@@ -199,7 +199,7 @@ Page({
                         } else if (res.cancel) {
                             console.log('用户点击取消');
                             wx.switchTab({
-                                url: '/pages/index/index'
+                              url: '/pages/district/index/index'
                             })
                         }
                     }

@@ -32,6 +32,7 @@ Page({
       shopId : app.globalData.shopId
     }
     receiptCodeModel.getCode(data).then(res=>{
+      console.log(res);
       if(res.code==0) {
         this.setData({
           imgUrl: res.total

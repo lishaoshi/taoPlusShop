@@ -1,4 +1,4 @@
-// pages/goods_detail/goods_detail.js
+// pages/goods_detail/goods_detail.js 
 const app = getApp();
 const utils = require("../../../utils/util.js");
 const api = require("../../../utils/api.js").api;
@@ -78,7 +78,7 @@ Page({
     onShareAppMessage: function () {
         return {
             title: '我发起了拼团购买' + _this.data.goodsName,
-            path: `/pages/share_detail/share_detail?goodsId=${_this.data.goodsId}&grouponsId=${_this.data.grouponsId}&shopId=${_this.data.shopId}&price=${_this.data.grouponPrice}&orderId=${_this.data.orderId}&agencyId=${app.globalData.agencyId}`,
+            path: `/pages/city/share_detail/share_detail?goodsId=${_this.data.goodsId}&grouponsId=${_this.data.grouponsId}&shopId=${_this.data.shopId}&price=${_this.data.grouponPrice}&orderId=${_this.data.orderId}&agencyId=${app.globalData.agencyId}`,
             imageUrl: _this.data.shareImg
         }
     },
@@ -87,6 +87,51 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
+      utils.wxLogin().then(() => {
+        if (!app.globalData.userId || app.globalData.userId == '') {
+          con.getUserInfoFn(_this, utils, app)
+          // _this.setData({
+          //   phoneShow: true
+          // });
+        }
+        //获取经纬度
+        wx.getLocation({
+          type: 'wgs84',
+          success: function (res) {
+            let latitude = res.latitude
+            let longitude = res.longitude
+            //地址逆解析
+            wx.request({
+              url: 'https://api.map.baidu.com/geocoder?location=' + latitude + ',' + longitude + '&output=json&coord_type=wgs84&key=mANIkD2dBjNiel6bbEUGPN0WvU9TY4Kh',
+              data: {},
+              success: function (data) {
+                app.globalData.longitude = longitude;
+                app.globalData.latitude = latitude;
+                app.globalData.provinceName = data.data.result.addressComponent.province;
+                app.globalData.cityName = data.data.result.addressComponent.city;
+                _this.setData({
+                  latitude: latitude,
+                  longitude: longitude,
+                  goodsList: [],
+                  provinceName: data.data.result.addressComponent.province,
+                  cityName: data.data.result.addressComponent.city,
+                  region: [data.data.result.addressComponent.province, data.data.result.addressComponent.city, '']
+                })
+                _this.getListFn();
+                _this.getShopFn();
+              },
+              fail: function (err) {
+                console.log(JSON.stringify(err))
+              }
+            })
+
+          }
+        })
+        if (app.globalData.userId) {
+          con.getUserInfoFn(_this, utils, app)
+        }
+
+      });
         //获取经纬度
         wx.getLocation({
             type: 'wgs84',

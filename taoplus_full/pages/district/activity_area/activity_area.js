@@ -36,7 +36,7 @@ Page({
     moveStartPos: 0,
     // 点击分类的名称, 用于点击跳转
     scrollInTo: '',
-    scrollViewHeight:0,// 商品列表滚动高度
+    scrollViewHeight:0,// 商品列表滚动高度 
   },
 
   /**

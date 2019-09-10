@@ -92,7 +92,7 @@ Page({
         return {
             title: '淘上品',
             // path: '/pages/index/index? agencyId=f29c019a22b3404f8d6c3ad2e7d04129 '
-            path: '/pages/index/index?shopId=' + shopId
+            path: '/pages/shop/page/index/index?shopId=' + shopId
         }
 
     },

@@ -237,7 +237,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function() {
-
+    
   },
 
   /**
@@ -247,6 +247,8 @@ Page({
     console.log('onUnload');
     wx.removeStorageSync('bagMoney');
     wx.removeStorageSync('couponMoney');
+    console.log('app.globalData.content:' + app.globalData.content);
+    app.globalData.content = ''
   },
 
   /**

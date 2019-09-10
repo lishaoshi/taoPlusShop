@@ -28,7 +28,7 @@
     </view>
     <view class='user-phone  flex d-r list a-c'>
       <text>手机号</text>
-      <input type='text' bindinput='mobileFn' placeholder='未填写' value='{{phoneShow}}'></input>
+      <input type='text' bindinput='mobileFn' placeholder='未填写' value='{{phoneShow}}' disabled></input>
     </view>
 
   </view>

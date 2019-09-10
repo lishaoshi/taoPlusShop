@@ -38,7 +38,7 @@
             </view>
         </view>
     </view>
-    <navigator url='/pages/user/user' open-type='switchTab' class='submit'>
+    <navigator url='/pages/city/user/user' open-type='switchTab' class='submit'>
         <text>完成</text>
     </navigator>
 </view>

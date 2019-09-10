@@ -188,7 +188,7 @@ Page({
         });
         return {
             title: _this.data.info.goods_name,
-            path: `/pages/goods_detail/goods_detail?goodsId=${_this.data.goodsId}&shopId=${_this.data.shopId}&agencyId=${app.globalData.agencyId}`
+            path: `/pages/city/goods_detail/goods_detail?goodsId=${_this.data.goodsId}&shopId=${_this.data.shopId}&agencyId=${app.globalData.agencyId}`
         }
     },
     /**
