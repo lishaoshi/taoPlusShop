@@ -16,6 +16,7 @@ Page({
    */
   onLoad: function (options) {
     let imgUrl = `${config.IMG}/bcdshop/shop/${app.globalData.shopId}/miniprogram`
+    console.log(imgUrl);
     this.setData({
       imgUrl
     })

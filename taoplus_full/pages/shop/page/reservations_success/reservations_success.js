@@ -79,7 +79,7 @@ Page({
       });
       return {
           title: '预定',
-          path: `/pages/reservations_success/reservations_success?reserveTablesId=${_this.data.reserveTablesId}&shopId=${app.globalData.shopId}`
+        path: `/pages/shop/page/reservations_success/reservations_success?reserveTablesId=${_this.data.reserveTablesId}&shopId=${app.globalData.shopId}`
       }
   },
     reservationsInfo: function(){

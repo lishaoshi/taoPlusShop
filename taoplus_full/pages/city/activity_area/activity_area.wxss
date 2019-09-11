@@ -175,7 +175,7 @@ page {
     color: #fd142a;
     font-weight: bold;
     align-items: center;
-    margin-top: -24rpx;
+    margin-top: 50rpx;
 }
 
 .money-dark {

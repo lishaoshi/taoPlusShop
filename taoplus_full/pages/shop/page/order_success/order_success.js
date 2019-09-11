@@ -62,7 +62,7 @@ Page({
     onUnload: function () {   
       if(this.data.type !== 'order'){
         wx.reLaunch({
-          url: '/pages/index/index',
+          url: '/pages/shop/page/index/index',
         })
       }
        

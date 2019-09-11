@@ -413,11 +413,13 @@ Page({
 
   // 获取代金券模态框数据 getCoupon
   getCoupon: function() {
+    _this = this;
 
     console.log('userId::' + app.globalData.userId);
 
     utils.uGet(`${api.HOST}/api/user/${app.globalData.userId}/coupon/${_this.data.shopId}`).then((res) => {
       
+      // console.log(_this.thridModal)
       if(res.length == 0){
         _this.thridModal.hideModal();
         return;
@@ -983,7 +985,7 @@ Page({
     let shopId = app.globalData.shopId;
     console.log(app.globalData.shopId)
     return {
-      path: '/pages/index/index?shopId=' + shopId
+      path: '/pages/shop/page/index/index?shopId=' + shopId
       // path: `/pages/index/index`
     }
   },

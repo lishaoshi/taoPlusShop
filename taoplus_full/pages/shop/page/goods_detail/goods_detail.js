@@ -149,7 +149,7 @@ Page({
     });
     return {
       title: _this.data.info.goods_name,
-      path: `/pages/goods_detail/goods_detail?goodsId=${_this.data.goodsId}&shopId=${app.globalData.shopId}`
+      path: `/pages/shop/page/goods_detail/goods_detail?goodsId=${_this.data.goodsId}&shopId=${app.globalData.shopId}`
     }
   },
   /**

@@ -31,10 +31,15 @@
           </view>
           <view class="pay_redbag_get flex d-c a-c j-c">
             <!-- <radio value="{{ item.id }}" disabled="{{item.noUse}}"/> -->
-            <!-- <button type="primary" size="mini">使用</button> -->
+            <!-- <button type="primary" size="mini">使用</button>  -->
 
-            <button type="primary" size="mini" bindtap="useCoupon" data-id="{{ item.id }}" data-target-id="{{item.targetId}}">使用</button>
-            <button class="gift_btn" type="warn" size="mini" data-id="{{ item.id }}" data-target-id="{{item.targetId}}" open-type="share" wx:if="{{ item.canGiftGiving == 1 }}">转赠</button>
+            <button type="primary" size="mini" wx:if="{{ item.status == 1 }}" bindtap="useCoupon" data-id="{{ item.id }}" data-target-id="{{item.targetId}}">使用</button>
+            <button type="default" size="mini" wx:elif="{{ item.status == 2 }}" data-id="{{ item.id }}" data-target-id="{{item.targetId}}">已使用</button>
+            <button type="warn" size="mini" wx:else="{{ item.status == 3 }}" bindtap="giftGiving" data-id="{{ item.id }}" data-target-id="{{item.targetId}}">转赠中</button>
+
+            <button class="gift_btn" type="warn" size="mini" data-id="{{ item.id }}" data-target-id="{{item.targetId}}" open-type="share" wx:if="{{ item.status == 1 && item.canGiftGiving == 1 }}">可转赠</button>
+
+            
             
           </view>
         </view>
@@ -46,7 +51,7 @@
   </view>
 
   <view class="bag_coupon" wx:else>
-    <view class="pay_redbag flex d-r j-b a-c {{item.noUse ? 'noUseBg':'' }}" wx:for="{{ currentData }}" data-id="{{ item.id }}" wx:key="{{item.id}}">
+    <view class="pay_redbag flex d-r j-b a-c {{item.noUse ? 'noUseBg':'' }}" wx:for="{{ currentData }}" data-id="{{ item.id }}" wx:key="{{item.id}}" >
       <label>
         <view class="pay_redbag_info flex j-b">
           <view class="info_money flex a-c">
@@ -54,7 +59,10 @@
             <text class="info_money_num">{{ item.amount }}</text>
           </view>
           <view class="info_desc flex d-c">
-            <view class="info_desc_name">{{ item.alias == 'RED_PAPER_COUPON' ? '红包' : item.alias == 'NORMAL_COUPON' ? '代金券' : '其它' }}</view>
+            <view class="info_desc_name">
+            <!-- {{ item.alias == 'RED_PAPER_COUPON' ? '红包' : item.alias == 'NORMAL_COUPON' ? '代金券' : '其它' }} -->
+{{ item.alias == 'RED_PAPER_COUPON' ? (item.couponName || '')+'红包' : item.alias == 'NORMAL_COUPON' ? (item.couponName || '')+'代金券' : '其它' }}
+            </view>
             <view>
               <text decode='true'>·&nbsp;{{ item.couponStartTime ? item.couponStartTime+'至'+item.couponEndTime : '永久' }}</text>
             </view>

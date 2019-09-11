@@ -233,7 +233,9 @@
   </view>
   <view class='sk-shopCar'></view>
 </view>
+
 <bind_phone bind:bindphonecb="bindPhoneCbFn" phone-show="{{phoneShow}}"></bind_phone>
+
 <view wx:if="{{userButton}}">
   <view class='bind-phone-box fixed t-c'>
     <view class="content">

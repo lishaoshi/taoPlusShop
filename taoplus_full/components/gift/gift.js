@@ -21,7 +21,7 @@ Page({
     bar: ['卡包', '转赠'],
     barStatus: ['all', 'cangift'], // bar 对应的状态获取优惠券类型: 所有（红包+代金券） + 能够转赠的代金券
     barIndex: 0, //对应barStatus 0->all 1->cangift
-    status: 1, //1 可用 3 转赠
+    status: '', //1正常 2.已使用 3 转赠中
   },
 
   /**
@@ -56,7 +56,7 @@ Page({
   getData: function() {
     let _this = this;
 
-    let status = ((_this.data.barIndex == 0) ? 1 : (_this.data.barIndex == 1) ? 3 : '')
+    let status = ((_this.data.barIndex == 0) ? '' : (_this.data.barIndex == 1) ? 3 : '')
     console.log(status);
 
     if (status == _this.data.status) {

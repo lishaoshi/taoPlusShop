@@ -71,7 +71,7 @@ Page({
     onUnload: function() {
       if (this.data.type !== 'order') {
         wx.switchTab({
-          url: '/pages/index/index',
+          url: '/pages/district/index/index',
         })
       }
       
@@ -90,7 +90,7 @@ Page({
     onShareAppMessage: function() {
         return {
             title: '我发起了拼团购买' + _this.data.goodsName,
-            path: `/pages/submit_orders/submit_orders?goodsId=${_this.data.grouponJson.goodsId}&grouponsId=${_this.data.grouponJson.grouponsId}&shopId=${_this.data.grouponJson.shopId}&type=${_this.data.grouponJson.type}&price=${_this.data.grouponJson.grouponPrice}&orderId=${_this.data.orderId}`,
+          path: `/pages/district/submit_orders/submit_orders?goodsId=${_this.data.grouponJson.goodsId}&grouponsId=${_this.data.grouponJson.grouponsId}&shopId=${_this.data.grouponJson.shopId}&type=${_this.data.grouponJson.type}&price=${_this.data.grouponJson.grouponPrice}&orderId=${_this.data.orderId}`,
             imageUrl: _this.data.shareImg
         }
 

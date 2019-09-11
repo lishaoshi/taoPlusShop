@@ -1,5 +1,5 @@
  <view class='list'>
-      <navigator class='list-item' url='../goods_detail/goods_detail?goodsId={{item.goods_id}}&shopId={{item.shop_id}}' wx:for="{{goodsList}}" wx:key="goods">
+      <navigator class='list-item' url='../goods_detail/goods_detail?goodsId={{item.goods_id}}&shopId={{item.shop_id}}' wx:for="{{goodsList}}" wx:key="goods" wx:if="{{item.work_status == 1 ? true : false}}">
         <view class='list-item-head flex j-b'>
           <view class='shopname'>
             <!-- <image class='shop-icon v-b v-m' src='../../images/index-shop-icon.png'></image> -->

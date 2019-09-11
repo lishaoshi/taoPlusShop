@@ -265,7 +265,7 @@ Page({
     return {
       title: '淘上品',
       // path: '/pages/shop_index/shop_index ? shopId=${_this.data.shopId} '
-      path: `/pages/shop_index/shop_index?shopId=${_this.data.shopId}`
+      path: `/pages/city/shop_index/shop_index?shopId=${_this.data.shopId}`
     }
   },
   openLocation: () => {

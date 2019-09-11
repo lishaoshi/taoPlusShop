@@ -1,6 +1,6 @@
 <view class='container'>
   <!-- 头部搜索 star -->
-  <view class='search-box fixed'>
+  <view class='search-box fixed' id="header">
     <navigator url='../search/search' class='search'>
       <image class='search-icon i-b v-m' src='../../../images/search-icon.png'></image>
       <text class='i-b v-m'>搜索商品</text>
@@ -9,7 +9,7 @@
   <!--头部搜索 end  -->
 
   <!-- 菜单导航 star -->
-  <view class='bar border-b fixed'>
+  <view class='bar border-b fixed' id="navbar">
     <view class='bar-list t-c fl' wx:for="{{bar}}" wx:key="bar" data-index="{{index}}">
       <text class="bar-text {{index == barIndex ?'bar-act':''}}">{{item}}</text>
     </view>
@@ -30,9 +30,9 @@
 
     <!-- 侧边导航 end -->
 
-    <!-- 商品列表 star -->
+    <!-- 商品列表 star  -->
     <view class='goods-list fr'>
-      <scroll-view scroll-y style="height:1000rpx" bindscroll='scroll' class='list' scroll-with-animation='true' scroll-into-view="{{scrollInTo}}">
+      <scroll-view scroll-y style="height:{{scrollViewHeight}}px" bindscroll='scroll' class='list' scroll-with-animation='true' scroll-into-view="{{scrollInTo}}">
         <view wx:for="{{goodsList}}" wx:key='index'>
           <view class='anchor' id="{{'i'+index}}"> {{item.name}}</view>
           <navigator class='list-item' url='../goods_detail/goods_detail?goodsId={{item.goods_id}}&shopId={{item.shop_id}}' wx:for="{{item.data}}" wx:key="goods">

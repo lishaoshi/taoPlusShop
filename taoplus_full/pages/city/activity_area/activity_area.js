@@ -35,7 +35,8 @@ Page({
     // 用于存储每次滚动结束之后的距离, 可用来判断滚动的方向
     moveStartPos: 0,
     // 点击分类的名称, 用于点击跳转
-    scrollInTo: ''
+    scrollInTo: '',
+    scrollViewHeight: 0,// 商品列表滚动高度
   },
 
   /**
@@ -43,7 +44,7 @@ Page({
    */
   onLoad: function(options) {
     _this = this;
-
+    this.setScrollHeight();
   },
 
   /**
@@ -68,6 +69,72 @@ Page({
     this.onScrollViewScroll({
       scrollTop: e.detail.scrollTop
     })
+  },
+
+  getTabBarHeight:function(){
+    let systemInfo = wx.getSystemInfoSync()
+    // px转换到rpx的比例
+    let pxToRpxScale = 750 / systemInfo.windowWidth;
+    // 状态栏的高度
+    let ktxStatusHeight = systemInfo.statusBarHeight * pxToRpxScale
+    // 导航栏的高度
+    let navigationHeight = 44 * pxToRpxScale
+    // window的宽度
+    let ktxWindowWidth = systemInfo.windowWidth * pxToRpxScale
+    // window的高度
+    let ktxWindowHeight = systemInfo.windowHeight * pxToRpxScale
+    // 屏幕的高度
+    let ktxScreentHeight = systemInfo.screenHeight * pxToRpxScale
+    // 底部tabBar的高度
+    let tabBarHeight = (ktxScreentHeight - ktxStatusHeight - navigationHeight - ktxWindowHeight) / 750 * systemInfo.windowWidth
+    console.log("tabBarHeight:" + tabBarHeight);
+    return tabBarHeight;
+  },
+
+  // 动态设置商品滚动高度
+  setScrollHeight: function () {
+    let _this = this;
+    // 先取出页面高度 windowHeight
+    wx.getSystemInfo({
+      success: function (res) {
+
+        let windowHeight = res.windowHeight;
+
+        // 然后取出navbar和header的高度
+        // 根据文档，先创建一个SelectorQuery对象实例
+        let query = wx.createSelectorQuery().in(_this);
+        // 然后逐个取出navbar和header的节点信息
+        // 选择器的语法与jQuery语法相同
+        query.select('#navbar').boundingClientRect();
+        query.select('#header').boundingClientRect();
+        // query.select('#tabbar').boundingClientRect();
+
+        
+        // 执行上面所指定的请求，结果会按照顺序存放于一个数组中，在callback的第一个参数中返回
+        query.exec((res) => {
+          // 分别取出navbar和header的高度
+          let navbarHeight = res[0].height;
+          let headerHeight = res[1].height;
+          let tabbarHeight = _this.getTabBarHeight();
+
+          // 然后就是做个减法
+          let scrollViewHeight = windowHeight - navbarHeight - headerHeight + tabbarHeight;
+          console.log(scrollViewHeight);
+          // 需要注意的是，上面scrollViewHeight计算出来的值，单位是px而不是rpx。
+
+          // 算出来之后存到data对象里面
+          _this.setData({
+            scrollViewHeight: scrollViewHeight
+          });
+        });
+
+        console.log('scrollViewHeight', _this.data.scrollViewHeight);
+
+
+      }
+    });
+
+
   },
   // 点击分类跳转 
   clickScrollInTo(e) {

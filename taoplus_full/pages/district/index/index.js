@@ -8,7 +8,7 @@ import Validator from '../../../utils/validator.js';
 
 let _this;
 let pageNum = 1;
-let pageSize = 6;
+let pageSize = 8;
 
 let scrollTop;
 

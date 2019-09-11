@@ -38,7 +38,7 @@
             </view>
         </view>
     </view>
-    <navigator url='/pages/user/user' open-type='redirect' class='submit'>
+    <navigator url='/pages/shop/page/user/user' open-type='redirect' class='submit'>
         <text>完成</text>
     </navigator>
 </view>

@@ -60,7 +60,7 @@ Page({
     onShareAppMessage: function() {
         return {
             title: '我发起了拼团购买' + _this.data.goodsInfo.goodsName,
-            path: `/pages/share_detail/share_detail?goodsId=${_this.data.goodsInfo.goodsId}&grouponsId=${_this.data.groupons_id}&shopId=${app.globalData.shopId}&type=order&price=${_this.data.goodsInfo.grouponPrice}`,
+          path: `/pages/shop/page/share_detail/share_detail?goodsId=${_this.data.goodsInfo.goodsId}&grouponsId=${_this.data.groupons_id}&shopId=${app.globalData.shopId}&type=order&price=${_this.data.goodsInfo.grouponPrice}`,
             imageUrl: _this.data.goodsInfo.path
         }
     },

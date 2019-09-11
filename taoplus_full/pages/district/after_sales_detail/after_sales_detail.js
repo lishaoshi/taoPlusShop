@@ -118,7 +118,7 @@ Page({
    */
   onUnload: function () {
       wx.reLaunch({
-          url: '/pages/order_list/order_list'
+          url: '/pages/district/order_list/order_list'
       })
 
   },
